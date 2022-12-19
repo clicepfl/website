@@ -1,0 +1,48 @@
+# Docker-compose stack for development purposes
+# DO NOT USE THIS IN PRODUCTION
+
+name: clic-website-devcontainer
+
+services:
+
+  # Custom strapi service
+  strapi:
+    # Build the strapi service from its folder
+    build:
+      # Build context, relative to the current file
+      context: ../strapi/.devcontainer
+      # Path to Dockerfile, relative to context
+      dockerfile: Dockerfile
+      args:
+        VARIANT: ${VARIANT:-18-bullseye}
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: strapi-postgres
+      DATABASE_PORT: 5432
+      DATABASE_NAME: strapi_data
+      DATABASE_USER: strapi_user
+      DATABASE_PASSWORD: strapi_pw
+    volumes:
+      # Bind-mount the strapi project folder into the container
+      - type: bind
+        source: ../strapi
+        target: /app
+    ports:
+      # Expose strapi to port 8001
+      - "8001:1337"
+    depends_on:
+      - strapi-postgres
+
+  # Database service for strapi
+  strapi-postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: strapi_data
+      POSTGRES_USER: strapi_user
+      POSTGRES_PASSWORD: strapi_pw
+    volumes:
+      - "strapi-data:/var/lib/postgresql/data"
+
+volumes:
+  # Persist strapi database
+  strapi-data:
