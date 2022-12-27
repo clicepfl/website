@@ -1,0 +1,20 @@
+{
+    /*
+     * Base VSCode settings
+     */
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    /*
+     * Extension settings
+     * wayou.vscode-todo-highlight
+     */
+    "todohighlight.defaultStyle": {
+        "color": "white",
+        "backgroundColor": "orange"
+    },
+    "todohighlight.keywordsPattern": "(todo|TODO|fixme|FIXME)(:?)",
+}
