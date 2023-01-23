@@ -1,8 +1,9 @@
 
-import Joi from "joi";
+import Joi, { array } from "joi";
 import envfile from "envfile";
 import fs from "fs";
 import { exit } from "process"
+import crypto from "crypto"
 
 if (process.env.NODE_ENV !== "development") {
     exit(1)
@@ -13,15 +14,18 @@ function defaultValue(schema, value) {
     return schema.default(value)
 }
 
+function randomBytes(): string {
+    return crypto.randomBytes(16).toString('base64')
+}
 
 // .env file schema
 const schema = Joi.object({
     HOST: defaultValue(Joi.string().ip({version: 'ipv4'}), '0.0.0.0'),
     PORT: defaultValue(Joi.number().greater(1024), 1337),
-    APP_KEYS: defaultValue(Joi.string().pattern(RegExp('(\w+,)*\w+')), 'key1,key2'),
-    API_TOKEN_SALT: defaultValue(Joi.string(), 'best salt ever'),
-    ADMIN_JWT_SECRET: defaultValue(Joi.string(), 'best admin secret ever'),
-    JWT_SECRET: defaultValue(Joi.string(), 'best secret ever')
+    APP_KEYS: defaultValue(Joi.string().pattern(RegExp('(\w+,)*\w+')), new Array(4).map(e => randomBytes()).join(',')),
+    API_TOKEN_SALT: defaultValue(Joi.string(), randomBytes()),
+    ADMIN_JWT_SECRET: defaultValue(Joi.string(), randomBytes()),
+    JWT_SECRET: defaultValue(Joi.string(), randomBytes())
 }).unknown(true);
 
 
