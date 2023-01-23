@@ -4,6 +4,10 @@ import envfile from "envfile";
 import fs from "fs";
 import { exit } from "process"
 
+if (process.env.NODE_ENV !== "development") {
+    exit(1)
+}
+
 // Adds default and failover values
 function defaultValue(schema, value) {
     return schema.default(value).failover(value)
