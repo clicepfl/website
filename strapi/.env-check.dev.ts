@@ -10,7 +10,7 @@ if (process.env.NODE_ENV !== "development") {
 
 // Adds default and failover values
 function defaultValue(schema, value) {
-    return schema.default(value).failover(value)
+    return schema.default(value)
 }
 
 
@@ -46,7 +46,11 @@ let env = readEnv('.env')
 let example = readEnv('.env.example')
 
 // Completes schema
-env = schema.validate(env).value
+const validation = schema.validate(env)
+if (validation.error){
+    console.error(validation.error.message)
+    exit(-1)
+}
 
 const err = schema.validate(example).error
 if (err !== undefined) {
@@ -55,4 +59,4 @@ if (err !== undefined) {
 }
 
 // Write to .env
-fs.writeFileSync('.env', envfile.stringify(env))
+fs.writeFileSync('.env', envfile.stringify(validation.value))
