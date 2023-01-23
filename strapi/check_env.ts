@@ -1,7 +1,8 @@
-const Joi = require("joi");
-const envfile = require('envfile')
-const fs = require('fs');
-const { exit } = require("process");
+
+import Joi from "joi";
+import envfile from "envfile";
+import fs from "fs";
+import { exit } from "process"
 
 // Adds default and failover values
 function defaultValue(schema, value) {
@@ -21,6 +22,7 @@ const schema = Joi.object({
 
 
 // Reads .env
+let env = {}
 if (fs.existsSync('.env')) {
     try {
         const data = fs.readFileSync('.env', 'utf8');
@@ -34,7 +36,7 @@ if (fs.existsSync('.env')) {
 }
 
 // Completes schema
-let env = schema.validate(env)['value']
+env = schema.validate(env)['value']
 
 // Write to .env
-fs.writeFileSync('.env', envfile.stringify())
+fs.writeFileSync('.env', envfile.stringify(env))
