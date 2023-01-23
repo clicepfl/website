@@ -22,6 +22,7 @@ services:
       DATABASE_NAME: strapi_data
       DATABASE_USER: strapi_user
       DATABASE_PASSWORD: strapi_pw
+      NODE_ENV: development
     volumes:
       # Bind-mount the strapi project folder into the container
       - type: bind
