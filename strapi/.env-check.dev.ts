@@ -25,22 +25,34 @@ const schema = Joi.object({
 }).unknown(true);
 
 
-// Reads .env
-let env = {}
-if (fs.existsSync('.env')) {
-    try {
-        const data = fs.readFileSync('.env', 'utf8');
-        env = envfile.parse(data);
-    } catch (err) {
-        console.error(err);
-        exit(-2) // TBD: set env to {} and continue ?
+function readEnv(name: string) {
+    let env = {}
+    if (fs.existsSync(name)) {
+        try {
+            const data = fs.readFileSync('.env', 'utf8');
+            env = envfile.parse(data);
+        } catch (err) {
+            console.error(err);
+            exit(-2) // TBD: set env to {} and continue ?
+        }
+    } else {
+        env = {}
     }
-} else {
-    env = {}
+    return env
 }
 
+// Reads .env
+let env = readEnv('.env')
+let example = readEnv('.env.example')
+
 // Completes schema
-env = schema.validate(env)['value']
+env = schema.validate(env).value
+
+const err = schema.validate(example).error
+if (err !== undefined) {
+    console.error(err.message)
+    exit(-1)
+}
 
 // Write to .env
 fs.writeFileSync('.env', envfile.stringify(env))
