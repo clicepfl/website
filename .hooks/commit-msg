@@ -1,0 +1,17 @@
+#!/bin/sh
+# 
+
+reset="\033[000m"
+bold="\033[001m"
+red="\033[31m"
+
+if [[ "$(npm list --global git-conventional-commits &> /dev/null; echo $?)" -eq 0 ]]; then
+  # fix for windows systems
+  PATH="/c/Program Files/nodejs:$HOME/AppData/Roaming/npm/:$PATH"
+  git-conventional-commits commit-msg-hook "$1" -c "${PWD}/.hooks/git-conventional-commits.yaml"
+  exit $?
+else
+    echo -e "${red}Missing git-conventional-commits package${reset}"
+    echo -e "Install with ${bold}sudo npm install --global git-conventional-commits${reset}"
+    exit 1
+fi
