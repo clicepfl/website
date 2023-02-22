@@ -52,11 +52,6 @@ function readEnv(
   }
 }
 
-// Adds default and failover values
-function defaultValue(schema, value) {
-  return schema.default(value);
-}
-
 // Generates n random bytes of data
 function randomBytes(n: number): string {
   return crypto.randomBytes(n).toString("base64");
@@ -88,15 +83,16 @@ const joi = Joi.extend((joi) => ({
 // .env file schema
 const schema = joi
   .object({
-    HOST: defaultValue(joi.string().ip({ version: "ipv4" }), "0.0.0.0"),
-    PORT: defaultValue(joi.number().greater(1024), 1337),
-    APP_KEYS: defaultValue(
-      joi.stringArray().items(joi.string().base64()).length(4),
-      commaSeparated(4, () => randomBytes(16))
-    ),
-    API_TOKEN_SALT: defaultValue(joi.string().base64(), randomBytes(16)),
-    ADMIN_JWT_SECRET: defaultValue(joi.string().base64(), randomBytes(16)),
-    JWT_SECRET: defaultValue(joi.string().base64(), randomBytes(16)),
+    HOST: joi.string().ip({ version: "ipv4" }).default("0.0.0.0"),
+    PORT: joi.number().greater(1024).default(1337),
+    APP_KEYS: joi
+      .stringArray()
+      .items(joi.string().base64())
+      .length(4)
+      .default(commaSeparated(4, () => randomBytes(16))),
+    API_TOKEN_SALT: joi.string().base64().default(randomBytes(16)),
+    ADMIN_JWT_SECRET: joi.string().base64().default(randomBytes(16)),
+    JWT_SECRET: joi.string().base64().default(randomBytes(16)),
   })
   .unknown(true);
 
