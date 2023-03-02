@@ -9,7 +9,7 @@ WORKDIR /app
 USER node
 
 # expose strapi port
-EXPOSE 1337
+EXPOSE 8001
 
 # install dependencies and run in watch mode
 CMD npm install && npm run env:check && npm run develop

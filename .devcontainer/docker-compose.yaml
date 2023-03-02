@@ -30,7 +30,7 @@ services:
         target: /app
     ports:
       # Expose strapi to port 8001
-      - "8001:1337"
+      - "8001:8001"
     depends_on:
       - strapi-postgres
 
