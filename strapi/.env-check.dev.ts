@@ -84,7 +84,7 @@ const joi = Joi.extend((joi) => ({
 const schema = joi
   .object({
     HOST: joi.string().ip({ version: "ipv4" }).default("0.0.0.0"),
-    PORT: joi.number().greater(1024).default(1337),
+    PORT: joi.number().greater(1024).default(8001),
     APP_KEYS: joi
       .stringArray()
       .items(joi.string().base64())
