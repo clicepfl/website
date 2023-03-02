@@ -12,4 +12,4 @@ USER node
 EXPOSE 8001
 
 # install dependencies and run in watch mode
-CMD npm install && npm run env:check && npm run develop
+CMD npm install && npm run env:check && npm run build && npm run develop
