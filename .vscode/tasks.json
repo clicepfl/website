@@ -1,0 +1,29 @@
+{
+	"version": "2.0.0",
+	"tasks": [{
+		"label": "Start dev container",
+		"type": "shell",
+		"command": "docker compose --file .devcontainer/docker-compose.yaml up -d",
+		"windows": {
+		  "command": "docker compose --file .devcontainer\\docker-compose.yaml up -d"
+		},
+		"group": "none",
+		"presentation": {
+		  "reveal": "always",
+		  "panel": "new"
+		}
+	  }, {
+		"label": "Stop dev container",
+		"type": "shell",
+		"command": "docker compose --file .devcontainer/docker-compose.yaml down",
+		"windows": {
+		  "command": "docker compose --file .devcontainer\\docker-compose.yaml down"
+		},
+		"group": "none",
+		"presentation": {
+		  "reveal": "always",
+		  "panel": "new"
+		}
+	  }
+	]
+}
