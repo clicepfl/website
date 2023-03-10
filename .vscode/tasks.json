@@ -3,9 +3,9 @@
 	"tasks": [{
 		"label": "Start dev container",
 		"type": "shell",
-		"command": "docker compose --file .devcontainer/docker-compose.yaml up -d",
+		"command": "docker compose --file .devcontainer/docker-compose.yaml up",
 		"windows": {
-		  "command": "docker compose --file .devcontainer\\docker-compose.yaml up -d"
+		  "command": "docker compose --file .devcontainer\\docker-compose.yaml up"
 		},
 		"group": "none",
 		"presentation": {
