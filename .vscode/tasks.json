@@ -11,6 +11,9 @@
 		"presentation": {
 		  "reveal": "always",
 		  "panel": "new"
+		},
+		"runOptions": {
+		  "runOn": "folderOpen"
 		}
 	  }, {
 		"label": "Stop dev container",
