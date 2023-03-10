@@ -8,6 +8,7 @@ services:
   # Custom strapi service
   strapi:
     # Build the strapi service from its folder
+    container_name: strapi
     build:
       # Build context, relative to the current file
       context: ../strapi/.devcontainer
@@ -36,6 +37,7 @@ services:
 
   # Database service for strapi
   strapi-postgres:
+    container_name: postgres
     image: postgres
     environment:
       POSTGRES_DB: strapi_data
