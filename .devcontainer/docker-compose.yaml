@@ -21,6 +21,7 @@ services:
       DATABASE_NAME: strapi_data
       DATABASE_USER: strapi_user
       DATABASE_PASSWORD: strapi_pw
+      NODE_ENV: development
     volumes:
       # Bind-mount the strapi project folder into the container
       - type: bind
@@ -28,7 +29,7 @@ services:
         target: /app
     ports:
       # Expose strapi to port 8001
-      - "8001:1337"
+      - "8001:8001"
     depends_on:
       - strapi-postgres
 
