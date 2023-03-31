@@ -2,32 +2,32 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.238.0/containers/typescript-node
 {
-	"name": "clic-website-devcontainer/strapi",
-	// Use docker-compose stack, relative to current file
-	"dockerComposeFile": "../../.devcontainer/docker-compose.yaml",
-	// Connect VSCode to following service defined in dockerComposeFile
-	"service": "strapi",
-	// Working directory inside devcontainer, where project is located
-	"workspaceFolder": "/app",
-	// Configure tool-specific properties.
-	"customizations": {
-		// Configure properties specific to VS Code.
-		"vscode": {
-			// Add the IDs of extensions you want installed when the container is created.
-			"extensions": [
-				// todo highlighter
-				"wayou.vscode-todo-highlight",
-				// linter
-				"dbaeumer.vscode-eslint",
-				// formatter
-				"esbenp.prettier-vscode"
-			]
-		}
-	},
-	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "node"
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "yarn install",
+  "name": "clic-website-devcontainer/strapi",
+  // Use docker-compose stack, relative to current file
+  "dockerComposeFile": "../../.devcontainer/docker-compose.yaml",
+  // Connect VSCode to following service defined in dockerComposeFile
+  "service": "strapi",
+  // Working directory inside devcontainer, where project is located
+  "workspaceFolder": "/app",
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        // todo highlighter
+        "wayou.vscode-todo-highlight",
+        // linter
+        "dbaeumer.vscode-eslint",
+        // formatter
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "node"
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "yarn install",
 }
