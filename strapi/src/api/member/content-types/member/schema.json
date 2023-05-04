@@ -32,7 +32,7 @@
       "type": "string",
       "required": true
     },
-    "affiliation": {
+    "Affiliation": {
       "type": "string",
       "required": true
     },
