@@ -92,12 +92,6 @@
       },
       "type": "text",
       "required": true
-    },
-    "news": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::partner.partner",
-      "mappedBy": "event"
     }
   }
 }
