@@ -49,9 +49,9 @@
     },
     "members": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::member.member",
-      "mappedBy": "pole"
+      "mappedBy": "poles"
     }
   }
 }

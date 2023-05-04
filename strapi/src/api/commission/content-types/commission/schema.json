@@ -54,7 +54,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::member.member",
-      "inversedBy": "commissions"
+      "mappedBy": "commissions"
     },
     "social_links": {
       "type": "relation",

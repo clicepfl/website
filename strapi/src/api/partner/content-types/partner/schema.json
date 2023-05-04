@@ -46,6 +46,12 @@
       "relation": "manyToMany",
       "target": "api::commission.commission",
       "inversedBy": "partners"
+    },
+    "events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "inversedBy": "partners"
     }
   }
 }

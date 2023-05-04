@@ -16,7 +16,7 @@
       "type": "string",
       "required": true
     },
-    "Role": {
+    "role": {
       "type": "string",
       "required": true
     },
@@ -32,13 +32,13 @@
       "type": "string",
       "required": true
     },
-    "Affiliation": {
+    "affiliation": {
       "type": "string",
       "required": true
     },
-    "pole": {
+    "poles": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::pole.pole",
       "inversedBy": "members"
     },
