@@ -16,7 +16,7 @@
       "type": "string",
       "required": true
     },
-    "role": {
+    "Role": {
       "type": "string",
       "required": true
     },
