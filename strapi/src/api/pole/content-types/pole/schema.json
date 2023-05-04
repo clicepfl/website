@@ -49,7 +49,7 @@
     },
     "members": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "oneToMany",
       "target": "api::member.member",
       "mappedBy": "pole"
     }
