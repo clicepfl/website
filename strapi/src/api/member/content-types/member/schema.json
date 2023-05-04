@@ -38,7 +38,7 @@
     },
     "pole": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "api::pole.pole",
       "inversedBy": "members"
     },
