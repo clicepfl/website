@@ -1,32 +1,34 @@
 {
-	"version": "2.0.0",
-	"tasks": [{
-		"label": "Start dev container",
-		"type": "shell",
-		"command": "docker compose --file .devcontainer/docker-compose.yaml up",
-		"windows": {
-		  "command": "docker compose --file .devcontainer\\docker-compose.yaml up"
-		},
-		"group": "none",
-		"presentation": {
-		  "reveal": "always",
-		  "panel": "new"
-		},
-		"runOptions": {
-		  "runOn": "folderOpen"
-		}
-	  }, {
-		"label": "Stop dev container",
-		"type": "shell",
-		"command": "docker compose --file .devcontainer/docker-compose.yaml down",
-		"windows": {
-		  "command": "docker compose --file .devcontainer\\docker-compose.yaml down"
-		},
-		"group": "none",
-		"presentation": {
-		  "reveal": "always",
-		  "panel": "new"
-		}
-	  }
-	]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start dev container",
+      "type": "shell",
+      "command": "docker compose --file .devcontainer/docker-compose.yaml up",
+      "windows": {
+        "command": "docker compose --file .devcontainer\\docker-compose.yaml up"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "Stop dev container",
+      "type": "shell",
+      "command": "docker compose --file .devcontainer/docker-compose.yaml down",
+      "windows": {
+        "command": "docker compose --file .devcontainer\\docker-compose.yaml down"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+  ]
 }

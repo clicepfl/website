@@ -1,56 +1,56 @@
 {
-    /*
-     * Base VSCode settings
-     */
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": true
-    },
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    /*
-     * Extension settings
-     * wayou.vscode-todo-highlight
-     */
-    "todohighlight.defaultStyle": {
-        "color": "white",
-        "backgroundColor": "orange"
-    },
-    "todohighlight.keywordsPattern": "(todo|TODO|fixme|FIXME)(:?)",
-    "terminal.integrated.profiles.linux": {
-      "strapi": {
-        "path": "docker",
-        "args": ["exec", "-it", "clic-strapi", "/bin/bash"],
-        "overrideName": true
-      }, 
-      "postgres": {
-        "path": "docker",
-        "args": ["exec", "-it", "clic-postgres", "/bin/bash"],
-        "overrideName": true
-      }
-    },
-    "terminal.integrated.profiles.windows": {
-      "strapi": {
-        "path": "docker",
-        "args": ["exec", "-it", "clic-strapi", "/bin/bash"],
-        "overrideName": true
-      }, 
-      "postgres": {
-        "path": "docker",
-        "args": ["exec", "-it", "clic-postgres", "/bin/bash"],
-        "overrideName": true
-      }
-    },
-    "terminal.integrated.profiles.osx": {
-      "strapi": {
+  /*
+   * Base VSCode settings
+   */
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  /*
+   * Extension settings
+   * wayou.vscode-todo-highlight
+   */
+  "todohighlight.defaultStyle": {
+    "color": "white",
+    "backgroundColor": "orange"
+  },
+  "todohighlight.keywordsPattern": "(todo|TODO|fixme|FIXME)(:?)",
+  "terminal.integrated.profiles.linux": {
+    "strapi": {
       "path": "docker",
       "args": ["exec", "-it", "clic-strapi", "/bin/bash"],
-        "overrideName": true
-    }, 
-      "postgres": {
-        "path": "docker",
-        "args": ["exec", "-it", "clic-postgres", "/bin/bash"],
-        "overrideName": true
-      }
+      "overrideName": true
+    },
+    "postgres": {
+      "path": "docker",
+      "args": ["exec", "-it", "clic-postgres", "/bin/bash"],
+      "overrideName": true
+    }
+  },
+  "terminal.integrated.profiles.windows": {
+    "strapi": {
+      "path": "docker",
+      "args": ["exec", "-it", "clic-strapi", "/bin/bash"],
+      "overrideName": true
+    },
+    "postgres": {
+      "path": "docker",
+      "args": ["exec", "-it", "clic-postgres", "/bin/bash"],
+      "overrideName": true
+    }
+  },
+  "terminal.integrated.profiles.osx": {
+    "strapi": {
+      "path": "docker",
+      "args": ["exec", "-it", "clic-strapi", "/bin/bash"],
+      "overrideName": true
+    },
+    "postgres": {
+      "path": "docker",
+      "args": ["exec", "-it", "clic-postgres", "/bin/bash"],
+      "overrideName": true
+    }
   }
 }

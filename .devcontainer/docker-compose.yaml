@@ -4,7 +4,6 @@
 name: clic-website-devcontainer
 
 services:
-
   # Custom strapi service
   strapi:
     # Build the strapi service from its folder

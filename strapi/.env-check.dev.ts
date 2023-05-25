@@ -2,7 +2,6 @@
  * This script checks and populates the local environment variables files
  * SHOULD ONLY BE USED IN DEVELOPMENT ENVIRONMENTS!
  */
-
 import crypto from "crypto";
 import deepEqual from "deep-equal";
 import { parse, stringify } from "envfile";
