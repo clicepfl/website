@@ -28,7 +28,7 @@ jobs:
   build:
     strategy:
       matrix:
-        directory: [strapi]
+        directory: [strapi, app]
     runs-on: ubuntu-latest
     permissions:
       contents: read
