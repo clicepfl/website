@@ -13,6 +13,11 @@ on:
   pull_request:
     branches: ["main"]
 
+# abort running jobs if newer version is detected on same branch
+concurrency:
+  group: ${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
