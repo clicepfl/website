@@ -4,3 +4,7 @@
 **/node_modules
 **/dist
 **/.cache
+
+app/.next
+
+strapi/.strapi-updater.json
