@@ -10,6 +10,10 @@ RUN npm config set fetch-retry-maxtimeout 600000 -g && npm ci
 ENV PATH /opt/node_modules/.bin:$PATH
 
 COPY . .
-RUN ["npm", "run", "build"]
+RUN npm run build
+
+# switch to unprivileged user from node base image
+RUN chown -R node .
+USER node
 
 CMD ["npm", "start"]
