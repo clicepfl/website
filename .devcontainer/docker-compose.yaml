@@ -43,6 +43,23 @@ services:
     volumes:
       - "strapi-data:/var/lib/postgresql/data"
 
+  app:
+    # Build the app service from its folder
+    build:
+      # Build context, relative to the current file
+      context: ../app/.devcontainer
+      # Path to Dockerfile, relative to context
+      dockerfile: Dockerfile
+      args:
+        VARIANT: ${VARIANT:-18-bullseye}
+    environment:
+      NODE_ENV: development
+    volumes:
+      # Bind-mount the app project folder into the container
+      - type: bind
+        source: ../app
+        target: /app
+
 volumes:
   # Persist strapi database
   strapi-data:
