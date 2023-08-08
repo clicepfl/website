@@ -60,6 +60,13 @@ services:
         source: ../app
         target: /app
 
+  caddy:
+    image: caddy
+    volumes:
+      - "../Caddyfile-dev:/etc/caddy/Caddyfile"
+    ports:
+      - "3000:3000"
+
 volumes:
   # Persist strapi database
   strapi-data:
