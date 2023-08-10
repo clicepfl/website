@@ -27,6 +27,11 @@
       "path": "docker",
       "args": ["exec", "-it", "clic-postgres", "/bin/bash"],
       "overrideName": true
+    },
+    "app": {
+      "path": "docker",
+      "args": ["exec", "-it", "clic-app", "/bin/bash"],
+      "overrideName": true
     }
   },
   "terminal.integrated.profiles.windows": {
@@ -39,6 +44,11 @@
       "path": "docker",
       "args": ["exec", "-it", "clic-postgres", "/bin/bash"],
       "overrideName": true
+    },
+    "app": {
+      "path": "docker",
+      "args": ["exec", "-it", "clic-app", "/bin/bash"],
+      "overrideName": true
     }
   },
   "terminal.integrated.profiles.osx": {
@@ -50,6 +60,11 @@
     "postgres": {
       "path": "docker",
       "args": ["exec", "-it", "clic-postgres", "/bin/bash"],
+      "overrideName": true
+    },
+    "app": {
+      "path": "docker",
+      "args": ["exec", "-it", "clic-app", "/bin/bash"],
       "overrideName": true
     }
   },
