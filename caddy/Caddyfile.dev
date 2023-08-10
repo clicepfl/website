@@ -1,0 +1,11 @@
+{
+	auto_https off
+}
+
+http://localhost:80 {
+	handle_path /strapi* {
+		reverse_proxy http://strapi:8001
+	}
+
+	reverse_proxy http://app:3000
+}

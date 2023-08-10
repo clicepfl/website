@@ -7,6 +7,7 @@ services:
   # Custom strapi service
   strapi:
     # Build the strapi service from its folder
+    container_name: clic-strapi
     build:
       # Build context, relative to the current file
       context: ../strapi/.devcontainer
@@ -27,14 +28,12 @@ services:
       - type: bind
         source: ../strapi
         target: /app
-    ports:
-      # Expose strapi to port 8001
-      - "8001:8001"
     depends_on:
       - strapi-postgres
 
   # Database service for strapi
   strapi-postgres:
+    container_name: clic-postgres
     image: postgres
     environment:
       POSTGRES_DB: strapi_data
@@ -42,6 +41,30 @@ services:
       POSTGRES_PASSWORD: strapi_pw
     volumes:
       - "strapi-data:/var/lib/postgresql/data"
+
+  app:
+    # Build the app service from its folder
+    build:
+      # Build context, relative to the current file
+      context: ../app/.devcontainer
+      # Path to Dockerfile, relative to context
+      dockerfile: Dockerfile
+      args:
+        VARIANT: ${VARIANT:-18-bullseye}
+    environment:
+      NODE_ENV: development
+    volumes:
+      # Bind-mount the app project folder into the container
+      - type: bind
+        source: ../app
+        target: /app
+
+  caddy:
+    image: caddy
+    volumes:
+      - "../caddy/Caddyfile.dev:/etc/caddy/Caddyfile"
+    ports:
+      - "80:80"
 
 volumes:
   # Persist strapi database
