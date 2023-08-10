@@ -16,5 +16,47 @@
     "color": "white",
     "backgroundColor": "orange"
   },
-  "todohighlight.keywordsPattern": "(todo|TODO|fixme|FIXME)(:?)"
+  "todohighlight.keywordsPattern": "(todo|TODO|fixme|FIXME)(:?)",
+  "terminal.integrated.profiles.linux": {
+    "strapi": {
+      "path": "docker",
+      "args": ["exec", "-it", "clic-strapi", "/bin/bash"],
+      "overrideName": true
+    },
+    "postgres": {
+      "path": "docker",
+      "args": ["exec", "-it", "clic-postgres", "/bin/bash"],
+      "overrideName": true
+    }
+  },
+  "terminal.integrated.profiles.windows": {
+    "strapi": {
+      "path": "docker",
+      "args": ["exec", "-it", "clic-strapi", "/bin/bash"],
+      "overrideName": true
+    },
+    "postgres": {
+      "path": "docker",
+      "args": ["exec", "-it", "clic-postgres", "/bin/bash"],
+      "overrideName": true
+    }
+  },
+  "terminal.integrated.profiles.osx": {
+    "strapi": {
+      "path": "docker",
+      "args": ["exec", "-it", "clic-strapi", "/bin/bash"],
+      "overrideName": true
+    },
+    "postgres": {
+      "path": "docker",
+      "args": ["exec", "-it", "clic-postgres", "/bin/bash"],
+      "overrideName": true
+    }
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

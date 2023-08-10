@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "social_links",
+  "info": {
+    "singularName": "social-link",
+    "pluralName": "social-links",
+    "displayName": "Social Link"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "target_name": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "target_url": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "commission": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::commission.commission",
+      "inversedBy": "social_links"
+    }
+  }
+}
