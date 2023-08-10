@@ -2,7 +2,7 @@
 	auto_https off
 }
 
-http://localhost:3000 {
+http://localhost:80 {
 	handle_path /strapi* {
 		reverse_proxy http://strapi:8001
 	}

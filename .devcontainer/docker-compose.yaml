@@ -27,9 +27,6 @@ services:
       - type: bind
         source: ../strapi
         target: /app
-    ports:
-      # Expose strapi to port 8001
-      - "8001:8001"
     depends_on:
       - strapi-postgres
 
@@ -65,7 +62,7 @@ services:
     volumes:
       - "../caddy/Caddyfile.dev:/etc/caddy/Caddyfile"
     ports:
-      - "3000:3000"
+      - "80:80"
 
 volumes:
   # Persist strapi database
