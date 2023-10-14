@@ -46,12 +46,6 @@
         }
       },
       "required": false
-    },
-    "members": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::member.member",
-      "mappedBy": "poles"
     }
   }
 }

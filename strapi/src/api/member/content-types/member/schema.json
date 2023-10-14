@@ -12,14 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "link": {
-      "type": "string",
-      "required": true
-    },
-    "role": {
-      "type": "string",
-      "required": true
-    },
     "picture": {
       "type": "media",
       "multiple": false,
@@ -32,21 +24,28 @@
       "type": "string",
       "required": true
     },
-    "affiliation": {
-      "type": "string",
-      "required": true
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
     },
-    "poles": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::pole.pole",
-      "inversedBy": "members"
+    "sciper": {
+      "type": "integer",
+      "required": true,
+      "min": 0,
+      "unique": true
     },
-    "commissions": {
+    "commission_memberships": {
       "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::commission.commission",
-      "inversedBy": "members"
+      "relation": "oneToMany",
+      "target": "api::membership.membership",
+      "mappedBy": "member"
+    },
+    "pole_memberships": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::association-membership.association-membership",
+      "mappedBy": "member"
     }
   }
 }

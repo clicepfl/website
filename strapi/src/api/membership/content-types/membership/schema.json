@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "memberships",
+  "info": {
+    "singularName": "membership",
+    "pluralName": "memberships",
+    "displayName": "Commission Membership",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "Comité",
+        "Équipier",
+        "Membre"
+      ],
+      "required": true,
+      "default": "Membre"
+    },
+    "commission": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::commission.commission"
+    },
+    "member": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::member.member",
+      "inversedBy": "commission_memberships"
+    }
+  }
+}
