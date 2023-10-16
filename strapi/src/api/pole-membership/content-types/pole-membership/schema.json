@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pole_memberships",
+  "info": {
+    "singularName": "pole-membership",
+    "pluralName": "pole-memberships",
+    "displayName": "Pole Membership",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "Comité",
+        "Équipier"
+      ],
+      "default": "Équipier",
+      "required": true
+    },
+    "pole": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pole.pole"
+    },
+    "member": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::member.member",
+      "inversedBy": "pole_memberships"
+    }
+  }
+}

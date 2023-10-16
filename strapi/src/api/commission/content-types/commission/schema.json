@@ -50,12 +50,6 @@
       "type": "text",
       "required": true
     },
-    "members": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::member.member",
-      "mappedBy": "commissions"
-    },
     "social_links": {
       "type": "relation",
       "relation": "oneToMany",

@@ -8,3 +8,4 @@
 app/.next
 
 strapi/.strapi-updater.json
+strapi/src/api
