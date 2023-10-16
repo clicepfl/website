@@ -46,6 +46,9 @@
       "relation": "oneToMany",
       "target": "api::association-membership.association-membership",
       "mappedBy": "member"
+    },
+    "link": {
+      "type": "string"
     }
   }
 }
