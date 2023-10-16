@@ -1,9 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "association_memberships",
+  "collectionName": "pole_memberships",
   "info": {
-    "singularName": "association-membership",
-    "pluralName": "association-memberships",
+    "singularName": "pole-membership",
+    "pluralName": "pole-memberships",
     "displayName": "Pole Membership",
     "description": ""
   },

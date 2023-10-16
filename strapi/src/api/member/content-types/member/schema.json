@@ -38,13 +38,13 @@
     "commission_memberships": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::membership.membership",
+      "target": "api::commission-membership.commissionmembership",
       "mappedBy": "member"
     },
     "pole_memberships": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::association-membership.association-membership",
+      "target": "api::pole-membership.pole-membership",
       "mappedBy": "member"
     },
     "link": {

@@ -1,9 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "memberships",
+  "collectionName": "commission_memberships",
   "info": {
-    "singularName": "membership",
-    "pluralName": "memberships",
+    "singularName": "commission-membership",
+    "pluralName": "commission-memberships",
     "displayName": "Commission Membership",
     "description": ""
   },

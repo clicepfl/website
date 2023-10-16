@@ -789,51 +789,6 @@ export interface ApiAssociationAssociation extends Schema.SingleType {
   };
 }
 
-export interface ApiAssociationMembershipAssociationMembership
-  extends Schema.CollectionType {
-  collectionName: "association_memberships";
-  info: {
-    singularName: "association-membership";
-    pluralName: "association-memberships";
-    displayName: "Pole Membership";
-    description: "";
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    role: Attribute.String & Attribute.Required;
-    level: Attribute.Enumeration<["Comit\u00E9", "\u00C9quipier"]> &
-      Attribute.Required &
-      Attribute.DefaultTo<"\u00C9quipier">;
-    pole: Attribute.Relation<
-      "api::association-membership.association-membership",
-      "oneToOne",
-      "api::pole.pole"
-    >;
-    member: Attribute.Relation<
-      "api::association-membership.association-membership",
-      "manyToOne",
-      "api::member.member"
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      "api::association-membership.association-membership",
-      "oneToOne",
-      "admin::user"
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      "api::association-membership.association-membership",
-      "oneToOne",
-      "admin::user"
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiCommissionCommission extends Schema.CollectionType {
   collectionName: "commissions";
   info: {
@@ -909,6 +864,51 @@ export interface ApiCommissionCommission extends Schema.CollectionType {
       "api::commission.commission"
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiCommissionMembershipCommissionMembership
+  extends Schema.CollectionType {
+  collectionName: "commission_memberships";
+  info: {
+    singularName: "commission-membership";
+    pluralName: "commission-memberships";
+    displayName: "Commission Membership";
+    description: "";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    role: Attribute.String & Attribute.Required;
+    level: Attribute.Enumeration<["Comit\u00E9", "\u00C9quipier", "Membre"]> &
+      Attribute.Required &
+      Attribute.DefaultTo<"Membre">;
+    commission: Attribute.Relation<
+      "api::commission-membership.commission-membership",
+      "oneToOne",
+      "api::commission.commission"
+    >;
+    member: Attribute.Relation<
+      "api::commission-membership.commission-membership",
+      "manyToOne",
+      "api::member.member"
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      "api::commission-membership.commission-membership",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      "api::commission-membership.commission-membership",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
   };
 }
 
@@ -1033,13 +1033,14 @@ export interface ApiMemberMember extends Schema.CollectionType {
     commission_memberships: Attribute.Relation<
       "api::member.member",
       "oneToMany",
-      "api::membership.membership"
+      "api::commission-membership.commissionmembership"
     >;
     pole_memberships: Attribute.Relation<
       "api::member.member",
       "oneToMany",
-      "api::association-membership.association-membership"
+      "api::pole-membership.pole-membership"
     >;
+    link: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1051,50 +1052,6 @@ export interface ApiMemberMember extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       "api::member.member",
-      "oneToOne",
-      "admin::user"
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiMembershipMembership extends Schema.CollectionType {
-  collectionName: "memberships";
-  info: {
-    singularName: "membership";
-    pluralName: "memberships";
-    displayName: "Commission Membership";
-    description: "";
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    role: Attribute.String & Attribute.Required;
-    level: Attribute.Enumeration<["Comit\u00E9", "\u00C9quipier", "Membre"]> &
-      Attribute.Required &
-      Attribute.DefaultTo<"Membre">;
-    commission: Attribute.Relation<
-      "api::membership.membership",
-      "oneToOne",
-      "api::commission.commission"
-    >;
-    member: Attribute.Relation<
-      "api::membership.membership",
-      "manyToOne",
-      "api::member.member"
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      "api::membership.membership",
-      "oneToOne",
-      "admin::user"
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      "api::membership.membership",
       "oneToOne",
       "admin::user"
     > &
@@ -1287,6 +1244,50 @@ export interface ApiPolePole extends Schema.CollectionType {
   };
 }
 
+export interface ApiPoleMembershipPoleMembership extends Schema.CollectionType {
+  collectionName: "pole_memberships";
+  info: {
+    singularName: "pole-membership";
+    pluralName: "pole-memberships";
+    displayName: "Pole Membership";
+    description: "";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    role: Attribute.String & Attribute.Required;
+    level: Attribute.Enumeration<["Comit\u00E9", "\u00C9quipier"]> &
+      Attribute.Required &
+      Attribute.DefaultTo<"\u00C9quipier">;
+    pole: Attribute.Relation<
+      "api::pole-membership.pole-membership",
+      "oneToOne",
+      "api::pole.pole"
+    >;
+    member: Attribute.Relation<
+      "api::pole-membership.pole-membership",
+      "manyToOne",
+      "api::member.member"
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      "api::pole-membership.pole-membership",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      "api::pole-membership.pole-membership",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSocialLinkSocialLink extends Schema.CollectionType {
   collectionName: "social_links";
   info: {
@@ -1342,14 +1343,14 @@ declare module "@strapi/strapi" {
       "plugin::users-permissions.role": PluginUsersPermissionsRole;
       "plugin::users-permissions.user": PluginUsersPermissionsUser;
       "api::association.association": ApiAssociationAssociation;
-      "api::association-membership.association-membership": ApiAssociationMembershipAssociationMembership;
       "api::commission.commission": ApiCommissionCommission;
+      "api::commission-membership.commission-membership": ApiCommissionMembershipCommissionMembership;
       "api::event.event": ApiEventEvent;
       "api::member.member": ApiMemberMember;
-      "api::membership.membership": ApiMembershipMembership;
       "api::news.news": ApiNewsNews;
       "api::partner.partner": ApiPartnerPartner;
       "api::pole.pole": ApiPolePole;
+      "api::pole-membership.pole-membership": ApiPoleMembershipPoleMembership;
       "api::social-link.social-link": ApiSocialLinkSocialLink;
     }
   }
