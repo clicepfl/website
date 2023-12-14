@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
     "next": "13.4.12",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "strapi-sdk-js": "^2.3.3"
   },
   "devDependencies": {
     "@types/node": "20.4.5",
