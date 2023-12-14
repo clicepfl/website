@@ -38,7 +38,7 @@
     "commission_memberships": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::commission-membership.commissionmembership",
+      "target": "api::commission-membership.commission-membership",
       "mappedBy": "member"
     },
     "pole_memberships": {

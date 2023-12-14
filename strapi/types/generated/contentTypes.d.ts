@@ -1033,7 +1033,7 @@ export interface ApiMemberMember extends Schema.CollectionType {
     commission_memberships: Attribute.Relation<
       "api::member.member",
       "oneToMany",
-      "api::commission-membership.commissionmembership"
+      "api::commission-membership.commission-membership"
     >;
     pole_memberships: Attribute.Relation<
       "api::member.member",
