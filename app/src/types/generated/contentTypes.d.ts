@@ -1,4 +1,4 @@
-import type { Schema, Attribute } from "@strapi/strapi";
+import type { Attribute, Schema } from "@strapi/strapi";
 
 export interface AdminPermission extends Schema.CollectionType {
   collectionName: "admin_permissions";
@@ -676,7 +676,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiAssociationAssociation extends Schema.SingleType {
+export interface ApiAssociation extends Schema.SingleType {
   collectionName: "associations";
   info: {
     singularName: "association";
@@ -789,8 +789,7 @@ export interface ApiAssociationAssociation extends Schema.SingleType {
   };
 }
 
-export interface ApiAssociationMembershipAssociationMembership
-  extends Schema.CollectionType {
+export interface ApiAssociationMembership extends Schema.CollectionType {
   collectionName: "association_memberships";
   info: {
     singularName: "association-membership";
@@ -834,7 +833,7 @@ export interface ApiAssociationMembershipAssociationMembership
   };
 }
 
-export interface ApiCommissionCommission extends Schema.CollectionType {
+export interface ApiCommission extends Schema.CollectionType {
   collectionName: "commissions";
   info: {
     singularName: "commission";
@@ -912,7 +911,7 @@ export interface ApiCommissionCommission extends Schema.CollectionType {
   };
 }
 
-export interface ApiEventEvent extends Schema.CollectionType {
+export interface ApiEvent extends Schema.CollectionType {
   collectionName: "events";
   info: {
     singularName: "event";
@@ -1009,7 +1008,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
   };
 }
 
-export interface ApiMemberMember extends Schema.CollectionType {
+export interface ApiMember extends Schema.CollectionType {
   collectionName: "members";
   info: {
     singularName: "member";
@@ -1058,7 +1057,7 @@ export interface ApiMemberMember extends Schema.CollectionType {
   };
 }
 
-export interface ApiMembershipMembership extends Schema.CollectionType {
+export interface ApiMembership extends Schema.CollectionType {
   collectionName: "memberships";
   info: {
     singularName: "membership";
@@ -1102,7 +1101,7 @@ export interface ApiMembershipMembership extends Schema.CollectionType {
   };
 }
 
-export interface ApiNewsNews extends Schema.CollectionType {
+export interface ApiNews extends Schema.CollectionType {
   collectionName: "newss";
   info: {
     singularName: "news";
@@ -1187,7 +1186,7 @@ export interface ApiNewsNews extends Schema.CollectionType {
   };
 }
 
-export interface ApiPartnerPartner extends Schema.CollectionType {
+export interface ApiPartner extends Schema.CollectionType {
   collectionName: "partners";
   info: {
     singularName: "partner";
@@ -1234,7 +1233,7 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
   };
 }
 
-export interface ApiPolePole extends Schema.CollectionType {
+export interface ApiPole extends Schema.CollectionType {
   collectionName: "poles";
   info: {
     singularName: "pole";
@@ -1287,7 +1286,7 @@ export interface ApiPolePole extends Schema.CollectionType {
   };
 }
 
-export interface ApiSocialLinkSocialLink extends Schema.CollectionType {
+export interface ApiSocialLink extends Schema.CollectionType {
   collectionName: "social_links";
   info: {
     singularName: "social-link";
@@ -1341,16 +1340,16 @@ declare module "@strapi/strapi" {
       "plugin::users-permissions.permission": PluginUsersPermissionsPermission;
       "plugin::users-permissions.role": PluginUsersPermissionsRole;
       "plugin::users-permissions.user": PluginUsersPermissionsUser;
-      "api::association.association": ApiAssociationAssociation;
-      "api::association-membership.association-membership": ApiAssociationMembershipAssociationMembership;
-      "api::commission.commission": ApiCommissionCommission;
-      "api::event.event": ApiEventEvent;
-      "api::member.member": ApiMemberMember;
-      "api::membership.membership": ApiMembershipMembership;
-      "api::news.news": ApiNewsNews;
-      "api::partner.partner": ApiPartnerPartner;
-      "api::pole.pole": ApiPolePole;
-      "api::social-link.social-link": ApiSocialLinkSocialLink;
+      "api::association.association": ApiAssociation;
+      "api::association-membership.association-membership": ApiAssociationMembership;
+      "api::commission.commission": ApiCommission;
+      "api::event.event": ApiEvent;
+      "api::member.member": ApiMember;
+      "api::membership.membership": ApiMembership;
+      "api::news.news": ApiNews;
+      "api::partner.partner": ApiPartner;
+      "api::pole.pole": ApiPole;
+      "api::social-link.social-link": ApiSocialLink;
     }
   }
 }
