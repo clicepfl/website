@@ -39,29 +39,27 @@ export default function NavigationBar() {
 
   return (
     <div className={styles.navigationBar}>
-      <div className={styles.navigationBar}>
-        <button className={styles.burgerButton} onClick={toggleMenu}>
-          <BurgerIcon></BurgerIcon>
-        </button>
+      <button className={styles.burgerButton} onClick={toggleMenu}>
+        <BurgerIcon></BurgerIcon>
+      </button>
 
-        <div className={styles.socials}>
-          <Link href="https://telegram.com">
-            <TelegramIcon className={styles.icon} alt="telegram" />
-          </Link>
-          <Link href="https://instagram.com">
-            <InstagramIcon className={styles.icon} alt="instagram" />
-          </Link>
-          <Link href="https://x.com">
-            <XIcon className={styles.icon} alt="X" />
-          </Link>
-          <Link href="https://github.com">
-            <GitHubIcon className={styles.icon} alt="github" />
-          </Link>
-        </div>
+      <div className={styles.socials}>
+        <Link href="https://telegram.com">
+          <TelegramIcon className={styles.icon} alt="telegram" />
+        </Link>
+        <Link href="https://instagram.com">
+          <InstagramIcon className={styles.icon} alt="instagram" />
+        </Link>
+        <Link href="https://x.com">
+          <XIcon className={styles.icon} alt="X" />
+        </Link>
+        <Link href="https://github.com">
+          <GitHubIcon className={styles.icon} alt="github" />
+        </Link>
+      </div>
 
-        <div style={{ display: visible ? "block" : "none" }}>
-          <NavMenu />
-        </div>
+      <div style={{ display: visible ? "block" : "none" }}>
+        <NavMenu />
       </div>
     </div>
   );

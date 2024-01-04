@@ -8,10 +8,45 @@ a {
   color: inherit;
 }
 
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+}
+
 .background {
-  margin: auto;
-  z-index: -50;
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
+  z-index: -50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.CLICLogo {
+  height: 15em;
+  fill: white;
+  margin: auto;
+  margin-top: 30vh;
+  transform: translateX(
+    2.5em
+  ); // for centering the logo with respect to the navbar
+}
+
+@media (max-width: 700px) {
+  .CLICLogo {
+    height: 5em;
+    margin-top: 15vh;
+  }
+}
+
+@media (max-width: 800px) {
+  .background {
+    position: fixed;
+    width: 100%;
+    margin: auto;
+  }
 }
