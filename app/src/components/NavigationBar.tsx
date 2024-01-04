@@ -38,7 +38,7 @@ export default function NavigationBar() {
   };
 
   return (
-    <div>
+    <div className={styles.navigationBar}>
       <div className={styles.navigationBar}>
         <button className={styles.burgerButton} onClick={toggleMenu}>
           <BurgerIcon></BurgerIcon>

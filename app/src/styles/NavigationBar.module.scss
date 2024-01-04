@@ -1,13 +1,15 @@
 .navigationBar {
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: #1a2248;
   height: 100vh;
   width: 5em;
-  position: absolute;
-  align-items: center;
-  left: 0;
+  position: sticky;
   top: 0;
+  left: 0;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
 
   .burgerButton {
     margin-top: 1em;
@@ -15,7 +17,7 @@
     height: 40px;
     border: 0;
     padding: 5px;
-    border-radius: 7px;
+    border-radius: var(--border-radius);
     background-color: transparent;
 
     &:hover {
