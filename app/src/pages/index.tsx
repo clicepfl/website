@@ -1,15 +1,32 @@
 import Background from "@/assets/background.svg";
-import CLICLogo from "@/assets/clic_color_info.svg";
 import NavigationBar from "@/components/NavigationBar";
+import StrapiImage from "@/components/StrapiImage";
+import strapi from "@/strapi";
+import { ApiAssociation } from "@/types/generated/contentTypes";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
-export default function Home() {
+export default function Home(props: { association: ApiAssociation }) {
   return (
     <div className="main">
       <NavigationBar />
       <div className="background">
-        <CLICLogo className="CLICLogo" />
+        <StrapiImage
+          img={props.association.attributes.logo}
+          size="medium"
+          className="CLICLogo"
+        />
         <Background className="background" />
       </div>
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps<
+  InferGetServerSidePropsType<typeof Home>
+> = async (context) => {
+  let association = await strapi.find<ApiAssociation>("association", {
+    populate: "*",
+  });
+  console.log(JSON.stringify(association));
+  return { props: { association: association.data } };
+};
