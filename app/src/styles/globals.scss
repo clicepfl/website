@@ -40,20 +40,57 @@ a {
   }
 }
 
-.markdown {
+.text {
   min-width: 20ch;
-  max-width: 80ch;
-  padding: 0 1rem;
+  max-width: 60ch;
+  padding: 0 2rem;
 
   border-radius: 1rem;
   background-color: lightcyan;
 
-  a {
-    color: blue;
-    text-decoration: underline;
+  h1 {
+    text-align: center;
+    padding: 0 2rem;
 
-    &:visited {
-      color: purple;
+    &::after {
+      position: relative;
+      min-width: 4rem;
+      min-height: 0.3rem;
+      top: -0.45rem;
+      left: 0.5rem;
+
+      background-color: darkcyan;
+      content: "";
+      display: inline-block;
     }
+    &::before {
+      @extend ::after;
+      left: -0.5rem;
+    }
+
+    // h4 (subtitle) must be centered and slightly enlarged
+    + h4 {
+      text-align: center;
+      font-size: large;
+    }
+  }
+
+  // h4 is to be used as subtitle, thus we strip its top margin,
+  // and the bottom margin of the element just before (i.e. the
+  // element it is the subtitle of).
+  :has(+ h4) {
+    margin-bottom: 0;
+  }
+  h4 {
+    font-weight: lighter;
+    margin-top: 0.2rem;
+  }
+
+  a {
+    color: rgb(58, 127, 255);
+  }
+
+  p {
+    text-align: justify;
   }
 }

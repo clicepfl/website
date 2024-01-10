@@ -20,9 +20,7 @@ export default function Home(
           <NewsCard news={n} />
         ))}
       </div>
-      <Markdown className="markdown">
-        {props.association.attributes.about}
-      </Markdown>
+      <Markdown className="text">{props.association.attributes.about}</Markdown>
     </>
   );
 }
