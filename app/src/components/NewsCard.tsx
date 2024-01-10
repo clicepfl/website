@@ -1,19 +1,11 @@
 import StrapiImage from "./StrapiImage";
+import styles from "@/styles/NewsCard.module.scss";
 import { ApiNews } from "@/types/generated/contentTypes";
 import Link from "next/link";
 
-export default function NewsCard({
-  news,
-  vertical,
-}: {
-  news: ApiNews;
-  vertical?: boolean;
-}) {
+export default function NewsCard({ news }: { news: ApiNews }) {
   return (
-    <Link
-      href={`/news/${(news as any).id}`}
-      className={`news-card ${vertical ? "vertical" : "horizontal"}`}
-    >
+    <Link href={`/news/${(news as any).id}`} className={`${styles.newsCard}`}>
       <div>
         <StrapiImage img={news.attributes.picture} size="small" />
       </div>

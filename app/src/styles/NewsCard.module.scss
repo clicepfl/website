@@ -1,4 +1,4 @@
-.news-card {
+.newsCard {
   background-color: white;
   border-radius: 3rem;
   width: fit-content;
@@ -10,35 +10,6 @@
   display: flex;
 
   overflow: hidden;
-
-  &.vertical {
-    flex-direction: column;
-
-    width: $width;
-    height: calc(2 * $height);
-
-    > * {
-      width: 100%;
-
-      min-height: 50%;
-      height: 50%;
-      max-height: 50%;
-    }
-  }
-  &.horizontal {
-    flex-direction: row;
-
-    width: calc(2 * $width);
-    height: $height;
-
-    > * {
-      min-width: 50%;
-      width: 50%;
-      max-width: 50%;
-
-      height: 100%;
-    }
-  }
 
   > :nth-child(1) {
     overflow: hidden;
@@ -61,6 +32,36 @@
 
       text-align: right;
       padding-right: 1rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+
+    width: $width;
+    height: calc(2 * $height);
+
+    > * {
+      width: 100%;
+
+      min-height: 50%;
+      height: 50%;
+      max-height: 50%;
+    }
+  }
+
+  @media (min-width: 900px) {
+    flex-direction: row;
+
+    width: calc(2 * $width);
+    height: $height;
+
+    > * {
+      min-width: 50%;
+      width: 50%;
+      max-width: 50%;
+
+      height: 100%;
     }
   }
 }
