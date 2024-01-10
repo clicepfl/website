@@ -35,7 +35,7 @@
     }
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 800px) {
     flex-direction: column;
 
     width: $width;
@@ -50,7 +50,7 @@
     }
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 800px) {
     flex-direction: row;
 
     width: calc(2 * $width);
