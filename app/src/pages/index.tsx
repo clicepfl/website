@@ -3,6 +3,7 @@ import StrapiImage from "@/components/StrapiImage";
 import strapi from "@/strapi";
 import { ApiAssociation, ApiNews } from "@/types/generated/contentTypes";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import Markdown from "react-markdown";
 
 export default function Home(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
@@ -19,6 +20,9 @@ export default function Home(
           <NewsCard news={n} />
         ))}
       </div>
+      <Markdown className="markdown">
+        {props.association.attributes.about}
+      </Markdown>
     </>
   );
 }
