@@ -14,6 +14,8 @@ a {
   align-items: center;
   justify-content: center;
 
+  gap: 4rem;
+
   padding: 2rem;
   padding-left: 5rem;
   width: calc(100vw - 7rem);
@@ -30,7 +32,6 @@ a {
   fill: white;
   margin: auto;
   margin-top: 30vh;
-  margin-bottom: 5rem;
 
   @media (max-width: 800px) {
     width: 75%;
