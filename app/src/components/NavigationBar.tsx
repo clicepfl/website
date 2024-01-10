@@ -31,6 +31,9 @@ function NavMenu() {
   );
 }
 
+/* TODO the socials should be dynamically loaded from Strapi. 
+  This would probably require to migrate to an App Router to use
+  server-side components. */
 export default function NavigationBar() {
   const [visible, setVisible] = useState(false);
   const toggleMenu = () => {
