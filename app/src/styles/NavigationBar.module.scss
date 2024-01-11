@@ -11,17 +11,27 @@
   color: white;
   font-family: "Courier New", Courier, monospace;
 
+  z-index: 50;
+  * {
+    z-index: inherit;
+  }
+
   .burgerButton {
     margin-top: 1em;
     width: 40px;
     height: 40px;
     border: 0;
     padding: 5px;
-    border-radius: var(--border-radius);
+    border-radius: 0.3rem;
     background-color: transparent;
+
+    cursor: pointer;
 
     &:hover {
       background-color: #3d4c8f;
+
+      transition-duration: 250ms;
+      transition-timing-function: ease-out;
     }
   }
 
@@ -39,8 +49,15 @@
 
       &:hover {
         fill: grey;
+
+        transition-duration: 250ms;
+        transition-timing-function: ease-out;
       }
     }
+  }
+
+  .hidden {
+    left: -15rem;
   }
 }
 
@@ -51,6 +68,11 @@
   left: 5em;
   top: 0;
   background-color: #1a2248;
+
+  z-index: 49;
+
+  transition-duration: 0.35s;
+  transition-timing-function: ease-out;
 
   .menuList {
     margin-top: 50px;
@@ -63,10 +85,19 @@
   align-items: center;
   gap: 0.5em;
   margin: 0.5em 0 0.5em 0;
+  fill: white;
 
   .folderIcon {
     height: 1.5em;
     width: 1.5em;
-    fill: white;
+    fill: inherit;
+  }
+
+  &:hover {
+    color: grey;
+    fill: grey;
+
+    transition-duration: 250ms;
+    transition-timing-function: ease-out;
   }
 }

@@ -17,9 +17,13 @@ function Entry({ title, href }: { title: string; href: string }) {
   );
 }
 
-function NavMenu() {
+function NavMenu(props: { visible: boolean }) {
   return (
-    <div className={styles.navigationMenu}>
+    <div
+      className={
+        styles.navigationMenu + " " + (!props.visible ? styles.hidden : "")
+      }
+    >
       <div className={styles.menuList}>
         <Entry title="L'Association" href="/" />
         <Entry title="Commissions" href="/commissions" />
@@ -61,9 +65,7 @@ export default function NavigationBar() {
         </Link>
       </div>
 
-      <div style={{ display: visible ? "block" : "none" }}>
-        <NavMenu />
-      </div>
+      <NavMenu visible={visible} />
     </div>
   );
 }
