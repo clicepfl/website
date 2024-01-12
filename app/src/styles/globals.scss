@@ -94,3 +94,15 @@ a {
     text-align: justify;
   }
 }
+
+.memberList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+
+  border-radius: 3rem;
+  padding: 2rem;
+
+  background-color: white;
+}

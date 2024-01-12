@@ -1,7 +1,12 @@
+import MemberCard from "@/components/MemberCard";
 import NewsCard from "@/components/NewsCard";
 import StrapiImage from "@/components/StrapiImage";
 import strapi from "@/strapi";
-import { ApiAssociation, ApiNews } from "@/types/generated/contentTypes";
+import {
+  ApiAssociation,
+  ApiMember,
+  ApiNews,
+} from "@/types/generated/contentTypes";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Markdown from "react-markdown";
 
@@ -21,6 +26,15 @@ export default function Home(
         ))}
       </div>
       <Markdown className="text">{props.association.attributes.about}</Markdown>
+      <div className="memberList">
+        {props.members.map((m: ApiMember) => (
+          <MemberCard
+            key={m.attributes.name}
+            member={m}
+            membership={m.attributes.pole_memberships.data[0]}
+          />
+        ))}
+      </div>
     </>
   );
 }
@@ -28,13 +42,24 @@ export default function Home(
 export const getServerSideProps: GetServerSideProps<{
   association: ApiAssociation;
   news: ApiNews[];
+  members: ApiMember[];
 }> = async (context) => {
   let association = await strapi.find<ApiAssociation>("association", {
-    populate: "*",
+    populate: "logo",
   });
   let news = await strapi.find<ApiNews[]>("newss", {
     pagination: { start: 0, limit: 3 },
-    populate: "*",
+    populate: "picture",
   });
-  return { props: { association: association.data, news: news.data } };
+  let members = await strapi.find<ApiMember[]>("members", {
+    populate: ["pole_memberships", "picture"],
+    filters: { pole_memberships: { id: { $notNull: true } } },
+  });
+  return {
+    props: {
+      association: association.data,
+      news: news.data,
+      members: members.data,
+    },
+  };
 };
