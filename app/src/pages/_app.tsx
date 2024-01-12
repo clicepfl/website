@@ -1,3 +1,6 @@
+// The ?url suffix allows to import the background using the classic NextJS loader (instead of SVGR).
+// This is required to get a url for the `background-image` css property.
+// @ts-ignore
 import Background from "../../public/background.svg?url";
 import NavigationBar from "@/components/NavigationBar";
 import "@/styles/globals.scss";
