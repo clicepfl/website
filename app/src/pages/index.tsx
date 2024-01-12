@@ -26,8 +26,9 @@ export default function Home(
         ))}
       </div>
       <Markdown className="text">{props.association.attributes.about}</Markdown>
-      <div className="memberList">
-        {props.members.map((m: ApiMember) => (
+      <div className="cardList">
+        <h1 className="title">Notre comité</h1>
+        {props.committee.map((m: ApiMember) => (
           <MemberCard
             key={m.attributes.name}
             member={m}
@@ -42,7 +43,7 @@ export default function Home(
 export const getServerSideProps: GetServerSideProps<{
   association: ApiAssociation;
   news: ApiNews[];
-  members: ApiMember[];
+  committee: ApiMember[];
 }> = async (context) => {
   let association = await strapi.find<ApiAssociation>("association", {
     populate: "logo",
@@ -51,15 +52,23 @@ export const getServerSideProps: GetServerSideProps<{
     pagination: { start: 0, limit: 3 },
     populate: "picture",
   });
-  let members = await strapi.find<ApiMember[]>("members", {
+  let committee = await strapi.find<ApiMember[]>("members", {
     populate: ["pole_memberships", "picture"],
-    filters: { pole_memberships: { id: { $notNull: true } } },
+    filters: {
+      pole_memberships: {
+        id: {
+          // Do not fetch members with no pole membership => not in the main association
+          $notNull: true,
+        },
+        level: "Comité",
+      },
+    },
   });
   return {
     props: {
       association: association.data,
       news: news.data,
-      members: members.data,
+      committee: committee.data,
     },
   };
 };

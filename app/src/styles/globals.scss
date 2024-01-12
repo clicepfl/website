@@ -52,21 +52,7 @@ a {
     text-align: center;
     padding: 0 2rem;
 
-    &::after {
-      position: relative;
-      min-width: 4rem;
-      min-height: 0.3rem;
-      top: -0.45rem;
-      left: 0.5rem;
-
-      background-color: darkcyan;
-      content: "";
-      display: inline-block;
-    }
-    &::before {
-      @extend ::after;
-      left: -0.5rem;
-    }
+    @extend .title;
 
     // h4 (subtitle) must be centered and slightly enlarged
     + h4 {
@@ -95,7 +81,27 @@ a {
   }
 }
 
-.memberList {
+.title {
+  text-align: center;
+
+  &::after {
+    position: relative;
+    min-width: 4rem;
+    min-height: 0.3rem;
+    top: -0.45rem;
+    left: 0.5rem;
+
+    background-color: darkcyan;
+    content: "";
+    display: inline-block;
+  }
+  &::before {
+    @extend ::after;
+    left: -0.5rem;
+  }
+}
+
+.cardList {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -104,5 +110,9 @@ a {
   border-radius: 3rem;
   padding: 2rem;
 
-  background-color: white;
+  background-color: lightcyan;
+
+  > h1.title {
+    flex-basis: 100%;
+  }
 }
