@@ -22,7 +22,7 @@ export default function Home(
       />
       <div>
         {props.news.map((n) => (
-          <NewsCard news={n} />
+          <NewsCard key={(n as any).id} news={n} />
         ))}
       </div>
       <Markdown className="text">{props.association.attributes.about}</Markdown>
@@ -30,7 +30,7 @@ export default function Home(
         <h1 className="title">Notre comité</h1>
         {props.committee.map((m: ApiMember) => (
           <MemberCard
-            key={m.attributes.name}
+            key={(m as any).id}
             member={m}
             membership={m.attributes.pole_memberships.data[0]}
           />
