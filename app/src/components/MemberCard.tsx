@@ -14,7 +14,6 @@ export default function MemberCard({
   member: ApiMember;
   membership: ApiPoleMembership | ApiCommissionMembership;
 }) {
-  console.log(JSON.stringify(membership, null, 2));
   const component = (
     <div className={styles.memberCard}>
       {member.attributes.picture.data ? (
