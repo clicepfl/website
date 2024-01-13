@@ -4,6 +4,7 @@ interface Translations {
   dateIndicator: string;
   timeIndicator: string;
   by: string;
+  relatedContent: string;
 }
 
 const translations: { [key in Locale]: Translations } = {
@@ -11,11 +12,13 @@ const translations: { [key in Locale]: Translations } = {
     dateIndicator: "on",
     timeIndicator: "at",
     by: "by",
+    relatedContent: "related content",
   },
   fr: {
     dateIndicator: "le",
     timeIndicator: "à",
     by: "par",
+    relatedContent: "contenu lié",
   },
 };
 

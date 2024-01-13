@@ -81,6 +81,34 @@ a {
   }
 }
 
+.page {
+  @extend .text;
+
+  width: 80%;
+  max-width: unset;
+
+  display: flex;
+  flex-direction: column;
+
+  h1,
+  .picture {
+    align-self: center;
+  }
+
+  .picture {
+    width: auto;
+    height: auto;
+    max-width: 90%;
+
+    margin: 2rem 0;
+  }
+
+  .author {
+    margin: 0;
+    font-weight: 200;
+  }
+}
+
 .title {
   text-align: center;
 
