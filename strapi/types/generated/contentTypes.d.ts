@@ -1069,6 +1069,7 @@ export interface ApiNewsNews extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: true;
+    populateCreatorFields: true;
   };
   pluginOptions: {
     i18n: {
@@ -1131,10 +1132,8 @@ export interface ApiNewsNews extends Schema.CollectionType {
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<"api::news.news", "oneToOne", "admin::user"> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<"api::news.news", "oneToOne", "admin::user"> &
-      Attribute.Private;
+    createdBy: Attribute.Relation<"api::news.news", "oneToOne", "admin::user">;
+    updatedBy: Attribute.Relation<"api::news.news", "oneToOne", "admin::user">;
     localizations: Attribute.Relation<
       "api::news.news",
       "oneToMany",
