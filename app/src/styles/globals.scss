@@ -82,6 +82,7 @@ a {
 
 .page {
   @extend .text;
+  padding: 1rem 2rem;
 
   width: 80%;
   max-width: unset;

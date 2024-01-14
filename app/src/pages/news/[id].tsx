@@ -1,3 +1,4 @@
+import Card from "@/components/Card";
 import StrapiImage from "@/components/StrapiImage";
 import { formatDate, translate } from "@/locales";
 import strapi from "@/strapi";
@@ -41,7 +42,10 @@ export default function Page(
               capitalize: true,
             })}
           </h1>
-          {/* TODO Add event and commissions' cards */}
+          {event ? <Card event={event} size="large" /> : <></>}
+          {commissions.map((c) => (
+            <Card key={(c as any).id} commission={c} size="large" />
+          ))}
         </>
       ) : (
         <></>
@@ -59,7 +63,13 @@ export const getServerSideProps: GetServerSideProps<{ news: ApiNews }> = async (
   }
 
   let news = await strapi.findOne<ApiNews>("newss", context.params.id, {
-    populate: ["picture", "createdBy", "event", "commissions"],
+    populate: [
+      "picture",
+      "createdBy",
+      "event",
+      "commissions",
+      "commissions.logo",
+    ],
   });
 
   return { props: { news: news.data } };

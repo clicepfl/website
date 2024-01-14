@@ -4,8 +4,10 @@
   border-radius: 2rem;
   padding: 1rem;
 
+  color: black;
+
   &.large {
-    width: 50ch;
+    width: 60ch;
     height: 20ch;
     border-radius: 4rem;
 
@@ -14,7 +16,7 @@
     }
 
     .description {
-      font-size: large;
+      font-size: medium;
     }
 
     p {
@@ -22,8 +24,10 @@
     }
 
     .picture {
-      width: 10rem;
-      height: 10rem;
+      min-width: 10rem;
+      max-width: 10rem;
+      min-height: 10rem;
+      max-height: 10rem;
     }
   }
 
@@ -38,13 +42,16 @@
     border: 3px gray solid;
     border-radius: 50%;
 
-    width: 6rem;
-    height: 6rem;
+    min-width: 6rem;
+    max-width: 6rem;
+    min-height: 6rem;
+    max-height: 6rem;
   }
 
   .description {
     font-size: small;
     font-weight: 300;
+    text-align: left;
   }
 
   p {
