@@ -17,19 +17,27 @@ export default function Card(
       }
     | { commission: ApiCommission }
     | { event: ApiEvent }
-    | { img: any; title: string; description: string; link?: string }
+    | {
+        img: any;
+        title: string;
+        description: string;
+        link?: string;
+        linkTarget?: "_blank";
+      }
   ) & { size: "small" | "large" }
 ) {
   let img = null,
     title = null,
     description = null,
-    link = null;
+    link = null,
+    linkTarget = undefined;
 
   if ("member" in props) {
     img = props.member.attributes.picture;
     title = props.member.attributes.name;
     description = props.membership.attributes.role;
     link = props.member.attributes.link;
+    linkTarget = "_blank";
   } else if ("commission" in props) {
     img = props.commission.attributes.logo;
     title = props.commission.attributes.name;
@@ -44,7 +52,8 @@ export default function Card(
     img = props.img;
     title = props.title;
     description = props.description;
-    props.link;
+    link = props.link;
+    linkTarget = props.link;
   }
 
   const component = (
@@ -63,7 +72,7 @@ export default function Card(
 
   if (link) {
     return (
-      <Link href={link} target="_blank" style={{ display: "contents" }}>
+      <Link href={link} target={linkTarget} style={{ display: "contents" }}>
         {component}
       </Link>
     );
