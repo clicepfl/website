@@ -28,14 +28,24 @@ export default function Home(
       <Markdown className="text">{props.association.attributes.about}</Markdown>
       <div className="cardList">
         <h1 className="title">Notre comité</h1>
-        {props.committee.map((m: ApiMember) => (
-          <Card
-            size="small"
-            key={(m as any).id}
-            member={m}
-            membership={m.attributes.pole_memberships.data[0]}
-          />
-        ))}
+        <div>
+          {props.committee.map((m: ApiMember) => (
+            <>
+              <Card
+                size="small"
+                key={(m as any).id}
+                member={m}
+                membership={m.attributes.pole_memberships.data[0]}
+              />
+              <Card
+                size="small"
+                key={(m as any).id}
+                member={m}
+                membership={m.attributes.pole_memberships.data[0]}
+              />
+            </>
+          ))}
+        </div>
       </div>
     </>
   );
