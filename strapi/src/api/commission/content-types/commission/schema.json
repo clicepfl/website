@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "commission_name": {
+    "name": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -61,6 +61,44 @@
       "relation": "manyToMany",
       "target": "api::partner.partner",
       "inversedBy": "commissions"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "members": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::commission-membership.commission-membership",
+      "mappedBy": "commission"
+    },
+    "email": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "email"
+    },
+    "address": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "text"
     }
   }
 }

@@ -806,7 +806,7 @@ export interface ApiCommission extends Schema.CollectionType {
     };
   };
   attributes: {
-    commission_name: Attribute.String &
+    name: Attribute.String &
       Attribute.Required &
       Attribute.Unique &
       Attribute.SetPluginOptions<{
@@ -843,6 +843,29 @@ export interface ApiCommission extends Schema.CollectionType {
       "manyToMany",
       "api::partner.partner"
     >;
+    logo: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    members: Attribute.Relation<
+      "api::commission.commission",
+      "oneToMany",
+      "api::commission-membership.commission-membership"
+    >;
+    email: Attribute.Email &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    address: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -883,15 +906,15 @@ export interface ApiCommissionMembership extends Schema.CollectionType {
     level: Attribute.Enumeration<["Comit\u00E9", "\u00C9quipier", "Membre"]> &
       Attribute.Required &
       Attribute.DefaultTo<"Membre">;
-    commission: Attribute.Relation<
-      "api::commission-membership.commission-membership",
-      "oneToOne",
-      "api::commission.commission"
-    >;
     member: Attribute.Relation<
       "api::commission-membership.commission-membership",
       "manyToOne",
       "api::member.member"
+    >;
+    commission: Attribute.Relation<
+      "api::commission-membership.commission-membership",
+      "manyToOne",
+      "api::commission.commission"
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

@@ -29,8 +29,8 @@ export default function Card(
     title = props.member.attributes.name;
     description = props.membership.attributes.role;
   } else if ("commission" in props) {
-    img = null; // TODO add commission logo in content type builder
-    title = props.commission.attributes.commission_name;
+    img = props.commission.attributes.logo;
+    title = props.commission.attributes.name;
     description = props.commission.attributes.small_description;
   } else if ("event" in props) {
     img = null;

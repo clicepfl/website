@@ -26,16 +26,17 @@
       "required": true,
       "default": "Membre"
     },
-    "commission": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::commission.commission"
-    },
     "member": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::member.member",
       "inversedBy": "commission_memberships"
+    },
+    "commission": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::commission.commission",
+      "inversedBy": "members"
     }
   }
 }
