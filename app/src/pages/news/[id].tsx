@@ -30,11 +30,11 @@ export default function Page(
         } ${createdBy.attributes.lastname}`}
       </p>
       <StrapiImage
-        className="picture"
+        className="banner"
         img={props.news.attributes.picture}
         size="large"
       />
-      <Markdown>{props.news.attributes.content}</Markdown>
+      <Markdown className="text">{props.news.attributes.content}</Markdown>
       {event !== null || commissions.length > 0 ? (
         <>
           <h1>
