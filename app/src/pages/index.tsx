@@ -30,20 +30,12 @@ export default function Home(
         <h1 className="title">Notre comité</h1>
         <div>
           {props.committee.map((m: ApiMember) => (
-            <>
-              <Card
-                size="small"
-                key={(m as any).id}
-                member={m}
-                membership={m.attributes.pole_memberships.data[0]}
-              />
-              <Card
-                size="small"
-                key={(m as any).id}
-                member={m}
-                membership={m.attributes.pole_memberships.data[0]}
-              />
-            </>
+            <Card
+              size="small"
+              key={(m as any).id}
+              member={m}
+              membership={m.attributes.pole_memberships.data[0]}
+            />
           ))}
         </div>
       </div>
