@@ -1,6 +1,31 @@
-.memberCard {
+.card {
   width: 30ch;
   height: 10ch;
+  border-radius: 2rem;
+  padding: 1rem;
+
+  &.large {
+    width: 50ch;
+    height: 20ch;
+    border-radius: 4rem;
+
+    .title {
+      font-size: x-large;
+    }
+
+    .description {
+      font-size: large;
+    }
+
+    p {
+      margin: 1rem 0;
+    }
+
+    .picture {
+      width: 10rem;
+      height: 10rem;
+    }
+  }
 
   display: flex;
   justify-content: center;
@@ -8,9 +33,6 @@
   gap: 1rem;
 
   background-color: rgba($color: black, $alpha: 0.08);
-  border-radius: 2rem;
-
-  padding: 1rem;
 
   .picture {
     border: 3px gray solid;
@@ -20,7 +42,7 @@
     height: 6rem;
   }
 
-  .role {
+  .description {
     font-size: small;
     font-weight: 300;
   }

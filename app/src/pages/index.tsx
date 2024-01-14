@@ -1,4 +1,4 @@
-import MemberCard from "@/components/MemberCard";
+import Card from "@/components/Card";
 import NewsCard from "@/components/NewsCard";
 import StrapiImage from "@/components/StrapiImage";
 import strapi from "@/strapi";
@@ -29,7 +29,8 @@ export default function Home(
       <div className="cardList">
         <h1 className="title">Notre comité</h1>
         {props.committee.map((m: ApiMember) => (
-          <MemberCard
+          <Card
+            size="small"
             key={(m as any).id}
             member={m}
             membership={m.attributes.pole_memberships.data[0]}
