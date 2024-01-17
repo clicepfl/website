@@ -935,103 +935,6 @@ export interface ApiCommissionMembershipCommissionMembership
   };
 }
 
-export interface ApiEventEvent extends Schema.CollectionType {
-  collectionName: "events";
-  info: {
-    singularName: "event";
-    pluralName: "events";
-    displayName: "Event";
-    description: "";
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    event_date: Attribute.DateTime &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    event_description: Attribute.RichText &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.DefaultTo<"insert the event description here">;
-    canceled: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Attribute.DefaultTo<false>;
-    media: Attribute.Media &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    link: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    news: Attribute.Relation<"api::event.event", "oneToMany", "api::news.news">;
-    event_name: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    small_description: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    partners: Attribute.Relation<
-      "api::event.event",
-      "manyToMany",
-      "api::partner.partner"
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      "api::event.event",
-      "oneToOne",
-      "admin::user"
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      "api::event.event",
-      "oneToOne",
-      "admin::user"
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      "api::event.event",
-      "oneToMany",
-      "api::event.event"
-    >;
-    locale: Attribute.String;
-  };
-}
-
 export interface ApiMemberMember extends Schema.CollectionType {
   collectionName: "members";
   info: {
@@ -1122,11 +1025,6 @@ export interface ApiNewsNews extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    event: Attribute.Relation<
-      "api::news.news",
-      "manyToOne",
-      "api::event.event"
-    >;
     news_title: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -1189,11 +1087,6 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
       "api::partner.partner",
       "manyToMany",
       "api::commission.commission"
-    >;
-    events: Attribute.Relation<
-      "api::partner.partner",
-      "manyToMany",
-      "api::event.event"
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1367,7 +1260,6 @@ declare module "@strapi/strapi" {
       "api::association.association": ApiAssociationAssociation;
       "api::commission.commission": ApiCommissionCommission;
       "api::commission-membership.commission-membership": ApiCommissionMembershipCommissionMembership;
-      "api::event.event": ApiEventEvent;
       "api::member.member": ApiMemberMember;
       "api::news.news": ApiNewsNews;
       "api::partner.partner": ApiPartnerPartner;

@@ -3,7 +3,6 @@ import styles from "@/styles/Card.module.scss";
 import {
   ApiCommission,
   ApiCommissionMembership,
-  ApiEvent,
   ApiMember,
   ApiPoleMembership,
 } from "@/types/generated/contentTypes";
@@ -16,7 +15,6 @@ export default function Card(
         membership: ApiPoleMembership | ApiCommissionMembership;
       }
     | { commission: ApiCommission }
-    | { event: ApiEvent }
     | {
         img: any;
         title: string;
@@ -43,11 +41,6 @@ export default function Card(
     title = props.commission.attributes.name;
     description = props.commission.attributes.small_description;
     link = `/commission/${(props.commission as any).id}`;
-  } else if ("event" in props) {
-    img = null;
-    title = props.event.attributes.event_name;
-    description = props.event.attributes.small_description;
-    link = `/event/${(props.event as any).id}`;
   } else {
     img = props.img;
     title = props.title;

@@ -5,7 +5,6 @@ import strapi from "@/strapi";
 import {
   AdminUser,
   ApiCommission,
-  ApiEvent,
   ApiNews,
 } from "@/types/generated/contentTypes";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
@@ -15,7 +14,6 @@ export default function Page(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   const createdBy: AdminUser = props.news.attributes.createdBy.data;
-  const event: ApiEvent | null = props.news.attributes.event.data;
   const commissions: ApiCommission[] = props.news.attributes.commissions.data;
 
   return (
@@ -35,14 +33,13 @@ export default function Page(
         size="large"
       />
       <Markdown className="text">{props.news.attributes.content}</Markdown>
-      {event !== null || commissions.length > 0 ? (
+      {commissions.length > 0 ? (
         <>
           <h1>
             {translate("relatedContent", "en" /* TODO i18n */, {
               capitalize: true,
             })}
           </h1>
-          {event ? <Card event={event} size="large" /> : <></>}
           {commissions.map((c) => (
             <Card key={(c as any).id} commission={c} size="large" />
           ))}
@@ -63,13 +60,7 @@ export const getServerSideProps: GetServerSideProps<{ news: ApiNews }> = async (
   }
 
   let news = await strapi.findOne<ApiNews>("newss", context.params.id, {
-    populate: [
-      "picture",
-      "createdBy",
-      "event",
-      "commissions",
-      "commissions.logo",
-    ],
+    populate: ["picture", "createdBy", "commissions", "commissions.logo"],
   });
 
   return { props: { news: news.data } };

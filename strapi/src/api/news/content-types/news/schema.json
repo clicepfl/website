@@ -49,12 +49,6 @@
         }
       }
     },
-    "event": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::event.event",
-      "inversedBy": "news"
-    },
     "news_title": {
       "pluginOptions": {
         "i18n": {

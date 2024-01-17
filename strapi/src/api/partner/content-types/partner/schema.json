@@ -46,12 +46,6 @@
       "relation": "manyToMany",
       "target": "api::commission.commission",
       "mappedBy": "partners"
-    },
-    "events": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::event.event",
-      "mappedBy": "partners"
     }
   }
 }
