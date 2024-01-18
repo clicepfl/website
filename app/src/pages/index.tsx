@@ -1,5 +1,6 @@
 import Card from "@/components/Card";
 import NewsCard from "@/components/NewsCard";
+import Slider from "@/components/Slider";
 import StrapiImage from "@/components/StrapiImage";
 import strapi from "@/strapi";
 import {
@@ -20,11 +21,11 @@ export default function Home(
         size="medium"
         className="CLICLogo"
       />
-      <div>
+      <Slider>
         {props.news.map((n) => (
           <NewsCard key={(n as any).id} news={n} />
         ))}
-      </div>
+      </Slider>
       <Markdown className="text">{props.association.attributes.about}</Markdown>
       <div className="cardList">
         <h1 className="title">Notre comité</h1>
