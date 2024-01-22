@@ -27,8 +27,6 @@ function NavMenu(props: { visible: boolean }) {
       <div className={styles.menuList}>
         <Entry title="L'Association" href="/" />
         <Entry title="Commissions" href="/commissions" />
-        <Entry title="Coaching" href="/coaching" />
-        <Entry title="Évenements" href="/events" />
         <Entry title="News" href="/news" />
       </div>
     </div>
