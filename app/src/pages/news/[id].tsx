@@ -18,8 +18,8 @@ export default function Page(
 
   return (
     <div className="page">
-      <h1 className="title">{props.news.attributes.news_title}</h1>
-      <h3>{props.news.attributes.small_description}</h3>
+      <h1 className="title large">{props.news.attributes.news_title}</h1>
+      <h4>{props.news.attributes.small_description}</h4>
       <p className="author">
         {`${formatDate(props.news.attributes.createdAt, "en" /* TODO i18n */, {
           capitalize: true,

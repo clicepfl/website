@@ -84,6 +84,10 @@ a {
 
 .page {
   @extend .text;
+  h4 {
+    text-align: left;
+  }
+
   padding: 2rem;
   > :first-child {
     margin-top: 0;
@@ -98,6 +102,10 @@ a {
 
   width: fit-content;
   max-width: unset;
+
+  > h4 {
+    font-weight: 500;
+  }
 
   h2,
   h3,
