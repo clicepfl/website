@@ -99,13 +99,18 @@ a {
   width: fit-content;
   max-width: unset;
 
-  > h2,
+  h2,
   h3,
   h4,
   h5,
   h6,
   p {
     align-self: baseline;
+    max-width: 70ch;
+  }
+
+  img {
+    max-width: 60ch;
   }
 
   .banner {
@@ -121,6 +126,7 @@ a {
     font-weight: 200;
   }
 }
+
 .title {
   text-align: center;
 
@@ -138,6 +144,19 @@ a {
   &::before {
     @extend ::after;
     left: -0.5rem;
+  }
+
+  &.large {
+    font-size: 50px;
+    background-color: var(--background-color);
+
+    width: fit-content;
+    padding: 0 2rem;
+    border-radius: 1rem;
+
+    &::after {
+      top: -0.8rem;
+    }
   }
 }
 
@@ -158,17 +177,7 @@ a {
 
   h1 {
     @extend .title;
-
-    font-size: 50px;
-    background-color: var(--background-color);
-
-    width: fit-content;
-    padding: 0 2rem;
-    border-radius: 1rem;
-
-    &::after {
-      top: -0.8rem;
-    }
+    @extend .large;
   }
 }
 
