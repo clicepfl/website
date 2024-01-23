@@ -37,6 +37,9 @@
   gap: 1rem;
 
   background-color: rgba($color: black, $alpha: 0.08);
+  &.background {
+    background-color: var(--background-color);
+  }
 
   .picture {
     border: 3px gray solid;

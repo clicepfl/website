@@ -22,7 +22,7 @@ export default function Card(
         link?: string;
         linkTarget?: "_blank";
       }
-  ) & { size: "small" | "large" }
+  ) & { size: "small" | "large"; background?: boolean }
 ) {
   let img = null,
     title = null,
@@ -50,7 +50,11 @@ export default function Card(
   }
 
   const component = (
-    <div className={`${styles.card} ${styles[props.size]}`}>
+    <div
+      className={`${styles.card} ${styles[props.size]} ${
+        props.background ? styles.background : ""
+      }`}
+    >
       {img && img.data ? (
         <StrapiImage className={styles.picture} img={img} size="thumbnail" />
       ) : (
