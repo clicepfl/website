@@ -96,6 +96,9 @@ a {
   flex-direction: column;
   align-items: center;
 
+  width: fit-content;
+  max-width: unset;
+
   > h2,
   h3,
   h4,
@@ -104,12 +107,6 @@ a {
   p {
     align-self: baseline;
   }
-
-  width: fit-content;
-  max-width: unset;
-
-  display: flex;
-  flex-direction: column;
 
   .banner {
     width: auto;
@@ -124,7 +121,6 @@ a {
     font-weight: 200;
   }
 }
-
 .title {
   text-align: center;
 
@@ -142,6 +138,37 @@ a {
   &::before {
     @extend ::after;
     left: -0.5rem;
+  }
+}
+
+.pageList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+
+  width: fit-content;
+
+  > :first-child {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  h1 {
+    @extend .title;
+
+    font-size: 50px;
+    background-color: var(--background-color);
+
+    width: fit-content;
+    padding: 0 2rem;
+    border-radius: 1rem;
+
+    &::after {
+      top: -0.8rem;
+    }
   }
 }
 
