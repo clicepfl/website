@@ -19,7 +19,10 @@ export default function StrapiImage({
   let image = img.data.attributes;
 
   if (image.ext !== ".svg") {
-    let selectedFormat = size === "origin" ? image : image.formats[size];
+    let selectedFormat =
+      size === "origin" || !(size in image.formats)
+        ? image
+        : image.formats[size];
 
     return (
       <>
