@@ -17,22 +17,6 @@ function Entry({ title, href }: { title: string; href: string }) {
   );
 }
 
-function NavMenu(props: { visible: boolean }) {
-  return (
-    <div
-      className={
-        styles.navigationMenu + " " + (!props.visible ? styles.hidden : "")
-      }
-    >
-      <div className={styles.menuList}>
-        <Entry title="L'Association" href="/" />
-        <Entry title="Commissions" href="/commissions" />
-        <Entry title="News" href="/news" />
-      </div>
-    </div>
-  );
-}
-
 /* TODO the socials should be dynamically loaded from Strapi. 
   This would probably require to migrate to an App Router to use
   server-side components. */
@@ -63,7 +47,17 @@ export default function NavigationBar() {
         </Link>
       </div>
 
-      <NavMenu visible={visible} />
+      <div
+        className={
+          styles.navigationMenu + " " + (!visible ? styles.hidden : "")
+        }
+      >
+        <div className={styles.menuList} onClick={(e) => setVisible(false)}>
+          <Entry title="L'Association" href="/" />
+          <Entry title="Commissions" href="/commissions" />
+          <Entry title="News" href="/news" />
+        </div>
+      </div>
     </div>
   );
 }
