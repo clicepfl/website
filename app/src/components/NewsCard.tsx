@@ -5,7 +5,10 @@ import Link from "next/link";
 
 export default function NewsCard({ news }: { news: ApiNews }) {
   return (
-    <Link href={`/news/${(news as any).id}`} className={`${styles.newsCard}`}>
+    <Link
+      href={`/news/${news.attributes.slug}`}
+      className={`${styles.newsCard}`}
+    >
       <div>
         <StrapiImage img={news.attributes.picture} size="small" />
       </div>

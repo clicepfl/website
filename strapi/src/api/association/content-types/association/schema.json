@@ -25,7 +25,7 @@
       "type": "string",
       "required": true,
       "default": "CLIC",
-      "unique": true
+      "unique": false
     },
     "about": {
       "pluginOptions": {
@@ -99,7 +99,7 @@
       },
       "type": "string",
       "required": true,
-      "unique": true,
+      "unique": false,
       "default": "CLIC, INN 132, Station 14, EPFL, CH-1015 Lausanne"
     },
     "email": {

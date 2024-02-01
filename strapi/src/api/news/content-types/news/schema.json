@@ -8,8 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true,
-    "populateCreatorFields": true
+    "draftAndPublish": true
   },
   "pluginOptions": {
     "i18n": {
@@ -25,15 +24,6 @@
       },
       "type": "richtext",
       "default": "insert the news content here",
-      "required": true
-    },
-    "publication": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "date",
       "required": true
     },
     "picture": {
@@ -79,6 +69,17 @@
         }
       },
       "type": "text",
+      "required": true
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "unique": false,
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
       "required": true
     }
   }

@@ -2,6 +2,7 @@ import Card from "@/components/Card";
 import NewsCard from "@/components/NewsCard";
 import Slider from "@/components/Slider";
 import StrapiImage from "@/components/StrapiImage";
+import { locale, translate } from "@/locales";
 import strapi from "@/strapi";
 import {
   ApiAssociation,
@@ -9,11 +10,14 @@ import {
   ApiNews,
 } from "@/types/generated/contentTypes";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { useRouter } from "next/router";
 import Markdown from "react-markdown";
 
 export default function Home(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
+  const router = useRouter();
+
   return (
     <>
       <StrapiImage
@@ -28,7 +32,9 @@ export default function Home(
       </Slider>
       <Markdown className="text">{props.association.attributes.about}</Markdown>
       <div className="cardList">
-        <h1 className="title">Notre comité</h1>
+        <h1 className="title">
+          {translate("committee", locale(router), { capitalize: true })}
+        </h1>
         <div>
           {props.committee.map((m: ApiMember) => (
             <Card
@@ -51,10 +57,12 @@ export const getServerSideProps: GetServerSideProps<{
 }> = async (context) => {
   let association = await strapi.find<ApiAssociation>("association", {
     populate: "logo",
+    locale: locale(context),
   });
   let news = await strapi.find<ApiNews[]>("newss", {
     pagination: { start: 0, limit: 3 },
     populate: "picture",
+    locale: locale(context),
   });
   let committee = await strapi.find<ApiMember[]>("members", {
     populate: ["pole_memberships", "picture"],
@@ -67,6 +75,7 @@ export const getServerSideProps: GetServerSideProps<{
         level: "Comité",
       },
     },
+    locale: locale(context),
   });
   return {
     props: {

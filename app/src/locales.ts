@@ -1,10 +1,18 @@
-export type Locale = "en" | "fr";
+import config from "@/../next.config";
+import { StrapiLocale } from "strapi-sdk-js";
+
+export type Locale = string;
+
+export function locale(context: { locale?: string }) {
+  return (context.locale || config.i18n.defaultLocale) as StrapiLocale;
+}
 
 interface Translations {
   dateIndicator: string;
   timeIndicator: string;
   by: string;
   relatedContent: string;
+  committee: string;
 }
 
 const translations: { [key in Locale]: Translations } = {
@@ -13,12 +21,14 @@ const translations: { [key in Locale]: Translations } = {
     timeIndicator: "at",
     by: "by",
     relatedContent: "related content",
+    committee: "committee",
   },
   fr: {
     dateIndicator: "le",
     timeIndicator: "à",
     by: "par",
     relatedContent: "contenu lié",
+    committee: "comité",
   },
 };
 
@@ -40,7 +50,7 @@ export function applyOptions(
 
 export function formatDate(
   date: Date | string,
-  locale: Locale,
+  locale: Locale = config.i18n.defaultLocale,
   opts?: LangOptions
 ): string {
   const d = new Date(date);
@@ -57,7 +67,7 @@ export function formatDate(
 
 export function translate(
   id: keyof Translations,
-  locale: Locale,
+  locale: Locale = config.i18n.defaultLocale,
   opts?: LangOptions
 ) {
   return applyOptions(translations[locale][id], locale, opts);

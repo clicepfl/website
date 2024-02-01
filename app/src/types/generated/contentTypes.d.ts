@@ -695,7 +695,6 @@ export interface ApiAssociation extends Schema.SingleType {
   attributes: {
     association_name: Attribute.String &
       Attribute.Required &
-      Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -744,7 +743,6 @@ export interface ApiAssociation extends Schema.SingleType {
     >;
     address: Attribute.String &
       Attribute.Required &
-      Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -994,7 +992,6 @@ export interface ApiNews extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: true;
-    populateCreatorFields: true;
   };
   pluginOptions: {
     i18n: {
@@ -1010,13 +1007,6 @@ export interface ApiNews extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<"insert the news content here">;
-    publication: Attribute.Date &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     picture: Attribute.Media &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -1049,11 +1039,20 @@ export interface ApiNews extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<"api::news.news", "oneToOne", "admin::user">;
-    updatedBy: Attribute.Relation<"api::news.news", "oneToOne", "admin::user">;
+    createdBy: Attribute.Relation<"api::news.news", "oneToOne", "admin::user"> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<"api::news.news", "oneToOne", "admin::user"> &
+      Attribute.Private;
     localizations: Attribute.Relation<
       "api::news.news",
       "oneToMany",

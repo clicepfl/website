@@ -1,31 +1,26 @@
 import Card from "@/components/Card";
 import StrapiImage from "@/components/StrapiImage";
-import { formatDate, translate } from "@/locales";
+import { formatDate, locale, translate } from "@/locales";
 import strapi from "@/strapi";
-import {
-  AdminUser,
-  ApiCommission,
-  ApiNews,
-} from "@/types/generated/contentTypes";
+import { ApiCommission, ApiNews } from "@/types/generated/contentTypes";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { useRouter } from "next/router";
 import Markdown from "react-markdown";
 
 export default function Page(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
-  const createdBy: AdminUser = props.news.attributes.createdBy.data;
   const commissions: ApiCommission[] = props.news.attributes.commissions.data;
+  const router = useRouter();
 
   return (
     <div className="page">
       <h1 className="title large">{props.news.attributes.news_title}</h1>
       <h4>{props.news.attributes.small_description}</h4>
       <p className="author">
-        {`${formatDate(props.news.attributes.createdAt, "en" /* TODO i18n */, {
+        {`${formatDate(props.news.attributes.createdAt, router.locale, {
           capitalize: true,
-        })}, ${translate("by", "en" /* TODO i18n */)} ${
-          createdBy.attributes.firstname
-        } ${createdBy.attributes.lastname}`}
+        })}`}
       </p>
       <StrapiImage
         className="banner"
@@ -36,7 +31,7 @@ export default function Page(
       {commissions.length > 0 ? (
         <>
           <h1>
-            {translate("relatedContent", "en" /* TODO i18n */, {
+            {translate("relatedContent", locale(router), {
               capitalize: true,
             })}
           </h1>
@@ -59,9 +54,14 @@ export const getServerSideProps: GetServerSideProps<{ news: ApiNews }> = async (
     return { notFound: true };
   }
 
-  let news = await strapi.findOne<ApiNews>("newss", context.params.id, {
-    populate: ["picture", "createdBy", "commissions", "commissions.logo"],
+  let news = await strapi.find<ApiNews[]>("newss", {
+    populate: ["picture", "created_by", "commissions", "commissions.logo"],
+    locale: locale(context),
+    filters: {
+      slug: context.params.id,
+    },
   });
+  console.log(JSON.stringify(news));
 
-  return { props: { news: news.data } };
+  return { props: { news: news.data[0] } };
 };
