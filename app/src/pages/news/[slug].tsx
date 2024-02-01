@@ -49,8 +49,8 @@ export default function Page(
 export const getServerSideProps: GetServerSideProps<{ news: ApiNews }> = async (
   context
 ) => {
-  if (typeof context.params?.id !== "string") {
-    console.log(typeof context.params?.id);
+  if (typeof context.params?.slug !== "string") {
+    console.log(typeof context.params?.slug);
     return { notFound: true };
   }
 
@@ -58,10 +58,9 @@ export const getServerSideProps: GetServerSideProps<{ news: ApiNews }> = async (
     populate: ["picture", "created_by", "commissions", "commissions.logo"],
     locale: locale(context),
     filters: {
-      slug: context.params.id,
+      slug: context.params.slug,
     },
   });
-  console.log(JSON.stringify(news));
 
   return { props: { news: news.data[0] } };
 };
