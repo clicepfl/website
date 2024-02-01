@@ -62,5 +62,9 @@ export const getServerSideProps: GetServerSideProps<{ news: ApiNews }> = async (
     },
   });
 
+  if (news.data.length != 1) {
+    return { notFound: true };
+  }
+
   return { props: { news: news.data[0] } };
 };

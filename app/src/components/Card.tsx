@@ -40,7 +40,7 @@ export default function Card(
     img = props.commission.attributes.logo;
     title = props.commission.attributes.name;
     description = props.commission.attributes.small_description;
-    link = `/commission/${(props.commission as any).id}`;
+    link = `/commission/${props.commission.attributes.slug}`;
   } else {
     img = props.img;
     title = props.title;

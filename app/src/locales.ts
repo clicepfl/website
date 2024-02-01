@@ -13,15 +13,23 @@ interface Translations {
   by: string;
   relatedContent: string;
   committee: string;
+  commission: string;
 }
 
-const translations: { [key in Locale]: Translations } = {
+type OptionsOperators = {
+  [key in keyof LangOptions]: (value: string) => string;
+};
+
+const translations: { [key in Locale]: Translations & OptionsOperators } = {
   en: {
     dateIndicator: "on",
     timeIndicator: "at",
     by: "by",
     relatedContent: "related content",
     committee: "committee",
+    commission: "commission",
+    capitalize: (s) => s.replace(/^(\s*\w)/, (s) => s.toUpperCase()),
+    plural: (s) => s + "s",
   },
   fr: {
     dateIndicator: "le",
@@ -29,20 +37,31 @@ const translations: { [key in Locale]: Translations } = {
     by: "par",
     relatedContent: "contenu lié",
     committee: "comité",
+    commission: "commission",
+    capitalize: (s) => s.replace(/^(\s*\w)/, (s) => s.toUpperCase()),
+    plural: (s) => (s.endsWith("u") ? s + "x" : s + "s"),
   },
 };
 
 interface LangOptions {
-  capitalize: boolean;
+  capitalize?: boolean;
+  plural?: boolean;
 }
+
 export function applyOptions(
   str: string,
   locale: Locale,
   opts?: LangOptions
 ): string {
   let result = str;
-  if (opts?.capitalize) {
-    result = result.replace(/(\s*\w)/, (s) => s.toUpperCase());
+  let l = translations[locale];
+
+  if (opts) {
+    Object.keys(opts).forEach((opt: string) => {
+      if ((opts as any)[opt] && opt in l) {
+        result = (l as any)[opt](result);
+      }
+    });
   }
 
   return result;
