@@ -2,6 +2,7 @@ import Card from "@/components/Card";
 import NewsCard from "@/components/NewsCard";
 import Slider from "@/components/Slider";
 import StrapiImage from "@/components/StrapiImage";
+import { directus } from "@/directus";
 import { locale, translate } from "@/locales";
 import strapi from "@/strapi";
 import {
@@ -9,6 +10,7 @@ import {
   ApiMember,
   ApiNews,
 } from "@/types/generated/contentTypes";
+import { readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 import Markdown from "react-markdown";
@@ -55,6 +57,9 @@ export const getServerSideProps: GetServerSideProps<{
   news: ApiNews[];
   committee: ApiMember[];
 }> = async (context) => {
+  const assoc = await directus.request(readSingleton("Association"));
+  console.log(assoc);
+
   let association = await strapi.find<ApiAssociation>("association", {
     populate: "logo",
     locale: locale(context),
