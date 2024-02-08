@@ -4,43 +4,37 @@
 name: clic-website-devcontainer
 
 services:
-  # Custom strapi service
-  strapi:
-    # Build the strapi service from its folder
-    container_name: clic-strapi
-    build:
-      # Build context, relative to the current file
-      context: ../strapi/.devcontainer
-      # Path to Dockerfile, relative to context
-      dockerfile: Dockerfile
-      args:
-        VARIANT: ${VARIANT:-18-bullseye}
+  # Directus service
+  directus:
+    image: directus/directus
+    container_name: clic-directus
     environment:
-      DATABASE_CLIENT: postgres
-      DATABASE_HOST: strapi-postgres
-      DATABASE_PORT: 5432
-      DATABASE_NAME: strapi_data
-      DATABASE_USER: strapi_user
-      DATABASE_PASSWORD: strapi_pw
-      NODE_ENV: development
-    volumes:
-      # Bind-mount the strapi project folder into the container
-      - type: bind
-        source: ../strapi
-        target: /app
+      SECRET: secret
+      KEY: key
+      DB_CLIENT: postgres
+      DB_HOST: directus-postgres
+      DB_PORT: 5432
+      DB_DATABASE: directus_data
+      DB_USER: directus_user
+      DB_PASSWORD: directus_pw
+      PUBLIC_URL: http://localhost/directus
+      ROOT_REDIRECT: /directus/admin
+      ADMIN_EMAIL: clic@epfl.ch
+      ADMIN_PASSWORD: 1234
+      LOG_LEVEL: trace
     depends_on:
-      - strapi-postgres
+      - directus-postgres
 
-  # Database service for strapi
-  strapi-postgres:
+  # Database for directus
+  directus-postgres:
     container_name: clic-postgres
     image: postgres
     environment:
-      POSTGRES_DB: strapi_data
-      POSTGRES_USER: strapi_user
-      POSTGRES_PASSWORD: strapi_pw
+      POSTGRES_DB: directus_data
+      POSTGRES_USER: directus_user
+      POSTGRES_PASSWORD: directus_pw
     volumes:
-      - "strapi-data:/var/lib/postgresql/data"
+      - "directus-data:/var/lib/postgresql/data"
 
   app:
     # Build the app service from its folder
@@ -67,5 +61,5 @@ services:
       - "80:80"
 
 volumes:
-  # Persist strapi database
-  strapi-data:
+  # Persist directus database
+  directus-data:
