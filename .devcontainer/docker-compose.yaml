@@ -21,9 +21,12 @@ services:
       ROOT_REDIRECT: /directus/admin
       ADMIN_EMAIL: clic@epfl.ch
       ADMIN_PASSWORD: 1234
-      LOG_LEVEL: trace
     depends_on:
       - directus-postgres
+    volumes:
+      - ../directus:/share
+      - directus-uploads:/directus/uploads
+      - directus-extensions:/directus-extensions
 
   # Database for directus
   directus-postgres:
@@ -63,3 +66,5 @@ services:
 volumes:
   # Persist directus database
   directus-data:
+  directus-uploads:
+  directus-extensions:
