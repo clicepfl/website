@@ -2,7 +2,7 @@
   "scripts": {
     "prepare": "husky install",
     "load-directus": "docker exec -it clic-directus npx directus schema apply /share/snapshot.yaml&&docker restart clic-directus",
-    "save-directus": "node save-directus.js"
+    "save-directus": "sh save-directus.sh"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
