@@ -783,6 +783,162 @@ export interface paths {
      */
     post: operations["promoteContentVersion"];
   };
+  "/items/association": {
+    /**
+     * List Items
+     * @description List the association items.
+     */
+    get: operations["readItemsAssociation"];
+    /**
+     * Create an Item
+     * @description Create a new association item.
+     */
+    post: operations["createItemsAssociation"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing association items.
+     */
+    delete: operations["deleteItemsAssociation"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple association items at the same time.
+     */
+    patch: operations["updateItemsAssociation"];
+  };
+  "/items/association/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single association item by unique identifier.
+     */
+    get: operations["readSingleItemsAssociation"];
+    /**
+     * Delete an Item
+     * @description Delete an existing association item.
+     */
+    delete: operations["deleteSingleItemsAssociation"];
+    /**
+     * Update an Item
+     * @description Update an existing association item.
+     */
+    patch: operations["updateSingleItemsAssociation"];
+  };
+  "/items/association_files": {
+    /**
+     * List Items
+     * @description List the association_files items.
+     */
+    get: operations["readItemsAssociationFiles"];
+    /**
+     * Create an Item
+     * @description Create a new association_files item.
+     */
+    post: operations["createItemsAssociationFiles"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing association_files items.
+     */
+    delete: operations["deleteItemsAssociationFiles"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple association_files items at the same time.
+     */
+    patch: operations["updateItemsAssociationFiles"];
+  };
+  "/items/association_files/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single association_files item by unique identifier.
+     */
+    get: operations["readSingleItemsAssociationFiles"];
+    /**
+     * Delete an Item
+     * @description Delete an existing association_files item.
+     */
+    delete: operations["deleteSingleItemsAssociationFiles"];
+    /**
+     * Update an Item
+     * @description Update an existing association_files item.
+     */
+    patch: operations["updateSingleItemsAssociationFiles"];
+  };
+  "/items/members": {
+    /**
+     * List Items
+     * @description List the members items.
+     */
+    get: operations["readItemsMembers"];
+    /**
+     * Create an Item
+     * @description Create a new members item.
+     */
+    post: operations["createItemsMembers"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing members items.
+     */
+    delete: operations["deleteItemsMembers"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple members items at the same time.
+     */
+    patch: operations["updateItemsMembers"];
+  };
+  "/items/members/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single members item by unique identifier.
+     */
+    get: operations["readSingleItemsMembers"];
+    /**
+     * Delete an Item
+     * @description Delete an existing members item.
+     */
+    delete: operations["deleteSingleItemsMembers"];
+    /**
+     * Update an Item
+     * @description Update an existing members item.
+     */
+    patch: operations["updateSingleItemsMembers"];
+  };
+  "/items/association_memberships": {
+    /**
+     * List Items
+     * @description List the association_memberships items.
+     */
+    get: operations["readItemsAssociationMemberships"];
+    /**
+     * Create an Item
+     * @description Create a new association_memberships item.
+     */
+    post: operations["createItemsAssociationMemberships"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing association_memberships items.
+     */
+    delete: operations["deleteItemsAssociationMemberships"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple association_memberships items at the same time.
+     */
+    patch: operations["updateItemsAssociationMemberships"];
+  };
+  "/items/association_memberships/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single association_memberships item by unique identifier.
+     */
+    get: operations["readSingleItemsAssociationMemberships"];
+    /**
+     * Delete an Item
+     * @description Delete an existing association_memberships item.
+     */
+    delete: operations["deleteSingleItemsAssociationMemberships"];
+    /**
+     * Update an Item
+     * @description Update an existing association_memberships item.
+     */
+    patch: operations["updateSingleItemsAssociationMemberships"];
+  };
   "/items/languages": {
     /**
      * List Items
@@ -821,6 +977,435 @@ export interface paths {
      * @description Update an existing languages item.
      */
     patch: operations["updateSingleItemsLanguages"];
+  };
+  "/items/association_memberships_translations": {
+    /**
+     * List Items
+     * @description List the association_memberships_translations items.
+     */
+    get: operations["readItemsAssociationMembershipsTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new association_memberships_translations item.
+     */
+    post: operations["createItemsAssociationMembershipsTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing association_memberships_translations items.
+     */
+    delete: operations["deleteItemsAssociationMembershipsTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple association_memberships_translations items at the same time.
+     */
+    patch: operations["updateItemsAssociationMembershipsTranslations"];
+  };
+  "/items/association_memberships_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single association_memberships_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsAssociationMembershipsTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing association_memberships_translations item.
+     */
+    delete: operations["deleteSingleItemsAssociationMembershipsTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing association_memberships_translations item.
+     */
+    patch: operations["updateSingleItemsAssociationMembershipsTranslations"];
+  };
+  "/items/partners": {
+    /**
+     * List Items
+     * @description List the partners items.
+     */
+    get: operations["readItemsPartners"];
+    /**
+     * Create an Item
+     * @description Create a new partners item.
+     */
+    post: operations["createItemsPartners"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing partners items.
+     */
+    delete: operations["deleteItemsPartners"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple partners items at the same time.
+     */
+    patch: operations["updateItemsPartners"];
+  };
+  "/items/partners/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single partners item by unique identifier.
+     */
+    get: operations["readSingleItemsPartners"];
+    /**
+     * Delete an Item
+     * @description Delete an existing partners item.
+     */
+    delete: operations["deleteSingleItemsPartners"];
+    /**
+     * Update an Item
+     * @description Update an existing partners item.
+     */
+    patch: operations["updateSingleItemsPartners"];
+  };
+  "/items/association_partners": {
+    /**
+     * List Items
+     * @description List the association_partners items.
+     */
+    get: operations["readItemsAssociationPartners"];
+    /**
+     * Create an Item
+     * @description Create a new association_partners item.
+     */
+    post: operations["createItemsAssociationPartners"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing association_partners items.
+     */
+    delete: operations["deleteItemsAssociationPartners"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple association_partners items at the same time.
+     */
+    patch: operations["updateItemsAssociationPartners"];
+  };
+  "/items/association_partners/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single association_partners item by unique identifier.
+     */
+    get: operations["readSingleItemsAssociationPartners"];
+    /**
+     * Delete an Item
+     * @description Delete an existing association_partners item.
+     */
+    delete: operations["deleteSingleItemsAssociationPartners"];
+    /**
+     * Update an Item
+     * @description Update an existing association_partners item.
+     */
+    patch: operations["updateSingleItemsAssociationPartners"];
+  };
+  "/items/association_translations": {
+    /**
+     * List Items
+     * @description List the association_translations items.
+     */
+    get: operations["readItemsAssociationTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new association_translations item.
+     */
+    post: operations["createItemsAssociationTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing association_translations items.
+     */
+    delete: operations["deleteItemsAssociationTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple association_translations items at the same time.
+     */
+    patch: operations["updateItemsAssociationTranslations"];
+  };
+  "/items/association_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single association_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsAssociationTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing association_translations item.
+     */
+    delete: operations["deleteSingleItemsAssociationTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing association_translations item.
+     */
+    patch: operations["updateSingleItemsAssociationTranslations"];
+  };
+  "/items/commissions": {
+    /**
+     * List Items
+     * @description List the commissions items.
+     */
+    get: operations["readItemsCommissions"];
+    /**
+     * Create an Item
+     * @description Create a new commissions item.
+     */
+    post: operations["createItemsCommissions"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing commissions items.
+     */
+    delete: operations["deleteItemsCommissions"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple commissions items at the same time.
+     */
+    patch: operations["updateItemsCommissions"];
+  };
+  "/items/commissions/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single commissions item by unique identifier.
+     */
+    get: operations["readSingleItemsCommissions"];
+    /**
+     * Delete an Item
+     * @description Delete an existing commissions item.
+     */
+    delete: operations["deleteSingleItemsCommissions"];
+    /**
+     * Update an Item
+     * @description Update an existing commissions item.
+     */
+    patch: operations["updateSingleItemsCommissions"];
+  };
+  "/items/commission_memberships": {
+    /**
+     * List Items
+     * @description List the commission_memberships items.
+     */
+    get: operations["readItemsCommissionMemberships"];
+    /**
+     * Create an Item
+     * @description Create a new commission_memberships item.
+     */
+    post: operations["createItemsCommissionMemberships"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing commission_memberships items.
+     */
+    delete: operations["deleteItemsCommissionMemberships"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple commission_memberships items at the same time.
+     */
+    patch: operations["updateItemsCommissionMemberships"];
+  };
+  "/items/commission_memberships/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single commission_memberships item by unique identifier.
+     */
+    get: operations["readSingleItemsCommissionMemberships"];
+    /**
+     * Delete an Item
+     * @description Delete an existing commission_memberships item.
+     */
+    delete: operations["deleteSingleItemsCommissionMemberships"];
+    /**
+     * Update an Item
+     * @description Update an existing commission_memberships item.
+     */
+    patch: operations["updateSingleItemsCommissionMemberships"];
+  };
+  "/items/commission_memberships_translations": {
+    /**
+     * List Items
+     * @description List the commission_memberships_translations items.
+     */
+    get: operations["readItemsCommissionMembershipsTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new commission_memberships_translations item.
+     */
+    post: operations["createItemsCommissionMembershipsTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing commission_memberships_translations items.
+     */
+    delete: operations["deleteItemsCommissionMembershipsTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple commission_memberships_translations items at the same time.
+     */
+    patch: operations["updateItemsCommissionMembershipsTranslations"];
+  };
+  "/items/commission_memberships_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single commission_memberships_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsCommissionMembershipsTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing commission_memberships_translations item.
+     */
+    delete: operations["deleteSingleItemsCommissionMembershipsTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing commission_memberships_translations item.
+     */
+    patch: operations["updateSingleItemsCommissionMembershipsTranslations"];
+  };
+  "/items/commissions_members": {
+    /**
+     * List Items
+     * @description List the commissions_members items.
+     */
+    get: operations["readItemsCommissionsMembers"];
+    /**
+     * Create an Item
+     * @description Create a new commissions_members item.
+     */
+    post: operations["createItemsCommissionsMembers"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing commissions_members items.
+     */
+    delete: operations["deleteItemsCommissionsMembers"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple commissions_members items at the same time.
+     */
+    patch: operations["updateItemsCommissionsMembers"];
+  };
+  "/items/commissions_members/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single commissions_members item by unique identifier.
+     */
+    get: operations["readSingleItemsCommissionsMembers"];
+    /**
+     * Delete an Item
+     * @description Delete an existing commissions_members item.
+     */
+    delete: operations["deleteSingleItemsCommissionsMembers"];
+    /**
+     * Update an Item
+     * @description Update an existing commissions_members item.
+     */
+    patch: operations["updateSingleItemsCommissionsMembers"];
+  };
+  "/items/social_links": {
+    /**
+     * List Items
+     * @description List the social_links items.
+     */
+    get: operations["readItemsSocialLinks"];
+    /**
+     * Create an Item
+     * @description Create a new social_links item.
+     */
+    post: operations["createItemsSocialLinks"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing social_links items.
+     */
+    delete: operations["deleteItemsSocialLinks"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple social_links items at the same time.
+     */
+    patch: operations["updateItemsSocialLinks"];
+  };
+  "/items/social_links/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single social_links item by unique identifier.
+     */
+    get: operations["readSingleItemsSocialLinks"];
+    /**
+     * Delete an Item
+     * @description Delete an existing social_links item.
+     */
+    delete: operations["deleteSingleItemsSocialLinks"];
+    /**
+     * Update an Item
+     * @description Update an existing social_links item.
+     */
+    patch: operations["updateSingleItemsSocialLinks"];
+  };
+  "/items/commissions_social_links": {
+    /**
+     * List Items
+     * @description List the commissions_social_links items.
+     */
+    get: operations["readItemsCommissionsSocialLinks"];
+    /**
+     * Create an Item
+     * @description Create a new commissions_social_links item.
+     */
+    post: operations["createItemsCommissionsSocialLinks"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing commissions_social_links items.
+     */
+    delete: operations["deleteItemsCommissionsSocialLinks"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple commissions_social_links items at the same time.
+     */
+    patch: operations["updateItemsCommissionsSocialLinks"];
+  };
+  "/items/commissions_social_links/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single commissions_social_links item by unique identifier.
+     */
+    get: operations["readSingleItemsCommissionsSocialLinks"];
+    /**
+     * Delete an Item
+     * @description Delete an existing commissions_social_links item.
+     */
+    delete: operations["deleteSingleItemsCommissionsSocialLinks"];
+    /**
+     * Update an Item
+     * @description Update an existing commissions_social_links item.
+     */
+    patch: operations["updateSingleItemsCommissionsSocialLinks"];
+  };
+  "/items/commissions_translations": {
+    /**
+     * List Items
+     * @description List the commissions_translations items.
+     */
+    get: operations["readItemsCommissionsTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new commissions_translations item.
+     */
+    post: operations["createItemsCommissionsTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing commissions_translations items.
+     */
+    delete: operations["deleteItemsCommissionsTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple commissions_translations items at the same time.
+     */
+    patch: operations["updateItemsCommissionsTranslations"];
+  };
+  "/items/commissions_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single commissions_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsCommissionsTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing commissions_translations item.
+     */
+    delete: operations["deleteSingleItemsCommissionsTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing commissions_translations item.
+     */
+    patch: operations["updateSingleItemsCommissionsTranslations"];
   };
   "/items/news": {
     /**
@@ -861,6 +1446,84 @@ export interface paths {
      */
     patch: operations["updateSingleItemsNews"];
   };
+  "/items/news_commissions": {
+    /**
+     * List Items
+     * @description List the news_commissions items.
+     */
+    get: operations["readItemsNewsCommissions"];
+    /**
+     * Create an Item
+     * @description Create a new news_commissions item.
+     */
+    post: operations["createItemsNewsCommissions"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing news_commissions items.
+     */
+    delete: operations["deleteItemsNewsCommissions"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple news_commissions items at the same time.
+     */
+    patch: operations["updateItemsNewsCommissions"];
+  };
+  "/items/news_commissions/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single news_commissions item by unique identifier.
+     */
+    get: operations["readSingleItemsNewsCommissions"];
+    /**
+     * Delete an Item
+     * @description Delete an existing news_commissions item.
+     */
+    delete: operations["deleteSingleItemsNewsCommissions"];
+    /**
+     * Update an Item
+     * @description Update an existing news_commissions item.
+     */
+    patch: operations["updateSingleItemsNewsCommissions"];
+  };
+  "/items/news_partners": {
+    /**
+     * List Items
+     * @description List the news_partners items.
+     */
+    get: operations["readItemsNewsPartners"];
+    /**
+     * Create an Item
+     * @description Create a new news_partners item.
+     */
+    post: operations["createItemsNewsPartners"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing news_partners items.
+     */
+    delete: operations["deleteItemsNewsPartners"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple news_partners items at the same time.
+     */
+    patch: operations["updateItemsNewsPartners"];
+  };
+  "/items/news_partners/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single news_partners item by unique identifier.
+     */
+    get: operations["readSingleItemsNewsPartners"];
+    /**
+     * Delete an Item
+     * @description Delete an existing news_partners item.
+     */
+    delete: operations["deleteSingleItemsNewsPartners"];
+    /**
+     * Update an Item
+     * @description Update an existing news_partners item.
+     */
+    patch: operations["updateSingleItemsNewsPartners"];
+  };
   "/items/news_translations": {
     /**
      * List Items
@@ -899,6 +1562,45 @@ export interface paths {
      * @description Update an existing news_translations item.
      */
     patch: operations["updateSingleItemsNewsTranslations"];
+  };
+  "/items/association_social_links": {
+    /**
+     * List Items
+     * @description List the association_social_links items.
+     */
+    get: operations["readItemsAssociationSocialLinks"];
+    /**
+     * Create an Item
+     * @description Create a new association_social_links item.
+     */
+    post: operations["createItemsAssociationSocialLinks"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing association_social_links items.
+     */
+    delete: operations["deleteItemsAssociationSocialLinks"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple association_social_links items at the same time.
+     */
+    patch: operations["updateItemsAssociationSocialLinks"];
+  };
+  "/items/association_social_links/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single association_social_links item by unique identifier.
+     */
+    get: operations["readSingleItemsAssociationSocialLinks"];
+    /**
+     * Delete an Item
+     * @description Delete an existing association_social_links item.
+     */
+    delete: operations["deleteSingleItemsAssociationSocialLinks"];
+    /**
+     * Update an Item
+     * @description Update an existing association_social_links item.
+     */
+    patch: operations["updateSingleItemsAssociationSocialLinks"];
   };
 }
 
@@ -1838,8 +2540,167 @@ export interface components {
        */
       user_updated?: string | components["schemas"]["Users"];
     };
+    ItemsAssociation: {
+      id?: number;
+      name?: string | null;
+      email?: string | null;
+      phone?: string | null;
+      address?: string | null;
+      logo?: string | components["schemas"]["Files"] | null;
+      translations?:
+        | (number | components["schemas"]["ItemsAssociationTranslations"])[]
+        | null;
+      official_documents?:
+        | (number | components["schemas"]["ItemsAssociationFiles"])[]
+        | null;
+      partners?:
+        | (number | components["schemas"]["ItemsAssociationPartners"])[]
+        | null;
+      social_links?:
+        | (number | components["schemas"]["ItemsAssociationSocialLinks"])[]
+        | null;
+    };
+    ItemsAssociationFiles: {
+      id?: number;
+      association_id?:
+        | number
+        | components["schemas"]["ItemsAssociation"]
+        | null;
+      directus_files_id?: string | components["schemas"]["Files"] | null;
+    };
+    ItemsMembers: {
+      id?: number;
+      name?: string | null;
+      surname?: string | null;
+      email?: string | null;
+      sciper?: string | null;
+      link?: string | null;
+      picture?: string | components["schemas"]["Files"] | null;
+    };
+    ItemsAssociationMemberships: {
+      id?: number;
+      member?: number | components["schemas"]["ItemsMembers"];
+      level?: string | null;
+      translations?:
+        | (
+            | number
+            | components["schemas"]["ItemsAssociationMembershipsTranslations"]
+          )[]
+        | null;
+    };
     ItemsLanguages: {
       code?: string;
+    };
+    ItemsAssociationMembershipsTranslations: {
+      id?: number;
+      association_memberships_id?:
+        | number
+        | components["schemas"]["ItemsAssociationMemberships"]
+        | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      title?: string | null;
+    };
+    ItemsPartners: {
+      id?: number;
+      name?: string | null;
+      logo?: string | components["schemas"]["Files"] | null;
+      link?: string | null;
+      rank?: number | null;
+      /** Format: date */
+      start?: string | null;
+      /** Format: date */
+      end?: string | null;
+      commission?: number | components["schemas"]["ItemsCommissions"] | null;
+    };
+    ItemsAssociationPartners: {
+      id?: number;
+      association_id?:
+        | number
+        | components["schemas"]["ItemsAssociation"]
+        | null;
+      partners_id?: number | components["schemas"]["ItemsPartners"] | null;
+    };
+    ItemsAssociationTranslations: {
+      id?: number;
+      association_id?:
+        | number
+        | components["schemas"]["ItemsAssociation"]
+        | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      description?: string | null;
+      banner?: string | components["schemas"]["Files"] | null;
+    };
+    ItemsCommissions: {
+      id?: number;
+      email?: string | null;
+      slug?: string | null;
+      logo?: string | components["schemas"]["Files"] | null;
+      translations?:
+        | (number | components["schemas"]["ItemsCommissionsTranslations"])[]
+        | null;
+      social_links?:
+        | (number | components["schemas"]["ItemsSocialLinks"])[]
+        | null;
+      partners?: (number | components["schemas"]["ItemsPartners"])[] | null;
+    };
+    ItemsCommissionMemberships: {
+      id?: number;
+      commission?: number | components["schemas"]["ItemsCommissions"];
+      member?: number | components["schemas"]["ItemsMembers"];
+      level?: string | null;
+      translations?:
+        | (
+            | number
+            | components["schemas"]["ItemsCommissionMembershipsTranslations"]
+          )[]
+        | null;
+    };
+    ItemsCommissionMembershipsTranslations: {
+      id?: number;
+      commission_memberships_id?:
+        | number
+        | components["schemas"]["ItemsCommissionMemberships"]
+        | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      title?: string | null;
+    };
+    ItemsCommissionsMembers: {
+      id?: number;
+      commissions_id?:
+        | number
+        | components["schemas"]["ItemsCommissions"]
+        | null;
+      members_id?: number | components["schemas"]["ItemsMembers"] | null;
+    };
+    ItemsSocialLinks: {
+      id?: number;
+      name?: string | null;
+      link?: string | null;
+      logo?: string | components["schemas"]["Files"] | null;
+      commission?: number | components["schemas"]["ItemsCommissions"] | null;
+    };
+    ItemsCommissionsSocialLinks: {
+      id?: number;
+      commissions_id?:
+        | number
+        | components["schemas"]["ItemsCommissions"]
+        | null;
+      social_links_id?:
+        | number
+        | components["schemas"]["ItemsSocialLinks"]
+        | null;
+    };
+    ItemsCommissionsTranslations: {
+      id?: number;
+      commissions_id?:
+        | number
+        | components["schemas"]["ItemsCommissions"]
+        | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      name?: string | null;
+      small_description?: string | null;
+      description?: string | null;
+      banner?: string | components["schemas"]["Files"] | null;
     };
     ItemsNews: {
       id?: number;
@@ -1851,9 +2712,27 @@ export interface components {
       /** Format: timestamp */
       date_updated?: string | null;
       banner?: string | components["schemas"]["Files"] | null;
+      slug?: string | null;
       translations?:
         | (number | components["schemas"]["ItemsNewsTranslations"])[]
         | null;
+      commissions?:
+        | (number | components["schemas"]["ItemsNewsCommissions"])[]
+        | null;
+      partners?: (number | components["schemas"]["ItemsNewsPartners"])[] | null;
+    };
+    ItemsNewsCommissions: {
+      id?: number;
+      news_id?: number | components["schemas"]["ItemsNews"] | null;
+      commissions_id?:
+        | number
+        | components["schemas"]["ItemsCommissions"]
+        | null;
+    };
+    ItemsNewsPartners: {
+      id?: number;
+      news_id?: number | components["schemas"]["ItemsNews"] | null;
+      partners_id?: number | components["schemas"]["ItemsPartners"] | null;
     };
     ItemsNewsTranslations: {
       id?: number;
@@ -1862,6 +2741,17 @@ export interface components {
       title?: string;
       description?: string;
       content?: string;
+    };
+    ItemsAssociationSocialLinks: {
+      id?: number;
+      association_id?:
+        | number
+        | components["schemas"]["ItemsAssociation"]
+        | null;
+      social_links_id?:
+        | number
+        | components["schemas"]["ItemsSocialLinks"]
+        | null;
     };
   };
   responses: {
@@ -6238,6 +7128,754 @@ export interface operations {
   };
   /**
    * List Items
+   * @description List the association items.
+   */
+  readItemsAssociation: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociation"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new association item.
+   */
+  createItemsAssociation: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociation"][]
+          | components["schemas"]["ItemsAssociation"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing association items.
+   */
+  deleteItemsAssociation: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple association items at the same time.
+   */
+  updateItemsAssociation: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociation"][]
+          | components["schemas"]["ItemsAssociation"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single association item by unique identifier.
+   */
+  readSingleItemsAssociation: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociation"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing association item.
+   */
+  deleteSingleItemsAssociation: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing association item.
+   */
+  updateSingleItemsAssociation: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsAssociation"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociation"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the association_files items.
+   */
+  readItemsAssociationFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationFiles"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new association_files item.
+   */
+  createItemsAssociationFiles: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationFiles"][]
+          | components["schemas"]["ItemsAssociationFiles"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing association_files items.
+   */
+  deleteItemsAssociationFiles: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple association_files items at the same time.
+   */
+  updateItemsAssociationFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationFiles"][]
+          | components["schemas"]["ItemsAssociationFiles"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single association_files item by unique identifier.
+   */
+  readSingleItemsAssociationFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationFiles"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing association_files item.
+   */
+  deleteSingleItemsAssociationFiles: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing association_files item.
+   */
+  updateSingleItemsAssociationFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsAssociationFiles"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationFiles"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the members items.
+   */
+  readItemsMembers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsMembers"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new members item.
+   */
+  createItemsMembers: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsMembers"][]
+          | components["schemas"]["ItemsMembers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing members items.
+   */
+  deleteItemsMembers: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple members items at the same time.
+   */
+  updateItemsMembers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsMembers"][]
+          | components["schemas"]["ItemsMembers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single members item by unique identifier.
+   */
+  readSingleItemsMembers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsMembers"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing members item.
+   */
+  deleteSingleItemsMembers: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing members item.
+   */
+  updateSingleItemsMembers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsMembers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsMembers"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the association_memberships items.
+   */
+  readItemsAssociationMemberships: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationMemberships"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new association_memberships item.
+   */
+  createItemsAssociationMemberships: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationMemberships"][]
+          | components["schemas"]["ItemsAssociationMemberships"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing association_memberships items.
+   */
+  deleteItemsAssociationMemberships: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple association_memberships items at the same time.
+   */
+  updateItemsAssociationMemberships: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationMemberships"][]
+          | components["schemas"]["ItemsAssociationMemberships"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single association_memberships item by unique identifier.
+   */
+  readSingleItemsAssociationMemberships: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationMemberships"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing association_memberships item.
+   */
+  deleteSingleItemsAssociationMemberships: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing association_memberships item.
+   */
+  updateSingleItemsAssociationMemberships: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsAssociationMemberships"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationMemberships"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
    * @description List the languages items.
    */
   readItemsLanguages: {
@@ -6416,6 +8054,2063 @@ export interface operations {
         content: {
           "application/json": {
             data?: components["schemas"]["ItemsLanguages"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the association_memberships_translations items.
+   */
+  readItemsAssociationMembershipsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationMembershipsTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new association_memberships_translations item.
+   */
+  createItemsAssociationMembershipsTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationMembershipsTranslations"][]
+          | components["schemas"]["ItemsAssociationMembershipsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing association_memberships_translations items.
+   */
+  deleteItemsAssociationMembershipsTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple association_memberships_translations items at the same time.
+   */
+  updateItemsAssociationMembershipsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationMembershipsTranslations"][]
+          | components["schemas"]["ItemsAssociationMembershipsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single association_memberships_translations item by unique identifier.
+   */
+  readSingleItemsAssociationMembershipsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationMembershipsTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing association_memberships_translations item.
+   */
+  deleteSingleItemsAssociationMembershipsTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing association_memberships_translations item.
+   */
+  updateSingleItemsAssociationMembershipsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsAssociationMembershipsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationMembershipsTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the partners items.
+   */
+  readItemsPartners: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsPartners"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new partners item.
+   */
+  createItemsPartners: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsPartners"][]
+          | components["schemas"]["ItemsPartners"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing partners items.
+   */
+  deleteItemsPartners: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple partners items at the same time.
+   */
+  updateItemsPartners: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsPartners"][]
+          | components["schemas"]["ItemsPartners"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single partners item by unique identifier.
+   */
+  readSingleItemsPartners: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsPartners"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing partners item.
+   */
+  deleteSingleItemsPartners: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing partners item.
+   */
+  updateSingleItemsPartners: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsPartners"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsPartners"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the association_partners items.
+   */
+  readItemsAssociationPartners: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPartners"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new association_partners item.
+   */
+  createItemsAssociationPartners: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationPartners"][]
+          | components["schemas"]["ItemsAssociationPartners"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing association_partners items.
+   */
+  deleteItemsAssociationPartners: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple association_partners items at the same time.
+   */
+  updateItemsAssociationPartners: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationPartners"][]
+          | components["schemas"]["ItemsAssociationPartners"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single association_partners item by unique identifier.
+   */
+  readSingleItemsAssociationPartners: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPartners"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing association_partners item.
+   */
+  deleteSingleItemsAssociationPartners: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing association_partners item.
+   */
+  updateSingleItemsAssociationPartners: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsAssociationPartners"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPartners"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the association_translations items.
+   */
+  readItemsAssociationTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new association_translations item.
+   */
+  createItemsAssociationTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationTranslations"][]
+          | components["schemas"]["ItemsAssociationTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing association_translations items.
+   */
+  deleteItemsAssociationTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple association_translations items at the same time.
+   */
+  updateItemsAssociationTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationTranslations"][]
+          | components["schemas"]["ItemsAssociationTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single association_translations item by unique identifier.
+   */
+  readSingleItemsAssociationTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing association_translations item.
+   */
+  deleteSingleItemsAssociationTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing association_translations item.
+   */
+  updateSingleItemsAssociationTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsAssociationTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the commissions items.
+   */
+  readItemsCommissions: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissions"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new commissions item.
+   */
+  createItemsCommissions: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsCommissions"][]
+          | components["schemas"]["ItemsCommissions"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing commissions items.
+   */
+  deleteItemsCommissions: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple commissions items at the same time.
+   */
+  updateItemsCommissions: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsCommissions"][]
+          | components["schemas"]["ItemsCommissions"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single commissions item by unique identifier.
+   */
+  readSingleItemsCommissions: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissions"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing commissions item.
+   */
+  deleteSingleItemsCommissions: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing commissions item.
+   */
+  updateSingleItemsCommissions: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsCommissions"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissions"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the commission_memberships items.
+   */
+  readItemsCommissionMemberships: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionMemberships"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new commission_memberships item.
+   */
+  createItemsCommissionMemberships: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsCommissionMemberships"][]
+          | components["schemas"]["ItemsCommissionMemberships"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing commission_memberships items.
+   */
+  deleteItemsCommissionMemberships: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple commission_memberships items at the same time.
+   */
+  updateItemsCommissionMemberships: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsCommissionMemberships"][]
+          | components["schemas"]["ItemsCommissionMemberships"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single commission_memberships item by unique identifier.
+   */
+  readSingleItemsCommissionMemberships: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionMemberships"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing commission_memberships item.
+   */
+  deleteSingleItemsCommissionMemberships: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing commission_memberships item.
+   */
+  updateSingleItemsCommissionMemberships: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsCommissionMemberships"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionMemberships"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the commission_memberships_translations items.
+   */
+  readItemsCommissionMembershipsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionMembershipsTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new commission_memberships_translations item.
+   */
+  createItemsCommissionMembershipsTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsCommissionMembershipsTranslations"][]
+          | components["schemas"]["ItemsCommissionMembershipsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing commission_memberships_translations items.
+   */
+  deleteItemsCommissionMembershipsTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple commission_memberships_translations items at the same time.
+   */
+  updateItemsCommissionMembershipsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsCommissionMembershipsTranslations"][]
+          | components["schemas"]["ItemsCommissionMembershipsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single commission_memberships_translations item by unique identifier.
+   */
+  readSingleItemsCommissionMembershipsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionMembershipsTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing commission_memberships_translations item.
+   */
+  deleteSingleItemsCommissionMembershipsTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing commission_memberships_translations item.
+   */
+  updateSingleItemsCommissionMembershipsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsCommissionMembershipsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionMembershipsTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the commissions_members items.
+   */
+  readItemsCommissionsMembers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionsMembers"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new commissions_members item.
+   */
+  createItemsCommissionsMembers: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsCommissionsMembers"][]
+          | components["schemas"]["ItemsCommissionsMembers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing commissions_members items.
+   */
+  deleteItemsCommissionsMembers: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple commissions_members items at the same time.
+   */
+  updateItemsCommissionsMembers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsCommissionsMembers"][]
+          | components["schemas"]["ItemsCommissionsMembers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single commissions_members item by unique identifier.
+   */
+  readSingleItemsCommissionsMembers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionsMembers"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing commissions_members item.
+   */
+  deleteSingleItemsCommissionsMembers: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing commissions_members item.
+   */
+  updateSingleItemsCommissionsMembers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsCommissionsMembers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionsMembers"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the social_links items.
+   */
+  readItemsSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsSocialLinks"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new social_links item.
+   */
+  createItemsSocialLinks: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsSocialLinks"][]
+          | components["schemas"]["ItemsSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing social_links items.
+   */
+  deleteItemsSocialLinks: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple social_links items at the same time.
+   */
+  updateItemsSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsSocialLinks"][]
+          | components["schemas"]["ItemsSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single social_links item by unique identifier.
+   */
+  readSingleItemsSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsSocialLinks"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing social_links item.
+   */
+  deleteSingleItemsSocialLinks: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing social_links item.
+   */
+  updateSingleItemsSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsSocialLinks"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the commissions_social_links items.
+   */
+  readItemsCommissionsSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionsSocialLinks"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new commissions_social_links item.
+   */
+  createItemsCommissionsSocialLinks: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsCommissionsSocialLinks"][]
+          | components["schemas"]["ItemsCommissionsSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing commissions_social_links items.
+   */
+  deleteItemsCommissionsSocialLinks: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple commissions_social_links items at the same time.
+   */
+  updateItemsCommissionsSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsCommissionsSocialLinks"][]
+          | components["schemas"]["ItemsCommissionsSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single commissions_social_links item by unique identifier.
+   */
+  readSingleItemsCommissionsSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionsSocialLinks"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing commissions_social_links item.
+   */
+  deleteSingleItemsCommissionsSocialLinks: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing commissions_social_links item.
+   */
+  updateSingleItemsCommissionsSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsCommissionsSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionsSocialLinks"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the commissions_translations items.
+   */
+  readItemsCommissionsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionsTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new commissions_translations item.
+   */
+  createItemsCommissionsTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsCommissionsTranslations"][]
+          | components["schemas"]["ItemsCommissionsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing commissions_translations items.
+   */
+  deleteItemsCommissionsTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple commissions_translations items at the same time.
+   */
+  updateItemsCommissionsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsCommissionsTranslations"][]
+          | components["schemas"]["ItemsCommissionsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single commissions_translations item by unique identifier.
+   */
+  readSingleItemsCommissionsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionsTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing commissions_translations item.
+   */
+  deleteSingleItemsCommissionsTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing commissions_translations item.
+   */
+  updateSingleItemsCommissionsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsCommissionsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionsTranslations"];
           };
         };
       };
@@ -6612,6 +10307,380 @@ export interface operations {
   };
   /**
    * List Items
+   * @description List the news_commissions items.
+   */
+  readItemsNewsCommissions: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsNewsCommissions"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new news_commissions item.
+   */
+  createItemsNewsCommissions: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsNewsCommissions"][]
+          | components["schemas"]["ItemsNewsCommissions"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing news_commissions items.
+   */
+  deleteItemsNewsCommissions: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple news_commissions items at the same time.
+   */
+  updateItemsNewsCommissions: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsNewsCommissions"][]
+          | components["schemas"]["ItemsNewsCommissions"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single news_commissions item by unique identifier.
+   */
+  readSingleItemsNewsCommissions: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsNewsCommissions"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing news_commissions item.
+   */
+  deleteSingleItemsNewsCommissions: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing news_commissions item.
+   */
+  updateSingleItemsNewsCommissions: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsNewsCommissions"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsNewsCommissions"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the news_partners items.
+   */
+  readItemsNewsPartners: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsNewsPartners"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new news_partners item.
+   */
+  createItemsNewsPartners: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsNewsPartners"][]
+          | components["schemas"]["ItemsNewsPartners"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing news_partners items.
+   */
+  deleteItemsNewsPartners: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple news_partners items at the same time.
+   */
+  updateItemsNewsPartners: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsNewsPartners"][]
+          | components["schemas"]["ItemsNewsPartners"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single news_partners item by unique identifier.
+   */
+  readSingleItemsNewsPartners: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsNewsPartners"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing news_partners item.
+   */
+  deleteSingleItemsNewsPartners: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing news_partners item.
+   */
+  updateSingleItemsNewsPartners: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsNewsPartners"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsNewsPartners"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
    * @description List the news_translations items.
    */
   readItemsNewsTranslations: {
@@ -6797,10 +10866,215 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
+  /**
+   * List Items
+   * @description List the association_social_links items.
+   */
+  readItemsAssociationSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationSocialLinks"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new association_social_links item.
+   */
+  createItemsAssociationSocialLinks: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationSocialLinks"][]
+          | components["schemas"]["ItemsAssociationSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing association_social_links items.
+   */
+  deleteItemsAssociationSocialLinks: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple association_social_links items at the same time.
+   */
+  updateItemsAssociationSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationSocialLinks"][]
+          | components["schemas"]["ItemsAssociationSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single association_social_links item by unique identifier.
+   */
+  readSingleItemsAssociationSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationSocialLinks"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing association_social_links item.
+   */
+  deleteSingleItemsAssociationSocialLinks: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing association_social_links item.
+   */
+  updateSingleItemsAssociationSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsAssociationSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationSocialLinks"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
 }
 
 export type Schema = {
+  association: components["schemas"]["ItemsAssociation"][];
+  association_files: components["schemas"]["ItemsAssociationFiles"][];
+  members: components["schemas"]["ItemsMembers"][];
+  association_memberships: components["schemas"]["ItemsAssociationMemberships"][];
   languages: components["schemas"]["ItemsLanguages"][];
+  association_memberships_translations: components["schemas"]["ItemsAssociationMembershipsTranslations"][];
+  partners: components["schemas"]["ItemsPartners"][];
+  association_partners: components["schemas"]["ItemsAssociationPartners"][];
+  association_translations: components["schemas"]["ItemsAssociationTranslations"][];
+  commissions: components["schemas"]["ItemsCommissions"][];
+  commission_memberships: components["schemas"]["ItemsCommissionMemberships"][];
+  commission_memberships_translations: components["schemas"]["ItemsCommissionMembershipsTranslations"][];
+  commissions_members: components["schemas"]["ItemsCommissionsMembers"][];
+  social_links: components["schemas"]["ItemsSocialLinks"][];
+  commissions_social_links: components["schemas"]["ItemsCommissionsSocialLinks"][];
+  commissions_translations: components["schemas"]["ItemsCommissionsTranslations"][];
   news: components["schemas"]["ItemsNews"][];
+  news_commissions: components["schemas"]["ItemsNewsCommissions"][];
+  news_partners: components["schemas"]["ItemsNewsPartners"][];
   news_translations: components["schemas"]["ItemsNewsTranslations"][];
+  association_social_links: components["schemas"]["ItemsAssociationSocialLinks"][];
 };

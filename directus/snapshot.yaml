@@ -2,14 +2,62 @@ version: 1
 directus: 10.9.0
 vendor: postgres
 collections:
-  - collection: languages
+  - collection: association
     meta:
       accountability: all
       archive_app_filter: true
       archive_field: null
       archive_value: null
       collapse: open
-      collection: languages
+      collection: association
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: true
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: association
+  - collection: association_files
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: association_files
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: association_files
+  - collection: association_memberships
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: association_memberships
       color: null
       display_template: null
       group: null
@@ -25,7 +73,295 @@ collections:
       unarchive_value: null
       versioning: false
     schema:
+      name: association_memberships
+  - collection: association_memberships_translations
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: association_memberships_translations
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: association_memberships_translations
+  - collection: association_partners
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: association_partners
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: association_partners
+  - collection: association_social_links
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: association_social_links
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: association_social_links
+  - collection: association_translations
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: association_translations
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: association_translations
+  - collection: commission_memberships
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: commission_memberships
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: commission_memberships
+  - collection: commission_memberships_translations
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: commission_memberships_translations
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: commission_memberships_translations
+  - collection: commissions
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: commissions
+      color: null
+      display_template: "{{slug}}"
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: commissions
+  - collection: commissions_members
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: commissions_members
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: commissions_members
+  - collection: commissions_social_links
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: commissions_social_links
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: commissions_social_links
+  - collection: commissions_translations
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: commissions_translations
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: commissions_translations
+  - collection: languages
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: languages
+      color: null
+      display_template: "{{code}}"
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
       name: languages
+  - collection: members
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: members
+      color: null
+      display_template: "{{name}}\_{{surname}}"
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: members
   - collection: news
     meta:
       accountability: all
@@ -35,7 +371,7 @@ collections:
       collapse: open
       collection: news
       color: null
-      display_template: null
+      display_template: "{{slug}}"
       group: null
       hidden: false
       icon: null
@@ -50,6 +386,54 @@ collections:
       versioning: false
     schema:
       name: news
+  - collection: news_commissions
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: news_commissions
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: news_commissions
+  - collection: news_partners
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: news_partners
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: news_partners
   - collection: news_translations
     meta:
       accountability: all
@@ -74,7 +458,2269 @@ collections:
       versioning: false
     schema:
       name: news_translations
+  - collection: partners
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: archived
+      collapse: open
+      collection: partners
+      color: null
+      display_template: "{{name}}"
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: draft
+      versioning: false
+    schema:
+      name: partners
+  - collection: social_links
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: social_links
+      color: null
+      display_template: "{{name}}"
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: social_links
 fields:
+  - collection: association
+    field: id
+    type: integer
+    meta:
+      collection: association
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: association
+      data_type: integer
+      default_value: nextval('association_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association
+    field: name
+    type: string
+    meta:
+      collection: association
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: name
+      table: association
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association
+    field: email
+    type: string
+    meta:
+      collection: association
+      conditions: null
+      display: null
+      display_options: null
+      field: email
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: email
+      table: association
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association
+    field: phone
+    type: string
+    meta:
+      collection: association
+      conditions: null
+      display: null
+      display_options: null
+      field: phone
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: phone
+      table: association
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association
+    field: address
+    type: text
+    meta:
+      collection: association
+      conditions: null
+      display: null
+      display_options: null
+      field: address
+      group: null
+      hidden: false
+      interface: input-multiline
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: address
+      table: association
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association
+    field: official_documents
+    type: alias
+    meta:
+      collection: association
+      conditions: null
+      display: null
+      display_options: null
+      field: official_documents
+      group: null
+      hidden: false
+      interface: files
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 9
+      special:
+        - files
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: association
+    field: logo
+    type: uuid
+    meta:
+      collection: association
+      conditions: null
+      display: null
+      display_options: null
+      field: logo
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options:
+        crop: false
+      readonly: false
+      required: false
+      sort: 7
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: logo
+      table: association
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: association
+    field: translations
+    type: alias
+    meta:
+      collection: association
+      conditions: null
+      display: null
+      display_options: null
+      field: translations
+      group: null
+      hidden: false
+      interface: translations
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special:
+        - translations
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: association
+    field: partners
+    type: alias
+    meta:
+      collection: association
+      conditions: null
+      display: null
+      display_options: null
+      field: partners
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options: {}
+      readonly: false
+      required: false
+      sort: 10
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: association
+    field: social_links
+    type: alias
+    meta:
+      collection: association
+      conditions: null
+      display: null
+      display_options: null
+      field: social_links
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 8
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: association_files
+    field: id
+    type: integer
+    meta:
+      collection: association_files
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: association_files
+      data_type: integer
+      default_value: nextval('association_files_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association_files
+    field: association_id
+    type: integer
+    meta:
+      collection: association_files
+      conditions: null
+      display: null
+      display_options: null
+      field: association_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: association_id
+      table: association_files
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: association
+      foreign_key_column: id
+  - collection: association_files
+    field: directus_files_id
+    type: uuid
+    meta:
+      collection: association_files
+      conditions: null
+      display: null
+      display_options: null
+      field: directus_files_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: directus_files_id
+      table: association_files
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: association_memberships
+    field: id
+    type: integer
+    meta:
+      collection: association_memberships
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: association_memberships
+      data_type: integer
+      default_value: nextval('association_memberships_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association_memberships
+    field: member
+    type: integer
+    meta:
+      collection: association_memberships
+      conditions: null
+      display: related-values
+      display_options:
+        template: null
+      field: member
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        enableCreate: false
+      readonly: false
+      required: true
+      sort: 2
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: member
+      table: association_memberships
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: members
+      foreign_key_column: id
+  - collection: association_memberships
+    field: level
+    type: string
+    meta:
+      collection: association_memberships
+      conditions: null
+      display: null
+      display_options: null
+      field: level
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: Committee
+            value: committee
+          - text: Team
+            value: team
+          - text: Member
+            value: member
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: level
+      table: association_memberships
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association_memberships
+    field: translations
+    type: alias
+    meta:
+      collection: association_memberships
+      conditions: null
+      display: null
+      display_options: null
+      field: translations
+      group: null
+      hidden: false
+      interface: translations
+      note: null
+      options:
+        defaultOpenSplitView: true
+      readonly: false
+      required: true
+      sort: 4
+      special:
+        - translations
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: association_memberships_translations
+    field: id
+    type: integer
+    meta:
+      collection: association_memberships_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: association_memberships_translations
+      data_type: integer
+      default_value: nextval('association_memberships_translations_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association_memberships_translations
+    field: association_memberships_id
+    type: integer
+    meta:
+      collection: association_memberships_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: association_memberships_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: association_memberships_id
+      table: association_memberships_translations
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: association_memberships
+      foreign_key_column: id
+  - collection: association_memberships_translations
+    field: languages_code
+    type: string
+    meta:
+      collection: association_memberships_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: languages_code
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: languages_code
+      table: association_memberships_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
+  - collection: association_memberships_translations
+    field: title
+    type: string
+    meta:
+      collection: association_memberships_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: title
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: title
+      table: association_memberships_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association_partners
+    field: id
+    type: integer
+    meta:
+      collection: association_partners
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: association_partners
+      data_type: integer
+      default_value: nextval('association_partners_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association_partners
+    field: association_id
+    type: integer
+    meta:
+      collection: association_partners
+      conditions: null
+      display: null
+      display_options: null
+      field: association_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: association_id
+      table: association_partners
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: association
+      foreign_key_column: id
+  - collection: association_partners
+    field: partners_id
+    type: integer
+    meta:
+      collection: association_partners
+      conditions: null
+      display: null
+      display_options: null
+      field: partners_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: partners_id
+      table: association_partners
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: partners
+      foreign_key_column: id
+  - collection: association_social_links
+    field: id
+    type: integer
+    meta:
+      collection: association_social_links
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: association_social_links
+      data_type: integer
+      default_value: nextval('association_social_links_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association_social_links
+    field: association_id
+    type: integer
+    meta:
+      collection: association_social_links
+      conditions: null
+      display: null
+      display_options: null
+      field: association_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: association_id
+      table: association_social_links
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: association
+      foreign_key_column: id
+  - collection: association_social_links
+    field: social_links_id
+    type: integer
+    meta:
+      collection: association_social_links
+      conditions: null
+      display: null
+      display_options: null
+      field: social_links_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: social_links_id
+      table: association_social_links
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: social_links
+      foreign_key_column: id
+  - collection: association_translations
+    field: id
+    type: integer
+    meta:
+      collection: association_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: association_translations
+      data_type: integer
+      default_value: nextval('association_translations_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association_translations
+    field: association_id
+    type: integer
+    meta:
+      collection: association_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: association_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: association_id
+      table: association_translations
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: association
+      foreign_key_column: id
+  - collection: association_translations
+    field: languages_code
+    type: string
+    meta:
+      collection: association_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: languages_code
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: languages_code
+      table: association_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
+  - collection: association_translations
+    field: description
+    type: text
+    meta:
+      collection: association_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: description
+      group: null
+      hidden: false
+      interface: input-rich-text-md
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: description
+      table: association_translations
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association_translations
+    field: banner
+    type: uuid
+    meta:
+      collection: association_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: banner
+      group: null
+      hidden: false
+      interface: file
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 5
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: banner
+      table: association_translations
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: commission_memberships
+    field: id
+    type: integer
+    meta:
+      collection: commission_memberships
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: commission_memberships
+      data_type: integer
+      default_value: nextval('commission_memberships_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: commission_memberships
+    field: commission
+    type: integer
+    meta:
+      collection: commission_memberships
+      conditions: null
+      display: related-values
+      display_options:
+        template: null
+      field: commission
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        enableCreate: false
+      readonly: false
+      required: true
+      sort: 2
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: commission
+      table: commission_memberships
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: commissions
+      foreign_key_column: id
+  - collection: commission_memberships
+    field: member
+    type: integer
+    meta:
+      collection: commission_memberships
+      conditions: null
+      display: related-values
+      display_options:
+        template: null
+      field: member
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        enableCreate: false
+      readonly: false
+      required: true
+      sort: 3
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: member
+      table: commission_memberships
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: members
+      foreign_key_column: id
+  - collection: commission_memberships
+    field: translations
+    type: alias
+    meta:
+      collection: commission_memberships
+      conditions: null
+      display: null
+      display_options: null
+      field: translations
+      group: null
+      hidden: false
+      interface: translations
+      note: null
+      options:
+        defaultOpenSplitView: true
+      readonly: false
+      required: true
+      sort: 5
+      special:
+        - translations
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: commission_memberships
+    field: level
+    type: string
+    meta:
+      collection: commission_memberships
+      conditions: null
+      display: null
+      display_options: null
+      field: level
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: Committee
+            value: committee
+          - text: Team
+            value: team
+          - text: Member
+            value: member
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: level
+      table: commission_memberships
+      data_type: character varying
+      default_value: committee
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: commission_memberships_translations
+    field: id
+    type: integer
+    meta:
+      collection: commission_memberships_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: commission_memberships_translations
+      data_type: integer
+      default_value: nextval('commission_memberships_translations_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: commission_memberships_translations
+    field: commission_memberships_id
+    type: integer
+    meta:
+      collection: commission_memberships_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: commission_memberships_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: commission_memberships_id
+      table: commission_memberships_translations
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: commission_memberships
+      foreign_key_column: id
+  - collection: commission_memberships_translations
+    field: languages_code
+    type: string
+    meta:
+      collection: commission_memberships_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: languages_code
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: languages_code
+      table: commission_memberships_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
+  - collection: commission_memberships_translations
+    field: title
+    type: string
+    meta:
+      collection: commission_memberships_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: title
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: title
+      table: commission_memberships_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: commissions
+    field: id
+    type: integer
+    meta:
+      collection: commissions
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: commissions
+      data_type: integer
+      default_value: nextval('commissions_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: commissions
+    field: email
+    type: string
+    meta:
+      collection: commissions
+      conditions: null
+      display: null
+      display_options: null
+      field: email
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: email
+      table: commissions
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: commissions
+    field: slug
+    type: string
+    meta:
+      collection: commissions
+      conditions: null
+      display: null
+      display_options: null
+      field: slug
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: slug
+      table: commissions
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: commissions
+    field: translations
+    type: alias
+    meta:
+      collection: commissions
+      conditions: null
+      display: null
+      display_options: null
+      field: translations
+      group: null
+      hidden: false
+      interface: translations
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 4
+      special:
+        - translations
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: commissions
+    field: logo
+    type: uuid
+    meta:
+      collection: commissions
+      conditions: null
+      display: null
+      display_options: null
+      field: logo
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 5
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: logo
+      table: commissions
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: commissions
+    field: social_links
+    type: alias
+    meta:
+      collection: commissions
+      conditions: null
+      display: related-values
+      display_options:
+        template: null
+      field: social_links
+      group: null
+      hidden: false
+      interface: list-o2m
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 6
+      special:
+        - o2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: commissions
+    field: partners
+    type: alias
+    meta:
+      collection: commissions
+      conditions: null
+      display: null
+      display_options: null
+      field: partners
+      group: null
+      hidden: false
+      interface: list-o2m
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 7
+      special:
+        - o2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: commissions_members
+    field: id
+    type: integer
+    meta:
+      collection: commissions_members
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: commissions_members
+      data_type: integer
+      default_value: nextval('commissions_members_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: commissions_members
+    field: commissions_id
+    type: integer
+    meta:
+      collection: commissions_members
+      conditions: null
+      display: null
+      display_options: null
+      field: commissions_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: commissions_id
+      table: commissions_members
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: commissions
+      foreign_key_column: id
+  - collection: commissions_members
+    field: members_id
+    type: integer
+    meta:
+      collection: commissions_members
+      conditions: null
+      display: null
+      display_options: null
+      field: members_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: members_id
+      table: commissions_members
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: members
+      foreign_key_column: id
+  - collection: commissions_social_links
+    field: id
+    type: integer
+    meta:
+      collection: commissions_social_links
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: commissions_social_links
+      data_type: integer
+      default_value: nextval('commissions_social_links_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: commissions_social_links
+    field: commissions_id
+    type: integer
+    meta:
+      collection: commissions_social_links
+      conditions: null
+      display: null
+      display_options: null
+      field: commissions_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: commissions_id
+      table: commissions_social_links
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: commissions
+      foreign_key_column: id
+  - collection: commissions_social_links
+    field: social_links_id
+    type: integer
+    meta:
+      collection: commissions_social_links
+      conditions: null
+      display: null
+      display_options: null
+      field: social_links_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: social_links_id
+      table: commissions_social_links
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: social_links
+      foreign_key_column: id
+  - collection: commissions_translations
+    field: id
+    type: integer
+    meta:
+      collection: commissions_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: commissions_translations
+      data_type: integer
+      default_value: nextval('commissions_translations_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: commissions_translations
+    field: commissions_id
+    type: integer
+    meta:
+      collection: commissions_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: commissions_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: commissions_id
+      table: commissions_translations
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: commissions
+      foreign_key_column: id
+  - collection: commissions_translations
+    field: languages_code
+    type: string
+    meta:
+      collection: commissions_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: languages_code
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: languages_code
+      table: commissions_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
+  - collection: commissions_translations
+    field: name
+    type: string
+    meta:
+      collection: commissions_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: name
+      table: commissions_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: commissions_translations
+    field: small_description
+    type: text
+    meta:
+      collection: commissions_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: small_description
+      group: null
+      hidden: false
+      interface: input-multiline
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: small_description
+      table: commissions_translations
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: commissions_translations
+    field: description
+    type: text
+    meta:
+      collection: commissions_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: description
+      group: null
+      hidden: false
+      interface: input-rich-text-md
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: description
+      table: commissions_translations
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: commissions_translations
+    field: banner
+    type: uuid
+    meta:
+      collection: commissions_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: banner
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 7
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: banner
+      table: commissions_translations
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
   - collection: languages
     field: code
     type: string
@@ -113,6 +2759,273 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
+  - collection: members
+    field: id
+    type: integer
+    meta:
+      collection: members
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: members
+      data_type: integer
+      default_value: nextval('members_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: members
+    field: name
+    type: string
+    meta:
+      collection: members
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: name
+      table: members
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: members
+    field: surname
+    type: string
+    meta:
+      collection: members
+      conditions: null
+      display: null
+      display_options: null
+      field: surname
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: surname
+      table: members
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: members
+    field: email
+    type: string
+    meta:
+      collection: members
+      conditions: null
+      display: null
+      display_options: null
+      field: email
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: email
+      table: members
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: members
+    field: sciper
+    type: string
+    meta:
+      collection: members
+      conditions: null
+      display: null
+      display_options: null
+      field: sciper
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: sciper
+      table: members
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: members
+    field: link
+    type: string
+    meta:
+      collection: members
+      conditions: null
+      display: null
+      display_options: null
+      field: link
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 7
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: link
+      table: members
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: members
+    field: picture
+    type: uuid
+    meta:
+      collection: members
+      conditions: null
+      display: null
+      display_options: null
+      field: picture
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 6
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: picture
+      table: members
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
   - collection: news
     field: id
     type: integer
@@ -199,7 +3112,7 @@ fields:
       translations: null
       validation: null
       validation_message: null
-      width: full
+      width: half
     schema:
       name: status
       table: news
@@ -232,7 +3145,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 4
+      sort: 8
       special: null
       translations: null
       validation: null
@@ -271,7 +3184,7 @@ fields:
         template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
-      sort: 6
+      sort: 9
       special:
         - user-created
       translations: null
@@ -311,7 +3224,7 @@ fields:
       options: null
       readonly: true
       required: false
-      sort: 7
+      sort: 10
       special:
         - date-created
       translations: null
@@ -351,7 +3264,7 @@ fields:
       options: null
       readonly: true
       required: false
-      sort: 9
+      sort: 11
       special:
         - date-updated
       translations: null
@@ -391,7 +3304,7 @@ fields:
         crop: false
       readonly: false
       required: false
-      sort: 3
+      sort: 4
       special:
         - file
       translations: null
@@ -431,14 +3344,330 @@ fields:
         defaultOpenSplitView: true
         languageField: code
       readonly: false
-      required: false
-      sort: 10
+      required: true
+      sort: 5
       special:
         - translations
       translations: null
       validation: null
       validation_message: null
       width: full
+  - collection: news
+    field: commissions
+    type: alias
+    meta:
+      collection: news
+      conditions: null
+      display: null
+      display_options: null
+      field: commissions
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options:
+        enableCreate: false
+        fields: []
+        template: "{{commissions_id.slug}}"
+      readonly: false
+      required: false
+      sort: 6
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+  - collection: news
+    field: slug
+    type: string
+    meta:
+      collection: news
+      conditions: null
+      display: null
+      display_options: null
+      field: slug
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: slug
+      table: news
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: news
+    field: partners
+    type: alias
+    meta:
+      collection: news
+      conditions: null
+      display: null
+      display_options: null
+      field: partners
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options:
+        enableCreate: false
+      readonly: false
+      required: false
+      sort: 7
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+  - collection: news_commissions
+    field: id
+    type: integer
+    meta:
+      collection: news_commissions
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: news_commissions
+      data_type: integer
+      default_value: nextval('news_commissions_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: news_commissions
+    field: news_id
+    type: integer
+    meta:
+      collection: news_commissions
+      conditions: null
+      display: null
+      display_options: null
+      field: news_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: news_id
+      table: news_commissions
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: news
+      foreign_key_column: id
+  - collection: news_commissions
+    field: commissions_id
+    type: integer
+    meta:
+      collection: news_commissions
+      conditions: null
+      display: null
+      display_options: null
+      field: commissions_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: commissions_id
+      table: news_commissions
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: commissions
+      foreign_key_column: id
+  - collection: news_partners
+    field: id
+    type: integer
+    meta:
+      collection: news_partners
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: news_partners
+      data_type: integer
+      default_value: nextval('news_partners_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: news_partners
+    field: news_id
+    type: integer
+    meta:
+      collection: news_partners
+      conditions: null
+      display: null
+      display_options: null
+      field: news_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: news_id
+      table: news_partners
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: news
+      foreign_key_column: id
+  - collection: news_partners
+    field: partners_id
+    type: integer
+    meta:
+      collection: news_partners
+      conditions: null
+      display: null
+      display_options: null
+      field: partners_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: partners_id
+      table: news_partners
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: partners
+      foreign_key_column: id
   - collection: news_translations
     field: id
     type: integer
@@ -667,7 +3896,1055 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
+  - collection: partners
+    field: id
+    type: integer
+    meta:
+      collection: partners
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: partners
+      data_type: integer
+      default_value: nextval('partners_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: partners
+    field: name
+    type: string
+    meta:
+      collection: partners
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: name
+      table: partners
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: partners
+    field: logo
+    type: uuid
+    meta:
+      collection: partners
+      conditions: null
+      display: null
+      display_options: null
+      field: logo
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 5
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: logo
+      table: partners
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: partners
+    field: link
+    type: string
+    meta:
+      collection: partners
+      conditions: null
+      display: null
+      display_options: null
+      field: link
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: link
+      table: partners
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: partners
+    field: rank
+    type: integer
+    meta:
+      collection: partners
+      conditions: null
+      display: null
+      display_options: null
+      field: rank
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        min: 1
+      readonly: false
+      required: true
+      sort: 8
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: rank
+      table: partners
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: partners
+    field: start
+    type: date
+    meta:
+      collection: partners
+      conditions: null
+      display: null
+      display_options: null
+      field: start
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: start
+      table: partners
+      data_type: date
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: partners
+    field: end
+    type: date
+    meta:
+      collection: partners
+      conditions: null
+      display: null
+      display_options: null
+      field: end
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 7
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: end
+      table: partners
+      data_type: date
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: partners
+    field: commission
+    type: integer
+    meta:
+      collection: partners
+      conditions: null
+      display: null
+      display_options: null
+      field: commission
+      group: null
+      hidden: false
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 9
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: commission
+      table: partners
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: commissions
+      foreign_key_column: id
+  - collection: social_links
+    field: id
+    type: integer
+    meta:
+      collection: social_links
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: social_links
+      data_type: integer
+      default_value: nextval('social_links_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: social_links
+    field: name
+    type: string
+    meta:
+      collection: social_links
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: name
+      table: social_links
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: social_links
+    field: link
+    type: string
+    meta:
+      collection: social_links
+      conditions: null
+      display: null
+      display_options: null
+      field: link
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: link
+      table: social_links
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: social_links
+    field: logo
+    type: uuid
+    meta:
+      collection: social_links
+      conditions: null
+      display: null
+      display_options: null
+      field: logo
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 4
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: logo
+      table: social_links
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: social_links
+    field: commission
+    type: integer
+    meta:
+      collection: social_links
+      conditions: null
+      display: related-values
+      display_options:
+        template: "{{slug}}"
+      field: commission
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        enableCreate: false
+        template: "{{slug}}"
+      readonly: false
+      required: false
+      sort: 5
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: commission
+      table: social_links
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: commissions
+      foreign_key_column: id
 relations:
+  - collection: association
+    field: logo
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: association
+      many_field: logo
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: association
+      column: logo
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: association_logo_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: association_files
+    field: directus_files_id
+    related_collection: directus_files
+    meta:
+      junction_field: association_id
+      many_collection: association_files
+      many_field: directus_files_id
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: association_files
+      column: directus_files_id
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: association_files_directus_files_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: association_files
+    field: association_id
+    related_collection: association
+    meta:
+      junction_field: directus_files_id
+      many_collection: association_files
+      many_field: association_id
+      one_allowed_collections: null
+      one_collection: association
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: official_documents
+      sort_field: null
+    schema:
+      table: association_files
+      column: association_id
+      foreign_key_table: association
+      foreign_key_column: id
+      constraint_name: association_files_association_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: association_memberships
+    field: member
+    related_collection: members
+    meta:
+      junction_field: null
+      many_collection: association_memberships
+      many_field: member
+      one_allowed_collections: null
+      one_collection: members
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: association_memberships
+      column: member
+      foreign_key_table: members
+      foreign_key_column: id
+      constraint_name: association_memberships_member_foreign
+      on_update: NO ACTION
+      on_delete: NO ACTION
+  - collection: association_memberships_translations
+    field: languages_code
+    related_collection: languages
+    meta:
+      junction_field: association_memberships_id
+      many_collection: association_memberships_translations
+      many_field: languages_code
+      one_allowed_collections: null
+      one_collection: languages
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: association_memberships_translations
+      column: languages_code
+      foreign_key_table: languages
+      foreign_key_column: code
+      constraint_name: association_memberships_translations_languages_code_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: association_memberships_translations
+    field: association_memberships_id
+    related_collection: association_memberships
+    meta:
+      junction_field: languages_code
+      many_collection: association_memberships_translations
+      many_field: association_memberships_id
+      one_allowed_collections: null
+      one_collection: association_memberships
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: translations
+      sort_field: null
+    schema:
+      table: association_memberships_translations
+      column: association_memberships_id
+      foreign_key_table: association_memberships
+      foreign_key_column: id
+      constraint_name: association_memberships_translations_assoc__5d61d72d_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: association_partners
+    field: partners_id
+    related_collection: partners
+    meta:
+      junction_field: association_id
+      many_collection: association_partners
+      many_field: partners_id
+      one_allowed_collections: null
+      one_collection: partners
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: association_partners
+      column: partners_id
+      foreign_key_table: partners
+      foreign_key_column: id
+      constraint_name: association_partners_partners_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: association_partners
+    field: association_id
+    related_collection: association
+    meta:
+      junction_field: partners_id
+      many_collection: association_partners
+      many_field: association_id
+      one_allowed_collections: null
+      one_collection: association
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: partners
+      sort_field: null
+    schema:
+      table: association_partners
+      column: association_id
+      foreign_key_table: association
+      foreign_key_column: id
+      constraint_name: association_partners_association_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: association_social_links
+    field: social_links_id
+    related_collection: social_links
+    meta:
+      junction_field: association_id
+      many_collection: association_social_links
+      many_field: social_links_id
+      one_allowed_collections: null
+      one_collection: social_links
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: association_social_links
+      column: social_links_id
+      foreign_key_table: social_links
+      foreign_key_column: id
+      constraint_name: association_social_links_social_links_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: association_social_links
+    field: association_id
+    related_collection: association
+    meta:
+      junction_field: social_links_id
+      many_collection: association_social_links
+      many_field: association_id
+      one_allowed_collections: null
+      one_collection: association
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: social_links
+      sort_field: null
+    schema:
+      table: association_social_links
+      column: association_id
+      foreign_key_table: association
+      foreign_key_column: id
+      constraint_name: association_social_links_association_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: association_translations
+    field: languages_code
+    related_collection: languages
+    meta:
+      junction_field: association_id
+      many_collection: association_translations
+      many_field: languages_code
+      one_allowed_collections: null
+      one_collection: languages
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: association_translations
+      column: languages_code
+      foreign_key_table: languages
+      foreign_key_column: code
+      constraint_name: association_translations_languages_code_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: association_translations
+    field: association_id
+    related_collection: association
+    meta:
+      junction_field: languages_code
+      many_collection: association_translations
+      many_field: association_id
+      one_allowed_collections: null
+      one_collection: association
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: translations
+      sort_field: null
+    schema:
+      table: association_translations
+      column: association_id
+      foreign_key_table: association
+      foreign_key_column: id
+      constraint_name: association_translations_association_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: association_translations
+    field: banner
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: association_translations
+      many_field: banner
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: association_translations
+      column: banner
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: association_translations_banner_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: commission_memberships
+    field: commission
+    related_collection: commissions
+    meta:
+      junction_field: null
+      many_collection: commission_memberships
+      many_field: commission
+      one_allowed_collections: null
+      one_collection: commissions
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: commission_memberships
+      column: commission
+      foreign_key_table: commissions
+      foreign_key_column: id
+      constraint_name: commission_memberships_commission_foreign
+      on_update: NO ACTION
+      on_delete: NO ACTION
+  - collection: commission_memberships
+    field: member
+    related_collection: members
+    meta:
+      junction_field: null
+      many_collection: commission_memberships
+      many_field: member
+      one_allowed_collections: null
+      one_collection: members
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: commission_memberships
+      column: member
+      foreign_key_table: members
+      foreign_key_column: id
+      constraint_name: commission_memberships_member_foreign
+      on_update: NO ACTION
+      on_delete: NO ACTION
+  - collection: commission_memberships_translations
+    field: languages_code
+    related_collection: languages
+    meta:
+      junction_field: commission_memberships_id
+      many_collection: commission_memberships_translations
+      many_field: languages_code
+      one_allowed_collections: null
+      one_collection: languages
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: commission_memberships_translations
+      column: languages_code
+      foreign_key_table: languages
+      foreign_key_column: code
+      constraint_name: commission_memberships_translations_languages_code_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: commission_memberships_translations
+    field: commission_memberships_id
+    related_collection: commission_memberships
+    meta:
+      junction_field: languages_code
+      many_collection: commission_memberships_translations
+      many_field: commission_memberships_id
+      one_allowed_collections: null
+      one_collection: commission_memberships
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: translations
+      sort_field: null
+    schema:
+      table: commission_memberships_translations
+      column: commission_memberships_id
+      foreign_key_table: commission_memberships
+      foreign_key_column: id
+      constraint_name: commission_memberships_translations_commis__5c94997f_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: commissions
+    field: logo
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: commissions
+      many_field: logo
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: commissions
+      column: logo
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: commissions_logo_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: commissions_members
+    field: members_id
+    related_collection: members
+    meta:
+      junction_field: commissions_id
+      many_collection: commissions_members
+      many_field: members_id
+      one_allowed_collections: null
+      one_collection: members
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: commissions_members
+      column: members_id
+      foreign_key_table: members
+      foreign_key_column: id
+      constraint_name: commissions_members_members_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: commissions_members
+    field: commissions_id
+    related_collection: commissions
+    meta:
+      junction_field: members_id
+      many_collection: commissions_members
+      many_field: commissions_id
+      one_allowed_collections: null
+      one_collection: commissions
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: commissions_members
+      column: commissions_id
+      foreign_key_table: commissions
+      foreign_key_column: id
+      constraint_name: commissions_members_commissions_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: commissions_social_links
+    field: social_links_id
+    related_collection: social_links
+    meta:
+      junction_field: commissions_id
+      many_collection: commissions_social_links
+      many_field: social_links_id
+      one_allowed_collections: null
+      one_collection: social_links
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: commissions_social_links
+      column: social_links_id
+      foreign_key_table: social_links
+      foreign_key_column: id
+      constraint_name: commissions_social_links_social_links_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: commissions_social_links
+    field: commissions_id
+    related_collection: commissions
+    meta:
+      junction_field: social_links_id
+      many_collection: commissions_social_links
+      many_field: commissions_id
+      one_allowed_collections: null
+      one_collection: commissions
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: commissions_social_links
+      column: commissions_id
+      foreign_key_table: commissions
+      foreign_key_column: id
+      constraint_name: commissions_social_links_commissions_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: commissions_translations
+    field: languages_code
+    related_collection: languages
+    meta:
+      junction_field: commissions_id
+      many_collection: commissions_translations
+      many_field: languages_code
+      one_allowed_collections: null
+      one_collection: languages
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: commissions_translations
+      column: languages_code
+      foreign_key_table: languages
+      foreign_key_column: code
+      constraint_name: commissions_translations_languages_code_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: commissions_translations
+    field: commissions_id
+    related_collection: commissions
+    meta:
+      junction_field: languages_code
+      many_collection: commissions_translations
+      many_field: commissions_id
+      one_allowed_collections: null
+      one_collection: commissions
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: translations
+      sort_field: null
+    schema:
+      table: commissions_translations
+      column: commissions_id
+      foreign_key_table: commissions
+      foreign_key_column: id
+      constraint_name: commissions_translations_commissions_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: commissions_translations
+    field: banner
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: commissions_translations
+      many_field: banner
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: commissions_translations
+      column: banner
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: commissions_translations_banner_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: members
+    field: picture
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: members
+      many_field: picture
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: members
+      column: picture
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: members_picture_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
   - collection: news
     field: user_created
     related_collection: directus_users
@@ -708,6 +4985,90 @@ relations:
       foreign_key_table: directus_files
       foreign_key_column: id
       constraint_name: news_banner_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: news_commissions
+    field: commissions_id
+    related_collection: commissions
+    meta:
+      junction_field: news_id
+      many_collection: news_commissions
+      many_field: commissions_id
+      one_allowed_collections: null
+      one_collection: commissions
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: news_commissions
+      column: commissions_id
+      foreign_key_table: commissions
+      foreign_key_column: id
+      constraint_name: news_commissions_commissions_id_foreign
+      on_update: NO ACTION
+      on_delete: CASCADE
+  - collection: news_commissions
+    field: news_id
+    related_collection: news
+    meta:
+      junction_field: commissions_id
+      many_collection: news_commissions
+      many_field: news_id
+      one_allowed_collections: null
+      one_collection: news
+      one_collection_field: null
+      one_deselect_action: delete
+      one_field: commissions
+      sort_field: null
+    schema:
+      table: news_commissions
+      column: news_id
+      foreign_key_table: news
+      foreign_key_column: id
+      constraint_name: news_commissions_news_id_foreign
+      on_update: NO ACTION
+      on_delete: CASCADE
+  - collection: news_partners
+    field: partners_id
+    related_collection: partners
+    meta:
+      junction_field: news_id
+      many_collection: news_partners
+      many_field: partners_id
+      one_allowed_collections: null
+      one_collection: partners
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: news_partners
+      column: partners_id
+      foreign_key_table: partners
+      foreign_key_column: id
+      constraint_name: news_partners_partners_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: news_partners
+    field: news_id
+    related_collection: news
+    meta:
+      junction_field: partners_id
+      many_collection: news_partners
+      many_field: news_id
+      one_allowed_collections: null
+      one_collection: news
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: partners
+      sort_field: null
+    schema:
+      table: news_partners
+      column: news_id
+      foreign_key_table: news
+      foreign_key_column: id
+      constraint_name: news_partners_news_id_foreign
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: news_translations
@@ -752,3 +5113,87 @@ relations:
       constraint_name: news_translations_news_id_foreign
       on_update: NO ACTION
       on_delete: SET NULL
+  - collection: partners
+    field: logo
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: partners
+      many_field: logo
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: partners
+      column: logo
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: partners_logo_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: partners
+    field: commission
+    related_collection: commissions
+    meta:
+      junction_field: null
+      many_collection: partners
+      many_field: commission
+      one_allowed_collections: null
+      one_collection: commissions
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: partners
+      sort_field: null
+    schema:
+      table: partners
+      column: commission
+      foreign_key_table: commissions
+      foreign_key_column: id
+      constraint_name: partners_commission_foreign
+      on_update: NO ACTION
+      on_delete: CASCADE
+  - collection: social_links
+    field: logo
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: social_links
+      many_field: logo
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: social_links
+      column: logo
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: social_links_logo_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: social_links
+    field: commission
+    related_collection: commissions
+    meta:
+      junction_field: null
+      many_collection: social_links
+      many_field: commission
+      one_allowed_collections: null
+      one_collection: commissions
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: social_links
+      sort_field: null
+    schema:
+      table: social_links
+      column: commission
+      foreign_key_table: commissions
+      foreign_key_column: id
+      constraint_name: social_links_commission_foreign
+      on_update: NO ACTION
+      on_delete: CASCADE
