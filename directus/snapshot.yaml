@@ -491,7 +491,7 @@ collections:
       collapse: open
       collection: social_links
       color: null
-      display_template: "{{name}}"
+      display_template: "{{account_name}} -\_{{media_name}}"
       group: null
       hidden: false
       icon: null
@@ -2133,7 +2133,7 @@ fields:
       options: null
       readonly: false
       required: true
-      sort: 4
+      sort: 5
       special:
         - translations
       translations: null
@@ -2156,7 +2156,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 5
+      sort: 6
       special:
         - file
       translations: null
@@ -2180,30 +2180,6 @@ fields:
       foreign_key_table: directus_files
       foreign_key_column: id
   - collection: commissions
-    field: social_links
-    type: alias
-    meta:
-      collection: commissions
-      conditions: null
-      display: related-values
-      display_options:
-        template: null
-      field: social_links
-      group: null
-      hidden: false
-      interface: list-o2m
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 6
-      special:
-        - o2m
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: commissions
     field: partners
     type: alias
     meta:
@@ -2219,9 +2195,70 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 7
+      sort: 8
       special:
         - o2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: commissions
+    field: name
+    type: string
+    meta:
+      collection: commissions
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: name
+      table: commissions
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: commissions
+    field: social_links
+    type: alias
+    meta:
+      collection: commissions
+      conditions: null
+      display: null
+      display_options: null
+      field: social_links
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 9
+      special:
+        - m2m
       translations: null
       validation: null
       validation_message: null
@@ -2568,44 +2605,6 @@ fields:
       has_auto_increment: false
       foreign_key_table: languages
       foreign_key_column: code
-  - collection: commissions_translations
-    field: name
-    type: string
-    meta:
-      collection: commissions_translations
-      conditions: null
-      display: null
-      display_options: null
-      field: name
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options: null
-      readonly: false
-      required: true
-      sort: 4
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: name
-      table: commissions_translations
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
   - collection: commissions_translations
     field: small_description
     type: text
@@ -4242,44 +4241,6 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: social_links
-    field: name
-    type: string
-    meta:
-      collection: social_links
-      conditions: null
-      display: null
-      display_options: null
-      field: name
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options: null
-      readonly: false
-      required: true
-      sort: 2
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: name
-      table: social_links
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: social_links
     field: link
     type: string
     meta:
@@ -4295,12 +4256,12 @@ fields:
       options: null
       readonly: false
       required: true
-      sort: 3
+      sort: 4
       special: null
       translations: null
       validation: null
       validation_message: null
-      width: half
+      width: full
     schema:
       name: link
       table: social_links
@@ -4333,7 +4294,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 4
+      sort: 5
       special:
         - file
       translations: null
@@ -4357,47 +4318,81 @@ fields:
       foreign_key_table: directus_files
       foreign_key_column: id
   - collection: social_links
-    field: commission
-    type: integer
+    field: media_name
+    type: string
     meta:
       collection: social_links
       conditions: null
-      display: related-values
-      display_options:
-        template: "{{slug}}"
-      field: commission
+      display: null
+      display_options: null
+      field: media_name
       group: null
       hidden: false
-      interface: select-dropdown-m2o
+      interface: input
       note: null
-      options:
-        enableCreate: false
-        template: "{{slug}}"
+      options: null
       readonly: false
-      required: false
-      sort: 5
-      special:
-        - m2o
+      required: true
+      sort: 2
+      special: null
       translations: null
       validation: null
       validation_message: null
-      width: full
+      width: half
     schema:
-      name: commission
+      name: media_name
       table: social_links
-      data_type: integer
+      data_type: character varying
       default_value: null
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
       is_nullable: true
       is_unique: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
       has_auto_increment: false
-      foreign_key_table: commissions
-      foreign_key_column: id
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: social_links
+    field: account_name
+    type: string
+    meta:
+      collection: social_links
+      conditions: null
+      display: null
+      display_options: null
+      field: account_name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: account_name
+      table: social_links
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
 relations:
   - collection: association
     field: logo
@@ -4851,7 +4846,7 @@ relations:
       one_collection: commissions
       one_collection_field: null
       one_deselect_action: nullify
-      one_field: null
+      one_field: social_links
       sort_field: null
     schema:
       table: commissions_social_links
@@ -5176,24 +5171,3 @@ relations:
       constraint_name: social_links_logo_foreign
       on_update: NO ACTION
       on_delete: SET NULL
-  - collection: social_links
-    field: commission
-    related_collection: commissions
-    meta:
-      junction_field: null
-      many_collection: social_links
-      many_field: commission
-      one_allowed_collections: null
-      one_collection: commissions
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: social_links
-      sort_field: null
-    schema:
-      table: social_links
-      column: commission
-      foreign_key_table: commissions
-      foreign_key_column: id
-      constraint_name: social_links_commission_foreign
-      on_update: NO ACTION
-      on_delete: CASCADE

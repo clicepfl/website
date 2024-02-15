@@ -70,10 +70,10 @@ INSERT INTO public.partners (id, name, logo, link, rank, start, "end", commissio
 -- Data for Name: social_links; Type: TABLE DATA; Schema: public; Owner: directus_user
 --
 
-INSERT INTO public.social_links (id, name, link, logo, commission) VALUES (6, 'Telegram', 'https://t.me/clicnews', NULL, NULL);
-INSERT INTO public.social_links (id, name, link, logo, commission) VALUES (7, 'Instagram', 'https://www.instagram.com/clicepfl/', NULL, NULL);
-INSERT INTO public.social_links (id, name, link, logo, commission) VALUES (8, 'X', 'https://twitter.com/CLICepfl', NULL, NULL);
-INSERT INTO public.social_links (id, name, link, logo, commission) VALUES (9, 'Instagram', 'https://www.instagram.com/ictravel.clic/', NULL, 3);
+INSERT INTO public.social_links (id, link, logo, media_name, account_name) VALUES (6, 'https://t.me/clicnews', NULL, 'Telegram', '@clicnews');
+INSERT INTO public.social_links (id, link, logo, media_name, account_name) VALUES (7, 'https://www.instagram.com/clicepfl/', NULL, 'Instagram', '@clicepfl');
+INSERT INTO public.social_links (id, link, logo, media_name, account_name) VALUES (8, 'https://twitter.com/CLICepfl', NULL, 'X', 'clicepfl');
+INSERT INTO public.social_links (id, link, logo, media_name, account_name) VALUES (9, 'https://www.instagram.com/ictravel.clic/', NULL, 'Instagram', '@ictravel');
 
 
 --
@@ -137,17 +137,17 @@ INSERT INTO public.commission_memberships_translations (id, commission_membershi
 -- Data for Name: commissions_social_links; Type: TABLE DATA; Schema: public; Owner: directus_user
 --
 
-
+INSERT INTO public.commissions_social_links (id, commissions_id, social_links_id) VALUES (1, 3, 9);
 
 --
 -- Data for Name: commissions_translations; Type: TABLE DATA; Schema: public; Owner: directus_user
 --
 
-INSERT INTO public.commissions_translations (id, commissions_id, languages_code, name, small_description, description, banner) VALUES (1, NULL, 'en-US', 'asdf', 'asdf', 'asdf', NULL);
-INSERT INTO public.commissions_translations (id, commissions_id, languages_code, name, small_description, description, banner) VALUES (2, NULL, 'fr-FR', 'asdf', 'asdf', 'asdf', NULL);
-INSERT INTO public.commissions_translations (id, commissions_id, languages_code, name, small_description, description, banner) VALUES (3, NULL, 'en-US', 'Game*', 'asdf', 'asdf', NULL);
-INSERT INTO public.commissions_translations (id, commissions_id, languages_code, name, small_description, description, banner) VALUES (4, NULL, 'fr-FR', 'Game*', 'asdf', 'asdf', NULL);
-INSERT INTO public.commissions_translations (id, commissions_id, languages_code, name, small_description, description, banner) VALUES (5, 3, 'en-US', 'IC Travel', 'To prepare you for a memorable journey', 'Hello dear student!
+INSERT INTO public.commissions_translations (id, commissions_id, languages_code, small_description, description, banner) VALUES (1, NULL, 'en-US', 'asdf', 'asdf', NULL);
+INSERT INTO public.commissions_translations (id, commissions_id, languages_code, small_description, description, banner) VALUES (2, NULL, 'fr-FR', 'asdf', 'asdf', NULL);
+INSERT INTO public.commissions_translations (id, commissions_id, languages_code, small_description, description, banner) VALUES (3, NULL, 'en-US', 'asdf', 'asdf', NULL);
+INSERT INTO public.commissions_translations (id, commissions_id, languages_code, small_description, description, banner) VALUES (4, NULL, 'fr-FR', 'asdf', 'asdf', NULL);
+INSERT INTO public.commissions_translations (id, commissions_id, languages_code, small_description, description, banner) VALUES (5, 3, 'en-US', 'To prepare you for a memorable journey', 'Hello dear student!
 
 ## Who are we?
 
@@ -164,7 +164,7 @@ This year''s destination is Amsterdam, and the trip will take place from July 10
 ## How do I register?
 
 Registration is now closed!', NULL);
-INSERT INTO public.commissions_translations (id, commissions_id, languages_code, name, small_description, description, banner) VALUES (6, 3, 'fr-FR', 'IC travel', 'Pour vous préparer un voyage mémorable', 'Salut cher·ère étudiant·e !
+INSERT INTO public.commissions_translations (id, commissions_id, languages_code, small_description, description, banner) VALUES (6, 3, 'fr-FR', 'Pour vous préparer un voyage mémorable', 'Salut cher·ère étudiant·e !
 
 ## Qui sommes-nous ?
 
@@ -187,6 +187,33 @@ Les inscriptions sont fermées !', NULL);
 --
 
 INSERT INTO public.news (id, status, sort, user_created, date_created, date_updated, banner, slug) VALUES (2, 'published', NULL, NULL, '2024-02-15 04:02:43.255+00', '2024-02-15 04:05:41.422+00', NULL, 'secret-santa-2023');
+
+INSERT INTO public.news_translations (id, news_id, languages_code, title, description, content) VALUES (3, 2, 'fr-FR', 'Secret Santa CLIC 2023', 'Viens offrir et recevoir un cadeau avec un verre de vin/chocolat chaud !', 'Ho Ho Ho !
+
+La fin de l’année approche ! Bon courage à vous pour les derniers rendus et les finals💙 Il est temps de rattraper les retards, mais c’est aussi l’heure de vous installer devant la cheminée avec un chocolat chaud et de sortir vos emballages cadeaux 🎁
+
+La CLIC organise un Secret Santa pour toute la Faculté IC ! Le principe est simple: amener un cadeau (d’une valeur de 10~15 CHF) le soir du 20 Décembre, au plus tard à 19h. Quand il y en aura suffisamment dans la hotte de la CLIC, on distribuera au hasard les cadeaux à chacun.e des participant.e.s ! Vous n’aurez pas de personne attribuée à l’avance, mais après la distribution, vous pourrez essayer de retrouver la personne qui vous a offert le cadeau 🎀
+
+Et pour partager plus de kiff dans la bonne humeur des fêtes de fin d’année, il y aura une distribution de vin chaud, de chocolats chauds (avec l’aide experte de Chocopoly !) et de biscuits ! 🍪☕
+
+📍 Lieu: Hall INM
+🕰️ Date: 20 Décembre 2023 de 18h à 21h
+🎁 Préparez un cadeau entre 10 et 15 CHF
+
+La CLIC vous aime ❤️💙');
+INSERT INTO public.news_translations (id, news_id, languages_code, title, description, content) VALUES (4, 2, 'en-US', 'Secret Santa CLIC 2023', 'Come give and receive a gift with a glass of wine/hot chocolate!', 'Ho Ho Ho!
+
+The end of the year is approaching! Good luck to you with the projects and finals💙 It''s time to catch up, but it''s also time to settle down in front of the fireplace with a hot chocolate and get out your gift wrappings 🎁
+
+CLIC is organizing a Secret Santa for the whole IC Faculty! The principle is simple: bring a gift (worth 10~15 CHF) on the evening of December 20, no later than 7pm. When there''s enough in the CLIC''s hood, we''ll randomly distribute the gifts to each participant! You won''t be assigned a person in advance, but after the distribution, you can try to find the person who gave you the gift 🎀
+
+And to share more good vibes in holiday cheer, there''ll be a distribution of mulled wine, hot chocolates (with expert help from Chocopoly!) and cookies! 🍪☕
+
+📍 Location: INM Hall
+🕰️ Date: December 20th, 2023 from 6 p.m. to 9 p.m.
+🎁 Prepare a gift between 10 and 15 CHF
+
+Love from CLIC ❤️💙');
 
 
 --
