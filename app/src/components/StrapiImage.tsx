@@ -1,4 +1,3 @@
-import { CLIENT_STRAPI_URL } from "@/strapi";
 import Image from "next/image";
 import SVG from "react-inlinesvg";
 

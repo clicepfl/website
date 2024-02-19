@@ -1,7 +1,8 @@
 import Card from "@/components/Card";
+import { directus } from "@/directus";
 import { locale, translate } from "@/locales";
-import strapi from "@/strapi";
-import { ApiCommission } from "@/types/generated/contentTypes";
+import { Commission } from "@/types/aliases";
+import { readItems } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 
@@ -27,12 +28,12 @@ export default function Commissions(
 }
 
 export const getServerSideProps: GetServerSideProps<{
-  news: ApiCommission[];
+  news: Commission[];
 }> = async (context) => {
-  let res = await strapi.find<ApiCommission[]>("commissions", {
-    sort: "name",
-    populate: "logo",
-    locale: locale(context),
-  });
-  return { props: { news: res.data.reverse() } };
+  const c = await directus.request(
+    readItems("commissions", {
+      fields: ["*", { translations: ["*"] }],
+    })
+  );
+  return { props: { news: c } };
 };

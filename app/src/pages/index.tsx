@@ -1,16 +1,20 @@
 import Card from "@/components/Card";
 import NewsCard from "@/components/NewsCard";
 import Slider from "@/components/Slider";
-import StrapiImage from "@/components/StrapiImage";
 import { directus } from "@/directus";
-import { locale, translate } from "@/locales";
-import strapi from "@/strapi";
 import {
-  ApiAssociation,
-  ApiMember,
-  ApiNews,
-} from "@/types/generated/contentTypes";
-import { readSingleton } from "@directus/sdk";
+  getTranslation,
+  locale,
+  queryTranslations,
+  translate,
+} from "@/locales";
+import {
+  Association,
+  AssociationMembership,
+  Member,
+  News,
+} from "@/types/aliases";
+import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 import Markdown from "react-markdown";
@@ -22,28 +26,25 @@ export default function Home(
 
   return (
     <>
-      <StrapiImage
-        img={props.association.attributes.logo}
-        size="medium"
-        className="CLICLogo"
-      />
       <Slider>
         {props.news.map((n) => (
           <NewsCard key={(n as any).id} news={n} />
         ))}
       </Slider>
-      <Markdown className="text">{props.association.attributes.about}</Markdown>
+      <Markdown className="text">
+        {getTranslation(props.association, router.locale).description}
+      </Markdown>
       <div className="cardList">
         <h1 className="title">
           {translate("committee", locale(router), { capitalize: true })}
         </h1>
         <div>
-          {props.committee.map((m: ApiMember) => (
+          {props.committee.map((m) => (
             <Card
               size="small"
               key={(m as any).id}
-              member={m}
-              membership={m.attributes.pole_memberships.data[0]}
+              member={m.member}
+              membership={m}
             />
           ))}
         </div>
@@ -53,40 +54,33 @@ export default function Home(
 }
 
 export const getServerSideProps: GetServerSideProps<{
-  association: ApiAssociation;
-  news: ApiNews[];
-  committee: ApiMember[];
+  association: Association;
+  news: News[];
+  committee: (AssociationMembership & { member: Member })[];
 }> = async (context) => {
-  const assoc = await directus.request(readSingleton("Association"));
-  console.log(assoc);
-
-  let association = await strapi.find<ApiAssociation>("association", {
-    populate: "logo",
-    locale: locale(context),
-  });
-  let news = await strapi.find<ApiNews[]>("newss", {
-    pagination: { start: 0, limit: 3 },
-    populate: "picture",
-    locale: locale(context),
-  });
-  let committee = await strapi.find<ApiMember[]>("members", {
-    populate: ["pole_memberships", "picture"],
-    filters: {
-      pole_memberships: {
-        id: {
-          // Do not fetch members with no pole membership => not in the main association
-          $notNull: true,
-        },
-        level: "Comité",
-      },
-    },
-    locale: locale(context),
-  });
   return {
     props: {
-      association: association.data,
-      news: news.data,
-      committee: committee.data,
+      association: await directus.request(
+        readSingleton("association", queryTranslations)
+      ),
+      news: await directus.request(
+        readItems("news", {
+          limit: 3,
+          sort: ["-date_created"],
+          ...queryTranslations,
+        })
+      ),
+      committee: (await directus.request(
+        readItems("association_memberships", {
+          fields: [
+            "*",
+            { member: ["*"] },
+            //@ts-ignore
+            { translations: ["*"] },
+          ],
+          filter: { level: { _eq: "committee" } },
+        })
+      )) as (AssociationMembership & { member: Member })[],
     },
   };
 };
