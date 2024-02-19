@@ -1095,6 +1095,84 @@ export interface paths {
      */
     patch: operations["updateSingleItemsAssociationPartners"];
   };
+  "/items/social_links": {
+    /**
+     * List Items
+     * @description List the social_links items.
+     */
+    get: operations["readItemsSocialLinks"];
+    /**
+     * Create an Item
+     * @description Create a new social_links item.
+     */
+    post: operations["createItemsSocialLinks"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing social_links items.
+     */
+    delete: operations["deleteItemsSocialLinks"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple social_links items at the same time.
+     */
+    patch: operations["updateItemsSocialLinks"];
+  };
+  "/items/social_links/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single social_links item by unique identifier.
+     */
+    get: operations["readSingleItemsSocialLinks"];
+    /**
+     * Delete an Item
+     * @description Delete an existing social_links item.
+     */
+    delete: operations["deleteSingleItemsSocialLinks"];
+    /**
+     * Update an Item
+     * @description Update an existing social_links item.
+     */
+    patch: operations["updateSingleItemsSocialLinks"];
+  };
+  "/items/association_social_links": {
+    /**
+     * List Items
+     * @description List the association_social_links items.
+     */
+    get: operations["readItemsAssociationSocialLinks"];
+    /**
+     * Create an Item
+     * @description Create a new association_social_links item.
+     */
+    post: operations["createItemsAssociationSocialLinks"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing association_social_links items.
+     */
+    delete: operations["deleteItemsAssociationSocialLinks"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple association_social_links items at the same time.
+     */
+    patch: operations["updateItemsAssociationSocialLinks"];
+  };
+  "/items/association_social_links/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single association_social_links item by unique identifier.
+     */
+    get: operations["readSingleItemsAssociationSocialLinks"];
+    /**
+     * Delete an Item
+     * @description Delete an existing association_social_links item.
+     */
+    delete: operations["deleteSingleItemsAssociationSocialLinks"];
+    /**
+     * Update an Item
+     * @description Update an existing association_social_links item.
+     */
+    patch: operations["updateSingleItemsAssociationSocialLinks"];
+  };
   "/items/association_translations": {
     /**
      * List Items
@@ -1133,6 +1211,45 @@ export interface paths {
      * @description Update an existing association_translations item.
      */
     patch: operations["updateSingleItemsAssociationTranslations"];
+  };
+  "/items/commissions": {
+    /**
+     * List Items
+     * @description List the commissions items.
+     */
+    get: operations["readItemsCommissions"];
+    /**
+     * Create an Item
+     * @description Create a new commissions item.
+     */
+    post: operations["createItemsCommissions"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing commissions items.
+     */
+    delete: operations["deleteItemsCommissions"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple commissions items at the same time.
+     */
+    patch: operations["updateItemsCommissions"];
+  };
+  "/items/commissions/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single commissions item by unique identifier.
+     */
+    get: operations["readSingleItemsCommissions"];
+    /**
+     * Delete an Item
+     * @description Delete an existing commissions item.
+     */
+    delete: operations["deleteSingleItemsCommissions"];
+    /**
+     * Update an Item
+     * @description Update an existing commissions item.
+     */
+    patch: operations["updateSingleItemsCommissions"];
   };
   "/items/commission_memberships": {
     /**
@@ -1484,162 +1601,6 @@ export interface paths {
      * @description Update an existing news_translations item.
      */
     patch: operations["updateSingleItemsNewsTranslations"];
-  };
-  "/items/association_social_links": {
-    /**
-     * List Items
-     * @description List the association_social_links items.
-     */
-    get: operations["readItemsAssociationSocialLinks"];
-    /**
-     * Create an Item
-     * @description Create a new association_social_links item.
-     */
-    post: operations["createItemsAssociationSocialLinks"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing association_social_links items.
-     */
-    delete: operations["deleteItemsAssociationSocialLinks"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple association_social_links items at the same time.
-     */
-    patch: operations["updateItemsAssociationSocialLinks"];
-  };
-  "/items/association_social_links/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single association_social_links item by unique identifier.
-     */
-    get: operations["readSingleItemsAssociationSocialLinks"];
-    /**
-     * Delete an Item
-     * @description Delete an existing association_social_links item.
-     */
-    delete: operations["deleteSingleItemsAssociationSocialLinks"];
-    /**
-     * Update an Item
-     * @description Update an existing association_social_links item.
-     */
-    patch: operations["updateSingleItemsAssociationSocialLinks"];
-  };
-  "/items/commissions": {
-    /**
-     * List Items
-     * @description List the commissions items.
-     */
-    get: operations["readItemsCommissions"];
-    /**
-     * Create an Item
-     * @description Create a new commissions item.
-     */
-    post: operations["createItemsCommissions"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing commissions items.
-     */
-    delete: operations["deleteItemsCommissions"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple commissions items at the same time.
-     */
-    patch: operations["updateItemsCommissions"];
-  };
-  "/items/commissions/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single commissions item by unique identifier.
-     */
-    get: operations["readSingleItemsCommissions"];
-    /**
-     * Delete an Item
-     * @description Delete an existing commissions item.
-     */
-    delete: operations["deleteSingleItemsCommissions"];
-    /**
-     * Update an Item
-     * @description Update an existing commissions item.
-     */
-    patch: operations["updateSingleItemsCommissions"];
-  };
-  "/items/social_links": {
-    /**
-     * List Items
-     * @description List the social_links items.
-     */
-    get: operations["readItemsSocialLinks"];
-    /**
-     * Create an Item
-     * @description Create a new social_links item.
-     */
-    post: operations["createItemsSocialLinks"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing social_links items.
-     */
-    delete: operations["deleteItemsSocialLinks"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple social_links items at the same time.
-     */
-    patch: operations["updateItemsSocialLinks"];
-  };
-  "/items/social_links/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single social_links item by unique identifier.
-     */
-    get: operations["readSingleItemsSocialLinks"];
-    /**
-     * Delete an Item
-     * @description Delete an existing social_links item.
-     */
-    delete: operations["deleteSingleItemsSocialLinks"];
-    /**
-     * Update an Item
-     * @description Update an existing social_links item.
-     */
-    patch: operations["updateSingleItemsSocialLinks"];
-  };
-  "/items/commissions_social_links_1": {
-    /**
-     * List Items
-     * @description List the commissions_social_links_1 items.
-     */
-    get: operations["readItemsCommissionsSocialLinks1"];
-    /**
-     * Create an Item
-     * @description Create a new commissions_social_links_1 item.
-     */
-    post: operations["createItemsCommissionsSocialLinks1"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing commissions_social_links_1 items.
-     */
-    delete: operations["deleteItemsCommissionsSocialLinks1"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple commissions_social_links_1 items at the same time.
-     */
-    patch: operations["updateItemsCommissionsSocialLinks1"];
-  };
-  "/items/commissions_social_links_1/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single commissions_social_links_1 item by unique identifier.
-     */
-    get: operations["readSingleItemsCommissionsSocialLinks1"];
-    /**
-     * Delete an Item
-     * @description Delete an existing commissions_social_links_1 item.
-     */
-    delete: operations["deleteSingleItemsCommissionsSocialLinks1"];
-    /**
-     * Update an Item
-     * @description Update an existing commissions_social_links_1 item.
-     */
-    patch: operations["updateSingleItemsCommissionsSocialLinks1"];
   };
 }
 
@@ -2586,11 +2547,11 @@ export interface components {
       phone?: string | null;
       address?: string | null;
       logo?: string | components["schemas"]["Files"] | null;
-      translations?:
-        | (number | components["schemas"]["ItemsAssociationTranslations"])[]
-        | null;
       official_documents?:
         | (number | components["schemas"]["ItemsAssociationFiles"])[]
+        | null;
+      translations?:
+        | (number | components["schemas"]["ItemsAssociationTranslations"])[]
         | null;
       partners?:
         | (number | components["schemas"]["ItemsAssociationPartners"])[]
@@ -2659,6 +2620,24 @@ export interface components {
         | null;
       partners_id?: number | components["schemas"]["ItemsPartners"] | null;
     };
+    ItemsSocialLinks: {
+      id?: number;
+      link?: string | null;
+      logo?: string | components["schemas"]["Files"] | null;
+      media_name?: string | null;
+      account_name?: string | null;
+    };
+    ItemsAssociationSocialLinks: {
+      id?: number;
+      association_id?:
+        | number
+        | components["schemas"]["ItemsAssociation"]
+        | null;
+      social_links_id?:
+        | number
+        | components["schemas"]["ItemsSocialLinks"]
+        | null;
+    };
     ItemsAssociationTranslations: {
       id?: number;
       association_id?:
@@ -2668,6 +2647,20 @@ export interface components {
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       description?: string | null;
       banner?: string | components["schemas"]["Files"] | null;
+    };
+    ItemsCommissions: {
+      id?: number;
+      email?: string | null;
+      slug?: string | null;
+      logo?: string | components["schemas"]["Files"] | null;
+      name?: string | null;
+      translations?:
+        | (number | components["schemas"]["ItemsCommissionsTranslations"])[]
+        | null;
+      partners?: (number | components["schemas"]["ItemsPartners"])[] | null;
+      social_links?:
+        | (number | components["schemas"]["ItemsCommissionsSocialLinks"])[]
+        | null;
     };
     ItemsCommissionMemberships: {
       id?: number;
@@ -2759,49 +2752,6 @@ export interface components {
       title?: string;
       description?: string;
       content?: string;
-    };
-    ItemsAssociationSocialLinks: {
-      id?: number;
-      association_id?:
-        | number
-        | components["schemas"]["ItemsAssociation"]
-        | null;
-      social_links_id?:
-        | number
-        | components["schemas"]["ItemsSocialLinks"]
-        | null;
-    };
-    ItemsCommissions: {
-      id?: number;
-      email?: string | null;
-      slug?: string | null;
-      logo?: string | components["schemas"]["Files"] | null;
-      name?: string | null;
-      partners?: (number | components["schemas"]["ItemsPartners"])[] | null;
-      translations?:
-        | (number | components["schemas"]["ItemsCommissionsTranslations"])[]
-        | null;
-      social_links?:
-        | (number | components["schemas"]["ItemsCommissionsSocialLinks1"])[]
-        | null;
-    };
-    ItemsSocialLinks: {
-      id?: number;
-      link?: string | null;
-      logo?: string | components["schemas"]["Files"] | null;
-      media_name?: string | null;
-      account_name?: string | null;
-    };
-    ItemsCommissionsSocialLinks1: {
-      id?: number;
-      commissions_id?:
-        | number
-        | components["schemas"]["ItemsCommissions"]
-        | null;
-      social_links_id?:
-        | number
-        | components["schemas"]["ItemsSocialLinks"]
-        | null;
     };
   };
   responses: {
@@ -8674,6 +8624,380 @@ export interface operations {
   };
   /**
    * List Items
+   * @description List the social_links items.
+   */
+  readItemsSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsSocialLinks"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new social_links item.
+   */
+  createItemsSocialLinks: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsSocialLinks"][]
+          | components["schemas"]["ItemsSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing social_links items.
+   */
+  deleteItemsSocialLinks: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple social_links items at the same time.
+   */
+  updateItemsSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsSocialLinks"][]
+          | components["schemas"]["ItemsSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single social_links item by unique identifier.
+   */
+  readSingleItemsSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsSocialLinks"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing social_links item.
+   */
+  deleteSingleItemsSocialLinks: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing social_links item.
+   */
+  updateSingleItemsSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsSocialLinks"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the association_social_links items.
+   */
+  readItemsAssociationSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationSocialLinks"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new association_social_links item.
+   */
+  createItemsAssociationSocialLinks: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationSocialLinks"][]
+          | components["schemas"]["ItemsAssociationSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing association_social_links items.
+   */
+  deleteItemsAssociationSocialLinks: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple association_social_links items at the same time.
+   */
+  updateItemsAssociationSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationSocialLinks"][]
+          | components["schemas"]["ItemsAssociationSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single association_social_links item by unique identifier.
+   */
+  readSingleItemsAssociationSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationSocialLinks"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing association_social_links item.
+   */
+  deleteSingleItemsAssociationSocialLinks: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing association_social_links item.
+   */
+  updateSingleItemsAssociationSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsAssociationSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationSocialLinks"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
    * @description List the association_translations items.
    */
   readItemsAssociationTranslations: {
@@ -8852,6 +9176,193 @@ export interface operations {
         content: {
           "application/json": {
             data?: components["schemas"]["ItemsAssociationTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the commissions items.
+   */
+  readItemsCommissions: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissions"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new commissions item.
+   */
+  createItemsCommissions: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsCommissions"][]
+          | components["schemas"]["ItemsCommissions"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing commissions items.
+   */
+  deleteItemsCommissions: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple commissions items at the same time.
+   */
+  updateItemsCommissions: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsCommissions"][]
+          | components["schemas"]["ItemsCommissions"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single commissions item by unique identifier.
+   */
+  readSingleItemsCommissions: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissions"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing commissions item.
+   */
+  deleteSingleItemsCommissions: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing commissions item.
+   */
+  updateSingleItemsCommissions: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsCommissions"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissions"];
           };
         };
       };
@@ -10542,754 +11053,6 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
-  /**
-   * List Items
-   * @description List the association_social_links items.
-   */
-  readItemsAssociationSocialLinks: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsAssociationSocialLinks"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new association_social_links item.
-   */
-  createItemsAssociationSocialLinks: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationSocialLinks"][]
-          | components["schemas"]["ItemsAssociationSocialLinks"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing association_social_links items.
-   */
-  deleteItemsAssociationSocialLinks: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple association_social_links items at the same time.
-   */
-  updateItemsAssociationSocialLinks: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationSocialLinks"][]
-          | components["schemas"]["ItemsAssociationSocialLinks"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single association_social_links item by unique identifier.
-   */
-  readSingleItemsAssociationSocialLinks: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsAssociationSocialLinks"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing association_social_links item.
-   */
-  deleteSingleItemsAssociationSocialLinks: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing association_social_links item.
-   */
-  updateSingleItemsAssociationSocialLinks: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsAssociationSocialLinks"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsAssociationSocialLinks"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
-   * @description List the commissions items.
-   */
-  readItemsCommissions: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsCommissions"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new commissions item.
-   */
-  createItemsCommissions: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsCommissions"][]
-          | components["schemas"]["ItemsCommissions"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing commissions items.
-   */
-  deleteItemsCommissions: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple commissions items at the same time.
-   */
-  updateItemsCommissions: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsCommissions"][]
-          | components["schemas"]["ItemsCommissions"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single commissions item by unique identifier.
-   */
-  readSingleItemsCommissions: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsCommissions"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing commissions item.
-   */
-  deleteSingleItemsCommissions: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing commissions item.
-   */
-  updateSingleItemsCommissions: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsCommissions"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsCommissions"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
-   * @description List the social_links items.
-   */
-  readItemsSocialLinks: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsSocialLinks"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new social_links item.
-   */
-  createItemsSocialLinks: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsSocialLinks"][]
-          | components["schemas"]["ItemsSocialLinks"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing social_links items.
-   */
-  deleteItemsSocialLinks: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple social_links items at the same time.
-   */
-  updateItemsSocialLinks: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsSocialLinks"][]
-          | components["schemas"]["ItemsSocialLinks"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single social_links item by unique identifier.
-   */
-  readSingleItemsSocialLinks: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsSocialLinks"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing social_links item.
-   */
-  deleteSingleItemsSocialLinks: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing social_links item.
-   */
-  updateSingleItemsSocialLinks: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsSocialLinks"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsSocialLinks"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
-   * @description List the commissions_social_links_1 items.
-   */
-  readItemsCommissionsSocialLinks1: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsCommissionsSocialLinks1"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new commissions_social_links_1 item.
-   */
-  createItemsCommissionsSocialLinks1: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsCommissionsSocialLinks1"][]
-          | components["schemas"]["ItemsCommissionsSocialLinks1"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing commissions_social_links_1 items.
-   */
-  deleteItemsCommissionsSocialLinks1: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple commissions_social_links_1 items at the same time.
-   */
-  updateItemsCommissionsSocialLinks1: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsCommissionsSocialLinks1"][]
-          | components["schemas"]["ItemsCommissionsSocialLinks1"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single commissions_social_links_1 item by unique identifier.
-   */
-  readSingleItemsCommissionsSocialLinks1: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsCommissionsSocialLinks1"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing commissions_social_links_1 item.
-   */
-  deleteSingleItemsCommissionsSocialLinks1: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing commissions_social_links_1 item.
-   */
-  updateSingleItemsCommissionsSocialLinks1: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsCommissionsSocialLinks1"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsCommissionsSocialLinks1"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
 }
 
 export type Schema = {
@@ -11301,7 +11064,10 @@ export type Schema = {
   association_memberships_translations: components["schemas"]["ItemsAssociationMembershipsTranslations"][];
   partners: components["schemas"]["ItemsPartners"][];
   association_partners: components["schemas"]["ItemsAssociationPartners"][];
+  social_links: components["schemas"]["ItemsSocialLinks"][];
+  association_social_links: components["schemas"]["ItemsAssociationSocialLinks"][];
   association_translations: components["schemas"]["ItemsAssociationTranslations"][];
+  commissions: components["schemas"]["ItemsCommissions"][];
   commission_memberships: components["schemas"]["ItemsCommissionMemberships"][];
   commission_memberships_translations: components["schemas"]["ItemsCommissionMembershipsTranslations"][];
   commissions_members: components["schemas"]["ItemsCommissionsMembers"][];
@@ -11311,8 +11077,4 @@ export type Schema = {
   news_commissions: components["schemas"]["ItemsNewsCommissions"][];
   news_partners: components["schemas"]["ItemsNewsPartners"][];
   news_translations: components["schemas"]["ItemsNewsTranslations"][];
-  association_social_links: components["schemas"]["ItemsAssociationSocialLinks"][];
-  commissions: components["schemas"]["ItemsCommissions"][];
-  social_links: components["schemas"]["ItemsSocialLinks"][];
-  commissions_social_links_1: components["schemas"]["ItemsCommissionsSocialLinks1"][];
 };
