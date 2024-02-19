@@ -146,31 +146,10 @@ export function getTranslation<
 
 /**
  * Adds the necessary fields to a query parameters object to fetch all the translations of the item(s).
- * @param query the initial query parameters
- * @returns updated query parameters
+ * Example: `{filter: {key: {_eq: value}}, ...queryTranslations}`
+ *
+ * /!\ Do not use when `fields` is set to a custom value /!\
  */
-export function queryTranslations(query?: any) {
-  if (!query) {
-    return {
-      fields: ["*", { translations: ["*"] }],
-    };
-  } else {
-    if ("fields" in query) {
-      if (Array.isArray(query.fields)) {
-        if (
-          !query.fields.some(
-            (e: any) => typeof e === "object" && "translations" in e
-          )
-        ) {
-          query.fields.push({ translations: ["*"] });
-        }
-        return query;
-      } else {
-        throw new Error("Malformed query parameters");
-      }
-    } else {
-      query["fields"] = ["*", { translations: ["*"] }];
-      return query;
-    }
-  }
-}
+export const queryTranslations = {
+  fields: ["*", { translations: ["*"] }],
+};
