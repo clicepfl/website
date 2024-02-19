@@ -3287,46 +3287,6 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: news
-    field: banner
-    type: uuid
-    meta:
-      collection: news
-      conditions: null
-      display: null
-      display_options: null
-      field: banner
-      group: null
-      hidden: false
-      interface: file-image
-      note: null
-      options:
-        crop: false
-      readonly: false
-      required: false
-      sort: 4
-      special:
-        - file
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: banner
-      table: news
-      data_type: uuid
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: directus_files
-      foreign_key_column: id
-  - collection: news
     field: translations
     type: alias
     meta:
@@ -3895,6 +3855,45 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
+  - collection: news_translations
+    field: banner
+    type: uuid
+    meta:
+      collection: news_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: banner
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 7
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: banner
+      table: news_translations
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
   - collection: partners
     field: id
     type: integer
@@ -4961,27 +4960,6 @@ relations:
       constraint_name: news_user_created_foreign
       on_update: NO ACTION
       on_delete: NO ACTION
-  - collection: news
-    field: banner
-    related_collection: directus_files
-    meta:
-      junction_field: null
-      many_collection: news
-      many_field: banner
-      one_allowed_collections: null
-      one_collection: directus_files
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    schema:
-      table: news
-      column: banner
-      foreign_key_table: directus_files
-      foreign_key_column: id
-      constraint_name: news_banner_foreign
-      on_update: NO ACTION
-      on_delete: SET NULL
   - collection: news_commissions
     field: commissions_id
     related_collection: commissions
@@ -5106,6 +5084,27 @@ relations:
       foreign_key_table: news
       foreign_key_column: id
       constraint_name: news_translations_news_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: news_translations
+    field: banner
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: news_translations
+      many_field: banner
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: news_translations
+      column: banner
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: news_translations_banner_foreign
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: partners

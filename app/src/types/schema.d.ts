@@ -2722,7 +2722,6 @@ export interface components {
       date_created?: string | null;
       /** Format: timestamp */
       date_updated?: string | null;
-      banner?: string | components["schemas"]["Files"] | null;
       slug?: string | null;
       translations?:
         | (number | components["schemas"]["ItemsNewsTranslations"])[]
@@ -2752,6 +2751,7 @@ export interface components {
       title?: string;
       description?: string;
       content?: string;
+      banner?: string | components["schemas"]["Files"] | null;
     };
   };
   responses: {
@@ -11056,7 +11056,7 @@ export interface operations {
 }
 
 export type Schema = {
-  association: components["schemas"]["ItemsAssociation"][];
+  association: components["schemas"]["ItemsAssociation"];
   association_files: components["schemas"]["ItemsAssociationFiles"][];
   members: components["schemas"]["ItemsMembers"][];
   association_memberships: components["schemas"]["ItemsAssociationMemberships"][];
