@@ -5,7 +5,7 @@ import Slider from "@/components/Slider";
 import { directus } from "@/directus";
 import { locale, translate } from "@/locales";
 import {
-  ApiAssociation,j
+  ApiAssociation,
   ApiMember,
   ApiNews,
 } from "@/types/generated/contentTypes";
