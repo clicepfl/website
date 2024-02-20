@@ -1,5 +1,5 @@
 import Card from "@/components/Card";
-import StrapiImage from "@/components/StrapiImage";
+import StrapiImage from "@/components/DirectusImage";
 import { formatDate, locale, translate } from "@/locales";
 import strapi from "@/strapi";
 import { ApiCommission, ApiNews } from "@/types/generated/contentTypes";

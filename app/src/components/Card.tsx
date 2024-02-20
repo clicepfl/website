@@ -1,4 +1,4 @@
-import StrapiImage from "./StrapiImage";
+import StrapiImage from "./DirectusImage";
 import styles from "@/styles/Card.module.scss";
 import {
   ApiCommission,
@@ -31,16 +31,16 @@ export default function Card(
     linkTarget = undefined;
 
   if ("member" in props) {
-    img = props.member.attributes.picture;
-    title = props.member.attributes.name;
-    description = props.membership.attributes.role;
-    link = props.member.attributes.link;
+    img = props.member.picture;
+    title = props.member.name;
+    description = props.membership.role;
+    link = props.member.link;
     linkTarget = "_blank";
   } else if ("commission" in props) {
-    img = props.commission.attributes.logo;
-    title = props.commission.attributes.name;
-    description = props.commission.attributes.small_description;
-    link = `/commission/${props.commission.attributes.slug}`;
+    img = props.commission.logo;
+    title = props.commission.name;
+    description = props.commission.small_description;
+    link = `/commission/${props.commission.slug}`;
   } else {
     img = props.img;
     title = props.title;
