@@ -24,18 +24,17 @@ export default function Home(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   const router = useRouter();
+  const translation = getTranslation(props.association, router.locale);
 
   return (
     <>
-      <DirectusImage img={props.association.logo} className="CLICLogo" />
+      <DirectusImage img={translation.banner} className="CLICLogo" />
       <Slider>
         {props.news.map((n) => (
           <NewsCard key={(n as any).id} news={n} />
         ))}
       </Slider>
-      <Markdown className="text">
-        {getTranslation(props.association, router.locale).description}
-      </Markdown>
+      <Markdown className="text">{translation.description}</Markdown>
       <div className="cardList">
         <h1 className="title">
           {translate("committee", locale(router), { capitalize: true })}

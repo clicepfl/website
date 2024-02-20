@@ -783,6 +783,84 @@ export interface paths {
      */
     post: operations["promoteContentVersion"];
   };
+  "/items/news_translations": {
+    /**
+     * List Items
+     * @description List the news_translations items.
+     */
+    get: operations["readItemsNewsTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new news_translations item.
+     */
+    post: operations["createItemsNewsTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing news_translations items.
+     */
+    delete: operations["deleteItemsNewsTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple news_translations items at the same time.
+     */
+    patch: operations["updateItemsNewsTranslations"];
+  };
+  "/items/news_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single news_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsNewsTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing news_translations item.
+     */
+    delete: operations["deleteSingleItemsNewsTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing news_translations item.
+     */
+    patch: operations["updateSingleItemsNewsTranslations"];
+  };
+  "/items/news": {
+    /**
+     * List Items
+     * @description List the news items.
+     */
+    get: operations["readItemsNews"];
+    /**
+     * Create an Item
+     * @description Create a new news item.
+     */
+    post: operations["createItemsNews"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing news items.
+     */
+    delete: operations["deleteItemsNews"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple news items at the same time.
+     */
+    patch: operations["updateItemsNews"];
+  };
+  "/items/news/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single news item by unique identifier.
+     */
+    get: operations["readSingleItemsNews"];
+    /**
+     * Delete an Item
+     * @description Delete an existing news item.
+     */
+    delete: operations["deleteSingleItemsNews"];
+    /**
+     * Update an Item
+     * @description Update an existing news item.
+     */
+    patch: operations["updateSingleItemsNews"];
+  };
   "/items/association": {
     /**
      * List Items
@@ -1446,45 +1524,6 @@ export interface paths {
      */
     patch: operations["updateSingleItemsCommissionsTranslations"];
   };
-  "/items/news": {
-    /**
-     * List Items
-     * @description List the news items.
-     */
-    get: operations["readItemsNews"];
-    /**
-     * Create an Item
-     * @description Create a new news item.
-     */
-    post: operations["createItemsNews"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing news items.
-     */
-    delete: operations["deleteItemsNews"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple news items at the same time.
-     */
-    patch: operations["updateItemsNews"];
-  };
-  "/items/news/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single news item by unique identifier.
-     */
-    get: operations["readSingleItemsNews"];
-    /**
-     * Delete an Item
-     * @description Delete an existing news item.
-     */
-    delete: operations["deleteSingleItemsNews"];
-    /**
-     * Update an Item
-     * @description Update an existing news item.
-     */
-    patch: operations["updateSingleItemsNews"];
-  };
   "/items/news_commissions": {
     /**
      * List Items
@@ -1562,45 +1601,6 @@ export interface paths {
      * @description Update an existing news_partners item.
      */
     patch: operations["updateSingleItemsNewsPartners"];
-  };
-  "/items/news_translations": {
-    /**
-     * List Items
-     * @description List the news_translations items.
-     */
-    get: operations["readItemsNewsTranslations"];
-    /**
-     * Create an Item
-     * @description Create a new news_translations item.
-     */
-    post: operations["createItemsNewsTranslations"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing news_translations items.
-     */
-    delete: operations["deleteItemsNewsTranslations"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple news_translations items at the same time.
-     */
-    patch: operations["updateItemsNewsTranslations"];
-  };
-  "/items/news_translations/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single news_translations item by unique identifier.
-     */
-    get: operations["readSingleItemsNewsTranslations"];
-    /**
-     * Delete an Item
-     * @description Delete an existing news_translations item.
-     */
-    delete: operations["deleteSingleItemsNewsTranslations"];
-    /**
-     * Update an Item
-     * @description Update an existing news_translations item.
-     */
-    patch: operations["updateSingleItemsNewsTranslations"];
   };
 }
 
@@ -2342,7 +2342,10 @@ export interface components {
        * @description The background of the project.
        * @example null
        */
-      public_background?: string | null;
+      public_background?: {
+        id?: string;
+        type?: string;
+      } | null;
       /**
        * @description Note rendered on the public pages of the app.
        * @example null
@@ -2540,6 +2543,33 @@ export interface components {
        */
       user_updated?: string | components["schemas"]["Users"];
     };
+    ItemsNewsTranslations: {
+      id?: number;
+      news_id?: number | components["schemas"]["ItemsNews"] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      title?: string;
+      description?: string;
+      content?: string;
+      banner?: string | components["schemas"]["Files"] | null;
+    };
+    ItemsNews: {
+      id?: number;
+      user_created?: string | components["schemas"]["Users"] | null;
+      /** Format: timestamp */
+      date_created?: string | null;
+      /** Format: timestamp */
+      date_updated?: string | null;
+      status?: string;
+      sort?: number | null;
+      slug?: string | null;
+      translations?:
+        | (number | components["schemas"]["ItemsNewsTranslations"])[]
+        | null;
+      commissions?:
+        | (number | components["schemas"]["ItemsNewsCommissions"])[]
+        | null;
+      partners?: (number | components["schemas"]["ItemsNewsPartners"])[] | null;
+    };
     ItemsAssociation: {
       id?: number;
       name?: string | null;
@@ -2713,24 +2743,6 @@ export interface components {
       description?: string | null;
       banner?: string | components["schemas"]["Files"] | null;
     };
-    ItemsNews: {
-      id?: number;
-      status?: string;
-      sort?: number | null;
-      user_created?: string | components["schemas"]["Users"] | null;
-      /** Format: timestamp */
-      date_created?: string | null;
-      /** Format: timestamp */
-      date_updated?: string | null;
-      slug?: string | null;
-      translations?:
-        | (number | components["schemas"]["ItemsNewsTranslations"])[]
-        | null;
-      commissions?:
-        | (number | components["schemas"]["ItemsNewsCommissions"])[]
-        | null;
-      partners?: (number | components["schemas"]["ItemsNewsPartners"])[] | null;
-    };
     ItemsNewsCommissions: {
       id?: number;
       news_id?: number | components["schemas"]["ItemsNews"] | null;
@@ -2743,15 +2755,6 @@ export interface components {
       id?: number;
       news_id?: number | components["schemas"]["ItemsNews"] | null;
       partners_id?: number | components["schemas"]["ItemsPartners"] | null;
-    };
-    ItemsNewsTranslations: {
-      id?: number;
-      news_id?: number | components["schemas"]["ItemsNews"] | null;
-      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
-      title?: string;
-      description?: string;
-      content?: string;
-      banner?: string | components["schemas"]["Files"] | null;
     };
   };
   responses: {
@@ -7128,6 +7131,380 @@ export interface operations {
   };
   /**
    * List Items
+   * @description List the news_translations items.
+   */
+  readItemsNewsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsNewsTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new news_translations item.
+   */
+  createItemsNewsTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsNewsTranslations"][]
+          | components["schemas"]["ItemsNewsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing news_translations items.
+   */
+  deleteItemsNewsTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple news_translations items at the same time.
+   */
+  updateItemsNewsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsNewsTranslations"][]
+          | components["schemas"]["ItemsNewsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single news_translations item by unique identifier.
+   */
+  readSingleItemsNewsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsNewsTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing news_translations item.
+   */
+  deleteSingleItemsNewsTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing news_translations item.
+   */
+  updateSingleItemsNewsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsNewsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsNewsTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the news items.
+   */
+  readItemsNews: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsNews"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new news item.
+   */
+  createItemsNews: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsNews"][]
+          | components["schemas"]["ItemsNews"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing news items.
+   */
+  deleteItemsNews: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple news items at the same time.
+   */
+  updateItemsNews: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsNews"][]
+          | components["schemas"]["ItemsNews"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single news item by unique identifier.
+   */
+  readSingleItemsNews: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsNews"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing news item.
+   */
+  deleteSingleItemsNews: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing news item.
+   */
+  updateSingleItemsNews: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsNews"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsNews"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
    * @description List the association items.
    */
   readItemsAssociation: {
@@ -10307,193 +10684,6 @@ export interface operations {
   };
   /**
    * List Items
-   * @description List the news items.
-   */
-  readItemsNews: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsNews"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new news item.
-   */
-  createItemsNews: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsNews"][]
-          | components["schemas"]["ItemsNews"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing news items.
-   */
-  deleteItemsNews: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple news items at the same time.
-   */
-  updateItemsNews: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsNews"][]
-          | components["schemas"]["ItemsNews"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single news item by unique identifier.
-   */
-  readSingleItemsNews: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsNews"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing news item.
-   */
-  deleteSingleItemsNews: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing news item.
-   */
-  updateSingleItemsNews: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsNews"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsNews"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
    * @description List the news_commissions items.
    */
   readItemsNewsCommissions: {
@@ -10866,196 +11056,11 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
-  /**
-   * List Items
-   * @description List the news_translations items.
-   */
-  readItemsNewsTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsNewsTranslations"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new news_translations item.
-   */
-  createItemsNewsTranslations: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsNewsTranslations"][]
-          | components["schemas"]["ItemsNewsTranslations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing news_translations items.
-   */
-  deleteItemsNewsTranslations: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple news_translations items at the same time.
-   */
-  updateItemsNewsTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsNewsTranslations"][]
-          | components["schemas"]["ItemsNewsTranslations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single news_translations item by unique identifier.
-   */
-  readSingleItemsNewsTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsNewsTranslations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing news_translations item.
-   */
-  deleteSingleItemsNewsTranslations: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing news_translations item.
-   */
-  updateSingleItemsNewsTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsNewsTranslations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsNewsTranslations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
 }
 
 export type Schema = {
+  news_translations: components["schemas"]["ItemsNewsTranslations"][];
+  news: components["schemas"]["ItemsNews"][];
   association: components["schemas"]["ItemsAssociation"];
   association_files: components["schemas"]["ItemsAssociationFiles"][];
   members: components["schemas"]["ItemsMembers"][];
@@ -11073,8 +11078,6 @@ export type Schema = {
   commissions_members: components["schemas"]["ItemsCommissionsMembers"][];
   commissions_social_links: components["schemas"]["ItemsCommissionsSocialLinks"][];
   commissions_translations: components["schemas"]["ItemsCommissionsTranslations"][];
-  news: components["schemas"]["ItemsNews"][];
   news_commissions: components["schemas"]["ItemsNewsCommissions"][];
   news_partners: components["schemas"]["ItemsNewsPartners"][];
-  news_translations: components["schemas"]["ItemsNewsTranslations"][];
 };
