@@ -1,0 +1,126 @@
+{
+    "kind": "singleType",
+    "collectionName": "associations",
+    "info": {
+        "singularName": "association",
+        "pluralName": "associations",
+        "displayName": "Association",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {
+        "i18n": {
+            "localized": true
+        }
+    },
+    "attributes": {
+        "association_name": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "string",
+            "required": true,
+            "default": "CLIC",
+            "unique": false
+        },
+        "about": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "richtext",
+            "required": false
+        },
+        "logo": {
+            "type": "media",
+            "multiple": false,
+            "required": true,
+            "allowedTypes": [
+                "images"
+            ],
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
+        },
+        "gallery": {
+            "type": "media",
+            "multiple": true,
+            "required": false,
+            "allowedTypes": [
+                "images",
+                "videos"
+            ],
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
+        },
+        "official_documents": {
+            "type": "media",
+            "multiple": true,
+            "required": false,
+            "allowedTypes": [
+                "files"
+            ],
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
+        },
+        "social_links": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::social-link.social-link"
+        },
+        "members": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::member.member"
+        },
+        "partners": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::partner.partner"
+        },
+        "address": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "string",
+            "required": true,
+            "unique": false,
+            "default": "CLIC, INN 132, Station 14, EPFL, CH-1015 Lausanne"
+        },
+        "email": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            },
+            "type": "email",
+            "default": "clic@epfl.ch",
+            "unique": false
+        },
+        "phone": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            },
+            "type": "string",
+            "default": "+41 21 693 81 28",
+            "unique": false
+        }
+    }
+}

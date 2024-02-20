@@ -1,0 +1,51 @@
+{
+    "kind": "collectionType",
+    "collectionName": "poles",
+    "info": {
+        "singularName": "pole",
+        "pluralName": "poles",
+        "displayName": "Pole"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {
+        "i18n": {
+            "localized": true
+        }
+    },
+    "attributes": {
+        "pole_name": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "string",
+            "required": true,
+            "unique": true
+        },
+        "pole_description": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "richtext",
+            "required": true
+        },
+        "pole_logo": {
+            "allowedTypes": [
+                "images"
+            ],
+            "type": "media",
+            "multiple": false,
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "required": false
+        }
+    }
+}
