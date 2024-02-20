@@ -1,5 +1,3 @@
-import SVG from "react-inlinesvg";
-
 /**
  * Display an Image fetched from the Directus instance
  * @param img object returned by Strapi when querying the image.
@@ -14,7 +12,7 @@ export default function DirectusImage({
 }) {
   console.log(img);
   return (
-    <SVG
+    <img
       src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${img}`}
       className={className}
     />
