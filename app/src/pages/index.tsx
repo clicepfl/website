@@ -3,12 +3,18 @@ import DirectusImage from "@/components/DirectusImage";
 import NewsCard from "@/components/NewsCard";
 import Slider from "@/components/Slider";
 import { directus } from "@/directus";
-import { locale, translate } from "@/locales";
 import {
-  ApiAssociation,
-  ApiMember,
-  ApiNews,
-} from "@/types/generated/contentTypes";
+  getTranslation,
+  locale,
+  queryTranslations,
+  translate,
+} from "@/locales";
+import {
+  Association,
+  AssociationMembership,
+  Member,
+  News,
+} from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
@@ -21,28 +27,26 @@ export default function Home(
 
   return (
     <>
-      <DirectusImage
-        img={props.association.logo}
-        size="medium"
-        className="CLICLogo"
-      />
+      <DirectusImage img={props.association.logo} className="CLICLogo" />
       <Slider>
         {props.news.map((n) => (
           <NewsCard key={(n as any).id} news={n} />
         ))}
       </Slider>
-      <Markdown className="text">{props.association.about}</Markdown>
+      <Markdown className="text">
+        {getTranslation(props.association, router.locale).description}
+      </Markdown>
       <div className="cardList">
         <h1 className="title">
           {translate("committee", locale(router), { capitalize: true })}
         </h1>
         <div>
-          {props.committee.map((m: ApiMember) => (
+          {props.committee.map((m) => (
             <Card
               size="small"
               key={(m as any).id}
-              member={m}
-              membership="true"
+              member={m.member}
+              membership={m}
             />
           ))}
         </div>
@@ -52,28 +56,33 @@ export default function Home(
 }
 
 export const getServerSideProps: GetServerSideProps<{
-  association: ApiAssociation;
-  news: ApiNews[];
-  committee: ApiMember[];
+  association: Association;
+  news: News[];
+  committee: (AssociationMembership & { member: Member })[];
 }> = async (context) => {
-  const assoc = await directus.request(readSingleton("association"));
-  const news = await directus.request(readItems("news"));
-  const committee = await directus.request(
-    readItems("association_memberships", {
-      fields: [{ member: ["*"] }],
-      filter: {
-        level: {
-          _eq: "committee",
-        },
-      },
-    })
-  );
-
   return {
     props: {
-      association: assoc,
-      news: news,
-      committee: committee,
+      association: await directus.request(
+        readSingleton("association", queryTranslations)
+      ),
+      news: await directus.request(
+        readItems("news", {
+          limit: 3,
+          sort: ["-date_created"],
+          ...queryTranslations,
+        })
+      ),
+      committee: (await directus.request(
+        readItems("association_memberships", {
+          fields: [
+            "*",
+            { member: ["*"] },
+            //@ts-ignore
+            { translations: ["*"] },
+          ],
+          filter: { level: { _eq: "committee" } },
+        })
+      )) as (AssociationMembership & { member: Member })[],
     },
   };
 };

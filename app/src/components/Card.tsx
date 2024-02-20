@@ -1,20 +1,21 @@
-import StrapiImage from "./DirectusImage";
+import { getTranslation } from "@/locales";
 import styles from "@/styles/Card.module.scss";
 import {
-  ApiCommission,
-  ApiCommissionMembership,
-  ApiMember,
-  ApiPoleMembership,
-} from "@/types/generated/contentTypes";
+  AssociationMembership,
+  Commission,
+  CommissionMembership,
+  Member,
+} from "@/types/aliases";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Card(
   props: (
     | {
-        member: ApiMember;
-        membership: ApiPoleMembership | ApiCommissionMembership;
+        member: Member;
+        membership: AssociationMembership | CommissionMembership;
       }
-    | { commission: ApiCommission }
+    | { commission: Commission }
     | {
         img: any;
         title: string;
@@ -24,6 +25,8 @@ export default function Card(
       }
   ) & { size: "small" | "large"; background?: boolean }
 ) {
+  const router = useRouter();
+
   let img = null,
     title = null,
     description = null,
@@ -32,14 +35,17 @@ export default function Card(
 
   if ("member" in props) {
     img = props.member.picture;
-    title = props.member.name;
-    description = props.membership.role;
+    title = `${props.member.name} ${props.member.surname}`;
+    description = getTranslation(props.membership, router.locale).title;
     link = props.member.link;
     linkTarget = "_blank";
   } else if ("commission" in props) {
     img = props.commission.logo;
     title = props.commission.name;
-    description = props.commission.small_description;
+    description = getTranslation(
+      props.commission,
+      router.locale
+    ).small_description;
     link = `/commission/${props.commission.slug}`;
   } else {
     img = props.img;
@@ -55,11 +61,6 @@ export default function Card(
         props.background ? styles.background : ""
       }`}
     >
-      {img && img.data ? (
-        <StrapiImage className={styles.picture} img={img} size="thumbnail" />
-      ) : (
-        <></>
-      )}
       <div>
         <p className={styles.title}>{title}</p>
         <p className={styles.description}>{description}</p>
