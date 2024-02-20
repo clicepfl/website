@@ -1,11 +1,5 @@
 import Card from "@/components/Card";
-<<<<<<< HEAD
-import StrapiImage from "@/components/DirectusImage";
-import { formatDate, locale, translate } from "@/locales";
-import strapi from "@/strapi";
-import { ApiCommission, ApiNews } from "@/types/generated/contentTypes";
-=======
-import StrapiImage from "@/components/StrapiImage";
+import DirectusImage from "@/components/DirectusImage";
 import { directus } from "@/directus";
 import {
   formatDate,
@@ -16,7 +10,6 @@ import {
 } from "@/locales";
 import { Commission, News } from "@/types/aliases";
 import { readItems } from "@directus/sdk";
->>>>>>> d93d864c0260eef320fcf8e4ef98a7cba92537b9
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 import Markdown from "react-markdown";
@@ -41,7 +34,7 @@ export default function Page(
       ) : (
         <></>
       )}
-      <StrapiImage className="banner" img={translation.banner} size="large" />
+      <DirectusImage className="banner" img={translation.banner} />
       <Markdown className="text">{translation.content}</Markdown>
       {commissions.length > 0 ? (
         <>

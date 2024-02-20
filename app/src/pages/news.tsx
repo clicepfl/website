@@ -5,7 +5,7 @@ import { News } from "@/types/aliases";
 import { readItems } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
-export default function News(
+export default function NewsComponent(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   return (
@@ -23,5 +23,11 @@ export default function News(
 export const getServerSideProps: GetServerSideProps<{
   news: News[];
 }> = async (context) => {
-  return { props: { news: await directus.request(readItems("news", {sort: "-date_created", ...queryTranslations})) } };
+  return {
+    props: {
+      news: await directus.request(
+        readItems("news", { sort: "-date_created", ...queryTranslations })
+      ),
+    },
+  };
 };
