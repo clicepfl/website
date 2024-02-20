@@ -1,3 +1,4 @@
+import DirectusImage from "./DirectusImage";
 import { getTranslation } from "@/locales";
 import styles from "@/styles/Card.module.scss";
 import {
@@ -61,6 +62,11 @@ export default function Card(
         props.background ? styles.background : ""
       }`}
     >
+      <DirectusImage
+        img={img}
+        name={title || ""}
+        className={styles.picture}
+      ></DirectusImage>
       <div>
         <p className={styles.title}>{title}</p>
         <p className={styles.description}>{description}</p>
