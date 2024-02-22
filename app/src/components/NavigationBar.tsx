@@ -17,7 +17,7 @@ function Entry({ title, href }: { title: string; href: string }) {
   );
 }
 
-/* TODO the socials should be dynamically loaded from Strapi. 
+/* TODO the socials should be dynamically loaded from Directus. 
   This would probably require to migrate to an App Router to use
   server-side components. */
 export default function NavigationBar() {

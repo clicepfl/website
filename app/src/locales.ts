@@ -1,10 +1,12 @@
 import config from "@/../next.config";
-import { StrapiLocale } from "strapi-sdk-js";
 
 export type Locale = string;
 
-export function locale(context: { locale?: string }) {
-  return (context.locale || config.i18n.defaultLocale) as StrapiLocale;
+export function locale(locale?: string | { locale?: string }) {
+  return (
+    (typeof locale === "string" ? locale : locale?.locale) ||
+    config.i18n.defaultLocale
+  );
 }
 
 interface Translations {
@@ -89,6 +91,7 @@ export function translate(
   locale: Locale = config.i18n.defaultLocale,
   opts?: LangOptions
 ) {
+  console.log(locale);
   return applyOptions(translations[locale][id], locale, opts);
 }
 
@@ -109,9 +112,9 @@ export function getTranslation<
   model: {
     translations?: (number | T)[] | null;
   },
-  locale?: string
+  loc?: string
 ): T {
-  const l = locale || "en-US";
+  const l = locale(loc);
 
   function getLang(
     language_code: string | { code?: string | undefined } | null | undefined
