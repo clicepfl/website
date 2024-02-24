@@ -73,6 +73,8 @@ jobs:
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
+        env:
+          NEXT_PUBLIC_DIRECTUS_URL: https://clic.epfl.ch/directus
         with:
           context: app
           push: ${{ github.event_name != 'pull_request' }}

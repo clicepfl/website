@@ -61,17 +61,17 @@ export const getServerSideProps: GetServerSideProps<{
 }> = async (context) => {
   return {
     props: {
-      association: await directus.request(
+      association: await directus().request(
         readSingleton("association", queryTranslations)
       ),
-      news: await directus.request(
+      news: await directus().request(
         readItems("news", {
           limit: 3,
           sort: ["-date_created"],
           ...queryTranslations,
         })
       ),
-      committee: (await directus.request(
+      committee: (await directus().request(
         readItems("association_memberships", {
           fields: [
             "*",

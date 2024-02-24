@@ -25,7 +25,7 @@ export const getServerSideProps: GetServerSideProps<{
 }> = async (context) => {
   return {
     props: {
-      news: await directus.request(
+      news: await directus().request(
         readItems("news", { sort: "-date_created", ...queryTranslations })
       ),
     },

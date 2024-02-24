@@ -30,7 +30,7 @@ export default function Commissions(
 export const getServerSideProps: GetServerSideProps<{
   news: Commission[];
 }> = async (context) => {
-  const c = await directus.request(
+  const c = await directus().request(
     readItems("commissions", {
       fields: ["*", { translations: ["*"] }],
     })

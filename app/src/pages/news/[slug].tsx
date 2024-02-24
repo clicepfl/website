@@ -62,7 +62,7 @@ export const getServerSideProps: GetServerSideProps<{
     return { notFound: true };
   }
 
-  let news = await directus.request(
+  let news = await directus().request(
     readItems("news", {
       ...queryTranslations,
       limit: 1,
