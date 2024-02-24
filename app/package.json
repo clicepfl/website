@@ -9,13 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@directus/sdk": "^15.0.0",
     "@svgr/webpack": "^8.1.0",
     "next": "13.4.12",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-inlinesvg": "^4.1.0",
-    "react-markdown": "^9.0.1",
-    "strapi-sdk-js": "^2.3.3"
+    "react-markdown": "^9.0.1"
   },
   "devDependencies": {
     "@types/node": "20.4.5",

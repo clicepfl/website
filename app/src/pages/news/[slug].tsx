@@ -1,8 +1,15 @@
 import Card from "@/components/Card";
-import StrapiImage from "@/components/StrapiImage";
-import { formatDate, locale, translate } from "@/locales";
-import strapi from "@/strapi";
-import { ApiCommission, ApiNews } from "@/types/generated/contentTypes";
+import DirectusImage from "@/components/DirectusImage";
+import { directus } from "@/directus";
+import {
+  formatDate,
+  getTranslation,
+  locale,
+  queryTranslations,
+  translate,
+} from "@/locales";
+import { Commission, News } from "@/types/aliases";
+import { readItems } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 import Markdown from "react-markdown";
@@ -10,24 +17,25 @@ import Markdown from "react-markdown";
 export default function Page(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
-  const commissions: ApiCommission[] = props.news.attributes.commissions.data;
+  const commissions: Commission[] = props.news.commissions;
+  const translation = getTranslation(props.news);
   const router = useRouter();
 
   return (
     <div className="page">
-      <h1 className="title large">{props.news.attributes.news_title}</h1>
-      <h4>{props.news.attributes.small_description}</h4>
-      <p className="author">
-        {`${formatDate(props.news.attributes.createdAt, router.locale, {
-          capitalize: true,
-        })}`}
-      </p>
-      <StrapiImage
-        className="banner"
-        img={props.news.attributes.picture}
-        size="large"
-      />
-      <Markdown className="text">{props.news.attributes.content}</Markdown>
+      <h1 className="title large">{translation.title}</h1>
+      <h4>{translation.description}</h4>
+      {props.news.date_created ? (
+        <p className="author">
+          {`${formatDate(props.news.date_created, router.locale, {
+            capitalize: true,
+          })}`}
+        </p>
+      ) : (
+        <></>
+      )}
+      <DirectusImage className="banner" img={translation.banner} />
+      <Markdown className="text">{translation.content}</Markdown>
       {commissions.length > 0 ? (
         <>
           <h1>
@@ -46,25 +54,25 @@ export default function Page(
   );
 }
 
-export const getServerSideProps: GetServerSideProps<{ news: ApiNews }> = async (
-  context
-) => {
+export const getServerSideProps: GetServerSideProps<{
+  news: News & { commissions: Commission[] };
+}> = async (context) => {
   if (typeof context.params?.slug !== "string") {
     console.log(typeof context.params?.slug);
     return { notFound: true };
   }
 
-  let news = await strapi.find<ApiNews[]>("newss", {
-    populate: ["picture", "created_by", "commissions", "commissions.logo"],
-    locale: locale(context),
-    filters: {
-      slug: context.params.slug,
-    },
-  });
+  let news = await directus.request(
+    readItems("news", {
+      ...queryTranslations,
+      limit: 1,
+      filter: { slug: { _eq: context.params.slug } },
+    })
+  );
 
-  if (news.data.length != 1) {
+  if (news.length != 1) {
     return { notFound: true };
   }
 
-  return { props: { news: news.data[0] } };
+  return { props: { news: news[0] as News & { commissions: Commission[] } } };
 };

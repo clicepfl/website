@@ -1,6 +1,9 @@
 {
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "load-directus": "docker exec -it clic-directus npx directus schema apply /share/snapshot.yaml&&docker restart clic-directus",
+    "save-directus": "sh save-directus.sh",
+    "populate-directus": "docker exec -i clic-postgres psql --user directus_user directus_data < ./directus/dump.sql"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",

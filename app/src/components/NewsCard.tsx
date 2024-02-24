@@ -1,21 +1,28 @@
-import StrapiImage from "./StrapiImage";
+import DirectusImage from "./DirectusImage";
+import { getTranslation } from "@/locales";
 import styles from "@/styles/NewsCard.module.scss";
-import { ApiNews } from "@/types/generated/contentTypes";
+import { News } from "@/types/aliases";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
-export default function NewsCard({ news }: { news: ApiNews }) {
+export default function NewsCard({ news }: { news: News }) {
+  const router = useRouter();
+
+  const translation = getTranslation(news, router.locale);
   return (
-    <Link
-      href={`/news/${news.attributes.slug}`}
-      className={`${styles.newsCard}`}
-    >
+    <Link href={`/news/${news.slug}`} className={`${styles.newsCard}`}>
+      <DirectusImage
+        img={translation.banner}
+        name={translation.title || ""}
+        className={styles.picture}
+      />
+
       <div>
-        <StrapiImage img={news.attributes.picture} size="small" />
-      </div>
-      <div>
-        <h2>{news.attributes.news_title}</h2>
-        <p>{news.attributes.small_description}</p>
-        <p>{new Date(news.attributes.createdAt).toUTCString()}</p>
+        <h2>{translation.title}</h2>
+        <p>{translation.description}</p>
+        <p>
+          {news.date_created ? new Date(news.date_created).toUTCString() : ""}
+        </p>
       </div>
     </Link>
   );

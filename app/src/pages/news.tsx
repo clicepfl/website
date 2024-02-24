@@ -1,9 +1,11 @@
 import NewsCard from "@/components/NewsCard";
-import strapi from "@/strapi";
-import { ApiNews } from "@/types/generated/contentTypes";
+import { directus } from "@/directus";
+import { queryTranslations } from "@/locales";
+import { News } from "@/types/aliases";
+import { readItems } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
-export default function News(
+export default function NewsComponent(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   return (
@@ -19,11 +21,13 @@ export default function News(
 }
 
 export const getServerSideProps: GetServerSideProps<{
-  news: ApiNews[];
+  news: News[];
 }> = async (context) => {
-  let res = await strapi.find<ApiNews[]>("newss", {
-    sort: "createdAt",
-    populate: "picture",
-  });
-  return { props: { news: res.data.reverse() } };
+  return {
+    props: {
+      news: await directus.request(
+        readItems("news", { sort: "-date_created", ...queryTranslations })
+      ),
+    },
+  };
 };
