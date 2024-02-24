@@ -15,6 +15,7 @@ export default function NewsCard({ news }: { news: News }) {
         img={translation.banner}
         name={translation.title || ""}
         className={styles.picture}
+        cover={true}
       />
 
       <div>

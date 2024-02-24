@@ -13,10 +13,12 @@ export default function DirectusImage({
   img,
   name,
   className,
+  cover,
 }: {
   img?: string | components["schemas"]["Files"] | null;
   name?: string;
   className?: string;
+  cover?: boolean;
 }) {
   if (img) {
     return (
@@ -25,7 +27,7 @@ export default function DirectusImage({
           loader={imageLoader}
           src={typeof img === "string" ? img : img.filename_disk || ""}
           fill
-          style={{ objectFit: "contain" }}
+          style={{ objectFit: cover ? "cover" : "contain" }}
           alt={name || "image"}
         />
       </div>
