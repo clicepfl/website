@@ -1,12 +1,13 @@
 import Corner from "@/assets/corner.svg";
 import styles from "@/styles/NavigationBar.module.scss";
+import { SocialLink } from "@/types/aliases";
 import Link from "next/link";
 import { useState } from "react";
 
 /* TODO the socials should be dynamically loaded from Directus. 
   This would probably require to migrate to an App Router to use
   server-side components. */
-export default function NavigationBar() {
+export default function NavigationBar(props: { socialLinks?: SocialLink[] }) {
   const [visible, setVisible] = useState(false);
   const toggleMenu = () => {
     setVisible(!visible);

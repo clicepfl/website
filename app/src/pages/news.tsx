@@ -1,5 +1,5 @@
 import NewsCard from "@/components/NewsCard";
-import { directus } from "@/directus";
+import { directus, populateLayoutProps } from "@/directus";
 import { queryTranslations } from "@/locales";
 import { News } from "@/types/aliases";
 import { readItems } from "@directus/sdk";
@@ -22,7 +22,7 @@ export default function NewsComponent(
 
 export const getServerSideProps: GetServerSideProps<{
   news: News[];
-}> = async (context) => {
+}> = populateLayoutProps(async (context) => {
   return {
     props: {
       news: await directus().request(
@@ -30,4 +30,4 @@ export const getServerSideProps: GetServerSideProps<{
       ),
     },
   };
-};
+});

@@ -1,6 +1,6 @@
 import Card from "@/components/Card";
 import DirectusImage from "@/components/DirectusImage";
-import { directus } from "@/directus";
+import { directus, populateLayoutProps } from "@/directus";
 import {
   formatDate,
   getTranslation,
@@ -56,7 +56,7 @@ export default function Page(
 
 export const getServerSideProps: GetServerSideProps<{
   news: News & { commissions: Commission[] };
-}> = async (context) => {
+}> = populateLayoutProps(async (context) => {
   if (typeof context.params?.slug !== "string") {
     console.log(typeof context.params?.slug);
     return { notFound: true };
@@ -75,4 +75,4 @@ export const getServerSideProps: GetServerSideProps<{
   }
 
   return { props: { news: news[0] as News & { commissions: Commission[] } } };
-};
+});

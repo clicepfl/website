@@ -1,5 +1,5 @@
 import DirectusImage from "@/components/DirectusImage";
-import { directus } from "@/directus";
+import { directus, populateLayoutProps } from "@/directus";
 import { getTranslation, locale, queryTranslations } from "@/locales";
 import { Commission } from "@/types/aliases";
 import { readItems } from "@directus/sdk";
@@ -27,7 +27,7 @@ export default function Page(
 
 export const getServerSideProps: GetServerSideProps<{
   commission: Commission;
-}> = async (context) => {
+}> = populateLayoutProps(async (context) => {
   if (typeof context.params?.slug !== "string") {
     console.log(typeof context.params?.slug);
     return { notFound: true };
@@ -45,4 +45,4 @@ export const getServerSideProps: GetServerSideProps<{
   }
 
   return { props: { commission: commission[0] } };
-};
+});

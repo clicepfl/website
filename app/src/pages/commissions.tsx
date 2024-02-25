@@ -1,5 +1,5 @@
 import Card from "@/components/Card";
-import { directus } from "@/directus";
+import { directus, populateLayoutProps } from "@/directus";
 import { locale, translate } from "@/locales";
 import { Commission } from "@/types/aliases";
 import { readItems } from "@directus/sdk";
@@ -29,11 +29,11 @@ export default function Commissions(
 
 export const getServerSideProps: GetServerSideProps<{
   news: Commission[];
-}> = async (context) => {
+}> = populateLayoutProps(async (context) => {
   const c = await directus().request(
     readItems("commissions", {
       fields: ["*", { translations: ["*"] }],
     })
   );
   return { props: { news: c } };
-};
+});

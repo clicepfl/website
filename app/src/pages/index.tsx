@@ -3,7 +3,7 @@ import Card from "@/components/Card";
 import DirectusImage from "@/components/DirectusImage";
 import NewsCard from "@/components/NewsCard";
 import Slider from "@/components/Slider";
-import { directus } from "@/directus";
+import { directus, populateLayoutProps } from "@/directus";
 import {
   getTranslation,
   locale,
@@ -62,7 +62,7 @@ export const getServerSideProps: GetServerSideProps<{
   association: Association;
   news: News[];
   committee: (AssociationMembership & { member: Member })[];
-}> = async (context) => {
+}> = populateLayoutProps(async (context) => {
   return {
     props: {
       association: await directus().request(
@@ -88,4 +88,4 @@ export const getServerSideProps: GetServerSideProps<{
       )) as (AssociationMembership & { member: Member })[],
     },
   };
-};
+});
