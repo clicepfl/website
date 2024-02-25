@@ -29,8 +29,8 @@ export default function Home(
 
   return (
     <>
-      <div className="div-logo">
-        <DirectusImage img={translation.banner} className="CLICLogo" />
+      <div className="divLogo">
+        <DirectusImage img={translation.banner} className="mainLogo" />
         <img src={PreviewImage.src} alt="preview" className="galleryPreview" />
       </div>
       <Slider>
