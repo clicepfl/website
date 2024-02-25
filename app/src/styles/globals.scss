@@ -3,6 +3,8 @@ body {
   margin: 0;
 
   --background-color: #fafafa;
+  --text-color: #fafafa;
+  --dark-text-color: darkblue;
 
   font-family: "Courier New", Courier, monospace;
 }
@@ -21,8 +23,6 @@ a {
   overflow: hidden;
 
   gap: 4rem;
-
-  padding: 2rem;
 
   min-height: 100vh;
 
@@ -71,6 +71,26 @@ a {
     @media (max-width: 800px) {
       display: none;
     }
+  }
+}
+
+.news {
+  width: 100%;
+  overflow: scroll;
+
+  padding: 2em;
+
+  background-color: rgba(100, 100, 255, 0.75);
+  backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  box-shadow: 0 4px 30px rgba(0, 0, 100, 0.3);
+
+  .news-list {
+    margin: 2%;
+    gap: 2em;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
   }
 }
 
@@ -170,6 +190,7 @@ a {
 
 .title {
   text-align: center;
+  color: var(--dark-text-color);
 
   &::after {
     position: relative;
@@ -178,7 +199,7 @@ a {
     top: -0.45rem;
     left: 0.5rem;
 
-    background-color: darkcyan;
+    background-color: var(--dark-text-color);
     content: "";
     display: inline-block;
   }

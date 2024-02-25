@@ -1,18 +1,17 @@
 .navigationBar {
   display: flex;
   flex-direction: row;
-  background-color: rgba(100, 100, 255, 0.75);
   width: 100%;
   height: 3em;
   position: fixed;
   z-index: 100;
 
+  background-color: rgba(100, 100, 255, 0.75);
   backdrop-filter: blur(10px) saturate(180%);
-
   border: 1px solid rgba(255, 255, 255, 0.125);
   box-shadow: 0 4px 30px rgba(0, 0, 100, 0.3);
 
-  color: white;
+  color: var(--text-color);
   font-family: "Courier New", Courier, monospace;
   font-weight: bold;
   font-size: 15pt;

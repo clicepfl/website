@@ -2,7 +2,6 @@ import PreviewImage from "@/assets/galleryPreview.png";
 import Card from "@/components/Card";
 import DirectusImage from "@/components/DirectusImage";
 import NewsCard from "@/components/NewsCard";
-import Slider from "@/components/Slider";
 import { directus, populateLayoutProps } from "@/directus";
 import {
   getTranslation,
@@ -33,11 +32,16 @@ export default function Home(
         <DirectusImage img={translation.banner} className="mainLogo" />
         <img src={PreviewImage.src} alt="preview" className="galleryPreview" />
       </div>
-      <Slider>
-        {props.news.map((n) => (
-          <NewsCard key={(n as any).id} news={n} />
-        ))}
-      </Slider>
+
+      <div className="news">
+        <h1 className="title">News</h1>
+        <div className="news-list">
+          {props.news.map((n) => (
+            <NewsCard key={(n as any).id} news={n} />
+          ))}
+        </div>
+      </div>
+
       <Markdown className="text">{translation.description}</Markdown>
       <div className="cardList">
         <h1 className="title">
