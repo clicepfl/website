@@ -1,5 +1,7 @@
 import { Schema } from "./schema";
 
+// A few useful aliases to Directus' generated Typescript definitions.
+
 export type Association = Schema["association"];
 export type AssociationMembership = Schema["association_memberships"][0];
 export type Commission = Schema["commissions"][0];
