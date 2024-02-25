@@ -1,20 +1,21 @@
 .navigationBar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #1a2248;
-  height: 100vh;
-  width: 5em;
+  flex-direction: row;
+  background-color: rgba(100, 100, 255, 0.75);
+  width: 100%;
+  height: 3em;
   position: fixed;
-  top: 0;
-  left: 0;
+  z-index: 100;
+
+  backdrop-filter: blur(10px) saturate(180%);
+
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  box-shadow: 0 4px 30px rgba(0, 0, 100, 0.3);
+
   color: white;
   font-family: "Courier New", Courier, monospace;
-
-  z-index: 50;
-  * {
-    z-index: inherit;
-  }
+  font-weight: bold;
+  font-size: 15pt;
 
   .burgerButton {
     margin-top: 1em;
@@ -28,76 +29,60 @@
     cursor: pointer;
 
     &:hover {
-      background-color: #3d4c8f;
+      background-color: lightblue;
 
       transition-duration: 250ms;
       transition-timing-function: ease-out;
     }
   }
 
-  .socials {
-    display: flex;
-    flex-direction: column;
-    row-gap: 0.5em;
-    margin-top: auto;
-    margin-bottom: 2em;
+  .corner {
+    margin-top: 0;
+    margin-left: 0;
+    height: 4em;
+  }
 
-    .icon {
-      fill: white;
-      width: 2em;
-      height: 2em;
+  .navigationMenu {
+    display: flex;
+    flex-direction: row;
+    margin-right: 15%;
+    margin-left: auto;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    .menuItem {
+      fill: inherit;
+      justify-content: center;
+      margin-left: 2em;
 
       &:hover {
-        fill: grey;
+        color: lightgrey;
 
         transition-duration: 250ms;
         transition-timing-function: ease-out;
       }
     }
   }
-
-  .hidden {
-    left: -15rem;
-  }
 }
 
-.navigationMenu {
-  width: 15em;
-  height: 100vh;
-  position: absolute;
-  left: 5em;
-  top: 0;
-  background-color: #1a2248;
-
-  z-index: 49;
-
-  transition-duration: 0.35s;
-  transition-timing-function: ease-out;
-
-  .menuList {
-    margin-top: 50px;
-  }
-}
-
-.entry {
+.socials {
   display: flex;
-  justify-content: baseline;
-  align-items: center;
-  gap: 0.5em;
-  margin: 0.5em 0 0.5em 0;
-  fill: white;
+  flex-direction: column;
+  row-gap: 0.5em;
+  margin-top: auto;
+  margin-bottom: 2em;
 
-  .folderIcon {
-    height: 1.5em;
-    width: 1.5em;
-    fill: inherit;
-  }
+  .icon {
+    fill: white;
+    width: 2em;
+    height: 2em;
 
-  &:hover {
-    color: grey;
-    fill: grey;
+    &:hover {
+      fill: lightblue;
 
-    transition-duration: 250ms;
-    transition-timing-function: ease-out;
+      transition-duration: 250ms;
+      transition-timing-function: ease-out;
+    }
   }
 }

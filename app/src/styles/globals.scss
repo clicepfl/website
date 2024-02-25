@@ -1,8 +1,10 @@
 body {
-  background-color: gray;
+  background-color: #1c70ddff;
   margin: 0;
 
   --background-color: #fafafa;
+
+  font-family: "Courier New", Courier, monospace;
 }
 
 a {
@@ -16,29 +18,59 @@ a {
   align-items: center;
   justify-content: center;
 
+  overflow: hidden;
+
   gap: 4rem;
 
   padding: 2rem;
-  padding-left: 7rem;
 
   min-height: 100vh;
 
   background-position: left top;
   background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.CLICLogo {
-  width: 100%;
-  height: 15rem;
-  fill: white;
-  margin: auto;
-  margin-top: 30vh;
+  background-size: contain;
 
   @media (max-width: 800px) {
-    width: 75%;
-    margin-top: 15vh;
-    margin-bottom: 2rem;
+    background-size: 150%;
+  }
+}
+
+.div-logo {
+  width: 100%;
+  height: 90vh;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+    height: fit-content;
+  }
+
+  .CLICLogo {
+    grid-row: 1;
+    grid-column: 1;
+
+    height: 15rem;
+    margin-top: 40%;
+    width: 100%;
+
+    @media (max-width: 800px) {
+      width: 75%;
+      margin: auto;
+      margin-top: 15%;
+    }
+  }
+
+  .galleryPreview {
+    grid-row: 1;
+    grid-column: 2;
+    width: 110%;
+    margin-top: 5em;
+
+    @media (max-width: 800px) {
+      display: none;
+    }
   }
 }
 

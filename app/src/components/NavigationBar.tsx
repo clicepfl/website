@@ -1,21 +1,7 @@
-import GitHubIcon from "@/assets/icons/GitHub_icon.svg";
-import InstagramIcon from "@/assets/icons/Instagram_icon.svg";
-import TelegramIcon from "@/assets/icons/Telegram_icon.svg";
-import XIcon from "@/assets/icons/X_icon.svg";
-import BurgerIcon from "@/assets/icons/burger_menu_icon.svg";
-import FolderIcon from "@/assets/icons/folder.svg";
+import Corner from "@/assets/corner.svg";
 import styles from "@/styles/NavigationBar.module.scss";
 import Link from "next/link";
 import { useState } from "react";
-
-function Entry({ title, href }: { title: string; href: string }) {
-  return (
-    <Link href={href} className={styles.entry}>
-      <FolderIcon className={styles.folderIcon}></FolderIcon>
-      <p>{title}</p>
-    </Link>
-  );
-}
 
 /* TODO the socials should be dynamically loaded from Directus. 
   This would probably require to migrate to an App Router to use
@@ -28,11 +14,7 @@ export default function NavigationBar() {
 
   return (
     <div className={styles.navigationBar}>
-      <button className={styles.burgerButton} onClick={toggleMenu}>
-        <BurgerIcon></BurgerIcon>
-      </button>
-
-      <div className={styles.socials}>
+      {/* <div className={styles.socials}>
         <Link href="https://telegram.com">
           <TelegramIcon className={styles.icon} alt="telegram" />
         </Link>
@@ -45,18 +27,22 @@ export default function NavigationBar() {
         <Link href="https://github.com">
           <GitHubIcon className={styles.icon} alt="github" />
         </Link>
-      </div>
+      </div> */}
 
-      <div
-        className={
-          styles.navigationMenu + " " + (!visible ? styles.hidden : "")
-        }
-      >
-        <div className={styles.menuList} onClick={(e) => setVisible(false)}>
-          <Entry title="L'Association" href="/" />
-          <Entry title="Commissions" href="/commissions" />
-          <Entry title="News" href="/news" />
-        </div>
+      <Link href="/" className={styles.corner}>
+        <Corner />
+      </Link>
+
+      <div className={styles.navigationMenu}>
+        <Link className={styles.menuItem} href="/association">
+          L'Association
+        </Link>
+        <Link className={styles.menuItem} href="/commissions">
+          Commissions
+        </Link>
+        <Link className={styles.menuItem} href="/news">
+          News
+        </Link>
       </div>
     </div>
   );

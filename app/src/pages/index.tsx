@@ -1,3 +1,4 @@
+import PreviewImage from "@/assets/galleryPreview.png";
 import Card from "@/components/Card";
 import DirectusImage from "@/components/DirectusImage";
 import NewsCard from "@/components/NewsCard";
@@ -28,7 +29,10 @@ export default function Home(
 
   return (
     <>
-      <DirectusImage img={translation.banner} className="CLICLogo" />
+      <div className="div-logo">
+        <DirectusImage img={translation.banner} className="CLICLogo" />
+        <img src={PreviewImage.src} alt="preview" className="galleryPreview" />
+      </div>
       <Slider>
         {props.news.map((n) => (
           <NewsCard key={(n as any).id} news={n} />
