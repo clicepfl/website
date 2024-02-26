@@ -6,7 +6,7 @@ body {
   --text-color: #fafafa;
   --dark-text-color: darkblue;
 
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Poppins";
 }
 
 a {
@@ -99,7 +99,7 @@ a {
   max-width: 60ch;
   padding: 0 2rem;
 
-  border-radius: 1rem;
+  border-radius: 3rem;
   background-color: var(--background-color);
 
   h1 {
@@ -195,7 +195,7 @@ a {
   &::after {
     position: relative;
     min-width: 4rem;
-    min-height: 0.3rem;
+    min-height: 0.2rem;
     top: -0.45rem;
     left: 0.5rem;
 

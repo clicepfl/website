@@ -15,21 +15,6 @@ export default function NavigationBar(props: { socialLinks?: SocialLink[] }) {
 
   return (
     <div className={styles.navigationBar}>
-      {/* <div className={styles.socials}>
-        <Link href="https://telegram.com">
-          <TelegramIcon className={styles.icon} alt="telegram" />
-        </Link>
-        <Link href="https://instagram.com">
-          <InstagramIcon className={styles.icon} alt="instagram" />
-        </Link>
-        <Link href="https://x.com">
-          <XIcon className={styles.icon} alt="X" />
-        </Link>
-        <Link href="https://github.com">
-          <GitHubIcon className={styles.icon} alt="github" />
-        </Link>
-      </div> */}
-
       <Link href="/" className={styles.corner}>
         <Corner />
       </Link>

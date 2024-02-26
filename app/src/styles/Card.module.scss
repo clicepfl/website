@@ -1,10 +1,14 @@
 .card {
   width: 30ch;
   height: 10ch;
-  border-radius: 2rem;
+  border-radius: 5rem;
   padding: 1rem;
 
   color: black;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 
   &.large {
     width: 60ch;
@@ -31,11 +35,6 @@
       overflow: hidden;
     }
   }
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
 
   background-color: rgba($color: black, $alpha: 0.08);
   &.background {

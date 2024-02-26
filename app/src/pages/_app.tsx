@@ -3,6 +3,7 @@
 // @ts-ignore
 import Background from "../../public/background.svg?url";
 import NavigationBar from "@/components/NavigationBar";
+import "@/styles/fonts.scss";
 import "@/styles/globals.scss";
 import type { AppProps } from "next/app";
 
