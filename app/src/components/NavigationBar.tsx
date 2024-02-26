@@ -18,7 +18,11 @@ function DropdownMenuItem({
 
   subLinks.forEach((subLink) => {
     content.push(
-      <Link className={styles.menuItem} href={link.href + subLink.href}>
+      <Link
+        className={styles.menuItem}
+        href={link.href + subLink.href}
+        key={subLink.title}
+      >
         {subLink.title}
       </Link>
     );
