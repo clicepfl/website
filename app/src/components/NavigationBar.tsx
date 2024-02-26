@@ -1,18 +1,40 @@
 import Corner from "@/assets/corner.svg";
 import styles from "@/styles/NavigationBar.module.scss";
-import { SocialLink } from "@/types/aliases";
 import Link from "next/link";
-import { useState } from "react";
 
-/* TODO the socials should be dynamically loaded from Directus. 
-  This would probably require to migrate to an App Router to use
-  server-side components. */
-export default function NavigationBar(props: { socialLinks?: SocialLink[] }) {
-  const [visible, setVisible] = useState(false);
-  const toggleMenu = () => {
-    setVisible(!visible);
-  };
+type LinkRef = {
+  title: string;
+  href: string;
+};
 
+function DropdownMenuItem({
+  link,
+  subLinks,
+}: {
+  link: LinkRef;
+  subLinks: LinkRef[];
+}) {
+  const content: any = [];
+
+  subLinks.forEach((subLink) => {
+    content.push(
+      <Link className={styles.menuItem} href={link.href + subLink.href}>
+        {subLink.title}
+      </Link>
+    );
+  });
+
+  return (
+    <div className={styles.dropdownMenuItem}>
+      <Link className={styles.menuItem} href={link.href}>
+        {link.title}
+      </Link>
+      <div className={styles.content}>{content}</div>
+    </div>
+  );
+}
+
+export default function NavigationBar() {
   return (
     <div className={styles.navigationBar}>
       <Link href="/" className={styles.corner}>
@@ -24,31 +46,16 @@ export default function NavigationBar(props: { socialLinks?: SocialLink[] }) {
           L'Association
         </Link>
 
-        <div className={styles.dropdownMenuItem}>
-          <Link className={styles.menuItem} href="/commissions">
-            Commissions
-            <div className={styles.content}>
-              <Link className={styles.menuItem} href="/commissions/Polygl0ts">
-                Polygl0ts
-              </Link>
-              <Link className={styles.menuItem} href="/commissions/CEVE">
-                CEVE
-              </Link>
-              <Link className={styles.menuItem} href="/commissions/GameStar">
-                Game*
-              </Link>
-              <Link className={styles.menuItem} href="/commissions/ICTravel">
-                IC Travel
-              </Link>
-              <Link
-                className={styles.menuItem}
-                href="/commissions/OrbitalGameJam"
-              >
-                Orbital Game Jam
-              </Link>
-            </div>
-          </Link>
-        </div>
+        <DropdownMenuItem
+          link={{ title: "Commissions", href: "/commissions" }}
+          subLinks={[
+            { title: "PolyglOts", href: "/Polygl0ts" },
+            { title: "CEVE", href: "/CEVE" },
+            { title: "Game*", href: "/Game*" },
+            { title: "IC Travel", href: "/ICTravel" },
+            { title: "Orbital Game Jam", href: "/OrbitalGameJam" },
+          ]}
+        />
 
         <Link className={styles.menuItem} href="/news">
           News
