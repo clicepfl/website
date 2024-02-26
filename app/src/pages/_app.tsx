@@ -10,7 +10,7 @@ import type { AppProps } from "next/app";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <NavigationBar socialLinks={pageProps.layoutProps} />
+      <NavigationBar />
       <div
         className="main"
         style={{ backgroundImage: `url(${Background.src})` }}
