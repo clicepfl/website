@@ -43,7 +43,7 @@
   .navigationMenu {
     display: flex;
     flex-direction: row;
-    margin-right: 15%;
+    margin-right: 10%;
     margin-left: auto;
     height: 100%;
     justify-content: center;
@@ -52,13 +52,41 @@
     .menuItem {
       fill: inherit;
       justify-content: center;
-      margin-left: 2em;
+      margin-right: 2em;
 
       &:hover {
         color: lightgrey;
 
         transition-duration: 250ms;
         transition-timing-function: ease-out;
+      }
+    }
+
+    .dropdownMenuItem {
+      position: relative;
+      display: inline-block;
+
+      .content {
+        display: none;
+        position: absolute;
+        flex-direction: column;
+
+        background-color: var(--glass-color);
+        backdrop-filter: blur(10px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.125);
+        box-shadow: 0 4px 30px rgba(0, 0, 100, 0.3);
+
+        padding-right: 2em;
+        z-index: 1;
+        border-radius: 5px;
+
+        .menuItem {
+          margin: 0.5em 0em 0.5em 1em;
+        }
+      }
+
+      &:hover .content {
+        display: flex;
       }
     }
   }

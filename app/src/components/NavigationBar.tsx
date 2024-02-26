@@ -23,9 +23,33 @@ export default function NavigationBar(props: { socialLinks?: SocialLink[] }) {
         <Link className={styles.menuItem} href="/association">
           L'Association
         </Link>
-        <Link className={styles.menuItem} href="/commissions">
-          Commissions
-        </Link>
+
+        <div className={styles.dropdownMenuItem}>
+          <Link className={styles.menuItem} href="/commissions">
+            Commissions
+            <div className={styles.content}>
+              <Link className={styles.menuItem} href="/commissions/Polygl0ts">
+                Polygl0ts
+              </Link>
+              <Link className={styles.menuItem} href="/commissions/CEVE">
+                CEVE
+              </Link>
+              <Link className={styles.menuItem} href="/commissions/GameStar">
+                Game*
+              </Link>
+              <Link className={styles.menuItem} href="/commissions/ICTravel">
+                IC Travel
+              </Link>
+              <Link
+                className={styles.menuItem}
+                href="/commissions/OrbitalGameJam"
+              >
+                Orbital Game Jam
+              </Link>
+            </div>
+          </Link>
+        </div>
+
         <Link className={styles.menuItem} href="/news">
           News
         </Link>
