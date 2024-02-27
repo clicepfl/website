@@ -1,3 +1,5 @@
+@import "glass";
+
 body {
   background-color: #1c70ddff;
   margin: 0;
@@ -6,6 +8,7 @@ body {
   --text-color: #fafafa;
   --dark-text-color: darkblue;
   --glass-color: rgba(100, 100, 255, 0.75);
+  --text-link-color: rgb(58, 127, 255);
 
   font-family: "Poppins";
 }
@@ -76,15 +79,12 @@ a {
 }
 
 .news {
+  @extend .glass;
+
   width: 100%;
   overflow: scroll;
 
   padding: 2em;
-
-  background-color: var(--glass-color);
-  backdrop-filter: blur(10px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  box-shadow: 0 4px 30px rgba(0, 0, 100, 0.3);
 
   .news-list {
     margin: 2%;
@@ -128,7 +128,7 @@ a {
   }
 
   a {
-    color: rgb(58, 127, 255);
+    color: var(--text-link-color);
   }
 
   p {

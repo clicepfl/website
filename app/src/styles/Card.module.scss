@@ -1,10 +1,14 @@
+@import "glass";
+
 .card {
+  @extend .glass;
+
   width: 30ch;
   height: 10ch;
   border-radius: 5rem;
   padding: 1rem;
 
-  color: black;
+  color: var(--text-color);
 
   display: flex;
   align-items: center;
@@ -36,13 +40,8 @@
     }
   }
 
-  background-color: rgba($color: black, $alpha: 0.08);
-  &.background {
-    background-color: var(--background-color);
-  }
-
   .picture {
-    border: 3px gray solid;
+    border: 3px white solid;
     border-radius: 50%;
 
     min-width: 6rem;
