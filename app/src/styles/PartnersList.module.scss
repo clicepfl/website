@@ -1,0 +1,17 @@
+.partnersList {
+  width: 100%;
+  background-color: white;
+  display: flex;
+
+  :first-child {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .logo {
+    height: 6em;
+    width: 20em;
+    margin: 2em;
+  }
+}

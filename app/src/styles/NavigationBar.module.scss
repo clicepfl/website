@@ -50,7 +50,6 @@
 
     .menuItem {
       fill: inherit;
-      justify-content: center;
       margin-right: 2em;
 
       &:hover {
@@ -64,6 +63,16 @@
     .dropdownMenuItem {
       position: relative;
       display: inline-block;
+
+      .arrow {
+        border: solid var(--text-color);
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 4px;
+        margin-left: 0.5em;
+        margin-bottom: 0.2em;
+        transform: rotate(45deg);
+      }
 
       .content {
         @extend .glass;

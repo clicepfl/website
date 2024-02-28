@@ -16,7 +16,7 @@ export default function DirectusImage({
   cover,
 }: {
   img?: string | components["schemas"]["Files"] | null;
-  name?: string;
+  name?: string | null;
   className?: string;
   cover?: boolean;
 }) {
@@ -33,6 +33,6 @@ export default function DirectusImage({
       </div>
     );
   } else {
-    return <p>ERROR</p>;
+    return <p>{name}</p>;
   }
 }

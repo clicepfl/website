@@ -32,6 +32,7 @@ function DropdownMenuItem({
     <div className={styles.dropdownMenuItem}>
       <Link className={styles.menuItem} href={link.href}>
         {link.title}
+        <i className={styles.arrow} />
       </Link>
       <div className={styles.content}>{content}</div>
     </div>

@@ -2,6 +2,7 @@ import PreviewImage from "@/assets/galleryPreview.png";
 import Card from "@/components/Card";
 import DirectusImage from "@/components/DirectusImage";
 import NewsCard from "@/components/NewsCard";
+import PartnersList from "@/components/PartnersList";
 import { directus, populateLayoutProps } from "@/directus";
 import {
   getTranslation,
@@ -14,6 +15,7 @@ import {
   AssociationMembership,
   Member,
   News,
+  Partner,
 } from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
@@ -42,6 +44,8 @@ export default function Home(
         </div>
       </div>
 
+      <PartnersList partners={props.partners} />
+
       <Markdown className="text">{translation.description}</Markdown>
       <div className="cardList">
         <h1 className="title">
@@ -66,6 +70,7 @@ export const getServerSideProps: GetServerSideProps<{
   association: Association;
   news: News[];
   committee: (AssociationMembership & { member: Member })[];
+  partners: Partner[];
 }> = populateLayoutProps(async (context) => {
   return {
     props: {
@@ -90,6 +95,7 @@ export const getServerSideProps: GetServerSideProps<{
           filter: { level: { _eq: "committee" } },
         })
       )) as (AssociationMembership & { member: Member })[],
+      partners: await directus().request(readItems("partners")),
     },
   };
 });
