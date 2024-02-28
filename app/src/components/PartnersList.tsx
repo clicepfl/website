@@ -1,18 +1,26 @@
 import DirectusImage from "./DirectusImage";
 import styles from "@/styles/PartnersList.module.scss";
 import { Partner } from "@/types/aliases";
+import Link from "next/link";
 
 export default function PartnersList({ partners }: { partners: Partner[] }) {
+  if (partners.length == 0) {
+    return;
+  }
+
   var list: any = [];
   partners.forEach((p) => {
     list.push(
-      <DirectusImage img={p.logo} name={p.name} className={styles.logo} />
+      <Link href={p.link || ""}>
+        <DirectusImage img={p.logo} name={p.name} className={styles.logo} />
+      </Link>
     );
   });
 
   return (
     <div className={styles.partnersList}>
-      <div>{list}</div>
+      <h1 className="title">Partenaires</h1>
+      <div className={styles.list}>{list}</div>
     </div>
   );
 }
