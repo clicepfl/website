@@ -1,6 +1,7 @@
 import PreviewImage from "@/assets/galleryPreview.png";
 import Card from "@/components/Card";
 import DirectusImage from "@/components/DirectusImage";
+import Footer from "@/components/Footer";
 import NewsCard from "@/components/NewsCard";
 import PartnersList from "@/components/PartnersList";
 import { directus, populateLayoutProps } from "@/directus";
@@ -62,6 +63,8 @@ export default function Home(
           ))}
         </div>
       </div>
+
+      <Footer />
     </>
   );
 }
