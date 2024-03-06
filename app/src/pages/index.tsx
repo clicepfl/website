@@ -71,15 +71,22 @@ export default function Home(
 
 export const getServerSideProps: GetServerSideProps<{
   association: Association;
+  partners: Partner[];
   news: News[];
   committee: (AssociationMembership & { member: Member })[];
-  partners: Partner[];
 }> = populateLayoutProps(async (context) => {
   return {
     props: {
       association: await directus().request(
         readSingleton("association", queryTranslations)
       ),
+      partners: (await directus()
+        .request(
+          readItems("association_partners", {
+            fields: [{ partners_id: ["*"] }],
+          })
+        )
+        .then((result) => result.map((p) => p.partners_id))) as Partner[],
       news: await directus().request(
         readItems("news", {
           limit: 3,
@@ -98,7 +105,6 @@ export const getServerSideProps: GetServerSideProps<{
           filter: { level: { _eq: "committee" } },
         })
       )) as (AssociationMembership & { member: Member })[],
-      partners: await directus().request(readItems("partners")),
     },
   };
 });

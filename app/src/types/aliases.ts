@@ -4,6 +4,7 @@ import { Schema } from "./schema";
 
 export type Association = Schema["association"];
 export type AssociationMembership = Schema["association_memberships"][0];
+export type AssociationPartner = Schema["association_partners"][0];
 export type Commission = Schema["commissions"][0];
 export type CommissionMembership = Schema["commission_memberships"][0];
 export type Member = Schema["members"][0];

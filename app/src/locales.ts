@@ -91,7 +91,6 @@ export function translate(
   locale: Locale = config.i18n.defaultLocale,
   opts?: LangOptions
 ) {
-  console.log(locale);
   return applyOptions(translations[locale][id], locale, opts);
 }
 
