@@ -83,8 +83,9 @@
     border-bottom: 1px solid #fff;
   }
 
-  .footer-logo {
-    height: 70px;
+  .footerLogo {
+    height: 100px;
+    filter: brightness(0) invert(1);
   }
 
   .social {

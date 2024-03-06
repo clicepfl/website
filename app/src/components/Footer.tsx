@@ -1,36 +1,33 @@
-import style from "@/styles/Footer.module.scss";
+import DirectusImage from "./DirectusImage";
+import styles from "@/styles/Footer.module.scss";
+import { Association } from "@/types/aliases";
 
-export default function Footer() {
+export default function Footer({ association }: { association: Association }) {
   return (
-    <div className={style.footer}>
-      <div className={style.bgAnimated}>
-        <div className={style.moving}>
+    <div className={styles.footer}>
+      <div className={styles.bgAnimated}>
+        <div className={styles.moving}>
           <p>&nbsp;</p>
         </div>
       </div>
-      <div className={style.center}>
-        <div className={style.content}>
-          <img className={style.logo} src="/img/logo_white.png" alt="logo" />
-          <img className={style.logo} src="/img/epfl.png" alt="epfl" />
-          <p className={style.big}>
+      <div className={styles.center}>
+        <div className={styles.content}>
+          <DirectusImage
+            img={association.logo}
+            name={association.name || ""}
+            className={styles.footerLogo}
+          />
+          <p className={styles.big}>
             Une association à but non-lucratif de l'Ecole Polytechnique Fédérale
             de Lausanne
           </p>
-          <p className={style.coord}>
-            CLIC, INN 132, Station 14, EPFL, CH-1015 Lausanne <br />
-            <a href="mailto:clic@epfl.ch">clic@epfl.ch</a> <br />
-            +41 21 693 81 28
+          <p className={styles.coord}>
+            {association.address} <br />
+            <a href="mailto:{association.email}">{association.email}</a> <br />
+            {association.phone}
           </p>
 
           {/* </br>{{ social.icons() }} */}
-
-          <p className={style.design}>
-            Original website design: Alexandre CHAU &amp; Loïc DROZ.
-          </p>
-          <p className={style.legal}>
-            &copy; CLIC association 2024, all rights reserved. Any reproduction,
-            even partial, is strictly prohibited
-          </p>
         </div>
       </div>
     </div>
