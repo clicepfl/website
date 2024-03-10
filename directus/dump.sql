@@ -182,26 +182,18 @@ La destination de cette année est Amsterdam, et le voyage se déroulera du 10 a
 
 Les inscriptions sont fermées !', NULL);
 
+
 --
 -- Data for Name: news; Type: TABLE DATA; Schema: public; Owner: directus_user
 --
 
-INSERT INTO public.news (id, status, sort, user_created, date_created, date_updated, banner, slug) VALUES (2, 'published', NULL, NULL, '2024-02-15 04:02:43.255+00', '2024-02-15 04:05:41.422+00', NULL, 'secret-santa-2023');
+INSERT INTO public.news (id, user_created, date_created, date_updated, status, sort, slug) VALUES (1, NULL, '2024-03-10 21:14:48.331+00', NULL, 'published', NULL, 'secret-santa-2023');
+INSERT INTO public.news (id, user_created, date_created, date_updated, status, sort, slug) VALUES (2, NULL, '2024-03-10 21:15:54.068+00', NULL, 'published', NULL, 'faculty-dinner-2023');
 
-INSERT INTO public.news_translations (id, news_id, languages_code, title, description, content) VALUES (3, 2, 'fr-FR', 'Secret Santa CLIC 2023', 'Viens offrir et recevoir un cadeau avec un verre de vin/chocolat chaud !', 'Ho Ho Ho !
 
-La fin de l’année approche ! Bon courage à vous pour les derniers rendus et les finals💙 Il est temps de rattraper les retards, mais c’est aussi l’heure de vous installer devant la cheminée avec un chocolat chaud et de sortir vos emballages cadeaux 🎁
+INSERT INTO public.news_commissions (id, news_id, commissions_id) VALUES (1, 1, 3);
 
-La CLIC organise un Secret Santa pour toute la Faculté IC ! Le principe est simple: amener un cadeau (d’une valeur de 10~15 CHF) le soir du 20 Décembre, au plus tard à 19h. Quand il y en aura suffisamment dans la hotte de la CLIC, on distribuera au hasard les cadeaux à chacun.e des participant.e.s ! Vous n’aurez pas de personne attribuée à l’avance, mais après la distribution, vous pourrez essayer de retrouver la personne qui vous a offert le cadeau 🎀
-
-Et pour partager plus de kiff dans la bonne humeur des fêtes de fin d’année, il y aura une distribution de vin chaud, de chocolats chauds (avec l’aide experte de Chocopoly !) et de biscuits ! 🍪☕
-
-📍 Lieu: Hall INM
-🕰️ Date: 20 Décembre 2023 de 18h à 21h
-🎁 Préparez un cadeau entre 10 et 15 CHF
-
-La CLIC vous aime ❤️💙');
-INSERT INTO public.news_translations (id, news_id, languages_code, title, description, content) VALUES (4, 2, 'en-US', 'Secret Santa CLIC 2023', 'Come give and receive a gift with a glass of wine/hot chocolate!', 'Ho Ho Ho!
+INSERT INTO public.news_translations (id, news_id, languages_code, title, description, content, banner) VALUES (1, 1, 'en-US', 'Secret Santa CLIC 2023', 'Come give and receive a gift with a glass of wine/hot chocolate!', '## Ho Ho Ho!
 
 The end of the year is approaching! Good luck to you with the projects and finals💙 It''s time to catch up, but it''s also time to settle down in front of the fireplace with a hot chocolate and get out your gift wrappings 🎁
 
@@ -213,11 +205,103 @@ And to share more good vibes in holiday cheer, there''ll be a distribution of mu
 🕰️ Date: December 20th, 2023 from 6 p.m. to 9 p.m.
 🎁 Prepare a gift between 10 and 15 CHF
 
-Love from CLIC ❤️💙');
+Love from CLIC ❤️💙', NULL);
+INSERT INTO public.news_translations (id, news_id, languages_code, title, description, content, banner) VALUES (2, 1, 'fr-FR', 'Secret Santa CLIC 2023', 'Viens offrir et recevoir un cadeau avec un verre de vin/chocolat chaud !', '## Ho Ho Ho !
+
+La fin de l’année approche ! Bon courage à vous pour les derniers rendus et les finals💙 Il est temps de rattraper les retards, mais c’est aussi l’heure de vous installer devant la cheminée avec un chocolat chaud et de sortir vos emballages cadeaux 🎁
+
+La CLIC organise un Secret Santa pour toute la Faculté IC ! Le principe est simple: amener un cadeau (d’une valeur de 10~15 CHF) le soir du 20 Décembre, au plus tard à 19h. Quand il y en aura suffisamment dans la hotte de la CLIC, on distribuera au hasard les cadeaux à chacun.e des participant.e.s ! Vous n’aurez pas de personne attribuée à l’avance, mais après la distribution, vous pourrez essayer de retrouver la personne qui vous a offert le cadeau 🎀
+
+Et pour partager plus de kiff dans la bonne humeur des fêtes de fin d’année, il y aura une distribution de vin chaud, de chocolats chauds (avec l’aide experte de Chocopoly !) et de biscuits ! 🍪☕
+
+📍 Lieu: Hall INM
+🕰️ Date: 20 Décembre 2023 de 18h à 21h
+🎁 Préparez un cadeau entre 10 et 15 CHF
+
+La CLIC vous aime ❤️💙', NULL);
+INSERT INTO public.news_translations (id, news_id, languages_code, title, description, content, banner) VALUES (3, 2, 'fr-FR', 'Souper de Faculté IC 2023', 'Le traditionnel dîner de la famille IC', 'Il est enfin là, l’annonce que vous attendiez depuis longtemps avec impatience. Le Souper de Faculté IC Automne 2023 ! Rendez-vous le 9 novembre au Hall BC pour partager un repas avec les autres étudiant.e.s et membres de la faculté (professeurs compris, qui n’a jamais rêvé de trinquer avec son/sa prof préféré.e ?). Cette année on s’est ornementé du thème Sol Et Luna; que vous soyez chaleureux.ses et énergétique.s comme le soleil, ou calme et brillant.e.s comme la lune, venez passer un moment merveilleux avec un repas céleste, animé du quiz sur notre faculté IC et un karaoké à la fin.
+
+Au menu : 🍽️
+
+Salade mêlée
+•••
+Dahl de lentille au lait de coco
+&
+Brochette de Poulet Tandoori
+OU (option végé)
+Brochette de Tofu BIO Suisse
+&
+Légumes de saison - Naan
+•••
+Gâteau au Chocolat
+Crème Chantilly vanillée
+
+📅 Date: 9 novembre à partir de 18h. Vous devez être présent.e au plus tard à 19h.
+📍 Lieu: Hall BC
+🪙 Prix: 10.- jusqu’au 5 novembre 23:59, 12.- après
+
+Pour s’inscrire: Remplir ce formulaire Aller au bureau de la CLIC (INN132), ouvert tous les jours de 10h à 17h et payer en personne soit en cash, soit par camipro, ou finalement par virement bancaire via le QR code qui se trouve à la fin du formulaire d’inscription.
+
+La CLIC qui vous aime ❤️💙', NULL);
+INSERT INTO public.news_translations (id, news_id, languages_code, title, description, content, banner) VALUES (4, 2, 'en-US', 'IC Faculty Dinner Automn 2023', 'The traditional faculty dinner of IC Family', 'It''s finally here, the announcement you''ve been eagerly awaiting. The Automn 2023 IC Faculty Dinner! Join us on November 9 at the BC Hall to share a meal with fellow students and faculty members (including professors - who hasn''t dreamed of toasting with their favourite professor?) This year''s theme is Sol Et Luna; whether you''re warm and energetic like the sun, or calm and bright like the moon, come and enjoy a heavenly meal, IC faculty quiz and karaoke at the end.
+
+The menu: 🍽️
+
+Mixed salad
+•••
+Lentil dahl with coconut milk
+&
+Skewer of Tandoori Chicken
+OR (veggie option)
+Skewer of Swiss BIO Tofu
+&
+Seasonal vegetables - Naan bread
+•••
+Chocolate cake
+Vanilla whipped cream
+
+📅 Date: November 9 from 6pm. You must be present at the latest at 7pm.
+📍 Location: Hall BC
+🪙 Price: 10.- until November 5 23:59, 12.- afterwards
+
+To register: Fill in this form Go and pay at the CLIC office (INN132), open every day from 10am to 5pm. You can pay either by cash or by camipro, in person at the office. You can also pay by bank transfer via the QR code that can be found at the end of the registration form.
+
+Love from CLIC ❤️💙', NULL);
 
 
 --
--- Data for Name: news_commissions; Type: TABLE DATA; Schema: public; Owner: directus_user
+-- Data for website user
 --
 
-INSERT INTO public.news_commissions (id, news_id, commissions_id) VALUES (4, 2, 3);
+INSERT INTO public.directus_roles (id, name, icon, description, ip_access, enforce_tfa, admin_access, app_access) VALUES ('3169d1f9-7faa-48d9-b81a-3333afccdefe', 'website', 'supervised_user_circle', NULL, NULL, false, false, false);
+INSERT INTO public.directus_users (id, first_name, last_name, email, password, location, title, description, tags, avatar, language, tfa_secret, status, role, token, last_access, last_page, provider, external_identifier, auth_data, email_notifications, appearance, theme_dark, theme_light, theme_light_overrides, theme_dark_overrides) VALUES ('8814d708-eead-4f05-8c41-1412ed7b0e7a', 'website', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'active', '3169d1f9-7faa-48d9-b81a-3333afccdefe', '9JDjdJ3nzoa09B8lzUiHjeyfnNSzwdsT', NULL, NULL, 'default', NULL, NULL, true, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (1, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'association', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (2, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'association_files', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (3, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'association_memberships', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (4, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'association_memberships_translations', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (5, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'association_partners', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (6, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'association_social_links', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (7, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'association_translations', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (8, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'commission_memberships', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (9, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'commission_memberships_translations', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (10, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'commissions_members', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (11, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'commissions', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (12, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'commissions_social_links', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (13, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'commissions_translations', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (14, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'languages', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (15, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'members', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (16, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'news', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (17, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'news_commissions', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (18, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'news_partners', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (19, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'news_translations', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (20, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'partners', 'read', '{}', '{}', NULL, '*');
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (21, '3169d1f9-7faa-48d9-b81a-3333afccdefe', 'social_links', 'read', '{}', '{}', NULL, '*');
+
+
+--
+-- Data for public folder
+--
+
+INSERT INTO public.directus_folders (id, name, parent) VALUES ('c591c65a-ce8c-447c-8442-fea5eed26dcb', 'public', NULL);
+INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (22, NULL, 'directus_files', 'read', '{"_and":[{"folder":{"_eq":"c591c65a-ce8c-447c-8442-fea5eed26dcb"}}]}', NULL, NULL, NULL);
