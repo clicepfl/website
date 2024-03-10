@@ -1,5 +1,6 @@
 import Corner from "@/assets/corner.svg";
 import styles from "@/styles/NavigationBar.module.scss";
+import { Commission } from "@/types/aliases";
 import Link from "next/link";
 
 type LinkRef = {
@@ -39,7 +40,7 @@ function DropdownMenuItem({
   );
 }
 
-export default function NavigationBar() {
+export default function NavigationBar(props: { commissions?: Commission[] }) {
   return (
     <div className={styles.navigationBar}>
       <Link href="/" className={styles.corner}>
@@ -48,18 +49,25 @@ export default function NavigationBar() {
 
       <div className={styles.navigationMenu}>
         <Link className={styles.menuItem} href="/association">
-          L'Association
+          L&apos;Association {/* TODO: translation */}
         </Link>
 
         <DropdownMenuItem
           link={{ title: "Commissions", href: "/commissions" }}
-          subLinks={[
-            { title: "PolyglOts", href: "/Polygl0ts" },
-            { title: "CEVE", href: "/CEVE" },
-            { title: "Game*", href: "/Game*" },
-            { title: "IC Travel", href: "/ICTravel" },
-            { title: "Orbital Game Jam", href: "/OrbitalGameJam" },
-          ]}
+          subLinks={
+            props.commissions
+              ? props.commissions.map((c) => {
+                  if (c.name && c.slug) {
+                    return {
+                      title: c.name,
+                      href: `/${c.slug}`,
+                    };
+                  } else {
+                    throw new Error("Invalid commission");
+                  }
+                })
+              : []
+          }
         />
 
         <Link className={styles.menuItem} href="/news">

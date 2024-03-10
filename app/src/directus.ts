@@ -1,3 +1,4 @@
+import { queryTranslations } from "./locales";
 import { SocialLink } from "./types/aliases";
 import { Schema } from "./types/schema";
 import {
@@ -50,17 +51,29 @@ export function populateLayoutProps<T>(
       })
     );
 
+    let commissions = await directus().request(
+      readItems("commissions", queryTranslations)
+    );
+    console.log(commissions);
+
     if (f) {
       let res = await f(context);
 
       if ("props" in res) {
-        return { props: { layoutProps: socialLinks, ...res.props } as any };
+        return {
+          props: {
+            layoutProps: { socialLinks: socialLinks, commissions: commissions },
+            ...res.props,
+          } as any,
+        };
       } else {
         return res;
       }
     } else {
       return {
-        props: { layoutProps: socialLinks },
+        props: {
+          layoutProps: { socialLinks: socialLinks, commissions: commissions },
+        },
       };
     }
   };
