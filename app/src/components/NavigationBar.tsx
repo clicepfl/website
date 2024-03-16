@@ -1,6 +1,7 @@
 import Corner from "@/assets/corner.svg";
 import Burger from "@/assets/icons/burger_menu_icon.svg";
 import Lang from "@/assets/lang.svg";
+import { locale, translate } from "@/locales";
 import styles from "@/styles/NavigationBar.module.scss";
 import { Commission } from "@/types/aliases";
 import { Schema } from "@/types/schema";
@@ -31,13 +32,22 @@ export default function NavigationBar(props: {
   const router = useRouter();
   const entries = [
     <Link className={styles.menuItem} href="/association">
-      L&apos;Association {/* TODO: translation */}
+      {translate("association", locale(router), {
+        capitalize: true,
+        plural: false,
+      })}
     </Link>,
     <Link className={styles.menuItem} href="/commissions">
-      Commissions
+      {translate("commission", locale(router), {
+        capitalize: true,
+        plural: true,
+      })}
     </Link>,
     <Link className={styles.menuItem} href="/news">
-      News
+      {translate("news", locale(router), {
+        capitalize: true,
+        plural: false,
+      })}
     </Link>,
   ];
 
@@ -49,14 +59,20 @@ export default function NavigationBar(props: {
 
       <div className={styles.navigationMenu}>
         <Link className={styles.menuItem} href="/association">
-          L&apos;Association {/* TODO: translation */}
+          {translate("association", locale(router), {
+            capitalize: true,
+            plural: false,
+          })}
         </Link>
 
         {props.commissions ? (
           <DropdownMenu
             head={
               <Link className={styles.menuItem} href="/commissions">
-                Commissions
+                {translate("commission", locale(router), {
+                  capitalize: true,
+                  plural: true,
+                })}
                 <i className={styles.arrow} />
               </Link>
             }
@@ -88,12 +104,18 @@ export default function NavigationBar(props: {
           </DropdownMenu>
         ) : (
           <Link className={styles.menuItem} href="/commissions">
-            Commissions
+            {translate("commission", locale(router), {
+              capitalize: true,
+              plural: true,
+            })}
           </Link>
         )}
 
         <Link className={styles.menuItem} href="/news">
-          News
+          {translate("news", locale(router), {
+            capitalize: true,
+            plural: false,
+          })}
         </Link>
 
         {props.langs ? (
