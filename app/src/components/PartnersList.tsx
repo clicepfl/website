@@ -11,7 +11,7 @@ export default function PartnersList({ partners }: { partners: Partner[] }) {
   var list: any = [];
   partners.forEach((p) => {
     list.push(
-      <Link href={p.link || ""}>
+      <Link href={p.link || ""} key={p.id}>
         <DirectusImage img={p.logo} name={p.name} className={styles.logo} />
       </Link>
     );
