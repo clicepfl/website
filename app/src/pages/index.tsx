@@ -18,6 +18,7 @@ import {
   Member,
   News,
   Partner,
+  PublicFiles,
   SocialLink,
 } from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
@@ -54,7 +55,8 @@ export default function Home(
 
       <AssociationDescription
         association={props.association}
-        social_links={props.social_links}
+        socialLinks={props.socialLinks}
+        publicFiles={props.publicFiles}
       />
 
       <div className={styles.cardList}>
@@ -77,9 +79,10 @@ export default function Home(
 export const getServerSideProps: GetServerSideProps<{
   association: Association;
   partners: Partner[];
-  social_links: SocialLink[];
+  socialLinks: SocialLink[];
   news: News[];
   committee: (AssociationMembership & { member: Member })[];
+  publicFiles: PublicFiles[];
 }> = populateLayoutProps(async (_) => {
   return {
     props: {
@@ -93,7 +96,7 @@ export const getServerSideProps: GetServerSideProps<{
           })
         )
         .then((result) => result.map((p) => p.partners_id))) as Partner[],
-      social_links: (await directus()
+      socialLinks: (await directus()
         .request(
           readItems("association_social_links", {
             fields: [{ social_links_id: ["*"] }],
@@ -120,6 +123,11 @@ export const getServerSideProps: GetServerSideProps<{
           filter: { level: { _eq: "committee" } },
         })
       )) as (AssociationMembership & { member: Member })[],
+      publicFiles: await directus().request(
+        readItems("association_public_files", {
+          fields: ["*", { translations: ["*"], icon: ["*"] }],
+        })
+      ),
     },
   };
 });

@@ -1,15 +1,20 @@
+import DirectusImage from "./DirectusImage";
 import SocialsList from "./SocialsList";
 import { getTranslation } from "@/locales";
-import { Association, SocialLink } from "@/types/aliases";
+import styles from "@/styles/AssociationDescription.module.scss";
+import { Association, PublicFiles, SocialLink } from "@/types/aliases";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import Markdown from "react-markdown";
 
 export default function AssociationDescription({
   association,
-  social_links,
+  socialLinks,
+  publicFiles,
 }: {
   association: Association;
-  social_links: SocialLink[];
+  socialLinks: SocialLink[];
+  publicFiles: PublicFiles[];
 }) {
   const router = useRouter();
   const translation = getTranslation(association, router.locale);
@@ -18,7 +23,19 @@ export default function AssociationDescription({
     <div className="page">
       <div>
         <Markdown className="text">{translation.description}</Markdown>
-        <SocialsList socials={social_links}></SocialsList>
+        <SocialsList socials={socialLinks}></SocialsList>
+        <div className={styles.publicFiles}>
+          {publicFiles.map((f) => (
+            <Link href={f.link || ""} key={f.id}>
+              {f.icon ? (
+                <DirectusImage className={styles.icon} img={f.icon} />
+              ) : (
+                <></>
+              )}
+              {getTranslation(f, router.locale).name}
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
