@@ -6,7 +6,7 @@ import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 
-export default function Association(
+export default function AssociationPage(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   const router = useRouter();
@@ -22,7 +22,8 @@ export const getServerSideProps: GetServerSideProps<{
   association: Association;
   social_links: SocialLink[];
 }> = populateLayoutProps(async (context) => {
-  return { props: {
+  return {
+    props: {
       association: await directus().request(
         readSingleton("association", queryTranslations)
       ),
@@ -35,4 +36,6 @@ export const getServerSideProps: GetServerSideProps<{
         .then((result) =>
           result.map((s) => s.social_links_id)
         )) as SocialLink[],
-}}});
+    },
+  };
+});
