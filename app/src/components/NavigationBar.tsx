@@ -6,11 +6,6 @@ import { Schema } from "@/types/schema";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-type LinkRef = {
-  title: string;
-  href: string;
-};
-
 function DropdownMenu({
   head: button,
   children,
@@ -43,39 +38,45 @@ export default function NavigationBar(props: {
           L&apos;Association {/* TODO: translation */}
         </Link>
 
-        <DropdownMenu
-          head={
-            <Link className={styles.menuItem} href="/commissions">
-              Commissions
-              <i className={styles.arrow} />
-            </Link>
-          }
-        >
-          {props.commissions ? (
-            props.commissions.map((c) => {
-              if (c.name && c.slug) {
-                return (
-                  <Link
-                    key={c.slug}
-                    href={`/commissions/${c.slug}`}
-                    className={styles.menuItem}
-                  >
-                    {c.name}
-                  </Link>
-                );
-              } else {
-                console.error(
-                  `Missing \`name\` or \`slug\` in commission: ${JSON.stringify(
-                    c
-                  )}`
-                );
-                throw new Error("Invalid commission");
-              }
-            })
-          ) : (
-            <></>
-          )}
-        </DropdownMenu>
+        {props.commissions ? (
+          <DropdownMenu
+            head={
+              <Link className={styles.menuItem} href="/commissions">
+                Commissions
+                <i className={styles.arrow} />
+              </Link>
+            }
+          >
+            {props.commissions ? (
+              props.commissions.map((c) => {
+                if (c.name && c.slug) {
+                  return (
+                    <Link
+                      key={c.slug}
+                      href={`/commissions/${c.slug}`}
+                      className={styles.menuItem}
+                    >
+                      {c.name}
+                    </Link>
+                  );
+                } else {
+                  console.error(
+                    `Missing \`name\` or \`slug\` in commission: ${JSON.stringify(
+                      c
+                    )}`
+                  );
+                  throw new Error("Invalid commission");
+                }
+              })
+            ) : (
+              <></>
+            )}
+          </DropdownMenu>
+        ) : (
+          <Link className={styles.menuItem} href="/commissions">
+            Commissions
+          </Link>
+        )}
 
         <Link className={styles.menuItem} href="/news">
           News
