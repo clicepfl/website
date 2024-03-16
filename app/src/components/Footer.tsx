@@ -1,8 +1,15 @@
 import DirectusImage from "./DirectusImage";
+import SocialsList from "./SocialsList";
 import styles from "@/styles/Footer.module.scss";
-import { Association } from "@/types/aliases";
+import { Association, SocialLink } from "@/types/aliases";
 
-export default function Footer({ association }: { association: Association }) {
+export default function Footer({
+  association,
+  socials,
+}: {
+  association: Association;
+  socials: SocialLink[];
+}) {
   if (association == null) {
     return;
   }
@@ -31,7 +38,7 @@ export default function Footer({ association }: { association: Association }) {
             {association.phone}
           </p>
 
-          {/* </br>{{ social.icons() }} */}
+          <SocialsList socials={socials} light={true} />
         </div>
       </div>
     </div>

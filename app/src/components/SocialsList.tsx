@@ -3,7 +3,13 @@ import styles from "@/styles/SocialsList.module.scss";
 import { SocialLink } from "@/types/aliases";
 import Link from "next/link";
 
-export default function SocialsList({ socials }: { socials: SocialLink[] }) {
+export default function SocialsList({
+  socials,
+  light,
+}: {
+  socials: SocialLink[];
+  light?: boolean;
+}) {
   if (socials.length == 0) {
     return;
   }
@@ -15,7 +21,7 @@ export default function SocialsList({ socials }: { socials: SocialLink[] }) {
         <DirectusImage
           img={s.logo}
           name={s.media_name}
-          className={styles.social}
+          className={`${styles.social} ${light ? styles.light : ""}`}
         />
       </Link>
     );

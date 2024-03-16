@@ -51,30 +51,12 @@
     }
   }
 
-  p,
-  a {
-    color: #fff;
-    font-size: 18px;
-    text-align: center;
-
-    @media screen and (max-width: 700px) {
-      font-size: 16px;
-    }
-  }
-
   .big {
     font-size: 24px;
     padding: 20px 0;
 
     @media screen and (max-width: 700px) {
       font-size: 20px;
-    }
-  }
-
-  a {
-    text-decoration: none;
-    &:hover {
-      background: #cd0000;
     }
   }
 
@@ -85,27 +67,5 @@
   .footerLogo {
     height: 100px;
     filter: brightness(0) invert(1);
-  }
-
-  .social {
-    padding: 20px;
-
-    *,
-    p,
-    a {
-      font-size: 30px;
-    }
-
-    a:hover {
-      background: none;
-    }
-
-    i {
-      padding: 5px;
-    }
-
-    i:hover {
-      color: #cd0000;
-    }
   }
 }
