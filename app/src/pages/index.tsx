@@ -1,4 +1,5 @@
 import PreviewImage from "@/assets/galleryPreview.png";
+import AssociationDescription from "@/components/AssociationDescription";
 import Card from "@/components/Card";
 import DirectusImage from "@/components/DirectusImage";
 import Footer from "@/components/Footer";
@@ -17,11 +18,11 @@ import {
   Member,
   News,
   Partner,
+  SocialLink,
 } from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
-import Markdown from "react-markdown";
 
 export default function Home(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
@@ -37,7 +38,7 @@ export default function Home(
       </div>
 
       <div className="news">
-        <h1 className="title">News</h1>
+        <h1 className="title ligth">News</h1>
         <div className="news-list">
           {props.news.map((n) => (
             <NewsCard key={(n as any).id} news={n} />
@@ -47,7 +48,11 @@ export default function Home(
 
       <PartnersList partners={props.partners} />
 
-      <Markdown className="text">{translation.description}</Markdown>
+      <AssociationDescription
+        association={props.association}
+        social_links={props.social_links}
+      />
+
       <div className="cardList">
         <h1 className="title">
           {translate("committee", locale(router), { capitalize: true })}
@@ -72,6 +77,7 @@ export default function Home(
 export const getServerSideProps: GetServerSideProps<{
   association: Association;
   partners: Partner[];
+  social_links: SocialLink[];
   news: News[];
   committee: (AssociationMembership & { member: Member })[];
 }> = populateLayoutProps(async (context) => {
@@ -87,6 +93,15 @@ export const getServerSideProps: GetServerSideProps<{
           })
         )
         .then((result) => result.map((p) => p.partners_id))) as Partner[],
+      social_links: (await directus()
+        .request(
+          readItems("association_social_links", {
+            fields: [{ social_links_id: ["*"] }],
+          })
+        )
+        .then((result) =>
+          result.map((s) => s.social_links_id)
+        )) as SocialLink[],
       news: await directus().request(
         readItems("news", {
           limit: 3,
