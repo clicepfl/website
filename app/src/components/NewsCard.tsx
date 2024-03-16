@@ -26,12 +26,7 @@ export default function NewsCard({ news }: { news: News }) {
           <p className={styles.date}>
             {news.date_created ? new Date(news.date_created).toUTCString() : ""}
           </p>
-          <Button
-            className={styles.button}
-            text="> "
-            link={`/news/${news.slug}`}
-            size="small"
-          />
+          <Button className={styles.button} text="> " size="small" />
         </div>
       </div>
     </Link>
