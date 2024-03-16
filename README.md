@@ -77,6 +77,8 @@ The code must be formatted with Prettier (using `npx prettier --write <directory
 
 The commit message must follow [conventional commits convention](https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13). This is both checked by a local hook and by the CI.
 
+Style scss must be imported into code files and classnames must not be referenced in clear.
+
 ## Deployment
 
 After a push on the main branch, the website is automatically built into a docker image, and pushed to [GHRC](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry). When opening or pushing to a pull-request on the main branch, the images are also built, but not pushed, for sanity check.

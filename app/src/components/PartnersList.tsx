@@ -19,7 +19,7 @@ export default function PartnersList({ partners }: { partners: Partner[] }) {
 
   return (
     <div className={styles.partnersList}>
-      <h1 className="title">Partenaires</h1>
+      <h1>Partenaires</h1>
       <div className={styles.list}>{list}</div>
     </div>
   );

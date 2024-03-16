@@ -37,7 +37,7 @@ export default function Home(
       </div>
 
       <div className="news">
-        <h1 className="title ligth">News</h1>
+        <h1 className="light">News</h1>
         <div className="news-list">
           {props.news.map((n) => (
             <NewsCard key={(n as any).id} news={n} />
@@ -53,9 +53,7 @@ export default function Home(
       />
 
       <div className="cardList">
-        <h1 className="title">
-          {translate("committee", locale(router), { capitalize: true })}
-        </h1>
+        <h1>{translate("committee", locale(router), { capitalize: true })}</h1>
         <div>
           {props.committee.map((m) => (
             <Card

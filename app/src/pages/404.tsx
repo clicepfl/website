@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <>
       <div className="text">
-        <h1 className="title">
+        <h1>
           {translate("error404", locale(router), {
             capitalize: true,
             plural: false,
