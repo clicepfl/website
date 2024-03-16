@@ -1,6 +1,4 @@
 .publicFiles {
-  $color: rgb(130, 130, 255);
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,12 +14,17 @@
   }
 
   > * {
-    border: 2px $color solid;
+    border: 2px var(--glass-color) solid;
     border-radius: 1rem;
     padding: 1rem;
 
     display: flex;
     align-items: center;
     gap: 0.5rem;
+
+    &:hover {
+      border: 2px var(--glass-color-hover) solid;
+      color: var(--glass-color-hover);
+    }
   }
 }

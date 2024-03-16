@@ -1,6 +1,6 @@
 import Corner from "@/assets/corner.svg";
 import Burger from "@/assets/icons/burger_menu_icon.svg";
-import Lang from "@/assets/lang.svg";
+import Lang from "@/assets/icons/lang.svg";
 import { locale, translate } from "@/locales";
 import styles from "@/styles/NavigationBar.module.scss";
 import { Commission } from "@/types/aliases";

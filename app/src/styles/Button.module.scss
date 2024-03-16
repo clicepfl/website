@@ -4,7 +4,7 @@
   margin: 1rem;
 
   color: var(--text-color);
-  background-color: darkblue;
+  background-color: var(--glass-color);
 
   width: fit-content;
   height: fit-content;
@@ -15,7 +15,7 @@
   gap: 1rem;
 
   &:hover {
-    background-color: var(--glass-color);
+    background-color: var(--glass-color-hover);
   }
 
   backdrop-filter: blur(10px) saturate(180%);

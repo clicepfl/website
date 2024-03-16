@@ -5,6 +5,14 @@
   .social {
     width: 40px;
     height: 40px;
+
+    filter: brightness(0) saturate(100%) invert(18%) sepia(18%) saturate(6050%)
+      hue-rotate(215deg) brightness(95%) contrast(95%);
+
+    &:hover {
+      filter: brightness(0) saturate(100%) invert(25%) sepia(71%) saturate(627%)
+        hue-rotate(198deg) brightness(98%) contrast(84%);
+    }
   }
 
   .light {

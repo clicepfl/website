@@ -28,7 +28,7 @@
   .lang {
     width: 2em;
     height: auto;
-    stroke: white;
+    stroke-width: 0;
     cursor: pointer;
   }
 
@@ -45,6 +45,7 @@
     .menuItem {
       fill: inherit;
       user-select: none;
+      width: fit-content;
       cursor: pointer;
 
       &:hover {
@@ -82,21 +83,27 @@
       .content {
         @extend .glass;
 
-        display: none;
         position: absolute;
-        flex-direction: column;
-
-        padding-right: 2em;
+        right: 0;
+        display: none;
+        overflow: hidden;
         z-index: 1;
         border-radius: 5px;
+        white-space: nowrap;
 
         .menuItem {
-          margin: 0.5em 0em 0.5em 1em;
+          padding: 0.5rem 1rem 0.5rem 1rem;
+          width: 100%;
+
+          &:hover {
+            background-color: var(--glass-color-hover);
+          }
         }
       }
 
       &:hover .content {
         display: flex;
+        flex-direction: column;
       }
     }
 

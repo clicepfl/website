@@ -6,12 +6,21 @@ import { News } from "@/types/aliases";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export default function NewsCard({ news }: { news: News }) {
+export default function NewsCard({
+  news,
+  vertical = false,
+}: {
+  news: News;
+  vertical?: boolean;
+}) {
   const router = useRouter();
 
   const translation = getTranslation(news, router.locale);
   return (
-    <Link href={`/news/${news.slug}`} className={`${styles.newsCard}`}>
+    <Link
+      href={`/news/${news.slug}`}
+      className={`${styles.newsCard} ${vertical ? styles.vertical : ""}`}
+    >
       <DirectusImage
         img={translation.banner}
         name={translation.title || ""}
@@ -26,8 +35,8 @@ export default function NewsCard({ news }: { news: News }) {
           <p className={styles.date}>
             {news.date_created ? new Date(news.date_created).toUTCString() : ""}
           </p>
-          <Button className={styles.button} text="> " size="small" />
         </div>
+        <Button className={styles.button} text="> " size="small" />
       </div>
     </Link>
   );

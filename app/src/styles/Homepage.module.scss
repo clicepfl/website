@@ -60,8 +60,9 @@
     margin: 2%;
     gap: 2em;
     width: fit-content;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(3, 50rem);
+    padding-right: 5rem;
   }
 }
 
