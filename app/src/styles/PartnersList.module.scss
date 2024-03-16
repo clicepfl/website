@@ -10,11 +10,21 @@
     margin: auto;
     display: flex;
     flex-direction: row;
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
   }
 
   .logo {
     height: 6em;
     width: 20em;
     margin: 2em;
+
+    @media (max-width: 800px) {
+      height: 3em;
+      width: 10em;
+      margin: 1em;
+    }
   }
 }
