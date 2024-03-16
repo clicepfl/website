@@ -26,30 +26,6 @@ collections:
       versioning: false
     schema:
       name: association
-  - collection: association_files
-    meta:
-      accountability: all
-      archive_app_filter: true
-      archive_field: null
-      archive_value: null
-      collapse: open
-      collection: association_files
-      color: null
-      display_template: null
-      group: null
-      hidden: true
-      icon: import_export
-      item_duplication_fields: null
-      note: null
-      preview_url: null
-      singleton: false
-      sort: null
-      sort_field: null
-      translations: null
-      unarchive_value: null
-      versioning: false
-    schema:
-      name: association_files
   - collection: association_memberships
     meta:
       accountability: all
@@ -122,6 +98,54 @@ collections:
       versioning: false
     schema:
       name: association_partners
+  - collection: association_public_files
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: association_public_files
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: association_public_files
+  - collection: association_public_files_translations
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: association_public_files_translations
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: association_public_files_translations
   - collection: association_social_links
     meta:
       accountability: all
@@ -698,29 +722,6 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: association
-    field: official_documents
-    type: alias
-    meta:
-      collection: association
-      conditions: null
-      display: null
-      display_options: null
-      field: official_documents
-      group: null
-      hidden: false
-      interface: files
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 9
-      special:
-        - files
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: association
     field: logo
     type: uuid
     meta:
@@ -829,120 +830,6 @@ fields:
       validation: null
       validation_message: null
       width: full
-  - collection: association_files
-    field: id
-    type: integer
-    meta:
-      collection: association_files
-      conditions: null
-      display: null
-      display_options: null
-      field: id
-      group: null
-      hidden: true
-      interface: null
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 1
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: id
-      table: association_files
-      data_type: integer
-      default_value: nextval('association_files_id_seq'::regclass)
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: false
-      is_unique: true
-      is_primary_key: true
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: true
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: association_files
-    field: association_id
-    type: integer
-    meta:
-      collection: association_files
-      conditions: null
-      display: null
-      display_options: null
-      field: association_id
-      group: null
-      hidden: true
-      interface: null
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 2
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: association_id
-      table: association_files
-      data_type: integer
-      default_value: null
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: association
-      foreign_key_column: id
-  - collection: association_files
-    field: directus_files_id
-    type: uuid
-    meta:
-      collection: association_files
-      conditions: null
-      display: null
-      display_options: null
-      field: directus_files_id
-      group: null
-      hidden: true
-      interface: null
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 3
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: directus_files_id
-      table: association_files
-      data_type: uuid
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: directus_files
-      foreign_key_column: id
   - collection: association_memberships
     field: id
     type: integer
@@ -1357,6 +1244,297 @@ fields:
       has_auto_increment: false
       foreign_key_table: partners
       foreign_key_column: id
+  - collection: association_public_files
+    field: id
+    type: integer
+    meta:
+      collection: association_public_files
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: association_public_files
+      data_type: integer
+      default_value: nextval('association_public_files_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association_public_files
+    field: link
+    type: string
+    meta:
+      collection: association_public_files
+      conditions: null
+      display: null
+      display_options: null
+      field: link
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: link
+      table: association_public_files
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association_public_files
+    field: translations
+    type: alias
+    meta:
+      collection: association_public_files
+      conditions: null
+      display: null
+      display_options: null
+      field: translations
+      group: null
+      hidden: false
+      interface: translations
+      note: null
+      options:
+        defaultOpenSplitView: true
+      readonly: false
+      required: true
+      sort: 3
+      special:
+        - translations
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: association_public_files
+    field: icon
+    type: uuid
+    meta:
+      collection: association_public_files
+      conditions: null
+      display: null
+      display_options: null
+      field: icon
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 4
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: icon
+      table: association_public_files
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: association_public_files_translations
+    field: id
+    type: integer
+    meta:
+      collection: association_public_files_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: association_public_files_translations
+      data_type: integer
+      default_value: nextval('association_public_files_translations_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association_public_files_translations
+    field: association_public_files_id
+    type: integer
+    meta:
+      collection: association_public_files_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: association_public_files_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: association_public_files_id
+      table: association_public_files_translations
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: association_public_files
+      foreign_key_column: id
+  - collection: association_public_files_translations
+    field: languages_code
+    type: string
+    meta:
+      collection: association_public_files_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: languages_code
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: languages_code
+      table: association_public_files_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
+  - collection: association_public_files_translations
+    field: name
+    type: string
+    meta:
+      collection: association_public_files_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: name
+      table: association_public_files_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: association_social_links
     field: id
     type: integer
@@ -4453,48 +4631,6 @@ relations:
       constraint_name: association_logo_foreign
       on_update: NO ACTION
       on_delete: SET NULL
-  - collection: association_files
-    field: directus_files_id
-    related_collection: directus_files
-    meta:
-      junction_field: association_id
-      many_collection: association_files
-      many_field: directus_files_id
-      one_allowed_collections: null
-      one_collection: directus_files
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    schema:
-      table: association_files
-      column: directus_files_id
-      foreign_key_table: directus_files
-      foreign_key_column: id
-      constraint_name: association_files_directus_files_id_foreign
-      on_update: NO ACTION
-      on_delete: SET NULL
-  - collection: association_files
-    field: association_id
-    related_collection: association
-    meta:
-      junction_field: directus_files_id
-      many_collection: association_files
-      many_field: association_id
-      one_allowed_collections: null
-      one_collection: association
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: official_documents
-      sort_field: null
-    schema:
-      table: association_files
-      column: association_id
-      foreign_key_table: association
-      foreign_key_column: id
-      constraint_name: association_files_association_id_foreign
-      on_update: NO ACTION
-      on_delete: SET NULL
   - collection: association_memberships
     field: member
     related_collection: members
@@ -4598,6 +4734,69 @@ relations:
       foreign_key_table: association
       foreign_key_column: id
       constraint_name: association_partners_association_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: association_public_files
+    field: icon
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: association_public_files
+      many_field: icon
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: association_public_files
+      column: icon
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: association_public_files_icon_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: association_public_files_translations
+    field: languages_code
+    related_collection: languages
+    meta:
+      junction_field: association_public_files_id
+      many_collection: association_public_files_translations
+      many_field: languages_code
+      one_allowed_collections: null
+      one_collection: languages
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: association_public_files_translations
+      column: languages_code
+      foreign_key_table: languages
+      foreign_key_column: code
+      constraint_name: association_public_files_translations_languages_code_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: association_public_files_translations
+    field: association_public_files_id
+    related_collection: association_public_files
+    meta:
+      junction_field: languages_code
+      many_collection: association_public_files_translations
+      many_field: association_public_files_id
+      one_allowed_collections: null
+      one_collection: association_public_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: translations
+      sort_field: null
+    schema:
+      table: association_public_files_translations
+      column: association_public_files_id
+      foreign_key_table: association_public_files
+      foreign_key_column: id
+      constraint_name: association_public_files_translations_asso__6f6277ed_foreign
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: association_social_links

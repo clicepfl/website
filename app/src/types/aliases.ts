@@ -12,3 +12,4 @@ export type Member = Schema["members"][0];
 export type News = Schema["news"][0];
 export type Partner = Schema["partners"][0];
 export type SocialLink = Schema["social_links"][0];
+export type PublicFiles = Schema["association_public_files"][0];
