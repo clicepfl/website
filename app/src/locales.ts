@@ -16,6 +16,8 @@ interface Translations {
   relatedContent: string;
   committee: string;
   commission: string;
+  error404: string;
+  error404desc: string;
 }
 
 type OptionsOperators = {
@@ -30,6 +32,8 @@ const translations: { [key in Locale]: Translations & OptionsOperators } = {
     relatedContent: "related content",
     committee: "committee",
     commission: "commission",
+    error404: "error 404",
+    error404desc: "this page does not exist!",
     capitalize: (s) => s.replace(/^(\s*\w)/, (s) => s.toUpperCase()),
     plural: (s) => s + "s",
   },
@@ -40,6 +44,8 @@ const translations: { [key in Locale]: Translations & OptionsOperators } = {
     relatedContent: "contenu lié",
     committee: "comité",
     commission: "commission",
+    error404: "erreur 404",
+    error404desc: "cette page n'existe pas!",
     capitalize: (s) => s.replace(/^(\s*\w)/, (s) => s.toUpperCase()),
     plural: (s) => (s.endsWith("u") ? s + "x" : s + "s"),
   },
