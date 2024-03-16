@@ -1,0 +1,17 @@
+.button {
+  border-radius: 3rem;
+  padding: 0.7rem;
+  margin: 1rem;
+
+  color: var(--text-color);
+  background-color: darkblue;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  &.large {
+    padding: 1.2rem;
+  }
+}
