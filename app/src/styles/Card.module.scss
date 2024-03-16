@@ -19,10 +19,6 @@
     height: 20ch;
     border-radius: 4rem;
 
-    .title {
-      font-size: x-large;
-    }
-
     .description {
       font-size: medium;
     }
@@ -50,6 +46,10 @@
     max-height: 6rem;
 
     overflow: hidden;
+  }
+
+  .name {
+    font-size: larger;
   }
 
   .description {
