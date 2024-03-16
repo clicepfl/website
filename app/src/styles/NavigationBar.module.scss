@@ -16,22 +16,17 @@
   font-weight: lighter;
   font-size: 15pt;
 
-  .burgerButton {
-    margin-top: 1em;
-    width: 40px;
-    height: 40px;
-    border: 0;
-    padding: 5px;
-    border-radius: 0.3rem;
-    background-color: transparent;
-
+  .burger {
+    width: 2em;
+    height: auto;
+    stroke: white;
     cursor: pointer;
+  }
 
-    &:hover {
-      background-color: lightblue;
-
-      transition-duration: 250ms;
-      transition-timing-function: ease-out;
+  .burgerContainer {
+    @media (min-width: 50rem) {
+      display: none !important;
+      position: absolute !important;
     }
   }
 
@@ -51,15 +46,15 @@
   .navigationMenu {
     display: flex;
     flex-direction: row;
-    margin-right: 10%;
+    margin-right: 2rem;
     margin-left: auto;
     height: 100%;
     justify-content: center;
     align-items: center;
+    gap: 1.5rem;
 
     .menuItem {
       fill: inherit;
-      margin-right: 2em;
       user-select: none;
       cursor: pointer;
 
@@ -68,6 +63,10 @@
 
         transition-duration: 250ms;
         transition-timing-function: ease-out;
+      }
+
+      @media (max-width: 50rem) {
+        display: none;
       }
     }
 

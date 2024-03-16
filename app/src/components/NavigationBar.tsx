@@ -1,4 +1,5 @@
 import Corner from "@/assets/corner.svg";
+import Burger from "@/assets/icons/burger_menu_icon.svg";
 import Lang from "@/assets/lang.svg";
 import styles from "@/styles/NavigationBar.module.scss";
 import { Commission } from "@/types/aliases";
@@ -9,12 +10,14 @@ import { useRouter } from "next/router";
 function DropdownMenu({
   head: button,
   children,
+  className,
 }: {
   head: any;
   children: any;
+  className?: string;
 }) {
   return (
-    <div className={styles.dropdownMenuItem}>
+    <div className={styles.dropdownMenuItem + " " + (className || "")}>
       {button}
       <div className={styles.content}>{children}</div>
     </div>
@@ -26,6 +29,17 @@ export default function NavigationBar(props: {
   langs: Schema["languages"];
 }) {
   const router = useRouter();
+  const entries = [
+    <Link className={styles.menuItem} href="/association">
+      L&apos;Association {/* TODO: translation */}
+    </Link>,
+    <Link className={styles.menuItem} href="/commissions">
+      Commissions
+    </Link>,
+    <Link className={styles.menuItem} href="/news">
+      News
+    </Link>,
+  ];
 
   return (
     <div className={styles.navigationBar}>
@@ -101,6 +115,15 @@ export default function NavigationBar(props: {
         ) : (
           <></>
         )}
+
+        <DropdownMenu
+          head={
+            <Burger className={styles.burger + " " + styles.dropdownHead} />
+          }
+          className={styles.burgerContainer}
+        >
+          {entries}
+        </DropdownMenu>
       </div>
     </div>
   );
