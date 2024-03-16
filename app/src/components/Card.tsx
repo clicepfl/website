@@ -47,7 +47,7 @@ export default function Card(
       props.commission,
       router.locale
     ).small_description;
-    link = `/commission/${props.commission.slug}`;
+    link = `/commissions/${props.commission.slug}`;
   } else {
     img = props.img;
     title = props.title;

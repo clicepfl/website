@@ -4,6 +4,7 @@ import styles from "@/styles/NavigationBar.module.scss";
 import { Commission } from "@/types/aliases";
 import { Schema } from "@/types/schema";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 type LinkRef = {
   title: string;
@@ -29,7 +30,8 @@ export default function NavigationBar(props: {
   commissions?: Commission[];
   langs: Schema["languages"];
 }) {
-  console.log(props.langs);
+  const router = useRouter();
+
   return (
     <div className={styles.navigationBar}>
       <Link href="/" className={styles.corner}>
@@ -55,7 +57,7 @@ export default function NavigationBar(props: {
                 return (
                   <Link
                     key={c.slug}
-                    href={`/${c.slug}`}
+                    href={`/commissions/${c.slug}`}
                     className={styles.menuItem}
                   >
                     {c.name}
@@ -84,14 +86,15 @@ export default function NavigationBar(props: {
             head={<Lang className={styles.lang + " " + styles.dropdownHead} />}
           >
             {props.langs.map((l) => (
-              <Link
-                href=""
-                locale={l.code}
+              <div
                 key={l.code}
                 className={styles.menuItem}
+                onClick={() =>
+                  router.push(router.asPath, undefined, { locale: l.code })
+                }
               >
                 {l.name}
-              </Link>
+              </div>
             ))}
           </DropdownMenu>
         ) : (
