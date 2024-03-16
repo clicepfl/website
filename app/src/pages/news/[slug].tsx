@@ -23,33 +23,35 @@ export default function Page(
 
   return (
     <div className="page">
-      <h1 className="large">{translation.title}</h1>
-      <h4>{translation.description}</h4>
-      {props.news.date_created ? (
-        <p className="author">
-          {`${formatDate(props.news.date_created, router.locale, {
-            capitalize: true,
-          })}`}
-        </p>
-      ) : (
-        <></>
-      )}
-      <DirectusImage className="banner" img={translation.banner} />
-      <Markdown className="text">{translation.content}</Markdown>
-      {commissions.length > 0 ? (
-        <>
-          <h1>
-            {translate("relatedContent", locale(router), {
+      <div>
+        <h1 className="large">{translation.title}</h1>
+        <h4>{translation.description}</h4>
+        {props.news.date_created ? (
+          <p className="author">
+            {`${formatDate(props.news.date_created, router.locale, {
               capitalize: true,
-            })}
-          </h1>
-          {commissions.map((c) => (
-            <Card key={(c as any).id} commission={c} size="large" />
-          ))}
-        </>
-      ) : (
-        <></>
-      )}
+            })}`}
+          </p>
+        ) : (
+          <></>
+        )}
+        <DirectusImage className="banner" img={translation.banner} />
+        <Markdown className="text">{translation.content}</Markdown>
+        {commissions.length > 0 ? (
+          <>
+            <h1>
+              {translate("relatedContent", locale(router), {
+                capitalize: true,
+              })}
+            </h1>
+            {commissions.map((c) => (
+              <Card key={(c as any).id} commission={c} size="large" />
+            ))}
+          </>
+        ) : (
+          <></>
+        )}
+      </div>
     </div>
   );
 }

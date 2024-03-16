@@ -109,10 +109,6 @@ a {
 }
 
 .text {
-  min-width: 20ch;
-  max-width: 60ch;
-  padding: 0 2rem;
-
   h1 {
     text-align: center;
     padding: 0 2rem;
@@ -150,49 +146,35 @@ a {
     text-align: left;
   }
 
+  background-color: var(--background-color);
+  min-width: 100vw;
+
   padding: 2rem;
-  > :first-child {
-    margin-top: 0;
-  }
-  > :last-child {
-    margin-bottom: 0;
-  }
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  max-width: unset;
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  > h4 {
-    font-weight: 500;
-  }
+    width: min(70ch, 80%);
+    max-width: unset;
 
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p {
-    align-self: baseline;
-    max-width: 70ch;
-  }
+    .banner {
+      width: auto;
+      height: auto;
+      max-width: 90%;
 
-  img {
-    max-width: 60ch;
-  }
+      margin: 2rem 0;
+    }
 
-  .banner {
-    width: auto;
-    height: auto;
-    max-width: 70ch;
-
-    margin: 2rem 0;
-  }
-
-  .author {
-    margin: 0;
-    font-weight: 200;
+    .author {
+      margin: 0;
+      font-weight: 200;
+    }
   }
 }
 
