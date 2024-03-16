@@ -1,5 +1,5 @@
 version: 1
-directus: 10.9.1
+directus: 10.9.0
 vendor: postgres
 collections:
   - collection: association
@@ -2736,7 +2736,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 1
+      sort: 2
       special: null
       translations: null
       validation: null
@@ -2753,6 +2753,44 @@ fields:
       is_nullable: false
       is_unique: true
       is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: languages
+    field: name
+    type: string
+    meta:
+      collection: languages
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: name
+      table: languages
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
       is_generated: false
       generation_expression: null
       has_auto_increment: false

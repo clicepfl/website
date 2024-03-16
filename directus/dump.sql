@@ -3,8 +3,8 @@
 -- Data for Name: languages; Type: TABLE DATA; Schema: public; Owner: directus_user
 --
 
-INSERT INTO public.languages (code) VALUES ('en-US');
-INSERT INTO public.languages (code) VALUES ('fr-FR');
+INSERT INTO public.languages (code, name) VALUES ('en-US', "English");
+INSERT INTO public.languages (code, name) VALUES ('fr-FR', 'Français');
 
 
 --
