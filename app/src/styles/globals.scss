@@ -129,6 +129,10 @@ h1 {
   &.light {
     color: var(--title-color);
   }
+
+  @media (max-width: 800px) {
+    font-size: 40pt;
+  }
 }
 
 .pageList {

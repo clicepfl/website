@@ -75,6 +75,10 @@
   background-color: var(--background-color);
   width: 80%;
 
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+
   > div {
     display: grid;
     grid-gap: 1rem;
