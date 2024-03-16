@@ -3,6 +3,10 @@ import styles from "@/styles/Footer.module.scss";
 import { Association } from "@/types/aliases";
 
 export default function Footer({ association }: { association: Association }) {
+  if (association == null) {
+    return;
+  }
+
   return (
     <div className={styles.footer}>
       <div className={styles.bgAnimated}>

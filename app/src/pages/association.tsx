@@ -12,7 +12,7 @@ export default function AssociationPage(
     <AssociationDescription
       association={props.association}
       social_links={props.social_links}
-    ></AssociationDescription>
+    />
   );
 }
 

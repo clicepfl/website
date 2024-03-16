@@ -2,6 +2,7 @@
 // This is required to get a url for the `background-image` css property.
 // @ts-ignore
 import Background from "../../public/background.svg?url";
+import Footer from "@/components/Footer";
 import NavigationBar from "@/components/NavigationBar";
 import "@/styles/fonts.scss";
 import "@/styles/globals.scss";
@@ -20,6 +21,7 @@ export default function App({ Component, pageProps }: AppProps) {
       >
         <Component {...pageProps} />
       </div>
+      <Footer association={pageProps.association} />
     </>
   );
 }

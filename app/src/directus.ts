@@ -32,24 +32,15 @@ export function populateLayoutProps<T>(
   f?: GetServerSideProps<T>
 ): GetServerSideProps<T & { layoutProps: SocialLink[] }> {
   return async (context: GetServerSidePropsContext) => {
-    let association = await directus().request(
-      readSingleton("association", {
-        fields: ["*", { social_links: ["*"] }],
-      })
-    );
+    let association = await directus().request(readSingleton("association"));
 
-    let socialLinks = await directus().request(
-      readItems("social_links", {
-        fields: ["*"],
-        filter: {
-          id: {
-            _in: (
-              association.social_links as { social_links_id: number }[]
-            ).map((s) => s.social_links_id),
-          },
-        },
-      })
-    );
+    let socialLinks = await directus()
+      .request(
+        readItems("association_social_links", {
+          fields: [{ social_links_id: ["*"] }],
+        })
+      )
+      .then((result) => result.map((s) => s.social_links_id));
 
     let langs = await directus().request(readItems("languages"));
 
@@ -59,6 +50,7 @@ export function populateLayoutProps<T>(
 
     let layoutProps = {
       layoutProps: {
+        association: association,
         socialLinks: socialLinks,
         commissions: commissions,
         langs: langs,
