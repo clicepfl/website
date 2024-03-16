@@ -51,9 +51,19 @@ export function populateLayoutProps<T>(
       })
     );
 
+    let langs = await directus().request(readItems("languages"));
+
     let commissions = await directus().request(
       readItems("commissions", queryTranslations)
     );
+
+    let layoutProps = {
+      layoutProps: {
+        socialLinks: socialLinks,
+        commissions: commissions,
+        langs: langs,
+      },
+    };
 
     if (f) {
       let res = await f(context);
@@ -61,7 +71,7 @@ export function populateLayoutProps<T>(
       if ("props" in res) {
         return {
           props: {
-            layoutProps: { socialLinks: socialLinks, commissions: commissions },
+            ...layoutProps,
             ...res.props,
           } as any,
         };
@@ -70,9 +80,7 @@ export function populateLayoutProps<T>(
       }
     } else {
       return {
-        props: {
-          layoutProps: { socialLinks: socialLinks, commissions: commissions },
-        },
+        props: layoutProps,
       };
     }
   };

@@ -10,6 +10,8 @@
   position: fixed;
   z-index: 100;
 
+  align-items: center;
+
   color: var(--text-color);
   font-weight: lighter;
   font-size: 15pt;
@@ -39,6 +41,12 @@
     height: 4em;
   }
 
+  .lang {
+    width: 2em;
+    height: auto;
+    stroke: white;
+  }
+
   .navigationMenu {
     display: flex;
     flex-direction: row;
@@ -58,6 +66,12 @@
         transition-duration: 250ms;
         transition-timing-function: ease-out;
       }
+    }
+
+    .dropdownHead {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .dropdownMenuItem {

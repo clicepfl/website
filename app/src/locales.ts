@@ -23,7 +23,7 @@ type OptionsOperators = {
 };
 
 const translations: { [key in Locale]: Translations & OptionsOperators } = {
-  en: {
+  "en-US": {
     dateIndicator: "on",
     timeIndicator: "at",
     by: "by",
@@ -33,7 +33,7 @@ const translations: { [key in Locale]: Translations & OptionsOperators } = {
     capitalize: (s) => s.replace(/^(\s*\w)/, (s) => s.toUpperCase()),
     plural: (s) => s + "s",
   },
-  fr: {
+  "fr-FR": {
     dateIndicator: "le",
     timeIndicator: "à",
     by: "par",

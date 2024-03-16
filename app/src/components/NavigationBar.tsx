@@ -1,6 +1,8 @@
 import Corner from "@/assets/corner.svg";
+import Lang from "@/assets/lang.svg";
 import styles from "@/styles/NavigationBar.module.scss";
 import { Commission } from "@/types/aliases";
+import { Schema } from "@/types/schema";
 import Link from "next/link";
 
 type LinkRef = {
@@ -8,39 +10,26 @@ type LinkRef = {
   href: string;
 };
 
-function DropdownMenuItem({
-  link,
-  subLinks,
+function DropdownMenu({
+  head: button,
+  children,
 }: {
-  link: LinkRef;
-  subLinks: LinkRef[];
+  head: any;
+  children: any;
 }) {
-  const content: any = [];
-
-  subLinks.forEach((subLink) => {
-    content.push(
-      <Link
-        className={styles.menuItem}
-        href={link.href + subLink.href}
-        key={subLink.title}
-      >
-        {subLink.title}
-      </Link>
-    );
-  });
-
   return (
     <div className={styles.dropdownMenuItem}>
-      <Link className={styles.menuItem} href={link.href}>
-        {link.title}
-        <i className={styles.arrow} />
-      </Link>
-      <div className={styles.content}>{content}</div>
+      {button}
+      <div className={styles.content}>{children}</div>
     </div>
   );
 }
 
-export default function NavigationBar(props: { commissions?: Commission[] }) {
+export default function NavigationBar(props: {
+  commissions?: Commission[];
+  langs: Schema["languages"];
+}) {
+  console.log(props.langs);
   return (
     <div className={styles.navigationBar}>
       <Link href="/" className={styles.corner}>
@@ -52,32 +41,62 @@ export default function NavigationBar(props: { commissions?: Commission[] }) {
           L&apos;Association {/* TODO: translation */}
         </Link>
 
-        <DropdownMenuItem
-          link={{ title: "Commissions", href: "/commissions" }}
-          subLinks={
-            props.commissions
-              ? props.commissions.map((c) => {
-                  if (c.name && c.slug) {
-                    return {
-                      title: c.name,
-                      href: `/${c.slug}`,
-                    };
-                  } else {
-                    console.error(
-                      `Missing \`name\` or \`slug\` in commission: ${JSON.stringify(
-                        c
-                      )}`
-                    );
-                    throw new Error("Invalid commission");
-                  }
-                })
-              : []
+        <DropdownMenu
+          head={
+            <Link className={styles.menuItem} href="/commissions">
+              Commissions
+              <i className={styles.arrow} />
+            </Link>
           }
-        />
+        >
+          {props.commissions ? (
+            props.commissions.map((c) => {
+              if (c.name && c.slug) {
+                return (
+                  <Link
+                    key={c.slug}
+                    href={`/${c.slug}`}
+                    className={styles.menuItem}
+                  >
+                    {c.name}
+                  </Link>
+                );
+              } else {
+                console.error(
+                  `Missing \`name\` or \`slug\` in commission: ${JSON.stringify(
+                    c
+                  )}`
+                );
+                throw new Error("Invalid commission");
+              }
+            })
+          ) : (
+            <></>
+          )}
+        </DropdownMenu>
 
         <Link className={styles.menuItem} href="/news">
           News
         </Link>
+
+        {props.langs ? (
+          <DropdownMenu
+            head={<Lang className={styles.lang + " " + styles.dropdownHead} />}
+          >
+            {props.langs.map((l) => (
+              <Link
+                href=""
+                locale={l.code}
+                key={l.code}
+                className={styles.menuItem}
+              >
+                {l.name}
+              </Link>
+            ))}
+          </DropdownMenu>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
