@@ -6,12 +6,19 @@
   color: var(--text-color);
   background-color: darkblue;
 
+  width: fit-content;
+  height: fit-content;
+
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
 
-  &.large {
-    padding: 1.2rem;
+  &:hover {
+    background-color: var(--glass-color);
   }
+
+  backdrop-filter: blur(10px) saturate(180%);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 100, 0.3);
 }

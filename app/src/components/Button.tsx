@@ -6,6 +6,7 @@ export default function Card(
     text: string;
     link: string;
     linkTarget?: "_blank";
+    className?: string;
   } & { size: "small" | "large" }
 ) {
   let text = props.text;
@@ -15,7 +16,13 @@ export default function Card(
   return (
     <>
       <Link href={link} target={linkTarget}>
-        <div className={`${styles.button} ${styles[props.size]}`}>{text}</div>
+        <div
+          className={`${styles.button} ${styles[props.size]} ${
+            props.className
+          }`}
+        >
+          {text}
+        </div>
       </Link>
     </>
   );

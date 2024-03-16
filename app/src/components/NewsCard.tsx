@@ -1,3 +1,4 @@
+import Button from "./Button";
 import DirectusImage from "./DirectusImage";
 import { getTranslation } from "@/locales";
 import styles from "@/styles/NewsCard.module.scss";
@@ -18,12 +19,20 @@ export default function NewsCard({ news }: { news: News }) {
         cover={true}
       />
 
-      <div>
+      <div className={styles.content}>
         <h2>{translation.title}</h2>
-        <p>{translation.description}</p>
-        <p>
-          {news.date_created ? new Date(news.date_created).toUTCString() : ""}
-        </p>
+        <p className={styles.description}>{translation.description}</p>
+        <div className={styles.details}>
+          <p className={styles.date}>
+            {news.date_created ? new Date(news.date_created).toUTCString() : ""}
+          </p>
+          <Button
+            className={styles.button}
+            text="> "
+            link={`/news/${news.slug}`}
+            size="small"
+          />
+        </div>
       </div>
     </Link>
   );

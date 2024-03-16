@@ -6,7 +6,7 @@ export default function NotFound() {
   const router = useRouter();
   return (
     <>
-      <div className="text">
+      <div className="page">
         <h1>
           {translate("error404", locale(router), {
             capitalize: true,
