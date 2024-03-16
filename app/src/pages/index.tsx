@@ -80,7 +80,7 @@ export const getServerSideProps: GetServerSideProps<{
   social_links: SocialLink[];
   news: News[];
   committee: (AssociationMembership & { member: Member })[];
-}> = populateLayoutProps(async (context) => {
+}> = populateLayoutProps(async (_) => {
   return {
     props: {
       association: await directus().request(

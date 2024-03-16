@@ -29,7 +29,7 @@ export default function Commissions(
 
 export const getServerSideProps: GetServerSideProps<{
   news: Commission[];
-}> = populateLayoutProps(async (context) => {
+}> = populateLayoutProps(async (_) => {
   const c = await directus().request(
     readItems("commissions", {
       fields: ["*", { translations: ["*"] }],

@@ -22,7 +22,7 @@ export default function NewsComponent(
 
 export const getServerSideProps: GetServerSideProps<{
   news: News[];
-}> = populateLayoutProps(async (context) => {
+}> = populateLayoutProps(async (_) => {
   return {
     props: {
       news: await directus().request(
