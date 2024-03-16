@@ -53,7 +53,7 @@ export default function Card(
     title = props.title;
     description = props.description;
     link = props.link;
-    linkTarget = props.link;
+    linkTarget = props.linkTarget;
   }
 
   const component = (
