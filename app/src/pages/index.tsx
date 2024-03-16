@@ -11,6 +11,7 @@ import {
   queryTranslations,
   translate,
 } from "@/locales";
+import styles from "@/styles/Homepage.module.scss";
 import {
   Association,
   AssociationMembership,
@@ -31,14 +32,18 @@ export default function Home(
 
   return (
     <>
-      <div className="divLogo">
-        <DirectusImage img={translation.banner} className="mainLogo" />
-        <img src={PreviewImage.src} alt="preview" className="galleryPreview" />
+      <div className={styles.divLogo}>
+        <DirectusImage img={translation.banner} className={styles.mainLogo} />
+        <img
+          src={PreviewImage.src}
+          alt="preview"
+          className={styles.galleryPreview}
+        />
       </div>
 
-      <div className="news">
+      <div className={styles.news}>
         <h1 className="light">News</h1>
-        <div className="news-list">
+        <div className={styles.newsList}>
           {props.news.map((n) => (
             <NewsCard key={(n as any).id} news={n} />
           ))}
@@ -52,7 +57,7 @@ export default function Home(
         social_links={props.social_links}
       />
 
-      <div className="cardList">
+      <div className={styles.cardList}>
         <h1>{translate("committee", locale(router), { capitalize: true })}</h1>
         <div>
           {props.committee.map((m) => (
