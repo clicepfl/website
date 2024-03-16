@@ -1,6 +1,12 @@
 .partnersList {
   width: 100%;
-  background-color: #0d1d2a;
+  background: rgb(17, 25, 31);
+  background: linear-gradient(
+    205deg,
+    rgb(27, 23, 77) 0%,
+    rgba(12, 14, 22, 1) 35%,
+    rgba(16, 15, 93, 1) 100%
+  );
   display: flex;
   flex-direction: column;
   align-items: center;
