@@ -16,6 +16,7 @@ interface Translations {
   relatedContent: string;
   committee: string;
   commission: string;
+  partners: string;
   association: string;
   news: string;
   error404: string;
@@ -34,6 +35,7 @@ const translations: { [key in Locale]: Translations & OptionsOperators } = {
     relatedContent: "related content",
     committee: "committee",
     commission: "commission",
+    partners: "partners",
     association: "association",
     news: "news",
     error404: "error 404",
@@ -48,6 +50,7 @@ const translations: { [key in Locale]: Translations & OptionsOperators } = {
     relatedContent: "contenu lié",
     committee: "comité",
     commission: "commission",
+    partners: "partenaires",
     association: "association",
     news: "news",
     error404: "erreur 404",
