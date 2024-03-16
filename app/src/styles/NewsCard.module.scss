@@ -1,35 +1,41 @@
 .newsCard {
   background-color: var(--background-color);
   border-radius: 3rem;
-  width: fit-content;
-  height: fit-content;
+
+  min-width: 50rem;
+  min-height: 20rem;
 
   $width: 40ch;
   $height: 30ch;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
   overflow: hidden;
 
-  .content {
-    margin-top: 1em;
-    margin-left: 1em;
+  .picture {
+    width: 100%;
+  }
 
-    width: calc(100% - 1em);
+  .content {
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
 
     .description {
-      height: 7em;
+      height: 8em;
     }
 
     .details {
       align-items: center;
       display: flex;
+      margin-bottom: 0;
 
       .date {
         font-size: small;
         text-align: left;
         padding-right: 1rem;
-        width: 70%;
+        width: 80%;
       }
 
       .button {
@@ -42,32 +48,8 @@
   }
 
   @media (max-width: 800px) {
-    flex-direction: column;
-
-    width: $width;
-    height: calc(2 * $height);
-
-    > * {
-      width: 100%;
-
-      min-height: 50%;
-      height: 50%;
-      max-height: 50%;
-    }
-  }
-
-  @media (min-width: 800px) {
-    flex-direction: row;
-
-    width: calc(2 * $width);
-    height: $height;
-
-    > * {
-      min-width: 50%;
-      width: 50%;
-      max-width: 50%;
-
-      height: 100%;
-    }
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    min-width: 25rem;
   }
 }
