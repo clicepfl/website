@@ -50,7 +50,7 @@ INSERT INTO public.association_memberships_translations (id, association_members
 -- Data for Name: commissions; Type: TABLE DATA; Schema: public; Owner: directus_user
 --
 
-INSERT INTO public.commissions (id, email, slug, logo) VALUES (3, 'ictravel.clic@epfl.ch', 'ic-travel', NULL);
+INSERT INTO public.commissions (id, email, slug, logo, name) VALUES (3, 'ictravel.clic@epfl.ch', 'ic-travel', NULL, 'IC Travel');
 
 
 --
