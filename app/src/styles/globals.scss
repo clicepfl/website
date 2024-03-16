@@ -10,6 +10,7 @@ body {
   --title-color: #fafafa;
   --dark-title-color: #273183;
   --glass-color: rgba(100, 100, 255, 0.75);
+  --glass-color-hover: rgba(122, 122, 238, 0.75);
   --text-link-color: rgb(58, 127, 255);
 
   font-family: "Poppins";
@@ -44,7 +45,6 @@ a {
 .text {
   h1 {
     text-align: center;
-    padding: 0 2rem;
 
     // h4 (subtitle) must be centered and slightly enlarged
     + h4 {
@@ -98,8 +98,8 @@ a {
     max-width: unset;
 
     .banner {
-      width: auto;
-      height: auto;
+      width: 100vw;
+      height: 20rem;
       max-width: 90%;
 
       margin: 2rem 0;

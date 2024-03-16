@@ -33,7 +33,13 @@
       min-height: 10rem;
       max-height: 10rem;
       overflow: hidden;
+      background-color: white;
     }
+  }
+
+  &:hover {
+    background-color: var(--glass-color-hover);
+    transition: ease-in;
   }
 
   .picture {
