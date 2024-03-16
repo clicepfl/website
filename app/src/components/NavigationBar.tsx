@@ -63,6 +63,11 @@ export default function NavigationBar(props: { commissions?: Commission[] }) {
                       href: `/${c.slug}`,
                     };
                   } else {
+                    console.error(
+                      `Missing \`name\` or \`slug\` in commission: ${JSON.stringify(
+                        c
+                      )}`
+                    );
                     throw new Error("Invalid commission");
                   }
                 })

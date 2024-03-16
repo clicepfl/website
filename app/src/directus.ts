@@ -54,7 +54,6 @@ export function populateLayoutProps<T>(
     let commissions = await directus().request(
       readItems("commissions", queryTranslations)
     );
-    console.log(commissions);
 
     if (f) {
       let res = await f(context);
