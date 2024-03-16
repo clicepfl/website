@@ -45,6 +45,7 @@
     width: 2em;
     height: auto;
     stroke: white;
+    cursor: pointer;
   }
 
   .navigationMenu {
@@ -59,6 +60,8 @@
     .menuItem {
       fill: inherit;
       margin-right: 2em;
+      user-select: none;
+      cursor: pointer;
 
       &:hover {
         color: lightgrey;
