@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }: AppProps) {
       >
         <Component {...pageProps} />
       </div>
-      <Footer association={pageProps.association} />
+      <Footer association={pageProps.layoutProps?.association} />
     </>
   );
 }

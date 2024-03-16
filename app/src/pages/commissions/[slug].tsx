@@ -12,7 +12,6 @@ export default function Page(
 ) {
   const router = useRouter();
   const translation = getTranslation(props.commission, locale(router));
-  console.log(JSON.stringify(props, null, 2));
 
   return (
     <div className="page">
