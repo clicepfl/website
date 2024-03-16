@@ -44,10 +44,12 @@ function SideMenu({
         onClick={toggle}
       />
       <div
-        className={styles.sideMenu + " " + (className || "")}
+        className={styles.sideMenuContainer}
         style={{ display: visible ? "flex" : "none" }}
       >
-        {children}
+        <div className={styles.sideMenu + " " + (className || "")}>
+          {children}
+        </div>
       </div>
     </>
   );
