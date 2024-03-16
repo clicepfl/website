@@ -28,10 +28,6 @@ export default function Footer({
             name={association.name || ""}
             className={styles.footerLogo}
           />
-          <p className={styles.big}>
-            Une association à but non-lucratif de l'Ecole Polytechnique Fédérale
-            de Lausanne
-          </p>
           <p className={styles.coord}>
             {association.address} <br />
             <a href="mailto:{association.email}">{association.email}</a> <br />
