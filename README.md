@@ -28,13 +28,13 @@ To import SVG files from the `assets/` directory, they should be imported into t
 
 ### Internationalization (i18n)
 
-**<span style="color: red">TODO: how to get/update the locale ?</span>**
-
 I18n is achieved via a coupling of a homemade API and Directus's own i18n management.
 
 When fetching data, you need to add a few parameters in the Directus' API call. In the `fields` attribute, you need to specify which field from the queried objects you need, and which fields from the translations. To simplify this, you can use the `queryTranslations` object in `locales.ts` as query parameters, or for extending your query parameters (`{<your params>, ...queryTranslations}`). The latter does not work if your initial parameters do already contain a `fields` entry.
 
 For small or dynamic pieces of text, like date formatting, or titles not bound to a specific entries (like the `News` title in the `/news` page). It contains a dictionary of specific words/sentences for each used locale, as well as options to format them (e.g. capitalization).
+
+The current locale can be recovered either from the `context` parameter in `getServerSideProps()` (`context.locale`) or a router yielded by `useRouter()` in a React component (`router.locale`). Transitions between locales can either be achieved by using a router or a link, see the [documentation](https://nextjs.org/docs/pages/building-your-application/routing/internationalization#transition-between-locales).
 
 ## Setup
 
