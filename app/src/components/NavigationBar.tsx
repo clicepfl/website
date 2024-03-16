@@ -7,6 +7,7 @@ import { Commission } from "@/types/aliases";
 import { Schema } from "@/types/schema";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 function DropdownMenu({
   head: button,
@@ -18,10 +19,37 @@ function DropdownMenu({
   className?: string;
 }) {
   return (
-    <div className={styles.dropdownMenuItem + " " + (className || "")}>
+    <div className={styles.dropdownMenu + " " + (className || "")}>
       {button}
       <div className={styles.content}>{children}</div>
     </div>
+  );
+}
+
+function SideMenu({
+  headToggle: toggle,
+  children,
+  visible,
+  className,
+}: {
+  headToggle: any;
+  children: any;
+  visible: boolean;
+  className?: string;
+}) {
+  return (
+    <>
+      <Burger
+        className={styles.burger + " " + styles.sidemenuHead}
+        onClick={toggle}
+      />
+      <div
+        className={styles.sideMenu + " " + (className || "")}
+        style={{ display: visible ? "flex" : "none" }}
+      >
+        {children}
+      </div>
+    </>
   );
 }
 
@@ -29,21 +57,34 @@ export default function NavigationBar(props: {
   commissions?: Commission[];
   langs: Schema["languages"];
 }) {
+  const [menuVisible, setMenuVisible] = useState(false);
+  const toggleMenu = () => {
+    setMenuVisible((v) => !v);
+  };
+
   const router = useRouter();
   const entries = [
-    <Link className={styles.menuItem} href="/association">
+    <Link
+      className={styles.sidemenuItem}
+      href="/association"
+      onClick={toggleMenu}
+    >
       {translate("association", locale(router), {
         capitalize: true,
         plural: false,
       })}
     </Link>,
-    <Link className={styles.menuItem} href="/commissions">
+    <Link
+      className={styles.sidemenuItem}
+      href="/commissions"
+      onClick={toggleMenu}
+    >
       {translate("commission", locale(router), {
         capitalize: true,
         plural: true,
       })}
     </Link>,
-    <Link className={styles.menuItem} href="/news">
+    <Link className={styles.sidemenuItem} href="/news" onClick={toggleMenu}>
       {translate("news", locale(router), {
         capitalize: true,
         plural: false,
@@ -138,14 +179,13 @@ export default function NavigationBar(props: {
           <></>
         )}
 
-        <DropdownMenu
-          head={
-            <Burger className={styles.burger + " " + styles.dropdownHead} />
-          }
+        <SideMenu
+          headToggle={toggleMenu}
+          visible={menuVisible}
           className={styles.burgerContainer}
         >
           {entries}
-        </DropdownMenu>
+        </SideMenu>
       </div>
     </div>
   );
