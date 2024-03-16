@@ -117,7 +117,7 @@ export function getTranslation<
   model: {
     translations?: (number | T)[] | null;
   },
-  loc?: string
+  loc: string | undefined
 ): T {
   const l = locale(loc);
 

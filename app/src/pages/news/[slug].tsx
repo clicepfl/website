@@ -18,8 +18,8 @@ export default function Page(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   const commissions: Commission[] = props.news.commissions;
-  const translation = getTranslation(props.news);
   const router = useRouter();
+  const translation = getTranslation(props.news, router.locale);
 
   return (
     <div className="page">
