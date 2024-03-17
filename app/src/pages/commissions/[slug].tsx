@@ -1,8 +1,14 @@
 import DirectusImage from "@/components/DirectusImage";
+import MembersList from "@/components/MembersList";
 import SocialsList from "@/components/SocialsList";
 import { directus, populateLayoutProps } from "@/directus";
 import { getTranslation, locale, queryTranslations } from "@/locales";
-import { Commission, SocialLink } from "@/types/aliases";
+import {
+  AssociationMembership,
+  Commission,
+  Member,
+  SocialLink,
+} from "@/types/aliases";
 import { readItems } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
@@ -24,6 +30,7 @@ export default function Page(
         <Markdown className="text">{translation.description}</Markdown>
 
         <SocialsList socials={props.socialLinks} />
+        <MembersList membership={props.members} />
       </div>
     </div>
   );
@@ -32,6 +39,7 @@ export default function Page(
 export const getServerSideProps: GetServerSideProps<{
   commission: Commission;
   socialLinks: SocialLink[];
+  members: (AssociationMembership & { member: Member })[];
 }> = populateLayoutProps(async (context) => {
   if (typeof context.params?.slug !== "string") {
     console.log(typeof context.params?.slug);
@@ -60,10 +68,26 @@ export const getServerSideProps: GetServerSideProps<{
     )
     .then((result) => result.map((s) => s.social_links_id))) as SocialLink[];
 
+  let members = (await directus().request(
+    readItems("commission_memberships", {
+      fields: [
+        "*",
+        { member: ["*"] },
+        //@ts-ignore
+        { translations: ["*"] },
+      ],
+      filter: {
+        level: { _eq: "committee" },
+        commission: { _eq: commission.id },
+      },
+    })
+  )) as (AssociationMembership & { member: Member })[];
+
   return {
     props: {
       commission: commission,
       socialLinks: socialLinks,
+      members: members,
     },
   };
 });

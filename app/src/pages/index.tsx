@@ -1,16 +1,11 @@
 import PreviewImage from "@/assets/galleryPreview.png";
 import AssociationDescription from "@/components/AssociationDescription";
-import Card from "@/components/Card";
 import DirectusImage from "@/components/DirectusImage";
+import MembersList from "@/components/MembersList";
 import NewsCard from "@/components/NewsCard";
 import PartnersList from "@/components/PartnersList";
 import { directus, populateLayoutProps } from "@/directus";
-import {
-  getTranslation,
-  locale,
-  queryTranslations,
-  translate,
-} from "@/locales";
+import { getTranslation, queryTranslations } from "@/locales";
 import styles from "@/styles/Homepage.module.scss";
 import {
   Association,
@@ -59,19 +54,7 @@ export default function Home(
         publicFiles={props.publicFiles}
       />
 
-      <div className={styles.cardList}>
-        <h1>{translate("committee", locale(router), { capitalize: true })}</h1>
-        <div>
-          {props.committee.map((m) => (
-            <Card
-              size="small"
-              key={(m as any).id}
-              member={m.member}
-              membership={m}
-            />
-          ))}
-        </div>
-      </div>
+      <MembersList membership={props.committee} />
     </>
   );
 }

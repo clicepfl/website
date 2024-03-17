@@ -129,19 +129,3 @@ h4 {
     color: variables.$title-color;
   }
 }
-
-.pageList {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 3rem;
-
-  width: fit-content;
-
-  > :first-child {
-    flex-basis: 100%;
-    display: flex;
-    justify-content: center;
-  }
-}
