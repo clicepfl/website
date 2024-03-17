@@ -11,6 +11,9 @@
   color: variables.$text-color;
   background-color: variables.$glass-color;
 
+  cursor: pointer;
+  user-select: none;
+
   width: fit-content;
   height: fit-content;
 
