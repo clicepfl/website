@@ -1,3 +1,4 @@
+import Decoration from "@/assets/decoration.svg";
 import PreviewImage from "@/assets/galleryPreview.png";
 import AssociationDescription from "@/components/AssociationDescription";
 import DirectusImage from "@/components/DirectusImage";
@@ -53,6 +54,8 @@ export default function Home(
         socialLinks={props.socialLinks}
         publicFiles={props.publicFiles}
       />
+
+      <Decoration className={styles.decoration} />
 
       <MembersList membership={props.committee} />
     </>
