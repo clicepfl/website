@@ -16,10 +16,10 @@ export default function Page(
   return (
     <div className="page">
       <div>
+        <DirectusImage className="banner" img={translation.banner} />
         <h1 className="large">{props.commission.name}</h1>
         <h4>{translation.small_description}</h4>
 
-        <DirectusImage className="banner" img={translation.banner} />
         <Markdown className="text">{translation.description}</Markdown>
       </div>
     </div>

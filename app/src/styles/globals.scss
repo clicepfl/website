@@ -1,17 +1,8 @@
-@import "glass";
+@use "utilities/variables";
 
 body {
-  background-color: #1c70ddff;
+  background-color: variables.$background-color;
   margin: 0;
-
-  --background-color: #fafafa;
-  --text-color: #fafafa;
-  --dark-text-color: #273183;
-  --title-color: #fafafa;
-  --dark-title-color: #273183;
-  --glass-color: rgba(100, 100, 255, 0.75);
-  --glass-color-hover: rgba(122, 122, 238, 0.75);
-  --text-link-color: rgb(58, 127, 255);
 
   font-family: "Poppins";
 }
@@ -29,7 +20,7 @@ a {
 
   overflow: hidden;
 
-  padding-top: 3rem;
+  padding-top: variables.$navbar-height;
   padding-bottom: 6rem;
   min-height: 100vh;
 
@@ -65,7 +56,7 @@ a {
   }
 
   a {
-    color: var(--text-link-color);
+    color: variables.$text-link-color;
   }
 
   p {
@@ -79,15 +70,22 @@ a {
     text-align: left;
   }
 
-  background-color: var(--background-color);
+  background-color: variables.$white-background-color;
   min-width: 100vw;
 
-  padding: 2rem;
   padding-bottom: 4rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .banner {
+    position: absolute;
+    width: 100%;
+    height: 20rem;
+
+    margin: 2rem 0;
+  }
 
   > div {
     display: flex;
@@ -97,14 +95,6 @@ a {
     width: min(70ch, 80%);
     max-width: unset;
 
-    .banner {
-      width: 100vw;
-      height: 20rem;
-      max-width: 90%;
-
-      margin: 2rem 0;
-    }
-
     .author {
       margin: 0;
       font-weight: 200;
@@ -113,7 +103,7 @@ a {
 }
 
 h1 {
-  color: var(--dark-title-color);
+  color: variables.$dark-title-color;
 
   letter-spacing: 0.1em;
 
@@ -127,7 +117,7 @@ h1 {
   font-size: 50pt;
 
   &.light {
-    color: var(--title-color);
+    color: variables.$title-color;
   }
 
   @media (max-width: 800px) {

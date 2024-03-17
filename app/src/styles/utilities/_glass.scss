@@ -1,5 +1,7 @@
+@use "variables";
+
 .glass {
-  background-color: var(--glass-color);
+  background-color: variables.$glass-color;
   backdrop-filter: blur(10px) saturate(180%);
   border: 2px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 30px rgba(0, 0, 100, 0.3);

@@ -1,5 +1,7 @@
+@use "utilities/variables";
+
 .newsCard {
-  background-color: var(--background-color);
+  background-color: variables.$white-background-color;
   border-radius: 3rem;
 
   display: grid;
@@ -44,10 +46,4 @@
       font-size: 2rem;
     }
   }
-
-  // @media (max-width: 800px) {
-  //   grid-template-rows: 1fr 1fr;
-  //   grid-template-columns: 1fr;
-  //   min-width: 25rem;
-  // }
 }

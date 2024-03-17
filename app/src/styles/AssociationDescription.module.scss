@@ -1,3 +1,5 @@
+@use "utilities/variables";
+
 .publicFiles {
   display: flex;
   flex-direction: column;
@@ -14,7 +16,7 @@
   }
 
   > * {
-    border: 2px var(--glass-color) solid;
+    border: 2px variables.$glass-color solid;
     border-radius: 1rem;
     padding: 1rem;
 
@@ -23,8 +25,8 @@
     gap: 0.5rem;
 
     &:hover {
-      border: 2px var(--glass-color-hover) solid;
-      color: var(--glass-color-hover);
+      border: 2px variables.$glass-color-hover solid;
+      color: variables.$glass-color-hover;
     }
   }
 }

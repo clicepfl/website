@@ -4,8 +4,8 @@
 import Background from "../../public/background.svg?url";
 import Footer from "@/components/Footer";
 import NavigationBar from "@/components/NavigationBar";
-import "@/styles/fonts.scss";
 import "@/styles/globals.scss";
+import "@/styles/utilities/_fonts.scss";
 import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {

@@ -1,10 +1,12 @@
+@use "utilities/variables";
+
 .button {
   border-radius: 3rem;
   padding: 0.7rem;
   margin: 1rem;
 
-  color: var(--text-color);
-  background-color: var(--glass-color);
+  color: variables.$text-color;
+  background-color: variables.$glass-color;
 
   width: fit-content;
   height: fit-content;
@@ -15,7 +17,7 @@
   gap: 1rem;
 
   &:hover {
-    background-color: var(--glass-color-hover);
+    background-color: variables.$glass-color-hover;
   }
 
   backdrop-filter: blur(10px) saturate(180%);

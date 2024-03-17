@@ -1,4 +1,5 @@
-@import "glass";
+@use "utilities/glass";
+@use "utilities/variables";
 
 .card {
   @extend .glass;
@@ -8,7 +9,7 @@
   border-radius: 5rem;
   padding: 1rem;
 
-  color: var(--text-color);
+  color: variables.$text-color;
 
   display: flex;
   align-items: center;
@@ -38,7 +39,7 @@
   }
 
   &:hover {
-    background-color: var(--glass-color-hover);
+    background-color: variables.$glass-color-hover;
     transition: ease-in;
   }
 
