@@ -21,7 +21,7 @@ export default function AssociationDescription({
 
   return (
     <div className="page">
-      <div>
+      <div className="center">
         <Markdown className="text">{translation.description}</Markdown>
         <SocialsList socials={socialLinks}></SocialsList>
         <div className={styles.publicFiles}>

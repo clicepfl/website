@@ -1,0 +1,27 @@
+@use "./utilities/variables";
+
+.commissionsList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+
+  align-items: center;
+
+  width: 80%;
+  padding-bottom: 2rem;
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+
+  .list {
+    max-width: 70rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+
+    gap: 1rem;
+
+    align-items: center;
+    justify-items: center;
+  }
+}

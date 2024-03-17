@@ -22,14 +22,16 @@ export default function Page(
 
   return (
     <div className="page">
-      <div>
-        <DirectusImage className="banner" img={translation.banner} />
-        <h1 className="large">{props.commission.name}</h1>
-        <h4>{translation.small_description}</h4>
+      <div className="center">
+        <div>
+          <DirectusImage className="banner" img={translation.banner} />
+          <h1 className="large">{props.commission.name}</h1>
+          <h4>{translation.small_description}</h4>
 
-        <Markdown className="text">{translation.description}</Markdown>
+          <Markdown className="text">{translation.description}</Markdown>
 
-        <SocialsList socials={props.socialLinks} />
+          <SocialsList socials={props.socialLinks} />
+        </div>
       </div>
       <MembersList membership={props.members} />
     </div>

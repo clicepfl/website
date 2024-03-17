@@ -87,13 +87,10 @@ a {
     margin: 2rem 0;
   }
 
-  > div {
-    display: flex;
-    flex-direction: column;
+  .center {
     align-items: center;
 
     width: min(70ch, 80%);
-    max-width: unset;
 
     .author {
       margin: 0;
