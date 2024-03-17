@@ -19,6 +19,7 @@ interface Translations {
   partners: string;
   association: string;
   news: string;
+  moreNews: string;
   error404: string;
   error404desc: string;
 }
@@ -38,6 +39,7 @@ const translations: { [key in Locale]: Translations & OptionsOperators } = {
     partners: "partners",
     association: "association",
     news: "news",
+    moreNews: "more news",
     error404: "error 404",
     error404desc: "this page does not exist!",
     capitalize: (s) => s.replace(/^(\s*\w)/, (s) => s.toUpperCase()),
@@ -53,6 +55,7 @@ const translations: { [key in Locale]: Translations & OptionsOperators } = {
     partners: "partenaires",
     association: "association",
     news: "news",
+    moreNews: "plus de news",
     error404: "erreur 404",
     error404desc: "cette page n'existe pas!",
     capitalize: (s) => s.replace(/^(\s*\w)/, (s) => s.toUpperCase()),

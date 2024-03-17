@@ -52,18 +52,21 @@
 .news {
   @extend .glass;
 
+  display: flex;
+  flex-direction: column;
+
   width: 100%;
-  overflow: scroll;
+  overflow: hidden;
 
   padding: 2em;
+
+  align-items: center;
 
   .newsList {
     margin: 2%;
     gap: 2em;
-    width: fit-content;
     display: grid;
-    grid-template-columns: repeat(3, 50rem);
-    padding-right: 5rem;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

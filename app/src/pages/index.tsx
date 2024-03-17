@@ -1,12 +1,13 @@
 import Decoration from "@/assets/decoration.svg";
 import PreviewImage from "@/assets/galleryPreview.png";
 import AssociationDescription from "@/components/AssociationDescription";
+import Button from "@/components/Button";
 import DirectusImage from "@/components/DirectusImage";
 import MembersList from "@/components/MembersList";
 import NewsCard from "@/components/NewsCard";
 import PartnersList from "@/components/PartnersList";
 import { directus, populateLayoutProps } from "@/directus";
-import { getTranslation, queryTranslations } from "@/locales";
+import { getTranslation, queryTranslations, translate } from "@/locales";
 import styles from "@/styles/Homepage.module.scss";
 import {
   Association,
@@ -45,6 +46,11 @@ export default function Home(
             <NewsCard key={(n as any).id} news={n} />
           ))}
         </div>
+        <Button
+          text={translate("moreNews", router.locale)}
+          size="small"
+          onClick={() => router.push("/news")}
+        />
       </div>
 
       <PartnersList partners={props.partners} />
