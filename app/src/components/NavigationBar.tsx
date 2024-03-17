@@ -67,6 +67,7 @@ export default function NavigationBar(props: {
   const router = useRouter();
   const entries = [
     <Link
+      key={0}
       className={styles.sidemenuItem}
       href="/association"
       onClick={toggleMenu}
@@ -77,6 +78,7 @@ export default function NavigationBar(props: {
       })}
     </Link>,
     <Link
+      key={1}
       className={styles.sidemenuItem}
       href="/commissions"
       onClick={toggleMenu}
@@ -86,7 +88,12 @@ export default function NavigationBar(props: {
         plural: true,
       })}
     </Link>,
-    <Link className={styles.sidemenuItem} href="/news" onClick={toggleMenu}>
+    <Link
+      key={2}
+      className={styles.sidemenuItem}
+      href="/news"
+      onClick={toggleMenu}
+    >
       {translate("news", locale(router), {
         capitalize: true,
         plural: false,
