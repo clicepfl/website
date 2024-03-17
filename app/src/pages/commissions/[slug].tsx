@@ -24,7 +24,11 @@ export default function Page(
     <div className="page">
       <div className="center">
         <div>
-          <DirectusImage className="banner" img={translation.banner} />
+          <DirectusImage
+            className="banner"
+            img={translation.banner}
+            cover={true}
+          />
           <h1 className="large">{props.commission.name}</h1>
           <h4>{translation.small_description}</h4>
 

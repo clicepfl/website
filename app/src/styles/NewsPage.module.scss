@@ -1,13 +1,18 @@
+@use "./utilities/glass";
+
 .pageList {
+  @extend .glass;
+
   display: grid;
 
   grid-template-columns: auto auto;
-
-  row-gap: 2rem;
-
-  column-gap: 2rem;
+  gap: 2rem;
 
   width: 80%;
+
+  margin-top: 6rem;
+  padding: 2rem;
+  border-radius: 3rem;
 
   > :first-child,
   > :nth-child(2) {
