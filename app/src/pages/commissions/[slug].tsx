@@ -1,7 +1,8 @@
 import DirectusImage from "@/components/DirectusImage";
+import SocialsList from "@/components/SocialsList";
 import { directus, populateLayoutProps } from "@/directus";
 import { getTranslation, locale, queryTranslations } from "@/locales";
-import { Commission } from "@/types/aliases";
+import { Commission, SocialLink } from "@/types/aliases";
 import { readItems } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
@@ -21,6 +22,8 @@ export default function Page(
         <h4>{translation.small_description}</h4>
 
         <Markdown className="text">{translation.description}</Markdown>
+
+        <SocialsList socials={props.socialLinks} />
       </div>
     </div>
   );
@@ -28,22 +31,39 @@ export default function Page(
 
 export const getServerSideProps: GetServerSideProps<{
   commission: Commission;
+  socialLinks: SocialLink[];
 }> = populateLayoutProps(async (context) => {
   if (typeof context.params?.slug !== "string") {
     console.log(typeof context.params?.slug);
     return { notFound: true };
   }
 
-  let commission = await directus().request(
+  let commissions = await directus().request(
     readItems("commissions", {
       filter: { slug: { _eq: context.params.slug } },
       ...queryTranslations,
     })
   );
 
-  if (commission.length != 1) {
+  if (commissions.length != 1) {
     return { notFound: true };
   }
 
-  return { props: { commission: commission[0] } };
+  let commission = commissions[0];
+
+  let socialLinks = (await directus()
+    .request(
+      readItems("commissions_social_links", {
+        fields: [{ social_links_id: ["*"] }],
+        filter: { commissions_id: { _eq: commission.id } },
+      })
+    )
+    .then((result) => result.map((s) => s.social_links_id))) as SocialLink[];
+
+  return {
+    props: {
+      commission: commission,
+      socialLinks: socialLinks,
+    },
+  };
 });

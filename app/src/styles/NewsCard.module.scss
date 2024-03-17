@@ -16,7 +16,7 @@
 
   .content {
     position: relative;
-    margin: 1em;
+    margin: 2rem;
     display: flex;
     flex-direction: column;
 
@@ -39,8 +39,8 @@
     .button {
       position: absolute;
       margin: 0;
-      bottom: 0.5em;
-      right: 0.5em;
+      bottom: 0;
+      right: 0;
       width: 2rem;
       height: 2rem;
       font-size: 2rem;
