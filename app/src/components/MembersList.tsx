@@ -12,7 +12,7 @@ export default function MembersList(props: {
   return (
     <div className={styles.membersList}>
       <h1>{translate("committee", locale(router), { capitalize: true })}</h1>
-      <div>
+      <div className={styles.list}>
         {props.membership.map((m) => (
           <Card
             size="small"

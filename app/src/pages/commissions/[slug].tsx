@@ -30,8 +30,8 @@ export default function Page(
         <Markdown className="text">{translation.description}</Markdown>
 
         <SocialsList socials={props.socialLinks} />
-        <MembersList membership={props.members} />
       </div>
+      <MembersList membership={props.members} />
     </div>
   );
 }
