@@ -23,7 +23,7 @@ export default function Page(
 
   return (
     <div className="page">
-      <div>
+      <div className="center">
         <h1 className="large">{translation.title}</h1>
         <h4>{translation.description}</h4>
         {props.news.date_created ? (
