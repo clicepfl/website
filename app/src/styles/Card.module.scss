@@ -2,20 +2,13 @@
 @use "utilities/variables";
 
 .card {
-  @extend .glass;
-
   display: flex;
+  align-items: center;
+  overflow: hidden;
 
   border-radius: 5rem;
 
-  color: variables.$text-color;
-
-  padding: 1rem;
-
-  align-items: center;
-
   h4 {
-    color: variables.$text-color;
     margin: 0;
     margin-bottom: 0.5rem;
     font-weight: lighter;
@@ -31,9 +24,6 @@
   }
 
   .picture {
-    border: 3px white solid;
-    border-radius: 50%;
-
     overflow: hidden;
   }
 
@@ -48,10 +38,19 @@
   }
 
   &.small {
+    @extend .glass;
     flex-direction: row;
+
+    padding: 1rem;
 
     width: 19rem;
     height: 6rem;
+
+    color: variables.$text-color;
+
+    h4 {
+      color: variables.$text-color;
+    }
 
     .description {
       font-size: small;
@@ -60,16 +59,21 @@
     .picture {
       min-width: 6rem;
       min-height: 6rem;
+
+      border: 3px white solid;
+      border-radius: 50%;
     }
   }
 
   &.large {
+    background-color: variables.$white-background-color;
     flex-direction: column;
 
-    gap: 0;
+    height: 100%;
 
-    height: calc(100% - 2rem);
     border-radius: 4rem;
+
+    box-shadow: 0 4px 30px rgba(0, 0, 100, 0.3);
 
     h4 {
       font-size: 2rem;
@@ -80,9 +84,23 @@
       font-size: medium;
     }
 
+    .content {
+      margin: 2rem;
+    }
+
+    .imageDiv {
+      width: 100%;
+      align-items: center;
+      background-color: white;
+      padding: 1rem;
+    }
+
     .picture {
       width: 10rem;
       height: 10rem;
+
+      margin: auto;
+
       border-radius: 2rem;
       overflow: hidden;
       background-color: white;

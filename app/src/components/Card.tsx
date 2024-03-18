@@ -62,7 +62,13 @@ export default function Card(
         props.background ? styles.background : ""
       }`}
     >
-      <DirectusImage img={img} name={title || ""} className={styles.picture} />
+      <div className={styles.imageDiv}>
+        <DirectusImage
+          img={img}
+          name={title || ""}
+          className={styles.picture}
+        />
+      </div>
       <div className={styles.content}>
         <h4 className={styles.name}>{title}</h4>
         <p className={styles.description}>{description}</p>
