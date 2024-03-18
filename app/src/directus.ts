@@ -10,6 +10,8 @@ import {
 } from "@directus/sdk";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 
+export const DIRECTUS_URL = "https://clic.epfl.ch/directus";
+
 /**
  * Creates a handle to use Directus' API. See the [official documentation](https://docs.directus.io/guides/sdk/getting-started.html).
  *
@@ -18,7 +20,7 @@ import { GetServerSideProps, GetServerSidePropsContext } from "next";
  * @returns a handle to Directus' API.
  */
 export const directus = () =>
-  createDirectus<Schema>(process.env.DIRECTUS_URL || "")
+  createDirectus<Schema>(DIRECTUS_URL)
     .with(staticToken(process.env.DIRECTUS_TOKEN || ""))
     .with(rest());
 

@@ -1,8 +1,9 @@
+import { DIRECTUS_URL } from "@/directus";
 import { components } from "@/types/schema";
 import Image, { ImageLoader } from "next/image";
 
 const imageLoader: ImageLoader = ({ src, width, quality }) => {
-  return `${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${src}?width=${width}`;
+  return `${DIRECTUS_URL}/assets/${src}?width=${width}`;
 };
 
 /**
