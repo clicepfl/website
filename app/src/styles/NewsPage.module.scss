@@ -3,6 +3,8 @@
 .pageList {
   @extend .glass;
 
+  background-color: transparent;
+
   display: grid;
 
   grid-template-columns: auto auto;

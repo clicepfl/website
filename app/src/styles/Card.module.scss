@@ -4,38 +4,26 @@
 .card {
   @extend .glass;
 
-  width: 18rem;
-  height: 6rem;
+  display: flex;
+
   border-radius: 5rem;
-  padding: 1rem;
 
   color: variables.$text-color;
 
-  display: flex;
+  padding: 1rem;
+
   align-items: center;
-  gap: 1rem;
 
-  &.large {
-    width: 30rem;
-    height: 10rem;
-    border-radius: 4rem;
+  h4 {
+    color: variables.$text-color;
+    font-size: small;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 0.5rem;
+  }
 
-    .description {
-      font-size: medium;
-    }
-
-    p {
-      margin: 1rem 0;
-    }
-
-    .picture {
-      min-width: 10rem;
-      max-width: 10rem;
-      min-height: 10rem;
-      max-height: 10rem;
-      overflow: hidden;
-      background-color: white;
-    }
+  .content {
+    margin: 1rem;
   }
 
   &:hover {
@@ -47,11 +35,6 @@
     border: 3px white solid;
     border-radius: 50%;
 
-    min-width: 6rem;
-    max-width: 6rem;
-    min-height: 6rem;
-    max-height: 6rem;
-
     overflow: hidden;
   }
 
@@ -60,12 +43,45 @@
   }
 
   .description {
-    font-size: small;
     font-weight: 300;
     text-align: left;
+    margin: 0;
   }
 
-  p {
-    margin: 0;
+  &.small {
+    flex-direction: row;
+
+    width: 18rem;
+    height: 6rem;
+
+    .description {
+      font-size: small;
+    }
+
+    .picture {
+      min-width: 6rem;
+      min-height: 6rem;
+    }
+  }
+
+  &.large {
+    flex-direction: column;
+
+    gap: 0;
+
+    height: calc(100% - 2rem);
+    border-radius: 4rem;
+
+    .description {
+      font-size: medium;
+    }
+
+    .picture {
+      width: 10rem;
+      height: 10rem;
+      border-radius: 2rem;
+      overflow: hidden;
+      background-color: white;
+    }
   }
 }

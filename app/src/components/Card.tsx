@@ -63,8 +63,8 @@ export default function Card(
       }`}
     >
       <DirectusImage img={img} name={title || ""} className={styles.picture} />
-      <div>
-        <p className={styles.name}>{title}</p>
+      <div className={styles.content}>
+        <h4 className={styles.name}>{title}</h4>
         <p className={styles.description}>{description}</p>
       </div>
     </div>

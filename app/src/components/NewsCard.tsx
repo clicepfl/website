@@ -33,10 +33,12 @@ export default function NewsCard({
         <p className={styles.description}>{translation.description}</p>
         <div className={styles.details}>
           <p className={styles.date}>
-            {news.date_created ? new Date(news.date_created).toUTCString() : ""}
+            {news.date_created
+              ? new Date(news.date_created).toDateString()
+              : ""}
           </p>
         </div>
-        <Button className={styles.button} text="> " size="small" />
+        <Button className={styles.button} text=">" size="small" />
       </div>
     </Link>
   );
