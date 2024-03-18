@@ -16,10 +16,9 @@
 
   h4 {
     color: variables.$text-color;
-    font-size: small;
-    font-weight: bold;
     margin: 0;
     margin-bottom: 0.5rem;
+    font-weight: lighter;
   }
 
   .content {
@@ -51,7 +50,7 @@
   &.small {
     flex-direction: row;
 
-    width: 18rem;
+    width: 19rem;
     height: 6rem;
 
     .description {
@@ -71,6 +70,11 @@
 
     height: calc(100% - 2rem);
     border-radius: 4rem;
+
+    h4 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
 
     .description {
       font-size: medium;
