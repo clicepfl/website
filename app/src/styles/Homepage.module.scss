@@ -3,7 +3,7 @@
 
 .divLogo {
   width: 100%;
-  height: 80vh;
+  height: calc(100vh - variables.$navbar-height);
 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -14,7 +14,6 @@
 
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
-    height: fit-content;
   }
 
   .mainLogo {
