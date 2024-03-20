@@ -130,6 +130,8 @@ h3,
 h4 {
   color: variables.$dark-title-color;
 
+  margin: 0;
+
   &.light {
     color: variables.$title-color;
   }

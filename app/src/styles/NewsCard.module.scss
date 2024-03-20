@@ -4,15 +4,17 @@
   background-color: variables.$white-background-color;
   border-radius: 3rem;
 
+  height: 100%;
+
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(max(25rem, 50%), 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(25rem, 1fr));
 
   overflow: hidden;
 
   box-shadow: 0 4px 30px rgba(0, 0, 100, 0.3);
 
   .picture {
+    height: 19rem;
     width: 100%;
   }
 
@@ -21,7 +23,7 @@
     margin: 2rem;
     display: flex;
     flex-direction: column;
-
+    height: 15rem;
     width: calc(100% - 4em);
 
     .details {
@@ -30,10 +32,13 @@
       margin-bottom: 0;
 
       .date {
-        font-size: small;
+        position: absolute;
         text-align: left;
         padding-right: 1rem;
-        width: 80%;
+        bottom: 0;
+        left: 0;
+        font-size: medium;
+        color: darkgray;
       }
     }
     .button {
@@ -52,7 +57,7 @@
     flex-direction: column;
 
     .picture {
-      height: 10rem;
+      height: 19rem;
     }
 
     .content {
