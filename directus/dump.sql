@@ -3,7 +3,7 @@
 -- Data for Name: languages; Type: TABLE DATA; Schema: public; Owner: directus_user
 --
 
-INSERT INTO public.languages (code, name) VALUES ('en-US', "English");
+INSERT INTO public.languages (code, name) VALUES ('en-US', 'English');
 INSERT INTO public.languages (code, name) VALUES ('fr-FR', 'Français');
 
 
@@ -57,13 +57,12 @@ INSERT INTO public.commissions (id, email, slug, logo, name) VALUES (3, 'ictrave
 -- Data for Name: partners; Type: TABLE DATA; Schema: public; Owner: directus_user
 --
 
-INSERT INTO public.partners (id, name, logo, link, rank, start, "end", commission) VALUES (1, 'Infomaniak', NULL, 'https://infomaniak.ch', 2, '2024-03-01', '2025-03-01', NULL);
+INSERT INTO public.partner_category (id, rank) VALUES(1, 0);
 
+INSERT INTO public.partner_category_translations (id, partner_category_id, languages_code, name) VALUES(1, 1, 'en-US', 'Partners');
+INSERT INTO public.partner_category_translations (id, partner_category_id, languages_code, name) VALUES(2, 1, 'fr-FR', 'Partenaires');
 
---
--- Data for Name: association_partners; Type: TABLE DATA; Schema: public; Owner: directus_user
---
-
+INSERT INTO public.partners (id, name, logo, link, start, "end", commission) VALUES (1, 'Infomaniak', NULL, 'https://infomaniak.ch', '2024-03-01', '2025-03-01', NULL);
 
 
 --

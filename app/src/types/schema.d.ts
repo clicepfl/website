@@ -783,45 +783,6 @@ export interface paths {
      */
     post: operations["promoteContentVersion"];
   };
-  "/items/languages": {
-    /**
-     * List Items
-     * @description List the languages items.
-     */
-    get: operations["readItemsLanguages"];
-    /**
-     * Create an Item
-     * @description Create a new languages item.
-     */
-    post: operations["createItemsLanguages"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing languages items.
-     */
-    delete: operations["deleteItemsLanguages"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple languages items at the same time.
-     */
-    patch: operations["updateItemsLanguages"];
-  };
-  "/items/languages/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single languages item by unique identifier.
-     */
-    get: operations["readSingleItemsLanguages"];
-    /**
-     * Delete an Item
-     * @description Delete an existing languages item.
-     */
-    delete: operations["deleteSingleItemsLanguages"];
-    /**
-     * Update an Item
-     * @description Update an existing languages item.
-     */
-    patch: operations["updateSingleItemsLanguages"];
-  };
   "/items/association": {
     /**
      * List Items
@@ -939,6 +900,45 @@ export interface paths {
      */
     patch: operations["updateSingleItemsAssociationMemberships"];
   };
+  "/items/languages": {
+    /**
+     * List Items
+     * @description List the languages items.
+     */
+    get: operations["readItemsLanguages"];
+    /**
+     * Create an Item
+     * @description Create a new languages item.
+     */
+    post: operations["createItemsLanguages"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing languages items.
+     */
+    delete: operations["deleteItemsLanguages"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple languages items at the same time.
+     */
+    patch: operations["updateItemsLanguages"];
+  };
+  "/items/languages/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single languages item by unique identifier.
+     */
+    get: operations["readSingleItemsLanguages"];
+    /**
+     * Delete an Item
+     * @description Delete an existing languages item.
+     */
+    delete: operations["deleteSingleItemsLanguages"];
+    /**
+     * Update an Item
+     * @description Update an existing languages item.
+     */
+    patch: operations["updateSingleItemsLanguages"];
+  };
   "/items/association_memberships_translations": {
     /**
      * List Items
@@ -1055,6 +1055,84 @@ export interface paths {
      * @description Update an existing association_partners item.
      */
     patch: operations["updateSingleItemsAssociationPartners"];
+  };
+  "/items/association_public_files": {
+    /**
+     * List Items
+     * @description List the association_public_files items.
+     */
+    get: operations["readItemsAssociationPublicFiles"];
+    /**
+     * Create an Item
+     * @description Create a new association_public_files item.
+     */
+    post: operations["createItemsAssociationPublicFiles"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing association_public_files items.
+     */
+    delete: operations["deleteItemsAssociationPublicFiles"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple association_public_files items at the same time.
+     */
+    patch: operations["updateItemsAssociationPublicFiles"];
+  };
+  "/items/association_public_files/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single association_public_files item by unique identifier.
+     */
+    get: operations["readSingleItemsAssociationPublicFiles"];
+    /**
+     * Delete an Item
+     * @description Delete an existing association_public_files item.
+     */
+    delete: operations["deleteSingleItemsAssociationPublicFiles"];
+    /**
+     * Update an Item
+     * @description Update an existing association_public_files item.
+     */
+    patch: operations["updateSingleItemsAssociationPublicFiles"];
+  };
+  "/items/association_public_files_translations": {
+    /**
+     * List Items
+     * @description List the association_public_files_translations items.
+     */
+    get: operations["readItemsAssociationPublicFilesTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new association_public_files_translations item.
+     */
+    post: operations["createItemsAssociationPublicFilesTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing association_public_files_translations items.
+     */
+    delete: operations["deleteItemsAssociationPublicFilesTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple association_public_files_translations items at the same time.
+     */
+    patch: operations["updateItemsAssociationPublicFilesTranslations"];
+  };
+  "/items/association_public_files_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single association_public_files_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsAssociationPublicFilesTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing association_public_files_translations item.
+     */
+    delete: operations["deleteSingleItemsAssociationPublicFilesTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing association_public_files_translations item.
+     */
+    patch: operations["updateSingleItemsAssociationPublicFilesTranslations"];
   };
   "/items/social_links": {
     /**
@@ -1563,83 +1641,83 @@ export interface paths {
      */
     patch: operations["updateSingleItemsNewsTranslations"];
   };
-  "/items/association_public_files_translations": {
+  "/items/partner_category_translations": {
     /**
      * List Items
-     * @description List the association_public_files_translations items.
+     * @description List the partner_category_translations items.
      */
-    get: operations["readItemsAssociationPublicFilesTranslations"];
+    get: operations["readItemsPartnerCategoryTranslations"];
     /**
      * Create an Item
-     * @description Create a new association_public_files_translations item.
+     * @description Create a new partner_category_translations item.
      */
-    post: operations["createItemsAssociationPublicFilesTranslations"];
+    post: operations["createItemsPartnerCategoryTranslations"];
     /**
      * Delete Multiple Items
-     * @description Delete multiple existing association_public_files_translations items.
+     * @description Delete multiple existing partner_category_translations items.
      */
-    delete: operations["deleteItemsAssociationPublicFilesTranslations"];
+    delete: operations["deleteItemsPartnerCategoryTranslations"];
     /**
      * Update Multiple Items
-     * @description Update multiple association_public_files_translations items at the same time.
+     * @description Update multiple partner_category_translations items at the same time.
      */
-    patch: operations["updateItemsAssociationPublicFilesTranslations"];
+    patch: operations["updateItemsPartnerCategoryTranslations"];
   };
-  "/items/association_public_files_translations/{id}": {
+  "/items/partner_category_translations/{id}": {
     /**
      * Retrieve an Item
-     * @description Retrieve a single association_public_files_translations item by unique identifier.
+     * @description Retrieve a single partner_category_translations item by unique identifier.
      */
-    get: operations["readSingleItemsAssociationPublicFilesTranslations"];
+    get: operations["readSingleItemsPartnerCategoryTranslations"];
     /**
      * Delete an Item
-     * @description Delete an existing association_public_files_translations item.
+     * @description Delete an existing partner_category_translations item.
      */
-    delete: operations["deleteSingleItemsAssociationPublicFilesTranslations"];
+    delete: operations["deleteSingleItemsPartnerCategoryTranslations"];
     /**
      * Update an Item
-     * @description Update an existing association_public_files_translations item.
+     * @description Update an existing partner_category_translations item.
      */
-    patch: operations["updateSingleItemsAssociationPublicFilesTranslations"];
+    patch: operations["updateSingleItemsPartnerCategoryTranslations"];
   };
-  "/items/association_public_files": {
+  "/items/partner_category": {
     /**
      * List Items
-     * @description List the association_public_files items.
+     * @description List the partner_category items.
      */
-    get: operations["readItemsAssociationPublicFiles"];
+    get: operations["readItemsPartnerCategory"];
     /**
      * Create an Item
-     * @description Create a new association_public_files item.
+     * @description Create a new partner_category item.
      */
-    post: operations["createItemsAssociationPublicFiles"];
+    post: operations["createItemsPartnerCategory"];
     /**
      * Delete Multiple Items
-     * @description Delete multiple existing association_public_files items.
+     * @description Delete multiple existing partner_category items.
      */
-    delete: operations["deleteItemsAssociationPublicFiles"];
+    delete: operations["deleteItemsPartnerCategory"];
     /**
      * Update Multiple Items
-     * @description Update multiple association_public_files items at the same time.
+     * @description Update multiple partner_category items at the same time.
      */
-    patch: operations["updateItemsAssociationPublicFiles"];
+    patch: operations["updateItemsPartnerCategory"];
   };
-  "/items/association_public_files/{id}": {
+  "/items/partner_category/{id}": {
     /**
      * Retrieve an Item
-     * @description Retrieve a single association_public_files item by unique identifier.
+     * @description Retrieve a single partner_category item by unique identifier.
      */
-    get: operations["readSingleItemsAssociationPublicFiles"];
+    get: operations["readSingleItemsPartnerCategory"];
     /**
      * Delete an Item
-     * @description Delete an existing association_public_files item.
+     * @description Delete an existing partner_category item.
      */
-    delete: operations["deleteSingleItemsAssociationPublicFiles"];
+    delete: operations["deleteSingleItemsPartnerCategory"];
     /**
      * Update an Item
-     * @description Update an existing association_public_files item.
+     * @description Update an existing partner_category item.
      */
-    patch: operations["updateSingleItemsAssociationPublicFiles"];
+    patch: operations["updateSingleItemsPartnerCategory"];
   };
 }
 
@@ -2579,10 +2657,6 @@ export interface components {
        */
       user_updated?: string | components["schemas"]["Users"];
     };
-    ItemsLanguages: {
-      code?: string;
-      name?: string | null;
-    };
     ItemsAssociation: {
       id?: number;
       name?: string | null;
@@ -2620,6 +2694,10 @@ export interface components {
           )[]
         | null;
     };
+    ItemsLanguages: {
+      code?: string;
+      name?: string | null;
+    };
     ItemsAssociationMembershipsTranslations: {
       id?: number;
       association_memberships_id?:
@@ -2634,12 +2712,12 @@ export interface components {
       name?: string | null;
       logo?: string | components["schemas"]["Files"] | null;
       link?: string | null;
-      rank?: number | null;
       /** Format: date */
       start?: string | null;
       /** Format: date */
       end?: string | null;
       commission?: number | components["schemas"]["ItemsCommissions"] | null;
+      category?: number | components["schemas"]["ItemsPartnerCategory"] | null;
     };
     ItemsAssociationPartners: {
       id?: number;
@@ -2648,6 +2726,26 @@ export interface components {
         | components["schemas"]["ItemsAssociation"]
         | null;
       partners_id?: number | components["schemas"]["ItemsPartners"] | null;
+    };
+    ItemsAssociationPublicFiles: {
+      id?: number;
+      link?: string | null;
+      icon?: string | components["schemas"]["Files"] | null;
+      translations?:
+        | (
+            | number
+            | components["schemas"]["ItemsAssociationPublicFilesTranslations"]
+          )[]
+        | null;
+    };
+    ItemsAssociationPublicFilesTranslations: {
+      id?: number;
+      association_public_files_id?:
+        | number
+        | components["schemas"]["ItemsAssociationPublicFiles"]
+        | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      name?: string | null;
     };
     ItemsSocialLinks: {
       id?: number;
@@ -2782,24 +2880,20 @@ export interface components {
       content?: string;
       banner?: string | components["schemas"]["Files"] | null;
     };
-    ItemsAssociationPublicFilesTranslations: {
+    ItemsPartnerCategoryTranslations: {
       id?: number;
-      association_public_files_id?:
+      partner_category_id?:
         | number
-        | components["schemas"]["ItemsAssociationPublicFiles"]
+        | components["schemas"]["ItemsPartnerCategory"]
         | null;
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       name?: string | null;
     };
-    ItemsAssociationPublicFiles: {
+    ItemsPartnerCategory: {
       id?: number;
-      link?: string | null;
-      icon?: string | components["schemas"]["Files"] | null;
+      rank?: number | null;
       translations?:
-        | (
-            | number
-            | components["schemas"]["ItemsAssociationPublicFilesTranslations"]
-          )[]
+        | (number | components["schemas"]["ItemsPartnerCategoryTranslations"])[]
         | null;
     };
   };
@@ -7177,193 +7271,6 @@ export interface operations {
   };
   /**
    * List Items
-   * @description List the languages items.
-   */
-  readItemsLanguages: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsLanguages"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new languages item.
-   */
-  createItemsLanguages: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsLanguages"][]
-          | components["schemas"]["ItemsLanguages"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing languages items.
-   */
-  deleteItemsLanguages: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple languages items at the same time.
-   */
-  updateItemsLanguages: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsLanguages"][]
-          | components["schemas"]["ItemsLanguages"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single languages item by unique identifier.
-   */
-  readSingleItemsLanguages: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsLanguages"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing languages item.
-   */
-  deleteSingleItemsLanguages: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing languages item.
-   */
-  updateSingleItemsLanguages: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsLanguages"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsLanguages"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
    * @description List the association items.
    */
   readItemsAssociation: {
@@ -7925,6 +7832,193 @@ export interface operations {
   };
   /**
    * List Items
+   * @description List the languages items.
+   */
+  readItemsLanguages: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsLanguages"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new languages item.
+   */
+  createItemsLanguages: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsLanguages"][]
+          | components["schemas"]["ItemsLanguages"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing languages items.
+   */
+  deleteItemsLanguages: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple languages items at the same time.
+   */
+  updateItemsLanguages: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsLanguages"][]
+          | components["schemas"]["ItemsLanguages"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single languages item by unique identifier.
+   */
+  readSingleItemsLanguages: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsLanguages"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing languages item.
+   */
+  deleteSingleItemsLanguages: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing languages item.
+   */
+  updateSingleItemsLanguages: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsLanguages"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsLanguages"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
    * @description List the association_memberships_translations items.
    */
   readItemsAssociationMembershipsTranslations: {
@@ -8477,6 +8571,380 @@ export interface operations {
         content: {
           "application/json": {
             data?: components["schemas"]["ItemsAssociationPartners"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the association_public_files items.
+   */
+  readItemsAssociationPublicFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPublicFiles"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new association_public_files item.
+   */
+  createItemsAssociationPublicFiles: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationPublicFiles"][]
+          | components["schemas"]["ItemsAssociationPublicFiles"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing association_public_files items.
+   */
+  deleteItemsAssociationPublicFiles: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple association_public_files items at the same time.
+   */
+  updateItemsAssociationPublicFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationPublicFiles"][]
+          | components["schemas"]["ItemsAssociationPublicFiles"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single association_public_files item by unique identifier.
+   */
+  readSingleItemsAssociationPublicFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPublicFiles"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing association_public_files item.
+   */
+  deleteSingleItemsAssociationPublicFiles: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing association_public_files item.
+   */
+  updateSingleItemsAssociationPublicFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsAssociationPublicFiles"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPublicFiles"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the association_public_files_translations items.
+   */
+  readItemsAssociationPublicFilesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPublicFilesTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new association_public_files_translations item.
+   */
+  createItemsAssociationPublicFilesTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationPublicFilesTranslations"][]
+          | components["schemas"]["ItemsAssociationPublicFilesTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing association_public_files_translations items.
+   */
+  deleteItemsAssociationPublicFilesTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple association_public_files_translations items at the same time.
+   */
+  updateItemsAssociationPublicFilesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationPublicFilesTranslations"][]
+          | components["schemas"]["ItemsAssociationPublicFilesTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single association_public_files_translations item by unique identifier.
+   */
+  readSingleItemsAssociationPublicFilesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPublicFilesTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing association_public_files_translations item.
+   */
+  deleteSingleItemsAssociationPublicFilesTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing association_public_files_translations item.
+   */
+  updateSingleItemsAssociationPublicFilesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsAssociationPublicFilesTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPublicFilesTranslations"];
           };
         };
       };
@@ -10917,9 +11385,9 @@ export interface operations {
   };
   /**
    * List Items
-   * @description List the association_public_files_translations items.
+   * @description List the partner_category_translations items.
    */
-  readItemsAssociationPublicFilesTranslations: {
+  readItemsPartnerCategoryTranslations: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -10936,7 +11404,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsAssociationPublicFilesTranslations"][];
+            data?: components["schemas"]["ItemsPartnerCategoryTranslations"][];
             meta?: components["schemas"]["x-metadata"];
           };
         };
@@ -10946,9 +11414,9 @@ export interface operations {
   };
   /**
    * Create an Item
-   * @description Create a new association_public_files_translations item.
+   * @description Create a new partner_category_translations item.
    */
-  createItemsAssociationPublicFilesTranslations: {
+  createItemsPartnerCategoryTranslations: {
     parameters: {
       query?: {
         meta?: components["parameters"]["Meta"];
@@ -10957,8 +11425,8 @@ export interface operations {
     requestBody?: {
       content: {
         "application/json":
-          | components["schemas"]["ItemsAssociationPublicFilesTranslations"][]
-          | components["schemas"]["ItemsAssociationPublicFilesTranslations"];
+          | components["schemas"]["ItemsPartnerCategoryTranslations"][]
+          | components["schemas"]["ItemsPartnerCategoryTranslations"];
       };
     };
     responses: {
@@ -10975,9 +11443,9 @@ export interface operations {
   };
   /**
    * Delete Multiple Items
-   * @description Delete multiple existing association_public_files_translations items.
+   * @description Delete multiple existing partner_category_translations items.
    */
-  deleteItemsAssociationPublicFilesTranslations: {
+  deleteItemsPartnerCategoryTranslations: {
     responses: {
       /** @description Successful request */
       200: {
@@ -10988,9 +11456,9 @@ export interface operations {
   };
   /**
    * Update Multiple Items
-   * @description Update multiple association_public_files_translations items at the same time.
+   * @description Update multiple partner_category_translations items at the same time.
    */
-  updateItemsAssociationPublicFilesTranslations: {
+  updateItemsPartnerCategoryTranslations: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -11005,8 +11473,8 @@ export interface operations {
     requestBody?: {
       content: {
         "application/json":
-          | components["schemas"]["ItemsAssociationPublicFilesTranslations"][]
-          | components["schemas"]["ItemsAssociationPublicFilesTranslations"];
+          | components["schemas"]["ItemsPartnerCategoryTranslations"][]
+          | components["schemas"]["ItemsPartnerCategoryTranslations"];
       };
     };
     responses: {
@@ -11022,9 +11490,9 @@ export interface operations {
   };
   /**
    * Retrieve an Item
-   * @description Retrieve a single association_public_files_translations item by unique identifier.
+   * @description Retrieve a single partner_category_translations item by unique identifier.
    */
-  readSingleItemsAssociationPublicFilesTranslations: {
+  readSingleItemsPartnerCategoryTranslations: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -11041,7 +11509,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsAssociationPublicFilesTranslations"];
+            data?: components["schemas"]["ItemsPartnerCategoryTranslations"];
           };
         };
       };
@@ -11051,9 +11519,9 @@ export interface operations {
   };
   /**
    * Delete an Item
-   * @description Delete an existing association_public_files_translations item.
+   * @description Delete an existing partner_category_translations item.
    */
-  deleteSingleItemsAssociationPublicFilesTranslations: {
+  deleteSingleItemsPartnerCategoryTranslations: {
     parameters: {
       path: {
         /** @description Index of the item. */
@@ -11071,9 +11539,9 @@ export interface operations {
   };
   /**
    * Update an Item
-   * @description Update an existing association_public_files_translations item.
+   * @description Update an existing partner_category_translations item.
    */
-  updateSingleItemsAssociationPublicFilesTranslations: {
+  updateSingleItemsPartnerCategoryTranslations: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -11086,7 +11554,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["ItemsAssociationPublicFilesTranslations"];
+        "application/json": components["schemas"]["ItemsPartnerCategoryTranslations"];
       };
     };
     responses: {
@@ -11094,7 +11562,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsAssociationPublicFilesTranslations"];
+            data?: components["schemas"]["ItemsPartnerCategoryTranslations"];
           };
         };
       };
@@ -11104,9 +11572,9 @@ export interface operations {
   };
   /**
    * List Items
-   * @description List the association_public_files items.
+   * @description List the partner_category items.
    */
-  readItemsAssociationPublicFiles: {
+  readItemsPartnerCategory: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -11123,7 +11591,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsAssociationPublicFiles"][];
+            data?: components["schemas"]["ItemsPartnerCategory"][];
             meta?: components["schemas"]["x-metadata"];
           };
         };
@@ -11133,9 +11601,9 @@ export interface operations {
   };
   /**
    * Create an Item
-   * @description Create a new association_public_files item.
+   * @description Create a new partner_category item.
    */
-  createItemsAssociationPublicFiles: {
+  createItemsPartnerCategory: {
     parameters: {
       query?: {
         meta?: components["parameters"]["Meta"];
@@ -11144,8 +11612,8 @@ export interface operations {
     requestBody?: {
       content: {
         "application/json":
-          | components["schemas"]["ItemsAssociationPublicFiles"][]
-          | components["schemas"]["ItemsAssociationPublicFiles"];
+          | components["schemas"]["ItemsPartnerCategory"][]
+          | components["schemas"]["ItemsPartnerCategory"];
       };
     };
     responses: {
@@ -11162,9 +11630,9 @@ export interface operations {
   };
   /**
    * Delete Multiple Items
-   * @description Delete multiple existing association_public_files items.
+   * @description Delete multiple existing partner_category items.
    */
-  deleteItemsAssociationPublicFiles: {
+  deleteItemsPartnerCategory: {
     responses: {
       /** @description Successful request */
       200: {
@@ -11175,9 +11643,9 @@ export interface operations {
   };
   /**
    * Update Multiple Items
-   * @description Update multiple association_public_files items at the same time.
+   * @description Update multiple partner_category items at the same time.
    */
-  updateItemsAssociationPublicFiles: {
+  updateItemsPartnerCategory: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -11192,8 +11660,8 @@ export interface operations {
     requestBody?: {
       content: {
         "application/json":
-          | components["schemas"]["ItemsAssociationPublicFiles"][]
-          | components["schemas"]["ItemsAssociationPublicFiles"];
+          | components["schemas"]["ItemsPartnerCategory"][]
+          | components["schemas"]["ItemsPartnerCategory"];
       };
     };
     responses: {
@@ -11209,9 +11677,9 @@ export interface operations {
   };
   /**
    * Retrieve an Item
-   * @description Retrieve a single association_public_files item by unique identifier.
+   * @description Retrieve a single partner_category item by unique identifier.
    */
-  readSingleItemsAssociationPublicFiles: {
+  readSingleItemsPartnerCategory: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -11228,7 +11696,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsAssociationPublicFiles"];
+            data?: components["schemas"]["ItemsPartnerCategory"];
           };
         };
       };
@@ -11238,9 +11706,9 @@ export interface operations {
   };
   /**
    * Delete an Item
-   * @description Delete an existing association_public_files item.
+   * @description Delete an existing partner_category item.
    */
-  deleteSingleItemsAssociationPublicFiles: {
+  deleteSingleItemsPartnerCategory: {
     parameters: {
       path: {
         /** @description Index of the item. */
@@ -11258,9 +11726,9 @@ export interface operations {
   };
   /**
    * Update an Item
-   * @description Update an existing association_public_files item.
+   * @description Update an existing partner_category item.
    */
-  updateSingleItemsAssociationPublicFiles: {
+  updateSingleItemsPartnerCategory: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -11273,7 +11741,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["ItemsAssociationPublicFiles"];
+        "application/json": components["schemas"]["ItemsPartnerCategory"];
       };
     };
     responses: {
@@ -11281,7 +11749,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsAssociationPublicFiles"];
+            data?: components["schemas"]["ItemsPartnerCategory"];
           };
         };
       };
@@ -11292,13 +11760,15 @@ export interface operations {
 }
 
 export type Schema = {
-  languages: components["schemas"]["ItemsLanguages"][];
   association: components["schemas"]["ItemsAssociation"];
   members: components["schemas"]["ItemsMembers"][];
   association_memberships: components["schemas"]["ItemsAssociationMemberships"][];
+  languages: components["schemas"]["ItemsLanguages"][];
   association_memberships_translations: components["schemas"]["ItemsAssociationMembershipsTranslations"][];
   partners: components["schemas"]["ItemsPartners"][];
   association_partners: components["schemas"]["ItemsAssociationPartners"][];
+  association_public_files: components["schemas"]["ItemsAssociationPublicFiles"][];
+  association_public_files_translations: components["schemas"]["ItemsAssociationPublicFilesTranslations"][];
   social_links: components["schemas"]["ItemsSocialLinks"][];
   association_social_links: components["schemas"]["ItemsAssociationSocialLinks"][];
   association_translations: components["schemas"]["ItemsAssociationTranslations"][];
@@ -11312,6 +11782,6 @@ export type Schema = {
   news_commissions: components["schemas"]["ItemsNewsCommissions"][];
   news_partners: components["schemas"]["ItemsNewsPartners"][];
   news_translations: components["schemas"]["ItemsNewsTranslations"][];
-  association_public_files_translations: components["schemas"]["ItemsAssociationPublicFilesTranslations"][];
-  association_public_files: components["schemas"]["ItemsAssociationPublicFiles"][];
+  partner_category_translations: components["schemas"]["ItemsPartnerCategoryTranslations"][];
+  partner_category: components["schemas"]["ItemsPartnerCategory"][];
 };
