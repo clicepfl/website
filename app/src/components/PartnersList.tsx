@@ -1,31 +1,55 @@
 import DirectusImage from "./DirectusImage";
-import { locale, translate } from "@/locales";
+import { getTranslation } from "@/locales";
 import styles from "@/styles/PartnersList.module.scss";
-import { Partner } from "@/types/aliases";
+import { Partner, PartnerCategory } from "@/types/aliases";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export default function PartnersList({ partners }: { partners: Partner[] }) {
-  if (partners.length == 0) {
-    return;
+function PartnerDisplay({ p }: { p: Partner }) {
+  return (
+    <Link href={p.link || ""} key={p.id}>
+      <DirectusImage img={p.logo} name={p.name} className={styles.logo} />
+    </Link>
+  );
+}
+
+function PartnerCategoryDisplay({
+  c,
+  p,
+}: {
+  c: PartnerCategory;
+  p: Partner[];
+}) {
+  const router = useRouter();
+  const entries = p
+    .filter((p) => Date.parse(p.end || "01/01/1970") > Date.now())
+    .map((p) => <PartnerDisplay key={p.id} p={p} />);
+
+  if (entries.length === 0) {
+    console.log("noooo");
+    return <></>;
   }
 
-  var list: any = [];
-  partners.forEach((p) => {
-    list.push(
-      <Link href={p.link || ""} key={p.id}>
-        <DirectusImage img={p.logo} name={p.name} className={styles.logo} />
-      </Link>
-    );
-  });
+  return (
+    <>
+      <h1 className="light">{getTranslation(c, router.locale).name}</h1>
+      <div className={styles.list}>{entries}</div>
+    </>
+  );
+}
 
-  var router = useRouter();
+export default function PartnersList({
+  partners,
+}: {
+  partners: [PartnerCategory, Partner[]][];
+}) {
+  partners.sort((a, b) => (b[0].rank || Infinity) - (a[0].rank || Infinity));
+
   return (
     <div className={styles.partnersList}>
-      <h1 className="light">
-        {translate("partners", locale(router), { capitalize: true })}{" "}
-      </h1>
-      <div className={styles.list}>{list}</div>
+      {partners.map((e) => (
+        <PartnerCategoryDisplay key={e[0].id} c={e[0]} p={e[1]} />
+      ))}
     </div>
   );
 }

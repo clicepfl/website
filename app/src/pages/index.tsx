@@ -15,6 +15,7 @@ import {
   Member,
   News,
   Partner,
+  PartnerCategory,
   PublicFiles,
   SocialLink,
 } from "@/types/aliases";
@@ -27,6 +28,21 @@ export default function Home(
 ) {
   const router = useRouter();
   const translation = getTranslation(props.association, router.locale);
+
+  var orderedPartners = props.partners.reduce(
+    (list: [PartnerCategory, Partner[]][], partner: Partner) => {
+      var entry = list.find(
+        (e) => e[0].rank === (partner.category as PartnerCategory).rank
+      );
+      if (entry) {
+        entry[1].push(partner);
+      } else {
+        list.push([partner.category as PartnerCategory, [partner]]);
+      }
+      return list;
+    },
+    []
+  );
 
   return (
     <>
@@ -53,7 +69,7 @@ export default function Home(
         />
       </div>
 
-      <PartnersList partners={props.partners} />
+      <PartnersList partners={orderedPartners} />
 
       <AssociationDescription
         association={props.association}
@@ -84,7 +100,14 @@ export const getServerSideProps: GetServerSideProps<{
       partners: (await directus()
         .request(
           readItems("association_partners", {
-            fields: [{ partners_id: ["*"] }],
+            fields: [
+              {
+                partners_id: [
+                  "*",
+                  { category: ["*", { translations: ["*"] }] },
+                ],
+              },
+            ],
           })
         )
         .then((result) => result.map((p) => p.partners_id))) as Partner[],
