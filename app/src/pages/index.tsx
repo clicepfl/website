@@ -3,6 +3,7 @@ import PreviewImage from "@/assets/galleryPreview.png";
 import AssociationDescription from "@/components/AssociationDescription";
 import Button from "@/components/Button";
 import DirectusImage from "@/components/DirectusImage";
+import Gallery from "@/components/Gallery";
 import MembersList from "@/components/MembersList";
 import NewsCard from "@/components/NewsCard";
 import PartnersList from "@/components/PartnersList";
@@ -19,7 +20,7 @@ import {
   PublicFiles,
   SocialLink,
 } from "@/types/aliases";
-import { readItems, readSingleton } from "@directus/sdk";
+import { readFiles, readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 
@@ -80,6 +81,8 @@ export default function Home(
       <Decoration className={styles.decoration} />
 
       <MembersList membership={props.committee} />
+
+      <Gallery imgs={props.gallery} />
     </>
   );
 }
@@ -91,6 +94,7 @@ export const getServerSideProps: GetServerSideProps<{
   news: News[];
   committee: (AssociationMembership & { member: Member })[];
   publicFiles: PublicFiles[];
+  gallery: any[];
 }> = populateLayoutProps(async (_) => {
   return {
     props: {
@@ -141,6 +145,19 @@ export const getServerSideProps: GetServerSideProps<{
       publicFiles: await directus().request(
         readItems("association_public_files", {
           fields: ["*", { translations: ["*"], icon: ["*"] }],
+        })
+      ),
+      gallery: await directus().request(
+        readFiles({
+          fields: ["*"],
+          filter: {
+            folder: {
+              _eq: "2fd1d075-83a4-40b7-902e-b46a0d861dfe",
+            },
+            type: {
+              _eq: "image/jpeg",
+            },
+          },
         })
       ),
     },
