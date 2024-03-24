@@ -1,6 +1,8 @@
 import DirectusImage from "./DirectusImage";
+import { translate } from "@/locales";
 import styles from "@/styles/Gallery.module.scss";
 import { components } from "@/types/schema";
+import { useRouter } from "next/router";
 
 export default function Gallery({
   imgs,
@@ -37,9 +39,11 @@ export default function Gallery({
       );
     });
 
+    var router = useRouter();
+
     return (
       <div className={styles.main}>
-        <h1>Gallery</h1>
+        <h1>{translate("gallery", router.locale)}</h1>
         <div className={styles.gallery}>{content}</div>
       </div>
     );

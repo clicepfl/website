@@ -22,6 +22,7 @@ interface Translations {
   moreNews: string;
   error404: string;
   error404desc: string;
+  gallery: string;
 }
 
 type OptionsOperators = {
@@ -42,6 +43,7 @@ const translations: { [key in Locale]: Translations & OptionsOperators } = {
     moreNews: "more news",
     error404: "error 404",
     error404desc: "this page does not exist!",
+    gallery: "gallery",
     capitalize: (s) => s.replace(/^(\s*\w)/, (s) => s.toUpperCase()),
     plural: (s) => s + "s",
   },
@@ -58,6 +60,7 @@ const translations: { [key in Locale]: Translations & OptionsOperators } = {
     moreNews: "plus de news",
     error404: "erreur 404",
     error404desc: "cette page n'existe pas!",
+    gallery: "galerie",
     capitalize: (s) => s.replace(/^(\s*\w)/, (s) => s.toUpperCase()),
     plural: (s) => (s.endsWith("u") ? s + "x" : s + "s"),
   },
