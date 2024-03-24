@@ -26,7 +26,6 @@ function PartnerCategoryDisplay({
     .map((p) => <PartnerDisplay key={p.id} p={p} />);
 
   if (entries.length === 0) {
-    console.log("noooo");
     return <></>;
   }
 
