@@ -9,8 +9,10 @@ export default function Gallery({
   limit = 15,
 }: {
   imgs?: (string | components["schemas"]["Files"])[] | null;
-  limit: number;
+  limit?: number;
 }) {
+  const router = useRouter();
+
   if (imgs == null) {
     return;
   }
@@ -46,7 +48,7 @@ export default function Gallery({
 
   return (
     <div className={styles.main}>
-      <h1>{translate("gallery", useRouter().locale)}</h1>
+      <h1>{translate("gallery", router.locale)}</h1>
       <div className={styles.gallery}>{content}</div>
     </div>
   );
