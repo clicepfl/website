@@ -17,7 +17,7 @@ export default function SocialsList({
   var list: any = [];
   socials.forEach((s) => {
     list.push(
-      <Link href={s.link || ""}>
+      <Link href={s.link || ""} id={s.id?.toString()}>
         <DirectusImage
           img={s.logo}
           name={s.media_name}
