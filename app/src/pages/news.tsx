@@ -11,7 +11,7 @@ export default function NewsComponent(
 ) {
   return (
     <div className={styles.pageList}>
-      <h1 className="light">News</h1>
+      <h1>News</h1>
       {props.news.map((n) => (
         <NewsCard key={(n as any).id} news={n} />
       ))}

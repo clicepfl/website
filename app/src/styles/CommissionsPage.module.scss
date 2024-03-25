@@ -18,15 +18,13 @@
 
   width: 80%;
 
-  @media (max-width: 800px) {
-    h1 {
-      font-size: 2.5rem;
-    }
+  h1 {
+    color: variables.$dark-title-color;
   }
 
   .list {
-    max-width: 70rem;
     display: grid;
+    width: 100%;
 
     grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
     grid-template-rows: auto auto auto;

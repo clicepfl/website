@@ -54,7 +54,7 @@
         transition-timing-function: ease-out;
       }
 
-      @media (max-width: 50rem) {
+      @media (max-width: 800px) {
         display: none;
       }
     }
@@ -111,7 +111,7 @@
       height: auto;
       stroke: white;
       cursor: pointer;
-      @media (min-width: 50rem) {
+      @media (min-width: 800px) {
         display: none !important;
         position: absolute !important;
       }
@@ -124,16 +124,14 @@
     }
 
     .sideMenuContainer {
-      position: fixed;
+      position: absolute;
       justify-content: end;
       width: 100vw;
       height: 100vh;
 
       right: 0;
-      top: 3em;
+      top: variables.$navbar-height;
       bottom: 0;
-
-      pointer-events: none;
 
       .sideMenu {
         @extend .glass;
@@ -155,7 +153,7 @@
           align-self: flex-end;
         }
 
-        @media (min-width: 50rem) {
+        @media (min-width: 800px) {
           display: none !important;
           position: absolute !important;
         }

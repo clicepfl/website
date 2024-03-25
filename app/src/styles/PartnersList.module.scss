@@ -12,6 +12,11 @@
   align-items: center;
   padding: 1rem;
 
+  h1 {
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+
   .list {
     margin: auto;
     display: flex;
@@ -23,8 +28,8 @@
   }
 
   .logo {
-    height: 6em;
-    width: 20em;
+    height: 4em;
+    width: 15em;
     margin: 2em;
 
     @media (max-width: 800px) {

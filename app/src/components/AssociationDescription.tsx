@@ -23,7 +23,6 @@ export default function AssociationDescription({
     <div className="page">
       <div className="center">
         <Markdown className="text">{translation.description}</Markdown>
-        <SocialsList socials={socialLinks}></SocialsList>
         <div className={styles.publicFiles}>
           {publicFiles.map((f) => (
             <Link href={f.link || ""} key={f.id}>
@@ -36,6 +35,7 @@ export default function AssociationDescription({
             </Link>
           ))}
         </div>
+        <SocialsList socials={socialLinks}></SocialsList>
       </div>
     </div>
   );
