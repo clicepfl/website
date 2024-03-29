@@ -1,25 +1,43 @@
 import AssociationDescription from "@/components/AssociationDescription";
+import DirectusImage from "@/components/DirectusImage";
+import MembersList from "@/components/MembersList";
 import { directus, populateLayoutProps } from "@/directus";
-import { queryTranslations } from "@/locales";
-import { Association, PublicFiles, SocialLink } from "@/types/aliases";
+import { getTranslation, locale, queryTranslations } from "@/locales";
+import {
+  Association,
+  AssociationMembership,
+  Member,
+  PublicFiles,
+  SocialLink,
+} from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { useRouter } from "next/router";
 
 export default function AssociationPage(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
+  const router = useRouter();
+  const translation = getTranslation(props.association, locale(router));
   return (
-    <AssociationDescription
-      association={props.association}
-      socialLinks={props.socialLinks}
-      publicFiles={props.publicFiles}
-    />
+    <div className="page">
+      <div className="center">
+        <DirectusImage className="logo" img={translation.banner} />
+        <AssociationDescription
+          association={props.association}
+          socialLinks={props.socialLinks}
+          publicFiles={props.publicFiles}
+        />
+      </div>
+      <MembersList membership={props.committee} />
+    </div>
   );
 }
 
 export const getServerSideProps: GetServerSideProps<{
   association: Association;
   socialLinks: SocialLink[];
+  committee: (AssociationMembership & { member: Member })[];
   publicFiles: PublicFiles[];
 }> = populateLayoutProps(async (_) => {
   return {
@@ -36,6 +54,17 @@ export const getServerSideProps: GetServerSideProps<{
         .then((result) =>
           result.map((s) => s.social_links_id)
         )) as SocialLink[],
+      committee: (await directus().request(
+        readItems("association_memberships", {
+          fields: [
+            "*",
+            { member: ["*"] },
+            //@ts-ignore
+            { translations: ["*"] },
+          ],
+          filter: { level: { _eq: "committee" } },
+        })
+      )) as (AssociationMembership & { member: Member })[],
       publicFiles: await directus().request(
         readItems("association_public_files", {
           fields: ["*", { translations: ["*"], icon: ["*"] }],
