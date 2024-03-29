@@ -19,16 +19,16 @@ export default function Gallery({
 
   imgs = imgs.slice(0, limit);
 
-  var content: any = [];
+  let content: any = [];
 
-  var count_5 = 0;
-  var count_3 = 0;
+  let count_5 = 0;
+  let count_3 = 0;
   imgs.map((img) => {
-    var is_long_5 = Math.random() > 0.5 && count_5 < 4;
+    let is_long_5 = Math.random() > 0.5 && count_5 < 4;
     count_5 += is_long_5 ? 2 : 1;
     count_5 %= 5;
 
-    var is_long_3 = Math.random() > 0.5 && count_3 < 2;
+    let is_long_3 = Math.random() > 0.5 && count_3 < 2;
     count_3 += is_long_3 ? 2 : 1;
     count_3 %= 3;
 

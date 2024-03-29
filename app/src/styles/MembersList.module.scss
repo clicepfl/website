@@ -3,7 +3,6 @@
 .membersList {
   display: flex;
   flex-direction: column;
-  margin-top: 3rem;
 
   width: 80%;
 
@@ -21,13 +20,11 @@
   }
 
   .list {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
 
     gap: 1rem;
-
-    align-items: center;
-    justify-items: center;
   }
 }

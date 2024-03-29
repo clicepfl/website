@@ -3,7 +3,6 @@ import { getTranslation } from "@/locales";
 import styles from "@/styles/Card.module.scss";
 import {
   AssociationMembership,
-  Commission,
   CommissionMembership,
   Member,
 } from "@/types/aliases";
@@ -16,7 +15,6 @@ export default function Card(
         member: Member;
         membership: AssociationMembership | CommissionMembership;
       }
-    | { commission: Commission }
     | {
         img: any;
         title: string;
@@ -24,7 +22,7 @@ export default function Card(
         link?: string;
         linkTarget?: "_blank";
       }
-  ) & { size: "small" | "large"; background?: boolean }
+  ) & { background?: boolean }
 ) {
   const router = useRouter();
 
@@ -40,14 +38,6 @@ export default function Card(
     description = getTranslation(props.membership, router.locale).title;
     link = props.member.link;
     linkTarget = "_blank";
-  } else if ("commission" in props) {
-    img = props.commission.logo;
-    title = props.commission.name;
-    description = getTranslation(
-      props.commission,
-      router.locale
-    ).small_description;
-    link = `/commissions/${props.commission.slug}`;
   } else {
     img = props.img;
     title = props.title;
@@ -58,9 +48,7 @@ export default function Card(
 
   const component = (
     <div
-      className={`${styles.card} ${styles[props.size]} ${
-        props.background ? styles.background : ""
-      }`}
+      className={`${styles.card} ${props.background ? styles.background : ""}`}
     >
       <div className={styles.imageDiv}>
         <DirectusImage

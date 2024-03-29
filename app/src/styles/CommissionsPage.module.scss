@@ -23,20 +23,19 @@
   }
 
   .list {
-    display: grid;
     width: 100%;
 
-    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
-    grid-template-rows: auto auto auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
 
     gap: 2rem;
 
-    align-items: center;
-    justify-items: center;
-
-    @media (max-width: 800px) {
-      display: flex;
-      flex-direction: column;
+    &:last-child {
+      justify-content: center; /* Center the last line */
+    }
+    .card {
+      width: 25rem;
     }
   }
 }

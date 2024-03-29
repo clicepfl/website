@@ -3,7 +3,6 @@ import styles from "@/styles/Button.module.scss";
 export default function Button(props: {
   text: string;
   className?: string;
-  size: "small" | "large";
   onClick?: () => void;
 }) {
   let text = props.text;
@@ -11,7 +10,7 @@ export default function Button(props: {
   return (
     <>
       <div
-        className={`${styles.button} ${styles[props.size]} ${props.className}`}
+        className={`${styles.button} ${props.className}`}
         onClick={props.onClick}
       >
         {text}

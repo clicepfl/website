@@ -1,4 +1,4 @@
-import Card from "@/components/Card";
+import CommissionCard from "@/components/CommissionCard";
 import { directus, populateLayoutProps } from "@/directus";
 import { locale, translate } from "@/locales";
 import styles from "@/styles/CommissionsPage.module.scss";
@@ -20,8 +20,8 @@ export default function Commissions(
         })}
       </h1>
       <div className={styles.list}>
-        {props.news.map((c) => (
-          <Card key={(c as any).id} commission={c} size="large" background />
+        {props.commissions.map((c) => (
+          <CommissionCard className={styles.card} key={c.id} commission={c} />
         ))}
       </div>
     </div>
@@ -29,12 +29,12 @@ export default function Commissions(
 }
 
 export const getServerSideProps: GetServerSideProps<{
-  news: Commission[];
+  commissions: Commission[];
 }> = populateLayoutProps(async (_) => {
   const c = await directus().request(
     readItems("commissions", {
       fields: ["*", { translations: ["*"] }],
     })
   );
-  return { props: { news: c } };
+  return { props: { commissions: c } };
 });

@@ -44,12 +44,6 @@ a {
     }
   }
 
-  // h4 is to be used as subtitle, thus we strip its top margin,
-  // and the bottom margin of the element just before (i.e. the
-  // element it is the subtitle of).
-  :has(+ h4) {
-    margin-bottom: 0;
-  }
   h4 {
     font-weight: lighter;
     margin-top: 0.2rem;
@@ -70,16 +64,22 @@ a {
     text-align: left;
   }
 
+  h2 {
+    margin-top: 3rem;
+    text-transform: uppercase;
+  }
+
   background-color: variables.$white-background-color;
   min-width: 100vw;
 
   padding-top: 3rem;
-
   padding-bottom: 4rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  row-gap: 2rem;
 
   .banner {
     position: absolute;
@@ -89,7 +89,7 @@ a {
     border-radius: 3rem;
     overflow: hidden;
 
-    margin: 2rem 0;
+    margin: 0;
   }
 
   .center {

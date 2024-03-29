@@ -14,12 +14,7 @@ export default function MembersList(props: {
       <h1>{translate("committee", locale(router), { capitalize: true })}</h1>
       <div className={styles.list}>
         {props.membership.map((m) => (
-          <Card
-            size="small"
-            key={(m as any).id}
-            member={m.member}
-            membership={m}
-          />
+          <Card key={(m as any).id} member={m.member} membership={m} />
         ))}
       </div>
     </div>
