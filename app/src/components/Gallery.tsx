@@ -23,6 +23,7 @@ export default function Gallery({
 
   let count_5 = 0;
   let count_3 = 0;
+  let key = 0;
   imgs.map((img) => {
     let is_long_5 = Math.random() > 0.5 && count_5 < 4;
     count_5 += is_long_5 ? 2 : 1;
@@ -42,8 +43,10 @@ export default function Gallery({
             ${is_long_3 ? styles.long_3 : ""} 
             ${is_long_5 ? styles.long_5 : ""}
           `}
+        key={key}
       />
     );
+    key += 1;
   });
 
   return (

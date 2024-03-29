@@ -46,6 +46,11 @@ function SideMenu({
   className?: string;
 }) {
   const router = useRouter();
+
+  if (!langs) {
+    return <></>;
+  }
+
   return (
     <>
       <Burger
