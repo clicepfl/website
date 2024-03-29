@@ -35,7 +35,6 @@ export default function Page(
 
         <SocialsList socials={props.socialLinks} />
       </div>
-      <hr />
       <MembersList membership={props.members} />
     </div>
   );
