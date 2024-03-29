@@ -1,9 +1,10 @@
+import SocialsList from "./SocialsList";
 import Corner from "@/assets/corner.svg";
 import Burger from "@/assets/icons/burger_menu_icon.svg";
 import Lang from "@/assets/icons/lang.svg";
 import { locale, translate } from "@/locales";
 import styles from "@/styles/NavigationBar.module.scss";
-import { Commission } from "@/types/aliases";
+import { Commission, SocialLink } from "@/types/aliases";
 import { Schema } from "@/types/schema";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -30,13 +31,21 @@ function SideMenu({
   headToggle: toggle,
   children,
   visible,
+  langs,
+  socials,
   className,
 }: {
   headToggle: any;
   children: any;
   visible: boolean;
+  langs: {
+    code?: string | undefined;
+    name?: string | null | undefined;
+  }[];
+  socials: SocialLink[];
   className?: string;
 }) {
+  const router = useRouter();
   return (
     <>
       <Burger
@@ -49,6 +58,22 @@ function SideMenu({
       >
         <div className={styles.sideMenu + " " + (className || "")}>
           {children}
+          <div className={styles.sideMenuLangs}>
+            <Lang className={styles.sideLang} />
+            {langs.map((l) => (
+              <div
+                key={l.code}
+                className={styles.langItem}
+                onClick={() => {
+                  router.push(router.asPath, undefined, { locale: l.code });
+                  toggle();
+                }}
+              >
+                {l.name}
+              </div>
+            ))}
+            <SocialsList socials={socials} light={true} />
+          </div>
         </div>
       </div>
     </>
@@ -57,6 +82,7 @@ function SideMenu({
 
 export default function NavigationBar(props: {
   commissions?: Commission[];
+  socials?: SocialLink[];
   langs: Schema["languages"];
 }) {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -191,6 +217,8 @@ export default function NavigationBar(props: {
         <SideMenu
           headToggle={toggleMenu}
           visible={menuVisible}
+          langs={props.langs}
+          socials={props.socials || []}
           className={styles.burgerContainer}
         >
           {entries}

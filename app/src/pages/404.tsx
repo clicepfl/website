@@ -19,7 +19,7 @@ export default function NotFound() {
             plural: false,
           })}
         </h4>
-        <Button text="Home" onClick={() => router.push("/")} size="large" />
+        <Button text="Home" onClick={() => router.push("/")} />
       </div>
     </>
   );

@@ -1,0 +1,32 @@
+@use "./utilities/variables";
+@use "./utilities/glass";
+
+.page {
+  @extend .glass;
+  background-color: transparent;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+
+  align-items: center;
+  width: 80%;
+
+  margin-top: calc(variables.$navbar-height);
+  padding: 2rem;
+  border-radius: 3rem;
+
+  h1 {
+    @extend .glass;
+    color: variables.$title-color;
+    border-radius: 3rem;
+    width: fit-content;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @media (max-width: 800px) {
+    width: 95%;
+    border-radius: 0;
+  }
+}

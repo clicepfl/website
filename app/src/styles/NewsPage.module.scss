@@ -1,32 +1,11 @@
-@use "./utilities/glass";
-@use "./utilities/variables";
-
-.pageList {
-  @extend .glass;
-
-  background-color: transparent;
-  // background-color: rgba($color: #2f00ff, $alpha: 0.25);
-
+.list {
   display: grid;
-
   grid-template-columns: auto auto;
   gap: 2rem;
 
-  width: 80%;
-
-  margin-top: 6rem;
-  padding: 2rem;
-  border-radius: 3rem;
-
-  > :first-child,
-  > :nth-child(2) {
+  > :first-child {
     grid-column: 1 / 3;
   }
-
-  h1 {
-    color: variables.$dark-title-color;
-  }
-
   @media (max-width: 1000px) {
     grid-template-columns: auto;
 

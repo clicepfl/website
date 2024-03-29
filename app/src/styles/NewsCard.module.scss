@@ -70,4 +70,10 @@
       }
     }
   }
+
+  @media (max-width: 600px) {
+    .picture {
+      height: 10rem;
+    }
+  }
 }

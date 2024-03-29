@@ -1,6 +1,6 @@
 import Button from "./Button";
 import DirectusImage from "./DirectusImage";
-import { getTranslation } from "@/locales";
+import { getTranslation, locale } from "@/locales";
 import styles from "@/styles/NewsCard.module.scss";
 import { News } from "@/types/aliases";
 import Link from "next/link";
@@ -15,7 +15,7 @@ export default function NewsCard({
 }) {
   const router = useRouter();
 
-  const translation = getTranslation(news, router.locale);
+  const translation = getTranslation(news, locale(router));
   return (
     <Link
       href={`/news/${news.slug}`}
@@ -38,7 +38,7 @@ export default function NewsCard({
               : ""}
           </p>
         </div>
-        <Button className={styles.button} text=">" size="small" />
+        <Button className={styles.button} text=">" />
       </div>
     </Link>
   );

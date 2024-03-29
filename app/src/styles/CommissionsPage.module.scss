@@ -1,41 +1,15 @@
-@use "./utilities/variables";
-@use "./utilities/glass";
-
-.commissionsList {
-  @extend .glass;
-  background-color: transparent;
-
+.list {
   display: flex;
-  flex-direction: column;
-  row-gap: 1em;
+  flex-wrap: wrap;
+  align-items: stretch;
 
-  align-items: center;
+  gap: 2rem;
 
-  margin-top: 6rem;
-  padding: 2rem;
-  border-radius: 3rem;
-  padding-bottom: 2rem;
-
-  width: 80%;
-
-  h1 {
-    color: variables.$dark-title-color;
+  &:last-child {
+    justify-content: center; /* Center the last line */
   }
-
-  .list {
+  .card {
     width: 100%;
-
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-
-    gap: 2rem;
-
-    &:last-child {
-      justify-content: center; /* Center the last line */
-    }
-    .card {
-      width: 25rem;
-    }
+    max-width: 25rem;
   }
 }

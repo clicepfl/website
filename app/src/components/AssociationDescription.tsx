@@ -1,6 +1,6 @@
 import DirectusImage from "./DirectusImage";
 import SocialsList from "./SocialsList";
-import { getTranslation } from "@/locales";
+import { getTranslation, locale } from "@/locales";
 import styles from "@/styles/AssociationDescription.module.scss";
 import { Association, PublicFiles, SocialLink } from "@/types/aliases";
 import Link from "next/link";
@@ -17,7 +17,7 @@ export default function AssociationDescription({
   publicFiles: PublicFiles[];
 }) {
   const router = useRouter();
-  const translation = getTranslation(association, router.locale);
+  const translation = getTranslation(association, locale(router));
 
   return (
     <div className="page">
@@ -31,11 +31,11 @@ export default function AssociationDescription({
               ) : (
                 <></>
               )}
-              {getTranslation(f, router.locale).name}
+              {getTranslation(f, locale(router)).name}
             </Link>
           ))}
         </div>
-        <SocialsList socials={socialLinks}></SocialsList>
+        <SocialsList socials={socialLinks} />
       </div>
     </div>
   );

@@ -14,6 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <NavigationBar
         commissions={pageProps.layoutProps?.commissions}
         langs={pageProps.layoutProps?.langs}
+        socials={pageProps.layoutProps?.socialLinks}
       />
       <div
         className="main"

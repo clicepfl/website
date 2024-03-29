@@ -8,7 +8,12 @@ import MembersList from "@/components/MembersList";
 import NewsCard from "@/components/NewsCard";
 import PartnersList from "@/components/PartnersList";
 import { directus, populateLayoutProps } from "@/directus";
-import { getTranslation, queryTranslations, translate } from "@/locales";
+import {
+  getTranslation,
+  locale,
+  queryTranslations,
+  translate,
+} from "@/locales";
 import styles from "@/styles/Homepage.module.scss";
 import {
   Association,
@@ -28,7 +33,7 @@ export default function Home(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   const router = useRouter();
-  const translation = getTranslation(props.association, router.locale);
+  const translation = getTranslation(props.association, locale(router));
 
   var orderedPartners = props.partners.reduce(
     (list: [PartnerCategory, Partner[]][], partner: Partner) => {
@@ -65,7 +70,6 @@ export default function Home(
         </div>
         <Button
           text={translate("moreNews", router.locale)}
-          size="small"
           onClick={() => router.push("/news")}
         />
       </div>
