@@ -1,4 +1,4 @@
-import Card from "@/components/Card";
+import CommissionCard from "@/components/CommissionCard";
 import DirectusImage from "@/components/DirectusImage";
 import { directus, populateLayoutProps } from "@/directus";
 import {
@@ -8,6 +8,7 @@ import {
   queryTranslations,
   translate,
 } from "@/locales";
+import styles from "@/styles/Page.module.scss";
 import { Commission, News } from "@/types/aliases";
 import { readItems } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
@@ -19,15 +20,15 @@ export default function Page(
 ) {
   const commissions: Commission[] = props.news.commissions;
   const router = useRouter();
-  const translation = getTranslation(props.news, router.locale);
+  const translation = getTranslation(props.news, locale(router));
 
   return (
-    <div className="page">
-      <div className="center">
-        <h1 className="large">{translation.title}</h1>
+    <div className={styles.main}>
+      <div className={styles.center}>
+        <h1>{translation.title}</h1>
         <h4>{translation.description}</h4>
         {props.news.date_created ? (
-          <p className="author">
+          <p className={styles.author}>
             {`${formatDate(props.news.date_created, router.locale, {
               capitalize: true,
             })}`}
@@ -35,8 +36,12 @@ export default function Page(
         ) : (
           <></>
         )}
-        <DirectusImage className="banner" img={translation.banner} />
-        <Markdown className="text">{translation.content}</Markdown>
+        <DirectusImage
+          className={styles.banner}
+          img={translation.banner}
+          cover={true}
+        />
+        <Markdown className={styles.text}>{translation.content}</Markdown>
         {commissions.length > 0 ? (
           <>
             <h1>
@@ -45,7 +50,7 @@ export default function Page(
               })}
             </h1>
             {commissions.map((c) => (
-              <Card key={(c as any).id} commission={c} size="large" />
+              <CommissionCard key={c.id} commission={c} />
             ))}
           </>
         ) : (
