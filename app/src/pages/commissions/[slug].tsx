@@ -3,6 +3,7 @@ import MembersList from "@/components/MembersList";
 import SocialsList from "@/components/SocialsList";
 import { directus, populateLayoutProps } from "@/directus";
 import { getTranslation, locale, queryTranslations } from "@/locales";
+import styles from "@/styles/Page.module.scss";
 import {
   AssociationMembership,
   Commission,
@@ -21,17 +22,17 @@ export default function Page(
   const translation = getTranslation(props.commission, locale(router));
 
   return (
-    <div className="page">
-      <div className="center">
+    <div className={styles.main}>
+      <div className={styles.center}>
         <DirectusImage
-          className="banner"
+          className={styles.banner}
           img={translation.banner}
           cover={true}
         />
         <h3>{props.commission.name}</h3>
         <h4>{translation.small_description}</h4>
 
-        <Markdown className="text">{translation.description}</Markdown>
+        <Markdown className={styles.text}>{translation.description}</Markdown>
 
         <SocialsList socials={props.socialLinks} />
       </div>

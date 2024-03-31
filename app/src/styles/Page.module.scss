@@ -1,0 +1,115 @@
+@use "utilities/variables";
+
+.publicFiles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+
+    // Generated with https://angel-rs.github.io/css-color-filter-generator/
+    filter: brightness(0) saturate(100%) invert(56%) sepia(49%) saturate(4097%)
+      hue-rotate(214deg) brightness(103%) contrast(101%);
+  }
+
+  > * {
+    border: 2px variables.$glass-color solid;
+    border-radius: 1rem;
+    padding: 1rem;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &:hover {
+      border: 2px variables.$glass-color-hover solid;
+      color: variables.$glass-color-hover;
+    }
+  }
+}
+
+.main {
+  @extend .text;
+  h4 {
+    text-align: left;
+  }
+
+  h2 {
+    margin-top: 3rem;
+    text-transform: uppercase;
+  }
+
+  background-color: variables.$white-background-color;
+  min-width: 100vw;
+
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  row-gap: 2rem;
+
+  .banner {
+    position: absolute;
+    width: 100%;
+    height: 20rem;
+
+    border-radius: 3rem;
+    overflow: hidden;
+
+    margin: 0;
+  }
+
+  .logo {
+    height: 15rem;
+    width: 25rem;
+  }
+
+  .center {
+    align-items: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    width: min(70ch, 80%);
+
+    img {
+      width: 100%;
+    }
+
+    .author {
+      margin: 0;
+      font-weight: 200;
+    }
+  }
+}
+
+.text {
+  h1 {
+    text-align: center;
+
+    // h4 (subtitle) must be centered and slightly enlarged
+    + h4 {
+      text-align: center;
+      font-size: large;
+    }
+  }
+
+  h4 {
+    font-weight: lighter;
+    margin-top: 0.2rem;
+  }
+
+  a {
+    color: variables.$text-link-color;
+  }
+
+  p {
+    text-align: justify;
+  }
+}

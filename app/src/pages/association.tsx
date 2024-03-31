@@ -3,6 +3,7 @@ import DirectusImage from "@/components/DirectusImage";
 import MembersList from "@/components/MembersList";
 import { directus, populateLayoutProps } from "@/directus";
 import { getTranslation, locale, queryTranslations } from "@/locales";
+import styles from "@/styles/Page.module.scss";
 import {
   Association,
   AssociationMembership,
@@ -20,7 +21,7 @@ export default function AssociationPage(
   const router = useRouter();
   const translation = getTranslation(props.association, locale(router));
   return (
-    <div className="page">
+    <div className={styles.main}>
       <div className="center">
         <DirectusImage className="logo" img={translation.banner} />
         <AssociationDescription
