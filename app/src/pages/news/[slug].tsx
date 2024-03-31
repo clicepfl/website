@@ -18,7 +18,6 @@ import Markdown from "react-markdown";
 export default function Page(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
-  const commissions: Commission[] = props.news.commissions;
   const router = useRouter();
   const translation = getTranslation(props.news, locale(router));
 
@@ -42,14 +41,14 @@ export default function Page(
           cover={true}
         />
         <Markdown className={styles.text}>{translation.content}</Markdown>
-        {commissions.length > 0 ? (
+        {props.commissions.length > 0 ? (
           <>
             <h1>
               {translate("relatedContent", locale(router), {
                 capitalize: true,
               })}
             </h1>
-            {commissions.map((c) => (
+            {props.commissions.map((c) => (
               <CommissionCard key={c.id} commission={c} />
             ))}
           </>
@@ -62,7 +61,8 @@ export default function Page(
 }
 
 export const getServerSideProps: GetServerSideProps<{
-  news: News & { commissions: Commission[] };
+  news: News;
+  commissions: Commission[];
 }> = populateLayoutProps(async (context) => {
   if (typeof context.params?.slug !== "string") {
     return { notFound: true };
@@ -80,5 +80,15 @@ export const getServerSideProps: GetServerSideProps<{
     return { notFound: true };
   }
 
-  return { props: { news: news[0] as News & { commissions: Commission[] } } };
+  let commissions = (await directus()
+    .request(
+      readItems("news_commissions", {
+        ...queryTranslations,
+        fields: [{ commissions_id: ["*.*"] }],
+        filter: { news_id: { _eq: news[0].id } },
+      })
+    )
+    .then((result) => result.map((c) => c.commissions_id))) as Commission[];
+
+  return { props: { news: news[0], commissions: commissions } };
 });

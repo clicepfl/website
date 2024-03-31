@@ -31,9 +31,11 @@
 }
 
 .main {
-  @extend .text;
   h4 {
-    text-align: left;
+    text-align: center;
+
+    font-weight: lighter;
+    margin-top: 0.2rem;
   }
 
   h2 {

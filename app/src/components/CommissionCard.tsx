@@ -1,6 +1,6 @@
 import Button from "./Button";
 import DirectusImage from "./DirectusImage";
-import { getTranslation, translate } from "@/locales";
+import { getTranslation, locale, translate } from "@/locales";
 import styles from "@/styles/CommissionCard.module.scss";
 import { Commission } from "@/types/aliases";
 import Link from "next/link";
@@ -12,11 +12,11 @@ export default function CommissionCard(props: {
 }) {
   const router = useRouter();
 
-  let translation = getTranslation(props.commission, useRouter().locale);
+  let translation = getTranslation(props.commission, locale(router));
   let img = translation.banner ? translation.banner : props.commission.logo;
   let description = getTranslation(
     props.commission,
-    router.locale
+    locale(router)
   ).small_description;
 
   const component = (

@@ -21,8 +21,9 @@ export default function AssociationDescription({
 
   return (
     <div className={styles.main}>
+      <DirectusImage img={association.logo} className={styles.logo} />
       <div className={styles.center}>
-        <Markdown className="text">{translation.description}</Markdown>
+        <Markdown className={styles.text}>{translation.description}</Markdown>
         <div className={styles.publicFiles}>
           {publicFiles.map((f) => (
             <Link href={f.link || ""} key={f.id}>
