@@ -1,6 +1,7 @@
 import DirectusImage from "@/components/DirectusImage";
 import MembersList from "@/components/MembersList";
 import SocialsList from "@/components/SocialsList";
+import TabTitle from "@/components/TabTitle";
 import { directus, populateLayoutProps } from "@/directus";
 import { getTranslation, locale, queryTranslations } from "@/locales";
 import styles from "@/styles/Page.module.scss";
@@ -23,6 +24,8 @@ export default function Page(
 
   return (
     <div className={styles.main}>
+      <TabTitle title={props.commission.name || ""} />
+
       <div className={styles.center}>
         <DirectusImage
           className={styles.banner}

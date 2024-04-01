@@ -1,6 +1,7 @@
 import Background from "@/assets/background.svg";
 import Icon from "@/assets/icons/family.svg";
 import CommissionCard from "@/components/CommissionCard";
+import TabTitle from "@/components/TabTitle";
 import { directus, populateLayoutProps } from "@/directus";
 import { locale, translate } from "@/locales";
 import commissionsStyle from "@/styles/CommissionsPage.module.scss";
@@ -16,6 +17,13 @@ export default function Commissions(
   const router = useRouter();
   return (
     <>
+      <TabTitle
+        title={translate("commission", router.locale, {
+          capitalize: true,
+          plural: true,
+        })}
+      />
+
       <Background className={listPageStyle.background} name="background" />
       <div className={listPageStyle.page}>
         <div className={listPageStyle.title}>

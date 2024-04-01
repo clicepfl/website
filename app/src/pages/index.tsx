@@ -8,6 +8,7 @@ import Gallery from "@/components/Gallery";
 import MembersList from "@/components/MembersList";
 import NewsCard from "@/components/NewsCard";
 import PartnersList from "@/components/PartnersList";
+import TabTitle from "@/components/TabTitle";
 import { directus, populateLayoutProps } from "@/directus";
 import {
   getTranslation,
@@ -53,6 +54,7 @@ export default function Home(
 
   return (
     <>
+      <TabTitle title={translate("slogan", router.locale)} />
       <Background className={styles.background} name="background" />
       <div className={styles.divLogo}>
         <DirectusImage img={translation.banner} className={styles.mainLogo} />

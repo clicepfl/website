@@ -1,8 +1,14 @@
 import AssociationDescription from "@/components/AssociationDescription";
 import DirectusImage from "@/components/DirectusImage";
 import MembersList from "@/components/MembersList";
+import TabTitle from "@/components/TabTitle";
 import { directus, populateLayoutProps } from "@/directus";
-import { getTranslation, locale, queryTranslations } from "@/locales";
+import {
+  getTranslation,
+  locale,
+  queryTranslations,
+  translate,
+} from "@/locales";
 import styles from "@/styles/Page.module.scss";
 import {
   Association,
@@ -22,6 +28,12 @@ export default function AssociationPage(
   const translation = getTranslation(props.association, locale(router));
   return (
     <div className={styles.main}>
+      <TabTitle
+        title={translate("association", router.locale, {
+          capitalize: true,
+        })}
+      />
+
       <div className="center">
         <DirectusImage className="logo" img={translation.banner} />
         <AssociationDescription

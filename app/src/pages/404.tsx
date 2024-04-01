@@ -1,4 +1,5 @@
 import Button from "@/components/Button";
+import TabTitle from "@/components/TabTitle";
 import { locale, translate } from "@/locales";
 import { useRouter } from "next/router";
 
@@ -6,6 +7,8 @@ export default function NotFound() {
   const router = useRouter();
   return (
     <>
+      <TabTitle title="Not found" />
+
       <div className="page">
         <h1>
           {translate("error404", locale(router), {

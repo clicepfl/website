@@ -24,6 +24,7 @@ interface Translations {
   error404desc: string;
   gallery: string;
   readMore: string;
+  slogan: string;
 }
 
 type OptionsOperators = {
@@ -46,8 +47,10 @@ const translations: { [key in Locale]: Translations & OptionsOperators } = {
     error404desc: "this page does not exist!",
     gallery: "gallery",
     readMore: "read more >",
+    slogan:
+      "Association of students in Computer science and Communication systems",
     capitalize: (s) => s.replace(/^(\s*\w)/, (s) => s.toUpperCase()),
-    plural: (s) => s + "s",
+    plural: (s) => (!s.endsWith("s") ? s + "s" : s),
   },
   "fr-FR": {
     dateIndicator: "le",
@@ -64,8 +67,10 @@ const translations: { [key in Locale]: Translations & OptionsOperators } = {
     error404desc: "cette page n'existe pas!",
     gallery: "galerie",
     readMore: "lire plus >",
+    slogan:
+      "Association des étudiant.e.s en Informatique et Systèmes de communication",
     capitalize: (s) => s.replace(/^(\s*\w)/, (s) => s.toUpperCase()),
-    plural: (s) => (s.endsWith("u") ? s + "x" : s + "s"),
+    plural: (s) => (s.endsWith("u") ? s + "x" : !s.endsWith("s") ? s + "s" : s),
   },
 };
 

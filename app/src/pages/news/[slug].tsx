@@ -1,5 +1,6 @@
 import CommissionCard from "@/components/CommissionCard";
 import DirectusImage from "@/components/DirectusImage";
+import TabTitle from "@/components/TabTitle";
 import { directus, populateLayoutProps } from "@/directus";
 import {
   formatDate,
@@ -23,6 +24,8 @@ export default function Page(
 
   return (
     <div className={styles.main}>
+      <TabTitle title={translation.title || ""} />
+
       <div className={styles.center}>
         {props.news.date_created ? (
           <p className={styles.author}>
