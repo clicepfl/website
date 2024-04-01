@@ -1,3 +1,5 @@
+import Background from "@/assets/background.svg";
+import Icon from "@/assets/icons/family.svg";
 import CommissionCard from "@/components/CommissionCard";
 import { directus, populateLayoutProps } from "@/directus";
 import { locale, translate } from "@/locales";
@@ -13,23 +15,29 @@ export default function Commissions(
 ) {
   const router = useRouter();
   return (
-    <div className={listPageStyle.page}>
-      <h1>
-        {translate("commission", locale(router), {
-          capitalize: true,
-          plural: true,
-        })}
-      </h1>
-      <div className={commissionsStyle.list}>
-        {props.commissions.map((c) => (
-          <CommissionCard
-            className={commissionsStyle.card}
-            key={c.id}
-            commission={c}
-          />
-        ))}
+    <>
+      <Background className={listPageStyle.background} name="background" />
+      <div className={listPageStyle.page}>
+        <div className={listPageStyle.title}>
+          <Icon className={listPageStyle.icon} />
+          <h1>
+            {translate("commission", locale(router), {
+              capitalize: true,
+              plural: true,
+            })}
+          </h1>
+        </div>
+        <div className={commissionsStyle.list}>
+          {props.commissions.map((c) => (
+            <CommissionCard
+              className={commissionsStyle.card}
+              key={c.id}
+              commission={c}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

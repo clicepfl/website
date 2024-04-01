@@ -1,6 +1,12 @@
 @use "utilities/glass";
 @use "utilities/variables";
 
+.background {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
 .divLogo {
   width: 100%;
   height: calc(100vh - variables.$navbar-height);

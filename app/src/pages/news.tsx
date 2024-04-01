@@ -1,3 +1,5 @@
+import Background from "@/assets/background.svg";
+import Icon from "@/assets/icons/news.svg";
 import NewsCard from "@/components/NewsCard";
 import { directus, populateLayoutProps } from "@/directus";
 import { queryTranslations } from "@/locales";
@@ -11,14 +13,20 @@ export default function NewsComponent(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   return (
-    <div className={listPageStyle.page}>
-      <h1>News</h1>
-      <div className={newsStyle.list}>
-        {props.news.map((n) => (
-          <NewsCard key={(n as any).id} news={n} />
-        ))}
+    <>
+      <Background className={listPageStyle.background} name="background" />
+      <div className={listPageStyle.page}>
+        <div className={listPageStyle.title}>
+          <Icon className={listPageStyle.icon} />
+          <h1>News</h1>
+        </div>
+        <div className={newsStyle.list}>
+          {props.news.map((n) => (
+            <NewsCard key={(n as any).id} news={n} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

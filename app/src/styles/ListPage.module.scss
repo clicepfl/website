@@ -1,6 +1,11 @@
 @use "./utilities/variables";
 @use "./utilities/glass";
 
+.background {
+  position: absolute;
+  top: 13rem;
+}
+
 .page {
   @extend .glass;
   background-color: transparent;
@@ -16,18 +21,31 @@
   padding: 2rem;
   border-radius: 3rem;
 
-  h1 {
-    @extend .glass;
-    color: variables.$title-color;
-    border-radius: 1rem;
-    width: fit-content;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    box-shadow: none;
+  .title {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    .icon {
+      height: 6rem;
+      margin: 1rem;
+      color: variables.$title-color;
+    }
+    h1 {
+      color: variables.$title-color;
+      text-align: center;
+      text-transform: capitalize;
+    }
   }
 
   @media (max-width: 800px) {
     width: 95%;
     border-radius: 0;
+
+    .title {
+      .icon {
+        height: 3rem;
+      }
+    }
   }
 }

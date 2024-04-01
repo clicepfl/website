@@ -1,7 +1,3 @@
-// The ?url suffix allows to import the background using the classic NextJS loader (instead of SVGR).
-// This is required to get a url for the `background-image` css property.
-// @ts-ignore
-import Background from "../../public/background.svg?url";
 import Footer from "@/components/Footer";
 import NavigationBar from "@/components/NavigationBar";
 import "@/styles/globals.scss";
@@ -16,10 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
         langs={pageProps.layoutProps?.langs}
         socials={pageProps.layoutProps?.socialLinks}
       />
-      <div
-        className="main"
-        style={{ backgroundImage: `url(${Background.src})` }}
-      >
+      <div className="main">
         <Component {...pageProps} />
       </div>
       <Footer

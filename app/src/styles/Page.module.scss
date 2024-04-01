@@ -115,3 +115,11 @@
     text-align: justify;
   }
 }
+
+.relatedContent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+
+  gap: 2rem;
+}

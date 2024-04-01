@@ -24,8 +24,6 @@ export default function Page(
   return (
     <div className={styles.main}>
       <div className={styles.center}>
-        <h1>{translation.title}</h1>
-        <h4>{translation.description}</h4>
         {props.news.date_created ? (
           <p className={styles.author}>
             {`${formatDate(props.news.date_created, router.locale, {
@@ -40,22 +38,26 @@ export default function Page(
           img={translation.banner}
           cover={true}
         />
+        <h1>{translation.title}</h1>
+        <h4>{translation.description}</h4>
         <Markdown className={styles.text}>{translation.content}</Markdown>
-        {props.commissions.length > 0 ? (
-          <>
-            <h1>
-              {translate("relatedContent", locale(router), {
-                capitalize: true,
-              })}
-            </h1>
+      </div>
+      {props.commissions.length > 0 ? (
+        <>
+          <h1>
+            {translate("relatedContent", locale(router), {
+              capitalize: true,
+            })}
+          </h1>
+          <div className={styles.relatedContent}>
             {props.commissions.map((c) => (
               <CommissionCard key={c.id} commission={c} />
             ))}
-          </>
-        ) : (
-          <></>
-        )}
-      </div>
+          </div>
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

@@ -13,6 +13,7 @@ a {
 }
 
 .main {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,14 +24,6 @@ a {
   padding-top: variables.$navbar-height;
   padding-bottom: 6rem;
   min-height: 100vh;
-
-  background-position: left top;
-  background-repeat: no-repeat;
-  background-size: contain;
-
-  @media (max-width: 800px) {
-    background-size: 150%;
-  }
 }
 
 h1 {

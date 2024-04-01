@@ -1,3 +1,4 @@
+import Background from "@/assets/background.svg";
 import Decoration from "@/assets/decoration.svg";
 import PreviewImage from "@/assets/galleryPreview.png";
 import AssociationDescription from "@/components/AssociationDescription";
@@ -52,6 +53,7 @@ export default function Home(
 
   return (
     <>
+      <Background className={styles.background} name="background" />
       <div className={styles.divLogo}>
         <DirectusImage img={translation.banner} className={styles.mainLogo} />
         <img
