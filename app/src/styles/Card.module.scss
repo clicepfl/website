@@ -11,15 +11,30 @@
 
   border-radius: 5rem;
 
-  h4 {
-    margin: 0;
-    margin-bottom: 0.5rem;
-    font-weight: lighter;
-    color: variables.$text-color;
-  }
+  padding: 1rem;
+
+  width: 20rem;
+  height: 6rem;
 
   .content {
+    color: variables.$text-color;
     margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+
+    .name {
+      margin: 0;
+      font-size: 15pt;
+      text-align: left;
+      color: variables.$text-color;
+      line-height: 1.5rem;
+    }
+
+    .description {
+      line-height: 1rem;
+      margin: 0;
+    }
   }
 
   &:hover {
@@ -35,22 +50,4 @@
     border: 3px white solid;
     border-radius: 50%;
   }
-
-  .name {
-    font-size: larger;
-  }
-
-  .description {
-    font-weight: 300;
-    text-align: left;
-    font-size: large;
-    margin: 0;
-  }
-
-  padding: 1rem;
-
-  width: 19rem;
-  height: 6rem;
-
-  color: variables.$text-color;
 }
