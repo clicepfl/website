@@ -24,6 +24,7 @@ export default function Footer({
       <div className={styles.center}>
         <div className={styles.content}>
           <DirectusImage
+            sizes="33vw"
             img={association.logo}
             name={association.name || ""}
             className={styles.footerLogo}
