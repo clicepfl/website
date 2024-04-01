@@ -37,6 +37,7 @@ export default function Page(
           <></>
         )}
         <DirectusImage
+          sizes="100vw"
           className={styles.banner}
           img={translation.banner}
           cover={true}

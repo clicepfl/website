@@ -8,7 +8,12 @@ import { useRouter } from "next/router";
 function PartnerDisplay({ p }: { p: Partner }) {
   return (
     <Link href={p.link || ""} key={p.id}>
-      <DirectusImage img={p.logo} name={p.name} className={styles.logo} />
+      <DirectusImage
+        sizes="15rem"
+        img={p.logo}
+        name={p.name}
+        className={styles.logo}
+      />
     </Link>
   );
 }

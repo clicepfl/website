@@ -22,6 +22,7 @@ export default function NewsCard({
       className={`${styles.newsCard} ${vertical ? styles.vertical : ""}`}
     >
       <DirectusImage
+        sizes="30rem"
         img={translation.banner}
         name={translation.title || ""}
         className={styles.picture}

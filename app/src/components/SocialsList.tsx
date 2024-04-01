@@ -19,6 +19,7 @@ export default function SocialsList({
     list.push(
       <Link href={s.link || ""} id={s.id?.toString()} key={s.id?.toString()}>
         <DirectusImage
+          sizes="4rem"
           img={s.logo}
           name={s.media_name}
           className={`${styles.social} ${light ? styles.light : ""}`}

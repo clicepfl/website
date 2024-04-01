@@ -57,7 +57,11 @@ export default function Home(
       <TabTitle title={translate("slogan", router.locale)} />
       <Background className={styles.background} name="background" />
       <div className={styles.divLogo}>
-        <DirectusImage img={translation.banner} className={styles.mainLogo} />
+        <DirectusImage
+          sizes="(max-width: 800px) 25vw, (max-width: 1200px) 37.5, 50vw"
+          img={translation.banner}
+          className={styles.mainLogo}
+        />
         <img
           src={PreviewImage.src}
           alt="preview"

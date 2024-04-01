@@ -15,11 +15,13 @@ export default function DirectusImage({
   name,
   className,
   cover,
+  sizes,
 }: {
   img?: string | components["schemas"]["Files"] | null;
   name?: string | null;
   className?: string;
   cover?: boolean;
+  sizes: string;
 }) {
   if (img) {
     return (
@@ -30,6 +32,8 @@ export default function DirectusImage({
           fill
           style={{ objectFit: cover ? "cover" : "contain" }}
           alt={name || "image"}
+          sizes={sizes}
+          loading="eager"
         />
       </div>
     );

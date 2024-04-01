@@ -34,8 +34,8 @@ export default function AssociationPage(
         })}
       />
 
-      <div className="center">
-        <DirectusImage className="logo" img={translation.banner} />
+      <div>
+        <DirectusImage sizes="25rem" img={translation.banner} />
         <AssociationDescription
           association={props.association}
           socialLinks={props.socialLinks}

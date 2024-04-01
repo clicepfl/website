@@ -35,6 +35,13 @@ export default function Gallery({
 
     content.push(
       <DirectusImage
+        sizes={
+          is_long_5
+            ? "(max-width: 1200px) 20vw, 40vw"
+            : is_long_3
+            ? "40vw"
+            : "20vw"
+        }
         img={img}
         name={"gallery image"}
         cover={true}

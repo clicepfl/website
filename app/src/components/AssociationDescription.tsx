@@ -21,14 +21,22 @@ export default function AssociationDescription({
 
   return (
     <div className={styles.main}>
-      <DirectusImage img={association.logo} className={styles.logo} />
+      <DirectusImage
+        sizes="25rem"
+        img={association.logo}
+        className={styles.logo}
+      />
       <div className={styles.center}>
         <Markdown className={styles.text}>{translation.description}</Markdown>
         <div className={styles.publicFiles}>
           {publicFiles.map((f) => (
             <Link href={f.link || ""} key={f.id}>
               {f.icon ? (
-                <DirectusImage className={styles.icon} img={f.icon} />
+                <DirectusImage
+                  sizes="1.5rem"
+                  className={styles.icon}
+                  img={f.icon}
+                />
               ) : (
                 <></>
               )}

@@ -22,6 +22,7 @@ export default function CommissionCard(props: {
   const component = (
     <div>
       <DirectusImage
+        sizes="30rem"
         img={img}
         name={props.commission.name || ""}
         className={styles.picture}
