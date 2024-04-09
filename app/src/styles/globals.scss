@@ -21,8 +21,7 @@ a {
   overflow: hidden;
 
   padding-top: variables.$navbar-height;
-  padding-bottom: 6rem;
-  min-height: 100vh;
+  min-height: calc(100vh - variables.$navbar-height);
 }
 
 h1 {
