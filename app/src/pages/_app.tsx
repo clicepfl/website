@@ -11,7 +11,11 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <TranslationTableContext.Provider
-      value={pageProps.layoutProps?.translations[locale(router.locale)]}
+      value={
+        pageProps.layoutProps?.translations
+          ? pageProps.layoutProps?.translations[locale(router.locale)]
+          : {}
+      }
     >
       <NavigationBar
         commissions={pageProps.layoutProps?.commissions}

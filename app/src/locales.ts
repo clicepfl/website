@@ -36,10 +36,10 @@ export const TranslationTableContext = React.createContext(
 
 export const useTranslationTable = () => useContext(TranslationTableContext);
 
-export function capitalize(val: string) {
-  return val.length > 0
+export function capitalize(val?: string) {
+  return val && val.length > 0
     ? (val.at(0) as string).toUpperCase() + val.slice(1)
-    : val;
+    : "";
 }
 
 interface LangOptions {
