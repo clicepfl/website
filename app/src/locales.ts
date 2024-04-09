@@ -1,4 +1,5 @@
 import config from "@/../next.config";
+import React, { useContext } from "react";
 
 export type Locale = string;
 
@@ -27,102 +28,38 @@ interface Translations {
   slogan: string;
 }
 
-type OptionsOperators = {
-  [key in keyof LangOptions]: (value: string) => string;
-};
+export type TranslationTable = { [lang: string]: { [key: string]: string } };
 
-const translations: { [key in Locale]: Translations & OptionsOperators } = {
-  "en-US": {
-    dateIndicator: "on",
-    timeIndicator: "at",
-    by: "by",
-    relatedContent: "related content",
-    committee: "committee",
-    commission: "commission",
-    partners: "partners",
-    association: "association",
-    news: "news",
-    moreNews: "more news",
-    error404: "error 404",
-    error404desc: "this page does not exist!",
-    gallery: "gallery",
-    readMore: "read more >",
-    slogan:
-      "Association of students in Computer science and Communication systems",
-    capitalize: (s) => s.replace(/^(\s*\w)/, (s) => s.toUpperCase()),
-    plural: (s) => (!s.endsWith("s") ? s + "s" : s),
-  },
-  "fr-FR": {
-    dateIndicator: "le",
-    timeIndicator: "à",
-    by: "par",
-    relatedContent: "contenu lié",
-    committee: "comité",
-    commission: "commission",
-    partners: "partenaires",
-    association: "association",
-    news: "news",
-    moreNews: "plus de news",
-    error404: "erreur 404",
-    error404desc: "cette page n'existe pas!",
-    gallery: "galerie",
-    readMore: "lire plus >",
-    slogan:
-      "Association des étudiant.e.s en Informatique et Systèmes de communication",
-    capitalize: (s) => s.replace(/^(\s*\w)/, (s) => s.toUpperCase()),
-    plural: (s) => (s.endsWith("u") ? s + "x" : !s.endsWith("s") ? s + "s" : s),
-  },
-};
+export const TranslationTableContext = React.createContext(
+  {} as { [key: string]: string }
+);
+
+export const useTranslationTable = () => useContext(TranslationTableContext);
+
+export function capitalize(val: string) {
+  return val.length > 0
+    ? (val.at(0) as string).toUpperCase() + val.slice(1)
+    : val;
+}
 
 interface LangOptions {
   capitalize?: boolean;
   plural?: boolean;
 }
 
-export function applyOptions(
-  str: string,
-  locale: Locale,
-  opts?: LangOptions
-): string {
-  let result = str;
-  let l = translations[locale];
-
-  if (opts) {
-    Object.keys(opts).forEach((opt: string) => {
-      if ((opts as any)[opt] && opt in l) {
-        result = (l as any)[opt](result);
-      }
-    });
-  }
-
-  return result;
-}
-
 export function formatDate(
   date: Date | string,
   locale: Locale = config.i18n.defaultLocale,
-  opts?: LangOptions
+  t: { [key: string]: string },
+  cap?: boolean
 ): string {
   const d = new Date(date);
-  const t = translations[locale];
+  const val = `${t.dateIndicator} ${d.toLocaleDateString(locale, {
+    dateStyle: "long",
+  })}`;
 
-  return applyOptions(
-    `${t.dateIndicator} ${d.toLocaleDateString(locale, {
-      dateStyle: "long",
-    })}`,
-    locale,
-    opts
-  );
+  return cap ? capitalize(val) : val;
 }
-
-export function translate(
-  id: keyof Translations,
-  locale: Locale = config.i18n.defaultLocale,
-  opts?: LangOptions
-) {
-  return applyOptions(translations[locale][id], locale, opts);
-}
-
 /**
  * Extracts the translation from an object queried from the Directus instance.
  * If the locale given as parameter could not be found in the object, it will default to the `en` locale.

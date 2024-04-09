@@ -1,10 +1,11 @@
-import { queryTranslations } from "./locales";
-import { SocialLink } from "./types/aliases";
+import { TranslationTable, queryTranslations } from "./locales";
+import { Association, Commission, SocialLink } from "./types/aliases";
 import { Schema } from "./types/schema";
 import {
   createDirectus,
   readItems,
   readSingleton,
+  readTranslations,
   rest,
   staticToken,
 } from "@directus/sdk";
@@ -24,6 +25,15 @@ export const directus = () =>
     .with(staticToken(process.env.DIRECTUS_TOKEN || ""))
     .with(rest());
 
+export type LayoutProps = {
+  layoutProps: {
+    association: Association;
+    socialLinks: SocialLink[];
+    commissions: Commission[];
+    langs: string[];
+    translations: TranslationTable;
+  };
+};
 /**
  * Adds additional props to a getServerSideProps function - when it is successful. Those props are used by the layout components, e.g. the navigation bar and footer.
  * @param f Your getServerSideProps function. If it returns successfully, its output props will be populated with layout props.
@@ -32,7 +42,7 @@ export const directus = () =>
 export function populateLayoutProps<T>(
   //@ts-ignore
   f?: GetServerSideProps<T>
-): GetServerSideProps<T & { layoutProps: SocialLink[] }> {
+): GetServerSideProps<T & LayoutProps> {
   return async (context: GetServerSidePropsContext) => {
     let association = await directus().request(readSingleton("association"));
 
@@ -50,12 +60,26 @@ export function populateLayoutProps<T>(
       readItems("commissions", queryTranslations)
     );
 
+    let translations = (await directus().request(readTranslations({}))).reduce<{
+      [lang: string]: { [key: string]: string };
+    }>((res, val) => {
+      if (val.language in res) {
+        res[val.language][val.key] = val.value;
+      } else {
+        res[val.language] = { [val.key]: val.value };
+      }
+      return res;
+    }, {});
+    console.log("translations");
+    console.log(translations);
+
     let layoutProps = {
       layoutProps: {
         association: association,
         socialLinks: socialLinks,
         commissions: commissions,
         langs: langs,
+        translations,
       },
     };
 
