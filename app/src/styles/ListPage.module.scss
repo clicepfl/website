@@ -19,8 +19,9 @@
   width: 80%;
 
   margin-top: variables.$navbar-height;
+  margin-bottom: 5rem;
   padding: 2rem;
-  border-radius: 3rem;
+  border-radius: variables.$border-radius;
 
   .title {
     display: inline-flex;

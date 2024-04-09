@@ -35,7 +35,7 @@
     .image {
       height: 100%;
       width: 100%;
-      border-radius: 1rem;
+      border-radius: variables.$small-border-radius;
       overflow: hidden;
       box-shadow: 0 4px 30px rgba(0, 0, 100, 0.3);
 
