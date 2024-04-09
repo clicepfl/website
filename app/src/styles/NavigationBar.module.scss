@@ -188,11 +188,10 @@
             margin-bottom: 2rem;
           }
         }
-
-        @media (min-width: 800px) {
-          display: none !important;
-          position: absolute !important;
-        }
+      }
+      @media (min-width: 800px) {
+        display: none !important;
+        position: absolute !important;
       }
     }
   }
