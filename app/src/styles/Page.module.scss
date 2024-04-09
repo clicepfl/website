@@ -47,6 +47,7 @@
   min-width: 100vw;
 
   padding-top: 3rem;
+  padding-bottom: 3rem;
 
   display: flex;
   flex-direction: column;
@@ -117,6 +118,10 @@
 
   p {
     text-align: justify;
+  }
+
+  img {
+    border-radius: variables.$small-border-radius;
   }
 }
 
