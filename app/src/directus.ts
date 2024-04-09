@@ -70,8 +70,6 @@ export function populateLayoutProps<T>(
       }
       return res;
     }, {});
-    console.log("translations");
-    console.log(translations);
 
     let layoutProps = {
       layoutProps: {
