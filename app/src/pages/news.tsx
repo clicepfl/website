@@ -3,7 +3,7 @@ import Icon from "@/assets/icons/news.svg";
 import NewsCard from "@/components/NewsCard";
 import TabTitle from "@/components/TabTitle";
 import { directus, populateLayoutProps } from "@/directus";
-import { queryTranslations, translate } from "@/locales";
+import { capitalize, queryTranslations, useTranslationTable } from "@/locales";
 import listPageStyle from "@/styles/ListPage.module.scss";
 import newsStyle from "@/styles/NewsPage.module.scss";
 import { News } from "@/types/aliases";
@@ -15,26 +15,17 @@ export default function NewsComponent(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   const router = useRouter();
+  const tt = useTranslationTable();
 
   return (
     <>
-      <TabTitle
-        title={translate("news", router.locale, {
-          capitalize: true,
-          plural: true,
-        })}
-      />
+      <TabTitle title={capitalize(tt["news"])} />
 
       <Background className={listPageStyle.background} name="background" />
       <div className={listPageStyle.page}>
         <div className={listPageStyle.title}>
           <Icon className={listPageStyle.icon} />
-          <h1>
-            {translate("news", router.locale, {
-              capitalize: true,
-              plural: true,
-            })}
-          </h1>
+          <h1>{capitalize(tt["news"])}</h1>
         </div>
         <div className={newsStyle.list}>
           {props.news.map((n) => (

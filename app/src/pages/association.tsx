@@ -4,10 +4,11 @@ import MembersList from "@/components/MembersList";
 import TabTitle from "@/components/TabTitle";
 import { directus, populateLayoutProps } from "@/directus";
 import {
+  capitalize,
   getTranslation,
   locale,
   queryTranslations,
-  translate,
+  useTranslationTable,
 } from "@/locales";
 import styles from "@/styles/Page.module.scss";
 import {
@@ -26,13 +27,11 @@ export default function AssociationPage(
 ) {
   const router = useRouter();
   const translation = getTranslation(props.association, locale(router));
+  const tt = useTranslationTable();
+
   return (
     <div className={styles.main}>
-      <TabTitle
-        title={translate("association", router.locale, {
-          capitalize: true,
-        })}
-      />
+      <TabTitle title={capitalize(tt["association"])} />
 
       <div>
         <DirectusImage sizes="25rem" img={translation.banner} />

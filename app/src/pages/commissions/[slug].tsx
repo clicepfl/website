@@ -2,7 +2,7 @@ import DirectusImage from "@/components/DirectusImage";
 import MembersList from "@/components/MembersList";
 import SocialsList from "@/components/SocialsList";
 import TabTitle from "@/components/TabTitle";
-import { directus, populateLayoutProps } from "@/directus";
+import { LayoutProps, directus, populateLayoutProps } from "@/directus";
 import { getTranslation, locale, queryTranslations } from "@/locales";
 import styles from "@/styles/Page.module.scss";
 import {
@@ -45,11 +45,13 @@ export default function Page(
   );
 }
 
-export const getServerSideProps: GetServerSideProps<{
-  commission: Commission;
-  socialLinks: SocialLink[];
-  members: (AssociationMembership & { member: Member })[];
-}> = populateLayoutProps(async (context) => {
+export const getServerSideProps: GetServerSideProps<
+  {
+    commission: Commission;
+    socialLinks: SocialLink[];
+    members: (AssociationMembership & { member: Member })[];
+  } & LayoutProps
+> = populateLayoutProps(async (context) => {
   if (typeof context.params?.slug !== "string") {
     console.log(typeof context.params?.slug);
     return { notFound: true };

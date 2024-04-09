@@ -3,11 +3,11 @@ import DirectusImage from "@/components/DirectusImage";
 import TabTitle from "@/components/TabTitle";
 import { directus, populateLayoutProps } from "@/directus";
 import {
+  capitalize,
   formatDate,
   getTranslation,
-  locale,
   queryTranslations,
-  translate,
+  useTranslationTable,
 } from "@/locales";
 import styles from "@/styles/Page.module.scss";
 import { Commission, News } from "@/types/aliases";
@@ -20,7 +20,8 @@ export default function Page(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   const router = useRouter();
-  const translation = getTranslation(props.news, locale(router));
+  const translation = getTranslation(props.news, router.locale);
+  const tt = useTranslationTable();
 
   return (
     <div className={styles.main}>
@@ -28,10 +29,8 @@ export default function Page(
 
       <div className={styles.center}>
         {props.news.date_created ? (
-          <p className={styles.author}>
-            {`${formatDate(props.news.date_created, router.locale, {
-              capitalize: true,
-            })}`}
+          <p className="author">
+            {`${formatDate(props.news.date_created, router.locale, tt, true)}`}
           </p>
         ) : (
           <></>
@@ -48,11 +47,7 @@ export default function Page(
       </div>
       {props.commissions.length > 0 ? (
         <>
-          <h1>
-            {translate("relatedContent", locale(router), {
-              capitalize: true,
-            })}
-          </h1>
+          <h1>{capitalize(tt["relatedContent"])}</h1>
           <div className={styles.relatedContent}>
             {props.commissions.map((c) => (
               <CommissionCard key={c.id} commission={c} />

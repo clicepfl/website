@@ -9,12 +9,11 @@ import MembersList from "@/components/MembersList";
 import NewsCard from "@/components/NewsCard";
 import PartnersList from "@/components/PartnersList";
 import TabTitle from "@/components/TabTitle";
-import { directus, populateLayoutProps } from "@/directus";
+import { LayoutProps, directus, populateLayoutProps } from "@/directus";
 import {
   getTranslation,
-  locale,
   queryTranslations,
-  translate,
+  useTranslationTable,
 } from "@/locales";
 import styles from "@/styles/Homepage.module.scss";
 import {
@@ -35,7 +34,8 @@ export default function Home(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   const router = useRouter();
-  const translation = getTranslation(props.association, locale(router));
+  const translation = getTranslation(props.association, router.locale);
+  const tt = useTranslationTable();
 
   var orderedPartners = props.partners.reduce(
     (list: [PartnerCategory, Partner[]][], partner: Partner) => {
@@ -54,7 +54,7 @@ export default function Home(
 
   return (
     <>
-      <TabTitle title={translate("slogan", router.locale)} />
+      <TabTitle title={tt["slogan"]} />
       <Background className={styles.background} name="background" />
       <div className={styles.divLogo}>
         <DirectusImage
@@ -76,10 +76,7 @@ export default function Home(
             <NewsCard key={(n as any).id} news={n} />
           ))}
         </div>
-        <Button
-          text={translate("moreNews", router.locale)}
-          onClick={() => router.push("/news")}
-        />
+        <Button text={tt["moreNews"]} onClick={() => router.push("/news")} />
       </div>
 
       <PartnersList partners={orderedPartners} />
@@ -94,20 +91,25 @@ export default function Home(
 
       <MembersList membership={props.committee} />
 
-      <Gallery imgs={props.gallery} />
+      <Gallery
+        imgs={props.gallery}
+        translations={props.layoutProps.translations}
+      />
     </>
   );
 }
 
-export const getServerSideProps: GetServerSideProps<{
-  association: Association;
-  partners: Partner[];
-  socialLinks: SocialLink[];
-  news: News[];
-  committee: (AssociationMembership & { member: Member })[];
-  publicFiles: PublicFiles[];
-  gallery: any[];
-}> = populateLayoutProps(async (_) => {
+export const getServerSideProps: GetServerSideProps<
+  {
+    association: Association;
+    partners: Partner[];
+    socialLinks: SocialLink[];
+    news: News[];
+    committee: (AssociationMembership & { member: Member })[];
+    publicFiles: PublicFiles[];
+    gallery: any[];
+  } & LayoutProps
+> = populateLayoutProps(async (_) => {
   return {
     props: {
       association: await directus().request(

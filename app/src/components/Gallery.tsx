@@ -1,5 +1,5 @@
 import DirectusImage from "./DirectusImage";
-import { translate } from "@/locales";
+import { TranslationTable, useTranslationTable } from "@/locales";
 import styles from "@/styles/Gallery.module.scss";
 import { components } from "@/types/schema";
 import { useRouter } from "next/router";
@@ -10,8 +10,10 @@ export default function Gallery({
 }: {
   imgs?: (string | components["schemas"]["Files"])[] | null;
   limit?: number;
+  translations: TranslationTable;
 }) {
   const router = useRouter();
+  const translations = useTranslationTable();
 
   if (imgs == null) {
     return;
@@ -58,7 +60,7 @@ export default function Gallery({
 
   return (
     <div className={styles.main}>
-      <h1>{translate("gallery", router.locale)}</h1>
+      <h1>{translations["gallery"]}</h1>
       <div className={styles.gallery}>{content}</div>
     </div>
   );
