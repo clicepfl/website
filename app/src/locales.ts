@@ -10,24 +10,6 @@ export function locale(locale?: string | { locale?: string }) {
   );
 }
 
-interface Translations {
-  dateIndicator: string;
-  timeIndicator: string;
-  by: string;
-  relatedContent: string;
-  committee: string;
-  commission: string;
-  partners: string;
-  association: string;
-  news: string;
-  moreNews: string;
-  error404: string;
-  error404desc: string;
-  gallery: string;
-  readMore: string;
-  slogan: string;
-}
-
 export type TranslationTable = { [lang: string]: { [key: string]: string } };
 
 export const TranslationTableContext = React.createContext(
@@ -40,11 +22,6 @@ export function capitalize(val?: string) {
   return val && val.length > 0
     ? (val.at(0) as string).toUpperCase() + val.slice(1)
     : "";
-}
-
-interface LangOptions {
-  capitalize?: boolean;
-  plural?: boolean;
 }
 
 export function formatDate(

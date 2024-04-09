@@ -69,6 +69,11 @@
   .logo {
     height: 15rem;
     width: 25rem;
+
+    @media (max-width: 800px) {
+      width: 15rem;
+      height: 10rem;
+    }
   }
 
   .center {
