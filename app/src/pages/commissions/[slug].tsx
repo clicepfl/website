@@ -33,8 +33,7 @@ export default function Page(
           img={translation.banner}
           cover={true}
         />
-        <h3>{props.commission.name}</h3>
-        <h4>{translation.small_description}</h4>
+        <h2>{props.commission.name}</h2>
 
         <Markdown className={styles.text}>{translation.description}</Markdown>
 

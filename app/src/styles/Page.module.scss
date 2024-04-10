@@ -91,6 +91,13 @@
     .author {
       margin: 0;
     }
+
+    .date {
+      width: 100%;
+      text-align: left;
+      color: variables.$detail-color;
+      margin: 0;
+    }
   }
 }
 
@@ -98,8 +105,8 @@
   h1 {
     text-align: center;
 
-    // h4 (subtitle) must be centered and slightly enlarged
-    + h3 {
+    // h2 (subtitle) must be centered and slightly enlarged
+    + h2 {
       text-align: center;
     }
   }

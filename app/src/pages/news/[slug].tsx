@@ -28,21 +28,20 @@ export default function Page(
       <TabTitle title={translation.title || ""} />
 
       <div className={styles.center}>
-        {props.news.date_created ? (
-          <p className="author">
-            {`${formatDate(props.news.date_created, router.locale, tt, true)}`}
-          </p>
-        ) : (
-          <></>
-        )}
         <DirectusImage
           sizes="100vw"
           className={styles.banner}
           img={translation.banner}
           cover={true}
         />
+        {props.news.date_created ? (
+          <p className={styles.date}>
+            {`${formatDate(props.news.date_created, router.locale, tt, true)}`}
+          </p>
+        ) : (
+          <></>
+        )}
         <h1>{translation.title}</h1>
-        <h2>{translation.description}</h2>
         <Markdown className={styles.text}>{translation.content}</Markdown>
       </div>
       {props.commissions.length > 0 ? (
