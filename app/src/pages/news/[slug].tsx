@@ -41,7 +41,7 @@ export default function Page(
         ) : (
           <></>
         )}
-        <h1>{translation.title}</h1>
+        <h2>{translation.title}</h2>
         <Markdown className={styles.text}>{translation.content}</Markdown>
       </div>
       {props.commissions.length > 0 ? (
