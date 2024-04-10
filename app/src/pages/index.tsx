@@ -92,7 +92,7 @@ export default function Home(
       <MembersList membership={props.committee} />
 
       <Gallery
-        imgs={props.gallery.sort((img) => img.name)}
+        imgs={props.gallery.sort((a, b) => a.title.localeCompare(b.title))}
         translations={props.layoutProps.translations}
       />
     </>
