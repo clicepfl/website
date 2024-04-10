@@ -42,7 +42,7 @@ export default function Page(
           cover={true}
         />
         <h1>{translation.title}</h1>
-        <h4>{translation.description}</h4>
+        <h2>{translation.description}</h2>
         <Markdown className={styles.text}>{translation.content}</Markdown>
       </div>
       {props.commissions.length > 0 ? (

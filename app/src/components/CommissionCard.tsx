@@ -31,7 +31,7 @@ export default function CommissionCard(props: {
         cover={translation.banner != null}
       />
       <div className={styles.content}>
-        <h4 className={styles.name}>{props.commission.name}</h4>
+        <h2 className={styles.name}>{props.commission.name}</h2>
         <p className={styles.description}>{description}</p>
       </div>
     </div>

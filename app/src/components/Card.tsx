@@ -59,7 +59,7 @@ export default function Card(
         />
       </div>
       <div className={styles.content}>
-        <h4 className={styles.name}>{title}</h4>
+        <h2 className={styles.name}>{title}</h2>
         <p className={styles.description}>{description}</p>
       </div>
     </div>

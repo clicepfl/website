@@ -17,8 +17,8 @@
   align-items: center;
 
   color: variables.$text-color;
-  font-weight: lighter;
   font-size: 15pt;
+  font-weight: 300;
 
   .corner {
     margin-top: 0;
@@ -31,7 +31,6 @@
     color: variables.$text-color;
     text-transform: capitalize;
     font-size: 20pt;
-    font-weight: bold;
     margin-left: 2rem;
     height: fit-content;
   }
@@ -176,7 +175,6 @@
           justify-content: center;
 
           font-size: large;
-          font-weight: bold;
 
           cursor: pointer;
           .sideLang {

@@ -34,13 +34,12 @@
 
 .main {
   h4 {
-    font-weight: lighter;
     margin-top: 0.2rem;
   }
 
   h2 {
-    margin-top: 3rem;
-    text-transform: uppercase;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 
   background-color: variables.$white-background-color;
@@ -91,7 +90,6 @@
 
     .author {
       margin: 0;
-      font-weight: 200;
     }
   }
 }
@@ -101,15 +99,9 @@
     text-align: center;
 
     // h4 (subtitle) must be centered and slightly enlarged
-    + h4 {
+    + h3 {
       text-align: center;
-      font-size: large;
     }
-  }
-
-  h4 {
-    font-weight: lighter;
-    margin-top: 0.2rem;
   }
 
   a {

@@ -1,4 +1,5 @@
 import Background from "@/assets/background.svg";
+import Icon from "@/assets/icons/map-marker-off.svg";
 import Button from "@/components/Button";
 import TabTitle from "@/components/TabTitle";
 import styles from "@/styles/404.module.scss";
@@ -14,6 +15,7 @@ export default function NotFound() {
       <div className={styles.main}>
         <div className={styles.center}>
           <h1>{"Error 404"}</h1>
+          <Icon className={styles.icon} />
           <h4>{"You are lost :/"}</h4>
           <Button text="Home" onClick={() => router.push("/")} />
         </div>

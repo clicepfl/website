@@ -32,7 +32,6 @@ h1 {
 
   text-align: center;
 
-  font-weight: lighter;
   text-transform: uppercase;
   font-size: 50pt;
 
@@ -41,15 +40,33 @@ h1 {
   }
 }
 
+p {
+  font-weight: 300;
+}
+
 h1,
 h2,
 h3,
 h4 {
   color: variables.$dark-title-color;
-  font-weight: lighter;
+  font-weight: 200;
   margin: 0;
 
   &.light {
     color: variables.$title-color;
   }
+}
+
+h2 {
+  font-size: 25pt;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 20pt;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 15pt;
 }

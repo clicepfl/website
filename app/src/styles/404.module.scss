@@ -28,8 +28,17 @@
 
     height: fit-content;
 
+    .icon {
+      position: absolute;
+      color: variables.$dark-text-color;
+      // color: white;
+      height: 200%;
+      width: 200%;
+      opacity: 0.1;
+      z-index: -2;
+    }
+
     h4 {
-      font-weight: lighter;
       font-size: 15pt;
     }
   }
