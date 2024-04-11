@@ -16,13 +16,7 @@
   }
 
   @media (max-width: 800px) {
-    width: 100%;
-    border-radius: 0;
-    background: transparent;
-
-    h1 {
-      color: variables.$title-color;
-    }
+    width: 90%;
   }
 
   .list {

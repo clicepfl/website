@@ -6,6 +6,16 @@
   top: 0;
   left: 0;
   z-index: -1;
+
+  @media (max-width: 1200px) {
+    height: 70rem;
+    width: 70rem;
+  }
+
+  @media (max-width: 800px) {
+    height: 40rem;
+    width: 40rem;
+  }
 }
 
 .divLogo {
@@ -66,12 +76,14 @@
   width: 100%;
   overflow: hidden;
 
-  padding: 2em;
+  row-gap: 1rem;
+  padding: 1rem;
 
   align-items: center;
 
   .newsList {
-    margin: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
     gap: 2em;
     display: grid;
     grid-template-columns: repeat(3, 1fr);

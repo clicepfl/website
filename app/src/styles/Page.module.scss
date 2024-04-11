@@ -63,6 +63,11 @@
     overflow: hidden;
 
     margin: 0;
+
+    @media (max-width: 800px) {
+      height: 10rem;
+      border-radius: variables.$small-border-radius;
+    }
   }
 
   .logo {

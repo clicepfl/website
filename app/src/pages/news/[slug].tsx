@@ -46,7 +46,7 @@ export default function Page(
       </div>
       {props.commissions.length > 0 ? (
         <>
-          <h1>{capitalize(tt["relatedContent"])}</h1>
+          <h2>{capitalize(tt["relatedContent"])}</h2>
           <div className={styles.relatedContent}>
             {props.commissions.map((c) => (
               <CommissionCard key={c.id} commission={c} />
