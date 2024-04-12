@@ -177,6 +177,12 @@
       .sideMenu {
         @extend .glass;
 
+        .selected {
+          background-color: variables.$dark-text-color;
+          padding: 0.5rem;
+          border-radius: 2rem;
+        }
+
         font-size: 20pt;
         text-align: center;
         align-items: center;
