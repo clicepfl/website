@@ -2,12 +2,10 @@ import Card from "./Card";
 import { capitalize, useTranslationTable } from "@/locales";
 import styles from "@/styles/MembersList.module.scss";
 import { AssociationMembership, Member } from "@/types/aliases";
-import { useRouter } from "next/router";
 
 export default function MembersList(props: {
   membership: AssociationMembership & { member: Member }[];
 }) {
-  var router = useRouter();
   const translations = useTranslationTable();
 
   return (

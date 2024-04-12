@@ -1,5 +1,4 @@
 import AssociationDescription from "@/components/AssociationDescription";
-import DirectusImage from "@/components/DirectusImage";
 import MembersList from "@/components/MembersList";
 import TabTitle from "@/components/TabTitle";
 import { directus, populateLayoutProps } from "@/directus";
@@ -34,7 +33,6 @@ export default function AssociationPage(
       <TabTitle title={capitalize(tt["association"])} />
 
       <div>
-        <DirectusImage sizes="25rem" img={translation.banner} />
         <AssociationDescription
           association={props.association}
           socialLinks={props.socialLinks}

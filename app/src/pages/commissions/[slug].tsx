@@ -28,7 +28,7 @@ export default function Page(
 
       <div className={styles.center}>
         <DirectusImage
-          sizes="100vw"
+          sizes="100rem"
           className={styles.banner}
           img={translation.banner}
           cover={true}

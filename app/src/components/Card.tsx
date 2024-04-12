@@ -53,6 +53,7 @@ export default function Card(
       <div className={styles.imageDiv}>
         <DirectusImage
           sizes="6rem"
+          cover={true}
           img={img}
           name={title || "6rem"}
           className={styles.picture}
