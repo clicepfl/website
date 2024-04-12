@@ -27,6 +27,30 @@ function DropdownMenu({
   );
 }
 
+function MenuLink({
+  path,
+  text,
+  side = false,
+  children,
+}: {
+  path: string;
+  text: string;
+  side?: boolean;
+  children?: any;
+}) {
+  return (
+    <Link
+      className={`${side ? "" : styles.menuItem} ${
+        useRouter().asPath.startsWith(path) ? styles.selected : ""
+      }`}
+      href={path}
+    >
+      {text}
+      {children}
+    </Link>
+  );
+}
+
 function SideMenu({
   headToggle: toggle,
   children,
@@ -98,31 +122,26 @@ export default function NavigationBar(props: {
   const translations = useTranslationTable();
 
   const router = useRouter();
+
   const entries = [
-    <Link
+    <MenuLink
       key={0}
-      className={styles.sidemenuItem}
-      href="/association"
-      onClick={toggleMenu}
-    >
-      {capitalize(translations["association"])}
-    </Link>,
-    <Link
+      side={true}
+      path="/association"
+      text={capitalize(translations["association"])}
+    />,
+    <MenuLink
       key={1}
-      className={styles.sidemenuItem}
-      href="/commissions"
-      onClick={toggleMenu}
-    >
-      {capitalize(translations["commissions"])}
-    </Link>,
-    <Link
+      side={true}
+      path="/commissions"
+      text={capitalize(translations["commissions"])}
+    />,
+    <MenuLink
       key={2}
-      className={styles.sidemenuItem}
-      href="/news"
-      onClick={toggleMenu}
-    >
-      {capitalize(translations["news"])}
-    </Link>,
+      side={true}
+      path="/news"
+      text={capitalize(translations["news"])}
+    />,
   ];
 
   return (
@@ -132,30 +151,33 @@ export default function NavigationBar(props: {
       </Link>
 
       <div className={styles.navigationMenu}>
-        <Link className={styles.menuItem} href="/association">
-          {capitalize(translations["association"])}
-        </Link>
+        <MenuLink
+          path="/association"
+          text={capitalize(translations["association"])}
+        />
 
         {props.commissions ? (
           <DropdownMenu
             head={
-              <Link className={styles.menuItem} href="/commissions">
-                {capitalize(translations["commissions"])}
-                <i className={styles.arrow} />
-              </Link>
+              <>
+                <MenuLink
+                  path="/commissions"
+                  text={capitalize(translations["commissions"])}
+                >
+                  <i className={styles.arrow} />
+                </MenuLink>
+              </>
             }
           >
             {props.commissions ? (
               props.commissions.map((c) => {
                 if (c.name && c.slug) {
                   return (
-                    <Link
+                    <MenuLink
                       key={c.slug}
-                      href={`/commissions/${c.slug}`}
-                      className={styles.menuItem}
-                    >
-                      {c.name}
-                    </Link>
+                      path={`/commissions/${c.slug}`}
+                      text={c.name}
+                    />
                   );
                 } else {
                   console.error(
@@ -171,14 +193,10 @@ export default function NavigationBar(props: {
             )}
           </DropdownMenu>
         ) : (
-          <Link className={styles.menuItem} href="/commissions">
-            {capitalize(translations["commissions"])}
-          </Link>
+          <></>
         )}
 
-        <Link className={styles.menuItem} href="/news">
-          {capitalize(translations["news"])}
-        </Link>
+        <MenuLink path="/news" text={capitalize(translations["news"])} />
 
         {props.langs ? (
           <DropdownMenu
