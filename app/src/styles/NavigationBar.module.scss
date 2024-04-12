@@ -74,21 +74,20 @@
         }
       }
 
+      &.selected {
+        background-color: variables.$dark-text-color;
+        padding: 0.5rem;
+        border-radius: 2rem;
+
+        &:hover {
+          color: variables.$text-color;
+          .arrow {
+            border-color: variables.$text-color;
+          }
+        }
+      }
       @media (max-width: 800px) {
         display: none;
-      }
-    }
-
-    .selected {
-      background-color: variables.$dark-text-color;
-      padding: 0.5rem;
-      border-radius: 2rem;
-
-      &:hover {
-        color: variables.$text-color;
-        .arrow {
-          border-color: variables.$text-color;
-        }
       }
     }
 
@@ -132,6 +131,11 @@
           width: 100%;
 
           &:hover {
+            background-color: variables.$glass-color-hover;
+          }
+
+          &.selected {
+            border-radius: 0;
             background-color: variables.$glass-color-hover;
           }
         }
