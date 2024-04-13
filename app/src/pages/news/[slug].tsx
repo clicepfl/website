@@ -29,7 +29,7 @@ export default function Page(
 
       <div className={styles.center}>
         <DirectusImage
-          sizes="100vw"
+          sizes="100rem"
           className={styles.banner}
           img={translation.banner}
           cover={true}
@@ -43,6 +43,14 @@ export default function Page(
         )}
         <h2>{translation.title}</h2>
         <Markdown className={styles.text}>{translation.content}</Markdown>
+        {props.news.video_link ? (
+          <video width="600" controls preload="none" className={styles.video}>
+            <source src={props.news.video_link} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        ) : (
+          <></>
+        )}
       </div>
       {props.commissions.length > 0 ? (
         <>
