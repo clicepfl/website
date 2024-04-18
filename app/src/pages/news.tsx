@@ -43,7 +43,11 @@ export const getServerSideProps: GetServerSideProps<{
   return {
     props: {
       news: await directus().request(
-        readItems("news", { sort: "-date_created", ...queryTranslations })
+        readItems("news", {
+          sort: "-date_created",
+          filter: { status: { _eq: "published" } },
+          ...queryTranslations,
+        })
       ),
     },
   };
