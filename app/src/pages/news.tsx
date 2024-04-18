@@ -9,12 +9,10 @@ import newsStyle from "@/styles/NewsPage.module.scss";
 import { News } from "@/types/aliases";
 import { readItems } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { useRouter } from "next/router";
 
 export default function NewsComponent(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
-  const router = useRouter();
   const tt = useTranslationTable();
 
   return (
