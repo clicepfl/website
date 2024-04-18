@@ -1,4 +1,4 @@
-import DirectusImage from "./DirectusImage";
+import { DIRECTUS_URL } from "@/directus";
 import { getTranslation } from "@/locales";
 import styles from "@/styles/PartnersList.module.scss";
 import { Partner, PartnerCategory } from "@/types/aliases";
@@ -8,11 +8,12 @@ import { useRouter } from "next/router";
 function PartnerDisplay({ p }: { p: Partner }) {
   return (
     <Link href={p.link || ""} key={p.id}>
-      <DirectusImage
-        sizes="15rem"
-        img={p.logo}
-        name={p.name}
+      <img
+        src={`${DIRECTUS_URL}/assets/${
+          typeof p.logo === "string" ? p.logo : p.logo?.filename_disk || ""
+        }`}
         className={styles.logo}
+        alt={p.name}
       />
     </Link>
   );

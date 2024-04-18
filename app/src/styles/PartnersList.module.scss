@@ -29,12 +29,11 @@
 
   .logo {
     height: 4em;
-    width: 15em;
+    max-width: 15rem;
     margin: 2em;
 
     @media (max-width: 800px) {
       height: 3em;
-      width: 10em;
       margin: 1em;
     }
   }
