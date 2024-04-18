@@ -1,5 +1,5 @@
 version: 1
-directus: 10.9.0
+directus: 10.9.3
 vendor: postgres
 collections:
   - collection: association
@@ -833,29 +833,6 @@ fields:
       validation_message: null
       width: full
   - collection: association
-    field: partners
-    type: alias
-    meta:
-      collection: association
-      conditions: null
-      display: null
-      display_options: null
-      field: partners
-      group: null
-      hidden: false
-      interface: list-m2m
-      note: null
-      options: {}
-      readonly: false
-      required: false
-      sort: 10
-      special:
-        - m2m
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: association
     field: social_links
     type: alias
     meta:
@@ -872,6 +849,29 @@ fields:
       readonly: false
       required: false
       sort: 8
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: association
+    field: partners
+    type: alias
+    meta:
+      collection: association
+      conditions: null
+      display: null
+      display_options: null
+      field: partners
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options: {}
+      readonly: false
+      required: false
+      sort: 10
       special:
         - m2m
       translations: null
@@ -3663,6 +3663,44 @@ fields:
       validation: null
       validation_message: null
       width: half
+  - collection: news
+    field: video_link
+    type: string
+    meta:
+      collection: news
+      conditions: null
+      display: null
+      display_options: null
+      field: video_link
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 12
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: video_link
+      table: news
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: news_commissions
     field: id
     type: integer
