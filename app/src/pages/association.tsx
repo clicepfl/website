@@ -2,13 +2,7 @@ import AssociationDescription from "@/components/AssociationDescription";
 import MembersList from "@/components/MembersList";
 import TabTitle from "@/components/TabTitle";
 import { directus, populateLayoutProps } from "@/directus";
-import {
-  capitalize,
-  getTranslation,
-  locale,
-  queryTranslations,
-  useTranslationTable,
-} from "@/locales";
+import { capitalize, queryTranslations, useTranslationTable } from "@/locales";
 import styles from "@/styles/Page.module.scss";
 import {
   Association,
@@ -19,13 +13,10 @@ import {
 } from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { useRouter } from "next/router";
 
 export default function AssociationPage(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
-  const router = useRouter();
-  const translation = getTranslation(props.association, locale(router));
   const tt = useTranslationTable();
 
   return (

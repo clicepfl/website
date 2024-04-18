@@ -13,7 +13,7 @@ function PartnerDisplay({ p }: { p: Partner }) {
           typeof p.logo === "string" ? p.logo : p.logo?.filename_disk || ""
         }`}
         className={styles.logo}
-        alt={p.name}
+        alt={p.name || ""}
       />
     </Link>
   );
