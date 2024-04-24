@@ -1,4 +1,4 @@
-import { TranslationTable, getTranslation, queryTranslations } from "./locales";
+import { TranslationTable, getTranslation } from "./locales";
 import { Association, Commission, SocialLink } from "./types/aliases";
 import { Schema } from "./types/schema";
 import {
@@ -44,7 +44,11 @@ export function populateLayoutProps<T>(
   f?: GetServerSideProps<T>
 ): GetServerSideProps<T & LayoutProps> {
   return cleanTranslations(async (context: GetServerSidePropsContext) => {
-    let association = await directus().request(readSingleton("association"));
+    let association = await directus().request(
+      readSingleton("association", {
+        fields: ["email", "logo", "phone", "address", "name"],
+      })
+    );
 
     let socialLinks = await directus()
       .request(
@@ -57,7 +61,7 @@ export function populateLayoutProps<T>(
     let langs = await directus().request(readItems("languages"));
 
     let commissions = await directus().request(
-      readItems("commissions", queryTranslations)
+      readItems("commissions", { fields: ["slug", "name"] })
     );
 
     let translations = (await directus().request(readTranslations({}))).reduce<{
