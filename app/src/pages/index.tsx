@@ -62,6 +62,7 @@ export default function Home(
           img={translation.banner}
           className={styles.mainLogo}
         />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={PreviewImage.src}
           alt="preview"
