@@ -34,7 +34,7 @@ export default function Card(
 
   if ("member" in props) {
     img = props.member.picture;
-    title = `${props.member.name} ${props.member.surname}`;
+    title = `${props.member.surname} ${props.member.name}`;
     description = getTranslation(props.membership, router.locale).title;
     link = props.member.link;
     linkTarget = "_blank";
