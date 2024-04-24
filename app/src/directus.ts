@@ -125,7 +125,6 @@ export function cleanTranslations<T extends { [key: string]: any }>(
             try {
               t = [getTranslation(value, locale)];
             } catch {}
-            console.log(JSON.stringify(t));
             return [e[0], t];
           } else {
             return [e[0], rec(e[1], locale)];

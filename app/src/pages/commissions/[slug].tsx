@@ -52,7 +52,6 @@ export const getServerSideProps: GetServerSideProps<
   } & LayoutProps
 > = populateLayoutProps(async (context) => {
   if (typeof context.params?.slug !== "string") {
-    console.log(typeof context.params?.slug);
     return { notFound: true };
   }
 
