@@ -3,7 +3,7 @@ import Icon from "@/assets/icons/news.svg";
 import NewsCard from "@/components/NewsCard";
 import TabTitle from "@/components/TabTitle";
 import { directus, populateLayoutProps } from "@/directus";
-import { capitalize, queryTranslations, useTranslationTable } from "@/locales";
+import { capitalize, useTranslationTable } from "@/locales";
 import listPageStyle from "@/styles/ListPage.module.scss";
 import newsStyle from "@/styles/NewsPage.module.scss";
 import { News } from "@/types/aliases";
@@ -44,7 +44,19 @@ export const getServerSideProps: GetServerSideProps<{
         readItems("news", {
           sort: "-date_created",
           filter: { status: { _eq: "published" } },
-          ...queryTranslations,
+          fields: [
+            "id",
+            "slug",
+            "date-created",
+            {
+              translations: [
+                "title",
+                "banner",
+                "description",
+                "languages_code",
+              ],
+            },
+          ],
         })
       ),
     },

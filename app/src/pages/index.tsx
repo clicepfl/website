@@ -144,7 +144,19 @@ export const getServerSideProps: GetServerSideProps<
           limit: 3,
           sort: ["-date_created"],
           filter: { status: { _eq: "published" } },
-          ...queryTranslations,
+          fields: [
+            "id",
+            "slug",
+            "date-created",
+            {
+              translations: [
+                "title",
+                "banner",
+                "description",
+                "languages_code",
+              ],
+            },
+          ],
         })
       ),
       committee: (await directus().request(

@@ -45,7 +45,13 @@ export const getServerSideProps: GetServerSideProps<{
   return {
     props: {
       commissions: await directus().request(
-        readItems("commissions", { fields: ["*", { translations: ["*"] }] })
+        readItems("commissions", {
+          fields: [
+            "name",
+            "slug",
+            { translations: ["banner", "small_description", "languages_code"] },
+          ],
+        })
       ),
     },
   };
