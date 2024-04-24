@@ -3,14 +3,11 @@ import SocialsList from "./SocialsList";
 import styles from "@/styles/Footer.module.scss";
 import { Association, SocialLink } from "@/types/aliases";
 
-export default function Footer({
-  association,
-  socials,
-}: {
+export default function Footer(props: {
   association: Association;
   socials: SocialLink[];
 }) {
-  if (association == null) {
+  if (props.association == null) {
     return;
   }
 
@@ -25,17 +22,20 @@ export default function Footer({
         <div className={styles.content}>
           <DirectusImage
             sizes="33vw"
-            img={association.logo}
-            name={association.name || ""}
+            img={props.association.logo}
+            name={props.association.name || ""}
             className={styles.footerLogo}
           />
           <p className={styles.coord}>
-            {association.address} <br />
-            <a href="mailto:{association.email}">{association.email}</a> <br />
-            {association.phone}
+            {props.association.address} <br />
+            <a href="mailto:{association.email}">
+              {props.association.email}
+            </a>{" "}
+            <br />
+            {props.association.phone}
           </p>
 
-          <SocialsList socials={socials} light={true} />
+          <SocialsList socials={props.socials} light={true} />
         </div>
       </div>
     </div>

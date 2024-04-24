@@ -6,20 +6,14 @@ import { News } from "@/types/aliases";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export default function NewsCard({
-  news,
-  vertical = false,
-}: {
-  news: News;
-  vertical?: boolean;
-}) {
+export default function NewsCard(props: { news: News; vertical?: boolean }) {
   const router = useRouter();
 
-  const translation = getTranslation(news, locale(router));
+  const translation = getTranslation(props.news, locale(router));
   return (
     <Link
-      href={`/news/${news.slug}`}
-      className={`${styles.newsCard} ${vertical ? styles.vertical : ""}`}
+      href={`/news/${props.news.slug}`}
+      className={`${styles.newsCard} ${props.vertical ? styles.vertical : ""}`}
     >
       <DirectusImage
         sizes="30rem"
@@ -34,8 +28,8 @@ export default function NewsCard({
         <p className={styles.description}>{translation.description}</p>
         <div className={styles.details}>
           <p className={styles.date}>
-            {news.date_created
-              ? new Date(news.date_created).toDateString()
+            {props.news.date_created
+              ? new Date(props.news.date_created).toDateString()
               : ""}
           </p>
         </div>

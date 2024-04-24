@@ -12,14 +12,10 @@ export default function CommissionCard(props: {
 }) {
   const router = useRouter();
 
-  let translation = getTranslation(props.commission, locale(router));
+  const translation = getTranslation(props.commission, locale(router));
   const tt = useTranslationTable();
 
-  let img = translation.banner ? translation.banner : props.commission.logo;
-  let description = getTranslation(
-    props.commission,
-    locale(router)
-  ).small_description;
+  const img = translation.banner ? translation.banner : props.commission.logo;
 
   const component = (
     <div>
@@ -32,7 +28,7 @@ export default function CommissionCard(props: {
       />
       <div className={styles.content}>
         <h2 className={styles.name}>{props.commission.name}</h2>
-        <p className={styles.description}>{description}</p>
+        <p className={styles.description}>{translation.small_description}</p>
       </div>
     </div>
   );

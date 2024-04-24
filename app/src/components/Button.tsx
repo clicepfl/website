@@ -5,15 +5,13 @@ export default function Button(props: {
   className?: string;
   onClick?: () => void;
 }) {
-  let text = props.text;
-
   return (
     <>
       <div
         className={`${styles.button} ${props.className}`}
         onClick={props.onClick}
       >
-        {text}
+        {props.text}
       </div>
     </>
   );

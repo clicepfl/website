@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 function PartnerDisplay({ p }: { p: Partner }) {
   return (
     <Link href={p.link || ""} key={p.id}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`${DIRECTUS_URL}/assets/${
           typeof p.logo === "string" ? p.logo : p.logo?.filename_disk || ""
@@ -43,16 +44,16 @@ function PartnerCategoryDisplay({
   );
 }
 
-export default function PartnersList({
-  partners,
-}: {
+export default function PartnersList(props: {
   partners: [PartnerCategory, Partner[]][];
 }) {
-  partners.sort((a, b) => (b[0].rank || Infinity) - (a[0].rank || Infinity));
+  props.partners.sort(
+    (a, b) => (b[0].rank || Infinity) - (a[0].rank || Infinity)
+  );
 
   return (
     <div className={styles.partnersList}>
-      {partners.map((e) => (
+      {props.partners.map((e) => (
         <PartnerCategoryDisplay key={e[0].id} c={e[0]} p={e[1]} />
       ))}
     </div>

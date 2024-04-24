@@ -3,28 +3,21 @@ import { TranslationTable, useTranslationTable } from "@/locales";
 import styles from "@/styles/Gallery.module.scss";
 import { components } from "@/types/schema";
 
-export default function Gallery({
-  imgs,
-  limit = 15,
-}: {
+export default function Gallery(props: {
   imgs?: (string | components["schemas"]["Files"])[] | null;
   limit?: number;
   translations: TranslationTable;
 }) {
   const translations = useTranslationTable();
 
-  if (imgs == null) {
+  if (props.imgs == null) {
     return;
   }
 
-  imgs = imgs.slice(0, limit);
-
-  let content: any = [];
-
   let count_5 = 0;
   let count_3 = 0;
-  let key = 0;
-  imgs.map((img) => {
+
+  const content = props.imgs.slice(0, props.limit || 15).map((img, key) => {
     let is_long_5 = Math.random() > 0.5 && count_5 < 4;
     count_5 += is_long_5 ? 2 : 1;
     count_5 %= 5;
@@ -33,7 +26,7 @@ export default function Gallery({
     count_3 += is_long_3 ? 2 : 1;
     count_3 %= 3;
 
-    content.push(
+    return (
       <DirectusImage
         sizes={
           is_long_5
@@ -53,7 +46,6 @@ export default function Gallery({
         key={key}
       />
     );
-    key += 1;
   });
 
   return (

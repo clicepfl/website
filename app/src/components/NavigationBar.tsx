@@ -10,19 +10,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-function DropdownMenu({
-  head: button,
-  children,
-  className,
-}: {
-  head: any;
-  children: any;
-  className?: string;
-}) {
+function DropdownMenu(props: { head: any; children: any; className?: string }) {
   return (
-    <div className={styles.dropdownMenu + " " + (className || "")}>
-      {button}
-      <div className={styles.content}>{children}</div>
+    <div className={styles.dropdownMenu + " " + (props.className || "")}>
+      {props.head}
+      <div className={styles.content}>{props.children}</div>
     </div>
   );
 }
@@ -120,7 +112,6 @@ export default function NavigationBar(props: {
   };
 
   const translations = useTranslationTable();
-
   const router = useRouter();
 
   const entries = [
