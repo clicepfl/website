@@ -1,4 +1,4 @@
-import { TranslationTable, queryTranslations } from "./locales";
+import { TranslationTable, getTranslation, queryTranslations } from "./locales";
 import { Association, Commission, SocialLink } from "./types/aliases";
 import { Schema } from "./types/schema";
 import {
@@ -43,7 +43,7 @@ export function populateLayoutProps<T>(
   //@ts-ignore
   f?: GetServerSideProps<T>
 ): GetServerSideProps<T & LayoutProps> {
-  return async (context: GetServerSidePropsContext) => {
+  return cleanTranslations(async (context: GetServerSidePropsContext) => {
     let association = await directus().request(readSingleton("association"));
 
     let socialLinks = await directus()
@@ -99,5 +99,41 @@ export function populateLayoutProps<T>(
         props: layoutProps,
       };
     }
+  });
+}
+
+/**
+ * Remove useless translations, according to the request locale.
+ * @param f Your getServerSideProps function. If it returns successfully, the translations for other locales will be stripped.
+ * @returns the getServerSideProps function to export from your component.
+ */
+export function cleanTranslations<T extends { [key: string]: any }>(
+  f: GetServerSideProps<T>
+): GetServerSideProps<T> {
+  function rec(value: any, locale: string | undefined): any {
+    if (Array.isArray(value)) {
+      return value.map((v) => rec(v, locale));
+    } else if (value && typeof value === "object") {
+      return Object.entries(value)
+        .map((e) => {
+          if (e[0] === "translations") {
+            let t: any[] = e[1] as any[];
+            try {
+              t = [getTranslation(value, locale)];
+            } catch {}
+            console.log(JSON.stringify(t));
+            return [e[0], t];
+          } else {
+            return [e[0], rec(e[1], locale)];
+          }
+        })
+        .reduce((a, b) => ({ ...a, [b[0]]: b[1] }), {});
+    } else {
+      return value;
+    }
+  }
+
+  return async (context) => {
+    return rec(await f(context), context.locale);
   };
 }
