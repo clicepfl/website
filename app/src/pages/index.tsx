@@ -142,6 +142,7 @@ export const getServerSideProps: GetServerSideProps<
         readItems("news", {
           limit: 3,
           sort: ["-date_created"],
+          filter: { status: { _eq: "published" } },
           ...queryTranslations,
         })
       ),
