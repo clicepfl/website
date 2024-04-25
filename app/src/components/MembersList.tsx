@@ -1,12 +1,44 @@
 import Card from "./Card";
 import { capitalize, useTranslationTable } from "@/locales";
 import styles from "@/styles/MembersList.module.scss";
-import { AssociationMembership, Member } from "@/types/aliases";
+import {
+  AssociationMembership,
+  AssociationPole,
+  Member,
+} from "@/types/aliases";
+
+const HEAD_POLE = "presidence";
 
 export default function MembersList(props: {
   membership: AssociationMembership & { member: Member }[];
 }) {
   const translations = useTranslationTable();
+
+  props.membership.sort(
+    (
+      a: AssociationMembership & { member: Member },
+      b: AssociationMembership & { member: Member }
+    ) => {
+      const an = a.member.name || "",
+        bn = b.member.name || "",
+        ap = (a.pole as AssociationPole)?.slug || "",
+        bp = (b.pole as AssociationPole)?.slug || "";
+
+      if (ap === HEAD_POLE && bp === HEAD_POLE) {
+        return an.localeCompare(an);
+      } else if (ap === HEAD_POLE) {
+        return -1;
+      } else if (bp === HEAD_POLE) {
+        return 1;
+      } else {
+        if (ap !== bp) {
+          return ap.localeCompare(bp);
+        } else {
+          return an.localeCompare(bn);
+        }
+      }
+    }
+  );
 
   return (
     <div className={styles.membersList}>

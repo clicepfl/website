@@ -166,6 +166,7 @@ export const getServerSideProps: GetServerSideProps<
             { member: ["*"] },
             //@ts-ignore
             { translations: ["*"] },
+            { pole: ["slug"] },
           ],
           filter: { level: { _eq: "committee" } },
         })
