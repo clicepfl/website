@@ -12,6 +12,11 @@
   align-items: center;
   padding: 1rem;
 
+  a {
+    display: flex;
+    justify-content: center;
+  }
+
   h1 {
     font-size: 2rem;
     margin-top: 1rem;
