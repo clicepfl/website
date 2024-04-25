@@ -16,10 +16,27 @@ import {
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
+const HEAD_POLE = "presidence";
+
 export default function AssociationPage(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   const tt = useTranslationTable();
+
+  (props.poles as AssociationPole[]).sort(
+    (a: AssociationPole, b: AssociationPole) => {
+      const ap = a.slug || "";
+      const bp = b.slug || "";
+
+      if (ap === HEAD_POLE) {
+        return -1;
+      } else if (bp === HEAD_POLE) {
+        return 1;
+      } else {
+        return ap.localeCompare(bp);
+      }
+    }
+  );
 
   return (
     <div className={styles.main}>
@@ -33,7 +50,7 @@ export default function AssociationPage(
         />
         {/* <MembersList membership={props.committee} /> */}
       </div>
-      <h1>Pôles</h1>
+      <h1>{tt["pole"]}</h1>
       {props.poles.map((p) => (
         <>
           <div className={styles.center}>
