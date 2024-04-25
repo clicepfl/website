@@ -1,5 +1,5 @@
 version: 1
-directus: 10.9.3
+directus: 10.10.7
 vendor: postgres
 collections:
   - collection: association
@@ -1091,13 +1091,54 @@ fields:
         defaultOpenSplitView: true
       readonly: false
       required: true
-      sort: 4
+      sort: 5
       special:
         - translations
       translations: null
       validation: null
       validation_message: null
       width: full
+  - collection: association_memberships
+    field: pole
+    type: integer
+    meta:
+      collection: association_memberships
+      conditions: null
+      display: null
+      display_options: null
+      field: pole
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        enableCreate: false
+        template: "{{slug}}"
+      readonly: false
+      required: true
+      sort: 4
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: pole
+      table: association_memberships
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: association_poles
+      foreign_key_column: id
   - collection: association_memberships_translations
     field: id
     type: integer
@@ -5542,6 +5583,27 @@ relations:
       constraint_name: association_memberships_member_foreign
       on_update: NO ACTION
       on_delete: NO ACTION
+  - collection: association_memberships
+    field: pole
+    related_collection: association_poles
+    meta:
+      junction_field: null
+      many_collection: association_memberships
+      many_field: pole
+      one_allowed_collections: null
+      one_collection: association_poles
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: association_memberships
+      column: pole
+      foreign_key_table: association_poles
+      foreign_key_column: id
+      constraint_name: association_memberships_pole_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
   - collection: association_memberships_translations
     field: languages_code
     related_collection: languages
