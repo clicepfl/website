@@ -16,7 +16,7 @@ import {
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
-const HEAD_POLE = "presidence";
+const HEAD_POLE = "presidency";
 
 export default function AssociationPage(
   props: InferGetServerSidePropsType<typeof getServerSideProps>

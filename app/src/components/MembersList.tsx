@@ -7,7 +7,7 @@ import {
   Member,
 } from "@/types/aliases";
 
-const HEAD_POLE = "presidence";
+const HEAD_POLE = "presidency";
 
 export default function MembersList(props: {
   membership: AssociationMembership & { member: Member }[];
@@ -26,7 +26,7 @@ export default function MembersList(props: {
         bp = (b.pole as AssociationPole)?.slug || "";
 
       if (ap === HEAD_POLE && bp === HEAD_POLE) {
-        return an.localeCompare(an);
+        return an.localeCompare(bn);
       } else if (ap === HEAD_POLE) {
         return -1;
       } else if (bp === HEAD_POLE) {
