@@ -1,4 +1,5 @@
 import AssociationDescription from "@/components/AssociationDescription";
+import MembersList from "@/components/MembersList";
 import PoleDescription from "@/components/PoleDescription";
 import TabTitle from "@/components/TabTitle";
 import { directus, populateLayoutProps } from "@/directus";
@@ -30,12 +31,22 @@ export default function AssociationPage(
           socialLinks={props.socialLinks}
           publicFiles={props.publicFiles}
         />
-        <h1>Pôles</h1>
-        {props.poles.map((p) => (
-          <PoleDescription pole={p} />
-        ))}
+        {/* <MembersList membership={props.committee} /> */}
       </div>
-      {/* <MembersList membership={props.committee} /> */}
+      <h1>Pôles</h1>
+      {props.poles.map((p) => (
+        <>
+          <div className={styles.center}>
+            <PoleDescription pole={p} />
+          </div>
+          <MembersList
+            title={false}
+            membership={props.committee.filter(
+              (m) => (m.pole as AssociationPole).id == p.id
+            )}
+          />
+        </>
+      ))}
     </div>
   );
 }
@@ -71,6 +82,7 @@ export const getServerSideProps: GetServerSideProps<{
             { member: ["*"] },
             //@ts-ignore
             { translations: ["*"] },
+            { pole: ["*"] },
           ],
           filter: { level: { _eq: "committee" } },
         })

@@ -11,6 +11,7 @@ const HEAD_POLE = "presidence";
 
 export default function MembersList(props: {
   membership: AssociationMembership & { member: Member }[];
+  title?: boolean;
 }) {
   const translations = useTranslationTable();
 
@@ -42,7 +43,11 @@ export default function MembersList(props: {
 
   return (
     <div className={styles.membersList}>
-      <h1>{capitalize(translations["committee"])}</h1>
+      {props.title !== false ? (
+        <h1>{capitalize(translations["committee"])}</h1>
+      ) : (
+        <></>
+      )}
       <div className={styles.list}>
         {props.membership.map((m) => (
           <Card key={(m as any).id} member={m.member} membership={m} />
