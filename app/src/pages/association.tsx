@@ -50,10 +50,10 @@ export default function AssociationPage(
         />
         {/* <MembersList membership={props.committee} /> */}
       </div>
-      <h1>{tt["pole"]}</h1>
+      <h1 id="pole">{tt["pole"]}</h1>
       {props.poles.map((p) => (
         <>
-          <div className={styles.center}>
+          <div id={p.slug} className={styles.center}>
             <PoleDescription pole={p} />
           </div>
           <MembersList

@@ -45,6 +45,7 @@ function PartnerCategoryDisplay({
 }
 
 export default function PartnersList(props: {
+  id?: string;
   partners: [PartnerCategory, Partner[]][];
 }) {
   props.partners.sort(
@@ -52,7 +53,7 @@ export default function PartnersList(props: {
   );
 
   return (
-    <div className={styles.partnersList}>
+    <div id={props.id} className={styles.partnersList}>
       {props.partners.map((e) => (
         <PartnerCategoryDisplay key={e[0].id} c={e[0]} p={e[1]} />
       ))}

@@ -10,6 +10,7 @@ import {
 const HEAD_POLE = "presidency";
 
 export default function MembersList(props: {
+  id?: string;
   membership: AssociationMembership & { member: Member }[];
   title?: boolean;
 }) {
@@ -42,7 +43,7 @@ export default function MembersList(props: {
   );
 
   return (
-    <div className={styles.membersList}>
+    <div id={props.id} className={styles.membersList}>
       {props.title !== false ? (
         <h1>{capitalize(translations["committee"])}</h1>
       ) : (

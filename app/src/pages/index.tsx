@@ -71,7 +71,7 @@ export default function Home(
         />
       </div>
 
-      <div className={styles.news}>
+      <div id="news" className={styles.news}>
         <h1 className="light">News</h1>
         <div className={styles.newsList}>
           {props.news.map((n) => (
@@ -81,7 +81,7 @@ export default function Home(
         <Button text={tt["moreNews"]} onClick={() => router.push("/news")} />
       </div>
 
-      <PartnersList partners={orderedPartners} />
+      <PartnersList id="partners" partners={orderedPartners} />
 
       <div className={styles.associationDesciption}>
         <div className={styles.center}>
@@ -96,9 +96,10 @@ export default function Home(
 
       <Decoration className={styles.decoration} />
 
-      <MembersList membership={props.committee} />
+      <MembersList id="committee" membership={props.committee} />
 
       <Gallery
+        id="gallery"
         imgs={props.gallery.sort((a, b) => a.title.localeCompare(b.title))}
         translations={props.layoutProps.translations}
       />

@@ -4,6 +4,7 @@ import styles from "@/styles/Gallery.module.scss";
 import { components } from "@/types/schema";
 
 export default function Gallery(props: {
+  id?: string;
   imgs?: (string | components["schemas"]["Files"])[] | null;
   limit?: number;
   translations: TranslationTable;
@@ -49,7 +50,7 @@ export default function Gallery(props: {
   });
 
   return (
-    <div className={styles.main}>
+    <div id={props.id} className={styles.main}>
       <h1>{translations["gallery"]}</h1>
       <div className={styles.gallery}>{content}</div>
     </div>
