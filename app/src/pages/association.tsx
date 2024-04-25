@@ -7,6 +7,7 @@ import styles from "@/styles/Page.module.scss";
 import {
   Association,
   AssociationMembership,
+  AssociationPole,
   Member,
   PublicFiles,
   SocialLink,
@@ -30,6 +31,9 @@ export default function AssociationPage(
           publicFiles={props.publicFiles}
         />
       </div>
+      {props.poles.map((c) => (
+        <p>{c.slug}</p>
+      ))}
       <MembersList membership={props.committee} />
     </div>
   );
@@ -38,6 +42,7 @@ export default function AssociationPage(
 export const getServerSideProps: GetServerSideProps<{
   association: Association;
   socialLinks: SocialLink[];
+  poles: AssociationPole[];
   committee: (AssociationMembership & { member: Member })[];
   publicFiles: PublicFiles[];
 }> = populateLayoutProps(async (_) => {
@@ -55,6 +60,7 @@ export const getServerSideProps: GetServerSideProps<{
         .then((result) =>
           result.map((s) => s.social_links_id)
         )) as SocialLink[],
+      poles: await directus().request(readItems("association_poles")),
       committee: (await directus().request(
         readItems("association_memberships", {
           fields: [
