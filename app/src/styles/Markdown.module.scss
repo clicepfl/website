@@ -1,0 +1,24 @@
+@use "./utilities/variables";
+
+.markdown {
+  h1 {
+    text-align: center;
+
+    // h2 (subtitle) must be centered and slightly enlarged
+    + h2 {
+      text-align: center;
+    }
+  }
+
+  a {
+    color: variables.$text-link-color;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  img {
+    border-radius: variables.$small-border-radius;
+  }
+}

@@ -1,37 +1,5 @@
 @use "utilities/variables";
 
-.publicFiles {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  color: variables.$glass-color;
-
-  .icon {
-    width: 1.5rem;
-    height: 1.5rem;
-
-    // Generated with https://angel-rs.github.io/css-color-filter-generator/
-    filter: brightness(0) saturate(100%) invert(56%) sepia(49%) saturate(4097%)
-      hue-rotate(214deg) brightness(103%) contrast(101%);
-  }
-
-  > * {
-    border: 2px variables.$glass-color solid;
-    border-radius: 1rem;
-    padding: 1rem;
-
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    &:hover {
-      border: 2px variables.$glass-color-hover solid;
-      color: variables.$glass-color-hover;
-    }
-  }
-}
-
 .main {
   h4 {
     margin-top: 0.2rem;
@@ -69,16 +37,6 @@
     }
   }
 
-  .logo {
-    height: 15rem;
-    width: 25rem;
-
-    @media (max-width: 800px) {
-      width: 15rem;
-      height: 10rem;
-    }
-  }
-
   .center {
     align-items: center;
 
@@ -102,29 +60,6 @@
       color: variables.$detail-color;
       margin: 0;
     }
-  }
-}
-
-.text {
-  h1 {
-    text-align: center;
-
-    // h2 (subtitle) must be centered and slightly enlarged
-    + h2 {
-      text-align: center;
-    }
-  }
-
-  a {
-    color: variables.$text-link-color;
-  }
-
-  p {
-    text-align: justify;
-  }
-
-  img {
-    border-radius: variables.$small-border-radius;
   }
 }
 

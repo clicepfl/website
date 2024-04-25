@@ -1,5 +1,5 @@
 import AssociationDescription from "@/components/AssociationDescription";
-import MembersList from "@/components/MembersList";
+import PoleDescription from "@/components/PoleDescription";
 import TabTitle from "@/components/TabTitle";
 import { directus, populateLayoutProps } from "@/directus";
 import { capitalize, queryTranslations, useTranslationTable } from "@/locales";
@@ -24,17 +24,18 @@ export default function AssociationPage(
     <div className={styles.main}>
       <TabTitle title={capitalize(tt["association"])} />
 
-      <div>
+      <div className={styles.center}>
         <AssociationDescription
           association={props.association}
           socialLinks={props.socialLinks}
           publicFiles={props.publicFiles}
         />
+        <h1>Pôles</h1>
+        {props.poles.map((p) => (
+          <PoleDescription pole={p} />
+        ))}
       </div>
-      {props.poles.map((c) => (
-        <p>{c.slug}</p>
-      ))}
-      <MembersList membership={props.committee} />
+      {/* <MembersList membership={props.committee} /> */}
     </div>
   );
 }
@@ -60,7 +61,9 @@ export const getServerSideProps: GetServerSideProps<{
         .then((result) =>
           result.map((s) => s.social_links_id)
         )) as SocialLink[],
-      poles: await directus().request(readItems("association_poles")),
+      poles: await directus().request(
+        readItems("association_poles", queryTranslations)
+      ),
       committee: (await directus().request(
         readItems("association_memberships", {
           fields: [

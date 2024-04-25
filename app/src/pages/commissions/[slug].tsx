@@ -4,6 +4,7 @@ import SocialsList from "@/components/SocialsList";
 import TabTitle from "@/components/TabTitle";
 import { LayoutProps, directus, populateLayoutProps } from "@/directus";
 import { getTranslation, locale, queryTranslations } from "@/locales";
+import markdownStyle from "@/styles/Markdown.module.scss";
 import styles from "@/styles/Page.module.scss";
 import {
   AssociationMembership,
@@ -35,7 +36,9 @@ export default function Page(
         />
         <h2>{props.commission.name}</h2>
 
-        <Markdown className={styles.text}>{translation.description}</Markdown>
+        <Markdown className={markdownStyle.markdown}>
+          {translation.description}
+        </Markdown>
 
         <SocialsList socials={props.socialLinks} />
       </div>

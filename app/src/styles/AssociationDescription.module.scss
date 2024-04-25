@@ -1,0 +1,51 @@
+@use "./utilities/variables";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  align-content: center;
+  align-items: center;
+
+  .logo {
+    height: 15rem;
+    width: 25rem;
+
+    @media (max-width: 800px) {
+      width: 15rem;
+      height: 10rem;
+    }
+  }
+}
+
+.publicFiles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: variables.$glass-color;
+
+  .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+
+    // Generated with https://angel-rs.github.io/css-color-filter-generator/
+    filter: brightness(0) saturate(100%) invert(56%) sepia(49%) saturate(4097%)
+      hue-rotate(214deg) brightness(103%) contrast(101%);
+  }
+
+  > * {
+    border: 2px variables.$glass-color solid;
+    border-radius: 1rem;
+    padding: 1rem;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &:hover {
+      border: 2px variables.$glass-color-hover solid;
+      color: variables.$glass-color-hover;
+    }
+  }
+}

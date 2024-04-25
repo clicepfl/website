@@ -8,6 +8,7 @@ import Gallery from "@/components/Gallery";
 import MembersList from "@/components/MembersList";
 import NewsCard from "@/components/NewsCard";
 import PartnersList from "@/components/PartnersList";
+import SocialsList from "@/components/SocialsList";
 import TabTitle from "@/components/TabTitle";
 import { LayoutProps, directus, populateLayoutProps } from "@/directus";
 import {
@@ -82,11 +83,16 @@ export default function Home(
 
       <PartnersList partners={orderedPartners} />
 
-      <AssociationDescription
-        association={props.association}
-        socialLinks={props.socialLinks}
-        publicFiles={props.publicFiles}
-      />
+      <div className={styles.associationDesciption}>
+        <div className={styles.center}>
+          <AssociationDescription
+            association={props.association}
+            socialLinks={props.socialLinks}
+            publicFiles={props.publicFiles}
+          />
+          <SocialsList socials={props.socialLinks} />
+        </div>
+      </div>
 
       <Decoration className={styles.decoration} />
 

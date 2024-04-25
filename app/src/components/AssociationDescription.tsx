@@ -1,7 +1,7 @@
 import DirectusImage from "./DirectusImage";
-import SocialsList from "./SocialsList";
 import { getTranslation, locale } from "@/locales";
-import styles from "@/styles/Page.module.scss";
+import styles from "@/styles/AssociationDescription.module.scss";
+import markdownStyle from "@/styles/Markdown.module.scss";
 import { Association, PublicFiles, SocialLink } from "@/types/aliases";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -9,7 +9,6 @@ import Markdown from "react-markdown";
 
 export default function AssociationDescription({
   association,
-  socialLinks,
   publicFiles,
 }: {
   association: Association;
@@ -26,25 +25,24 @@ export default function AssociationDescription({
         img={association.logo}
         className={styles.logo}
       />
-      <div className={styles.center}>
-        <Markdown className={styles.text}>{translation.description}</Markdown>
-        <div className={styles.publicFiles}>
-          {publicFiles.map((f) => (
-            <Link href={f.link || ""} key={f.id}>
-              {f.icon ? (
-                <DirectusImage
-                  sizes="1.5rem"
-                  className={styles.icon}
-                  img={f.icon}
-                />
-              ) : (
-                <></>
-              )}
-              {getTranslation(f, locale(router)).name}
-            </Link>
-          ))}
-        </div>
-        <SocialsList socials={socialLinks} />
+      <Markdown className={markdownStyle.markdown}>
+        {translation.description}
+      </Markdown>
+      <div className={styles.publicFiles}>
+        {publicFiles.map((f) => (
+          <Link href={f.link || ""} key={f.id}>
+            {f.icon ? (
+              <DirectusImage
+                sizes="1.5rem"
+                className={styles.icon}
+                img={f.icon}
+              />
+            ) : (
+              <></>
+            )}
+            {getTranslation(f, locale(router)).name}
+          </Link>
+        ))}
       </div>
     </div>
   );

@@ -95,6 +95,20 @@
   }
 }
 
+.associationDesciption {
+  background-color: variables.$white-background-color;
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+
+  .center {
+    width: min(70ch, 80%);
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+}
+
 .decoration {
   transform: translateY(-1px);
   width: 100%;

@@ -9,6 +9,7 @@ import {
   queryTranslations,
   useTranslationTable,
 } from "@/locales";
+import markdownStyle from "@/styles/Markdown.module.scss";
 import styles from "@/styles/Page.module.scss";
 import { Commission, News } from "@/types/aliases";
 import { readItems } from "@directus/sdk";
@@ -42,7 +43,9 @@ export default function Page(
           <></>
         )}
         <h2>{translation.title}</h2>
-        <Markdown className={styles.text}>{translation.content}</Markdown>
+        <Markdown className={markdownStyle.markdown}>
+          {translation.content}
+        </Markdown>
         {props.news.video_link ? (
           <video width="600" controls preload="none" className={styles.video}>
             <source src={props.news.video_link} type="video/mp4" />
