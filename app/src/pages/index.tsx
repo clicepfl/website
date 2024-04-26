@@ -172,7 +172,7 @@ export const getServerSideProps: GetServerSideProps<
             { member: ["*"] },
             //@ts-ignore
             { translations: ["*"] },
-            { pole: ["slug"] },
+            { pole: ["slug", { translations: ["name", "languages_code"] }] },
           ],
           filter: { level: { _eq: "committee" } },
         })

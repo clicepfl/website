@@ -1,11 +1,12 @@
 import Card from "./Card";
-import { capitalize, useTranslationTable } from "@/locales";
+import { capitalize, getTranslation, useTranslationTable } from "@/locales";
 import styles from "@/styles/MembersList.module.scss";
 import {
   AssociationMembership,
   AssociationPole,
   Member,
 } from "@/types/aliases";
+import { useRouter } from "next/router";
 
 const HEAD_POLE = "presidency";
 
@@ -15,6 +16,7 @@ export default function MembersList(props: {
   title?: boolean;
 }) {
   const translations = useTranslationTable();
+  const router = useRouter();
 
   props.membership.sort(
     (
@@ -24,7 +26,11 @@ export default function MembersList(props: {
       const an = a.member.name || "",
         bn = b.member.name || "",
         ap = (a.pole as AssociationPole)?.slug || "",
-        bp = (b.pole as AssociationPole)?.slug || "";
+        bp = (b.pole as AssociationPole)?.slug || "",
+        apt =
+          getTranslation(a.pole as AssociationPole, router.locale).name || "",
+        bpt =
+          getTranslation(b.pole as AssociationPole, router.locale).name || "";
 
       if (ap === HEAD_POLE && bp === HEAD_POLE) {
         return an.localeCompare(bn);
@@ -34,7 +40,7 @@ export default function MembersList(props: {
         return 1;
       } else {
         if (ap !== bp) {
-          return ap.localeCompare(bp);
+          return apt.localeCompare(bpt);
         } else {
           return an.localeCompare(bn);
         }

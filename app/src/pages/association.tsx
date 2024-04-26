@@ -2,7 +2,12 @@ import AssociationDescription from "@/components/AssociationDescription";
 import PoleDescription from "@/components/PoleDescription";
 import TabTitle from "@/components/TabTitle";
 import { directus, populateLayoutProps } from "@/directus";
-import { capitalize, queryTranslations, useTranslationTable } from "@/locales";
+import {
+  capitalize,
+  getTranslation,
+  queryTranslations,
+  useTranslationTable,
+} from "@/locales";
 import styles from "@/styles/Page.module.scss";
 import {
   Association,
@@ -14,6 +19,7 @@ import {
 } from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { useRouter } from "next/router";
 
 const HEAD_POLE = "presidency";
 
@@ -21,18 +27,21 @@ export default function AssociationPage(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   const tt = useTranslationTable();
+  const router = useRouter();
 
   (props.poles as AssociationPole[]).sort(
     (a: AssociationPole, b: AssociationPole) => {
-      const ap = a.slug || "";
-      const bp = b.slug || "";
+      const ap = a.slug || "",
+        bp = b.slug || "",
+        apt = getTranslation(a, router.locale).name || "",
+        bpt = getTranslation(b, router.locale).name || "";
 
       if (ap === HEAD_POLE) {
         return -1;
       } else if (bp === HEAD_POLE) {
         return 1;
       } else {
-        return ap.localeCompare(bp);
+        return apt.localeCompare(bpt);
       }
     }
   );
@@ -96,7 +105,7 @@ export const getServerSideProps: GetServerSideProps<{
             { member: ["*"] },
             //@ts-ignore
             { translations: ["*"] },
-            { pole: ["*"] },
+            { pole: ["*", { translations: ["*"] }] },
           ],
           filter: { level: { _eq: "committee" } },
         })
