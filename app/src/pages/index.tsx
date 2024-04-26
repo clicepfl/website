@@ -92,11 +92,10 @@ export default function Home(
           />
           <SocialsList socials={props.socialLinks} />
         </div>
+        <MembersList membership={props.committee} />
       </div>
 
       <Decoration className={styles.decoration} />
-
-      <MembersList id="committee" membership={props.committee} />
 
       <Gallery
         id="gallery"

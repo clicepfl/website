@@ -38,6 +38,8 @@ export default function AssociationPage(
     }
   );
 
+  let i = 0;
+
   return (
     <div className={styles.main}>
       <TabTitle title={capitalize(tt["association"])} />
@@ -51,22 +53,18 @@ export default function AssociationPage(
       </div>
       <h1 id="pole">{tt["pole"]}</h1>
       {props.poles.map((p) => (
-        <>
-          <div
-            id={p.slug}
-            className={styles.center}
-            key={`${p.slug}-description`}
-          >
+        <div className={styles.section} key={p.id}>
+          <div className={styles.center}>
             <PoleDescription pole={p} />
           </div>
           <MembersList
-            key={`${p.slug}-members`}
+            key={i++}
             title={false}
             membership={props.committee.filter(
               (m) => (m.pole as AssociationPole).id == p.id
             )}
           />
-        </>
+        </div>
       ))}
     </div>
   );

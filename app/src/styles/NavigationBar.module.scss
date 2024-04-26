@@ -47,6 +47,12 @@
     }
   }
 
+  .selected {
+    border: 2px solid;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 2rem;
+  }
+
   .navigationMenu {
     display: flex;
     flex-direction: row;
@@ -75,10 +81,6 @@
       }
 
       &.selected {
-        background-color: variables.$dark-text-color;
-        padding: 0.5rem;
-        border-radius: 2rem;
-
         &:hover {
           color: variables.$text-color;
           .arrow {
@@ -136,6 +138,7 @@
 
           &.selected {
             border-radius: 0;
+            border: 0;
             background-color: variables.$glass-color-hover;
           }
         }
@@ -176,12 +179,6 @@
 
       .sideMenu {
         @extend .glass;
-
-        .selected {
-          background-color: variables.$dark-text-color;
-          padding: 0.5rem;
-          border-radius: 2rem;
-        }
 
         font-size: 20pt;
         text-align: center;

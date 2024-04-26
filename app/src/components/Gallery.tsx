@@ -18,41 +18,41 @@ export default function Gallery(props: {
   let count_5 = 0;
   let count_3 = 0;
 
-  const content = props.imgs.slice(0, props.limit || 15).map((img, key) => {
-    let is_long_5 = Math.random() > 0.5 && count_5 < 4;
-    count_5 += is_long_5 ? 2 : 1;
-    count_5 %= 5;
+  return (
+    <div className={styles.main}>
+      <h1>{translations["gallery"]}</h1>
+      <div className={styles.gallery}>
+        {props.imgs.slice(0, props.limit || 15).map((img, key) => {
+          let is_long_5 = Math.random() > 0.5 && count_5 < 4;
+          count_5 += is_long_5 ? 2 : 1;
+          count_5 %= 5;
 
-    let is_long_3 = Math.random() > 0.5 && count_3 < 2;
-    count_3 += is_long_3 ? 2 : 1;
-    count_3 %= 3;
+          let is_long_3 = Math.random() > 0.5 && count_3 < 2;
+          count_3 += is_long_3 ? 2 : 1;
+          count_3 %= 3;
 
-    return (
-      <DirectusImage
-        sizes={
-          is_long_5
-            ? "(max-width: 1200px) 20vw, 40vw"
-            : is_long_3
-            ? "40vw"
-            : "20vw"
-        }
-        img={img}
-        name={"gallery image"}
-        cover={true}
-        className={`
+          return (
+            <DirectusImage
+              key={key}
+              sizes={
+                is_long_5
+                  ? "(max-width: 1200px) 20vw, 40vw"
+                  : is_long_3
+                  ? "40vw"
+                  : "20vw"
+              }
+              img={img}
+              name={"gallery image"}
+              cover={true}
+              className={`
             ${styles.image} 
             ${is_long_3 ? styles.long_3 : ""} 
             ${is_long_5 ? styles.long_5 : ""}
           `}
-        key={key}
-      />
-    );
-  });
-
-  return (
-    <div id={props.id} className={styles.main}>
-      <h1>{translations["gallery"]}</h1>
-      <div className={styles.gallery}>{content}</div>
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
