@@ -49,16 +49,18 @@ export default function AssociationPage(
         />
       </div>
       <h1 id="pole">{tt["pole"]}</h1>
-      {props.poles.map((p) => (
-        <div className={styles.section} key={p.slug} id={p.slug}>
-          <PoleDescription
-            pole={p}
-            members={props.committee.filter(
-              (m) => (m.pole as AssociationPole).id == p.id
-            )}
-          />
-        </div>
-      ))}
+      <div className={styles.poles}>
+        {props.poles.map((p) => (
+          <div className={styles.section} key={p.slug} id={p.slug}>
+            <PoleDescription
+              pole={p}
+              members={props.committee.filter(
+                (m) => (m.pole as AssociationPole).id == p.id
+              )}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

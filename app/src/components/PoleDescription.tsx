@@ -16,17 +16,18 @@ export default function PoleDescription(props: {
 }) {
   const router = useRouter();
   const translation = getTranslation(props.pole, locale(router));
-  let i = 0;
 
   return (
-    <div className={styles.main}>
-      <h2 className={styles.center}>{translation.name}</h2>
-      <MembersList key={i++} title={false} membership={props.members} />
+    <div className={styles.section}>
       <div className={styles.center}>
-        <Markdown className={markdownStyle.markdown}>
-          {translation.description}
-        </Markdown>
+        <div>
+          <h2 className={styles.poleName}>{translation.name}</h2>
+          <Markdown className={markdownStyle.markdown}>
+            {translation.description}
+          </Markdown>
+        </div>
       </div>
+      <MembersList title={false} membership={props.members} />
     </div>
   );
 }

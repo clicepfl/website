@@ -49,6 +49,7 @@ export const getServerSideProps: GetServerSideProps<{
           fields: [
             "name",
             "slug",
+            "id",
             { translations: ["banner", "small_description", "languages_code"] },
           ],
         })
