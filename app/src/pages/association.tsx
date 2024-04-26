@@ -1,5 +1,4 @@
 import AssociationDescription from "@/components/AssociationDescription";
-import MembersList from "@/components/MembersList";
 import PoleDescription from "@/components/PoleDescription";
 import TabTitle from "@/components/TabTitle";
 import { directus, populateLayoutProps } from "@/directus";
@@ -51,22 +50,14 @@ export default function AssociationPage(
       </div>
       <h1 id="pole">{tt["pole"]}</h1>
       {props.poles.map((p) => (
-        <>
-          <div
-            id={p.slug}
-            className={styles.center}
-            key={`${p.slug}-description`}
-          >
-            <PoleDescription pole={p} />
-          </div>
-          <MembersList
-            key={`${p.slug}-members`}
-            title={false}
-            membership={props.committee.filter(
+        <div className={styles.section} key={p.slug} id={p.slug}>
+          <PoleDescription
+            pole={p}
+            members={props.committee.filter(
               (m) => (m.pole as AssociationPole).id == p.id
             )}
           />
-        </>
+        </div>
       ))}
     </div>
   );

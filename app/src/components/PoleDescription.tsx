@@ -1,19 +1,32 @@
+import MembersList from "./MembersList";
 import { getTranslation, locale } from "@/locales";
 import markdownStyle from "@/styles/Markdown.module.scss";
-import { AssociationPole } from "@/types/aliases";
+import styles from "@/styles/Page.module.scss";
+import {
+  AssociationMembership,
+  AssociationPole,
+  Member,
+} from "@/types/aliases";
 import { useRouter } from "next/router";
 import Markdown from "react-markdown";
 
-export default function PoleDescription({ pole }: { pole: AssociationPole }) {
+export default function PoleDescription(props: {
+  pole: AssociationPole;
+  members: (AssociationMembership & { member: Member })[];
+}) {
   const router = useRouter();
-  const translation = getTranslation(pole, locale(router));
+  const translation = getTranslation(props.pole, locale(router));
+  let i = 0;
 
   return (
-    <div>
-      <h2>{translation.name}</h2>
-      <Markdown className={markdownStyle.markdown}>
-        {translation.description}
-      </Markdown>
+    <div className={styles.main}>
+      <h2 className={styles.center}>{translation.name}</h2>
+      <MembersList key={i++} title={false} membership={props.members} />
+      <div className={styles.center}>
+        <Markdown className={markdownStyle.markdown}>
+          {translation.description}
+        </Markdown>
+      </div>
     </div>
   );
 }
