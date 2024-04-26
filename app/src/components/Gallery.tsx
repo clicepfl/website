@@ -19,7 +19,7 @@ export default function Gallery(props: {
   let count_3 = 0;
 
   return (
-    <div className={styles.main}>
+    <div id={props.id} className={styles.main}>
       <h1>{translations["gallery"]}</h1>
       <div className={styles.gallery}>
         {props.imgs.slice(0, props.limit || 15).map((img, key) => {
