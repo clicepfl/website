@@ -48,15 +48,19 @@ export default function AssociationPage(
           socialLinks={props.socialLinks}
           publicFiles={props.publicFiles}
         />
-        {/* <MembersList membership={props.committee} /> */}
       </div>
       <h1 id="pole">{tt["pole"]}</h1>
       {props.poles.map((p) => (
         <>
-          <div id={p.slug} className={styles.center}>
+          <div
+            id={p.slug}
+            className={styles.center}
+            key={`${p.slug}-description`}
+          >
             <PoleDescription pole={p} />
           </div>
           <MembersList
+            key={`${p.slug}-members`}
             title={false}
             membership={props.committee.filter(
               (m) => (m.pole as AssociationPole).id == p.id
