@@ -24,18 +24,27 @@ function MenuLink({
   text,
   side = false,
   children,
+  toggle,
 }: {
   path: string;
   text: string;
   side?: boolean;
   children?: any;
+  toggle?: () => void;
 }) {
+  const router = useRouter();
   return (
     <Link
       className={`${side ? "" : styles.menuItem} ${
         useRouter().asPath.startsWith(path) ? styles.selected : ""
       }`}
       href={path}
+      onClick={() => {
+        if (toggle) {
+          toggle();
+        }
+        router.push(path);
+      }}
     >
       {text}
       {children}
@@ -120,18 +129,21 @@ export default function NavigationBar(props: {
       side={true}
       path="/association"
       text={capitalize(translations["association"])}
+      toggle={toggleMenu}
     />,
     <MenuLink
       key={1}
       side={true}
       path="/commissions"
       text={capitalize(translations["commissions"])}
+      toggle={toggleMenu}
     />,
     <MenuLink
       key={2}
       side={true}
       path="/news"
       text={capitalize(translations["news"])}
+      toggle={toggleMenu}
     />,
   ];
 
