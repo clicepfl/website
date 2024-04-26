@@ -27,10 +27,12 @@ export default function MembersList(props: {
         bn = b.member.name || "",
         ap = (a.pole as AssociationPole)?.slug || "",
         bp = (b.pole as AssociationPole)?.slug || "",
-        apt =
-          getTranslation(a.pole as AssociationPole, router.locale).name || "",
-        bpt =
-          getTranslation(b.pole as AssociationPole, router.locale).name || "";
+        apt = a.pole
+          ? getTranslation(a.pole as AssociationPole, router.locale).name || ""
+          : "",
+        bpt = b.pole
+          ? getTranslation(b.pole as AssociationPole, router.locale).name || ""
+          : "";
 
       if (ap === HEAD_POLE && bp === HEAD_POLE) {
         return an.localeCompare(bn);
