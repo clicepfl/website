@@ -54,7 +54,8 @@ export function getTranslation<
   model: {
     translations?: (number | T)[] | null;
   },
-  loc: string | undefined
+  loc: string | undefined,
+  canFail: boolean = false
 ): T {
   const l = locale(loc);
 
@@ -84,8 +85,11 @@ export function getTranslation<
     }
   }
 
-  console.error(`While getting ${l} from`);
-  console.error(model);
+  if (!canFail) {
+    console.error(
+      `Could not find translations for locale ${l} in ${JSON.stringify(model)}`
+    );
+  }
   throw new Error("Missing translation in queried data");
 }
 

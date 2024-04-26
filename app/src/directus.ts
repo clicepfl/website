@@ -123,7 +123,7 @@ export function cleanTranslations<T extends { [key: string]: any }>(
           if (e[0] === "translations") {
             let t: any[] = e[1] as any[];
             try {
-              t = [getTranslation(value, locale)];
+              t = [getTranslation(value, locale, true)];
             } catch {}
             return [e[0], t];
           } else {
