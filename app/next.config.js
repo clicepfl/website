@@ -39,5 +39,4 @@ module.exports = {
     defaultLocale: "en-US",
   },
   basePath: "",
-  compress: false,
 };
