@@ -950,6 +950,45 @@ fields:
       validation: null
       validation_message: null
       width: full
+  - collection: association
+    field: mail_signature
+    type: uuid
+    meta:
+      collection: association
+      conditions: null
+      display: null
+      display_options: null
+      field: mail_signature
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 11
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: mail_signature
+      table: association
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
   - collection: association_memberships
     field: id
     type: integer
@@ -5560,6 +5599,27 @@ relations:
       foreign_key_table: directus_files
       foreign_key_column: id
       constraint_name: association_logo_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: association
+    field: mail_signature
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: association
+      many_field: mail_signature
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: association
+      column: mail_signature
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: association_mail_signature_foreign
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: association_memberships

@@ -2806,6 +2806,7 @@ export interface components {
       phone?: string | null;
       address?: string | null;
       logo?: string | components["schemas"]["Files"] | null;
+      mail_signature?: string | components["schemas"]["Files"] | null;
       translations?:
         | (number | components["schemas"]["ItemsAssociationTranslations"])[]
         | null;
