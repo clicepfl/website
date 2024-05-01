@@ -28,7 +28,7 @@ export default function Footer(props: {
           />
           <p className={styles.coord}>
             {props.association.address} <br />
-            <a href="mailto:{association.email}">
+            <a href={`mailto:${props.association.email}`}>
               {props.association.email}
             </a>{" "}
             <br />
