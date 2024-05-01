@@ -30,7 +30,7 @@ export default function Footer(props: {
             {props.association.address} <br />
             <a href={`mailto:${props.association.email}`}>
               {props.association.email}
-            </a>{" "}
+            </a>
             <br />
             {props.association.phone}
           </p>
