@@ -861,45 +861,6 @@ export interface paths {
      */
     patch: operations["updateSingleItemsAssociation"];
   };
-  "/items/members": {
-    /**
-     * List Items
-     * @description List the members items.
-     */
-    get: operations["readItemsMembers"];
-    /**
-     * Create an Item
-     * @description Create a new members item.
-     */
-    post: operations["createItemsMembers"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing members items.
-     */
-    delete: operations["deleteItemsMembers"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple members items at the same time.
-     */
-    patch: operations["updateItemsMembers"];
-  };
-  "/items/members/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single members item by unique identifier.
-     */
-    get: operations["readSingleItemsMembers"];
-    /**
-     * Delete an Item
-     * @description Delete an existing members item.
-     */
-    delete: operations["deleteSingleItemsMembers"];
-    /**
-     * Update an Item
-     * @description Update an existing members item.
-     */
-    patch: operations["updateSingleItemsMembers"];
-  };
   "/items/languages": {
     /**
      * List Items
@@ -1835,6 +1796,45 @@ export interface paths {
      * @description Update an existing partner_category item.
      */
     patch: operations["updateSingleItemsPartnerCategory"];
+  };
+  "/items/members": {
+    /**
+     * List Items
+     * @description List the members items.
+     */
+    get: operations["readItemsMembers"];
+    /**
+     * Create an Item
+     * @description Create a new members item.
+     */
+    post: operations["createItemsMembers"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing members items.
+     */
+    delete: operations["deleteItemsMembers"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple members items at the same time.
+     */
+    patch: operations["updateItemsMembers"];
+  };
+  "/items/members/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single members item by unique identifier.
+     */
+    get: operations["readSingleItemsMembers"];
+    /**
+     * Delete an Item
+     * @description Delete an existing members item.
+     */
+    delete: operations["deleteSingleItemsMembers"];
+    /**
+     * Update an Item
+     * @description Update an existing members item.
+     */
+    patch: operations["updateSingleItemsMembers"];
   };
 }
 
@@ -2816,15 +2816,6 @@ export interface components {
         | (number | components["schemas"]["ItemsAssociationPartners"])[]
         | null;
     };
-    ItemsMembers: {
-      id?: number;
-      name?: string | null;
-      surname?: string | null;
-      email?: string | null;
-      sciper?: string | null;
-      link?: string | null;
-      picture?: string | components["schemas"]["Files"] | null;
-    };
     ItemsLanguages: {
       code?: string;
       name?: string | null;
@@ -3054,6 +3045,16 @@ export interface components {
       translations?:
         | (number | components["schemas"]["ItemsPartnerCategoryTranslations"])[]
         | null;
+    };
+    ItemsMembers: {
+      id?: number;
+      name?: string | null;
+      surname?: string | null;
+      email?: string | null;
+      sciper?: string | null;
+      link?: string | null;
+      picture?: string | components["schemas"]["Files"] | null;
+      poll_count?: number;
     };
   };
   responses: {
@@ -7813,193 +7814,6 @@ export interface operations {
   };
   /**
    * List Items
-   * @description List the members items.
-   */
-  readItemsMembers: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsMembers"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new members item.
-   */
-  createItemsMembers: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsMembers"][]
-          | components["schemas"]["ItemsMembers"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing members items.
-   */
-  deleteItemsMembers: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple members items at the same time.
-   */
-  updateItemsMembers: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsMembers"][]
-          | components["schemas"]["ItemsMembers"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single members item by unique identifier.
-   */
-  readSingleItemsMembers: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsMembers"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing members item.
-   */
-  deleteSingleItemsMembers: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing members item.
-   */
-  updateSingleItemsMembers: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsMembers"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsMembers"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
    * @description List the languages items.
    */
   readItemsLanguages: {
@@ -12486,12 +12300,198 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
+  /**
+   * List Items
+   * @description List the members items.
+   */
+  readItemsMembers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsMembers"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new members item.
+   */
+  createItemsMembers: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsMembers"][]
+          | components["schemas"]["ItemsMembers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing members items.
+   */
+  deleteItemsMembers: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple members items at the same time.
+   */
+  updateItemsMembers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsMembers"][]
+          | components["schemas"]["ItemsMembers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single members item by unique identifier.
+   */
+  readSingleItemsMembers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsMembers"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing members item.
+   */
+  deleteSingleItemsMembers: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing members item.
+   */
+  updateSingleItemsMembers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsMembers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsMembers"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
 }
 
 export type Schema = {
   association_memberships: components["schemas"]["ItemsAssociationMemberships"][];
   association: components["schemas"]["ItemsAssociation"];
-  members: components["schemas"]["ItemsMembers"][];
   languages: components["schemas"]["ItemsLanguages"][];
   association_memberships_translations: components["schemas"]["ItemsAssociationMembershipsTranslations"][];
   partners: components["schemas"]["ItemsPartners"][];
@@ -12516,4 +12516,5 @@ export type Schema = {
   news_translations: components["schemas"]["ItemsNewsTranslations"][];
   partner_category_translations: components["schemas"]["ItemsPartnerCategoryTranslations"][];
   partner_category: components["schemas"]["ItemsPartnerCategory"][];
+  members: components["schemas"]["ItemsMembers"][];
 };
