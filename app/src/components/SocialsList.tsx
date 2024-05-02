@@ -14,20 +14,38 @@ export default function SocialsList(props: {
   return (
     <div className={styles.socialsList}>
       <div className={styles.list}>
-        {props.socials.map((s) => (
-          <Link
-            href={s.link || ""}
-            id={s.id?.toString()}
-            key={s.id?.toString()}
-          >
+        {props.socials.map((s) => {
+          const content = (
             <DirectusImage
               sizes="4rem"
               img={s.logo}
               name={s.media_name}
               className={`${styles.social} ${props.light ? styles.light : ""}`}
             />
-          </Link>
-        ))}
+          );
+
+          if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(s.link || "")) {
+            return (
+              <a
+                href={`mailto:${s.link}`}
+                id={s.id?.toString()}
+                key={s.id?.toString()}
+              >
+                {content}
+              </a>
+            );
+          } else {
+            return (
+              <Link
+                href={s.link || ""}
+                id={s.id?.toString()}
+                key={s.id?.toString()}
+              >
+                {content}
+              </Link>
+            );
+          }
+        })}
       </div>
     </div>
   );
