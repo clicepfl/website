@@ -10,7 +10,12 @@ import NewsCard from "@/components/NewsCard";
 import PartnersList from "@/components/PartnersList";
 import SocialsList from "@/components/SocialsList";
 import TabTitle from "@/components/TabTitle";
-import { LayoutProps, directus, populateLayoutProps } from "@/directus";
+import {
+  LayoutProps,
+  directus,
+  getDirectusImageUrl,
+  populateLayoutProps,
+} from "@/directus";
 import {
   getTranslation,
   queryTranslations,
@@ -55,7 +60,12 @@ export default function Home(
 
   return (
     <>
-      <TabTitle title={tt["slogan"]} />
+      <TabTitle
+        title={tt["slogan"]}
+        ogTitle={props.association.name || undefined}
+        description={tt["slogan"]}
+        image={getDirectusImageUrl(translation.banner)}
+      />
       <Background className={styles.background} name="background" />
       <div className={styles.divLogo}>
         <DirectusImage
