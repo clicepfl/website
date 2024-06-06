@@ -2,7 +2,12 @@ import DirectusImage from "@/components/DirectusImage";
 import MembersList from "@/components/MembersList";
 import SocialsList from "@/components/SocialsList";
 import TabTitle from "@/components/TabTitle";
-import { LayoutProps, directus, populateLayoutProps } from "@/directus";
+import {
+  LayoutProps,
+  directus,
+  getDirectusImageUrl,
+  populateLayoutProps,
+} from "@/directus";
 import { getTranslation, locale, queryTranslations } from "@/locales";
 import markdownStyle from "@/styles/Markdown.module.scss";
 import styles from "@/styles/Page.module.scss";
@@ -25,7 +30,11 @@ export default function Page(
 
   return (
     <div className={styles.main}>
-      <TabTitle title={props.commission.name || ""} />
+      <TabTitle
+        title={props.commission.name || ""}
+        description={translation.small_description || undefined}
+        image={getDirectusImageUrl(translation.banner)}
+      />
 
       <div className={styles.center}>
         <DirectusImage
