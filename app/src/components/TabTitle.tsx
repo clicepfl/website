@@ -10,6 +10,7 @@ export default function TabTitle(props: {
   return (
     <Head>
       <title>{`CLIC | ${props.title}`}</title>
+      <meta property="og:site_name" content="CLIC" />
       <meta property="og:title" content={props.ogTitle || props.title} />
       <meta property="og:type" content={props.type || "website"} />
       {typeof props.image === "string" ? (
