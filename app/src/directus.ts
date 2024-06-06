@@ -1,6 +1,6 @@
 import { TranslationTable, getTranslation } from "./locales";
 import { Association, Commission, SocialLink } from "./types/aliases";
-import { Schema } from "./types/schema";
+import { Schema, components } from "./types/schema";
 import {
   createDirectus,
   readItems,
@@ -139,4 +139,20 @@ export function cleanTranslations<T extends { [key: string]: any }>(
   return async (context) => {
     return rec(await f(context), context.locale);
   };
+}
+
+/**
+ * Computes the full URL to access an image returned by the Directus instance,
+ * or `undefined` if no image is given.
+ * @param image the image object returned by directus
+ * @returns the full URL of the image, if any
+ */
+export function getDirectusImageUrl(
+  image: string | components["schemas"]["Files"] | null | undefined
+): string | undefined {
+  return image
+    ? `${DIRECTUS_URL}/assets/${
+        typeof image === "string" ? image : image.filename_disk
+      }`
+    : undefined;
 }
