@@ -6,7 +6,7 @@ import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
 import { capitalize, useTranslationTable } from "@/locales";
 import listPageStyle from "@/styles/ListPage.module.scss";
 import newsStyle from "@/styles/NewsPage.module.scss";
-import { News } from "@/types/aliases";
+import { Association, News } from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
