@@ -7,6 +7,10 @@
   align-content: center;
   align-items: center;
 
+  a {
+    color: variables.$text-link-color;
+  }
+
   .logo {
     height: 15rem;
     width: 25rem;
