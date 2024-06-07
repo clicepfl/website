@@ -1,0 +1,10 @@
+FROM node:18-bullseye
+
+# the root folder will be mounted at /app in the container
+WORKDIR /app
+
+# use "node" user with UID/GID 1000 (avoid permission issues with root)
+USER node
+
+# install dependencies and run in watch mode
+CMD npm install && npm run dev  
