@@ -4,10 +4,7 @@
     {
       "label": "Start dev container",
       "type": "shell",
-      "command": "docker compose --file .devcontainer/docker-compose.yaml up",
-      "windows": {
-        "command": "docker compose --file .devcontainer\\docker-compose.yaml up"
-      },
+      "command": "docker compose up",
       "group": "none",
       "presentation": {
         "reveal": "always",
@@ -20,10 +17,7 @@
     {
       "label": "Stop dev container",
       "type": "shell",
-      "command": "docker compose --file .devcontainer/docker-compose.yaml down",
-      "windows": {
-        "command": "docker compose --file .devcontainer\\docker-compose.yaml down"
-      },
+      "command": "docker compose down",
       "group": "none",
       "presentation": {
         "reveal": "always",

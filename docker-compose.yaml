@@ -24,7 +24,7 @@ services:
     depends_on:
       - directus-postgres
     volumes:
-      - ../directus:/share
+      - ./directus:/share
       - directus-uploads:/directus/uploads
       - directus-extensions:/directus-extensions
 
@@ -43,23 +43,21 @@ services:
     # Build the app service from its folder
     build:
       # Build context, relative to the current file
-      context: ../app/.devcontainer
+      context: ./app
       # Path to Dockerfile, relative to context
-      dockerfile: Dockerfile
-      args:
-        VARIANT: ${VARIANT:-18-bullseye}
+      dockerfile: Dockerfile.dev
     environment:
       NODE_ENV: development
     volumes:
       # Bind-mount the app project folder into the container
       - type: bind
-        source: ../app
+        source: ./app
         target: /app
 
   caddy:
     image: caddy
     volumes:
-      - "../caddy/Caddyfile.dev:/etc/caddy/Caddyfile"
+      - "./caddy/Caddyfile.dev:/etc/caddy/Caddyfile"
     ports:
       - "80:80"
 
