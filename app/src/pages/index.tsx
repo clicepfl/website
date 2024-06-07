@@ -64,7 +64,7 @@ export default function Home(
         title={tt["slogan"]}
         ogTitle={props.association.name || undefined}
         description={tt["slogan"]}
-        image={getDirectusImageUrl(translation.banner)}
+        image={getDirectusImageUrl(props.association.preview_image)}
       />
       <Background className={styles.background} name="background" />
       <div className={styles.divLogo}>

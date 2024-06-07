@@ -732,18 +732,6 @@ export interface paths {
      */
     patch: operations["updateExtensions"];
   };
-  "/settings": {
-    /**
-     * Retrieve Settings
-     * @description List the settings.
-     */
-    get: operations["getSettings"];
-    /**
-     * Update Settings
-     * @description Update the settings
-     */
-    patch: operations["updateSetting"];
-  };
   "/webhooks": {
     /**
      * List Webhooks
@@ -821,45 +809,6 @@ export interface paths {
      * @description Update an existing association_memberships item.
      */
     patch: operations["updateSingleItemsAssociationMemberships"];
-  };
-  "/items/association": {
-    /**
-     * List Items
-     * @description List the association items.
-     */
-    get: operations["readItemsAssociation"];
-    /**
-     * Create an Item
-     * @description Create a new association item.
-     */
-    post: operations["createItemsAssociation"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing association items.
-     */
-    delete: operations["deleteItemsAssociation"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple association items at the same time.
-     */
-    patch: operations["updateItemsAssociation"];
-  };
-  "/items/association/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single association item by unique identifier.
-     */
-    get: operations["readSingleItemsAssociation"];
-    /**
-     * Delete an Item
-     * @description Delete an existing association item.
-     */
-    delete: operations["deleteSingleItemsAssociation"];
-    /**
-     * Update an Item
-     * @description Update an existing association item.
-     */
-    patch: operations["updateSingleItemsAssociation"];
   };
   "/items/languages": {
     /**
@@ -1836,6 +1785,57 @@ export interface paths {
      */
     patch: operations["updateSingleItemsMembers"];
   };
+  "/settings": {
+    /**
+     * Retrieve Settings
+     * @description List the settings.
+     */
+    get: operations["getSettings"];
+    /**
+     * Update Settings
+     * @description Update the settings
+     */
+    patch: operations["updateSetting"];
+  };
+  "/items/association": {
+    /**
+     * List Items
+     * @description List the association items.
+     */
+    get: operations["readItemsAssociation"];
+    /**
+     * Create an Item
+     * @description Create a new association item.
+     */
+    post: operations["createItemsAssociation"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing association items.
+     */
+    delete: operations["deleteItemsAssociation"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple association items at the same time.
+     */
+    patch: operations["updateItemsAssociation"];
+  };
+  "/items/association/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single association item by unique identifier.
+     */
+    get: operations["readSingleItemsAssociation"];
+    /**
+     * Delete an Item
+     * @description Delete an existing association item.
+     */
+    delete: operations["deleteSingleItemsAssociation"];
+    /**
+     * Update an Item
+     * @description Update an existing association item.
+     */
+    patch: operations["updateSingleItemsAssociation"];
+  };
 }
 
 export type webhooks = Record<string, never>;
@@ -2623,128 +2623,6 @@ export interface components {
        */
       bundle?: string | null;
     };
-    Settings: {
-      /**
-       * @description Unique identifier for the setting.
-       * @example 1
-       */
-      id?: number;
-      /**
-       * @description The name of the project.
-       * @example Directus
-       */
-      project_name?: string;
-      /**
-       * @description The url of the project.
-       * @example null
-       */
-      project_url?: string | null;
-      /**
-       * @description The brand color of the project.
-       * @example null
-       */
-      project_color?: string | null;
-      /**
-       * @description The logo of the project.
-       * @example null
-       */
-      project_logo?: string | null;
-      /**
-       * @description The foreground of the project.
-       * @example null
-       */
-      public_foreground?: string | null;
-      /**
-       * @description The background of the project.
-       * @example null
-       */
-      public_background?: {
-        id?: string;
-        type?: string;
-      } | null;
-      /**
-       * @description Note rendered on the public pages of the app.
-       * @example null
-       */
-      public_note?: string | null;
-      /**
-       * @description Allowed authentication login attempts before the user's status is set to blocked.
-       * @example 25
-       */
-      auth_login_attempts?: number;
-      /** @description Authentication password policy. */
-      auth_password_policy?: string | null;
-      /**
-       * @description What transformations are allowed in the assets endpoint.
-       * @example all
-       * @enum {string|null}
-       */
-      storage_asset_transform?: "all" | "none" | "presets" | null;
-      /**
-       * @description Array of allowed
-       * @example null
-       */
-      storage_asset_presets?:
-        | {
-            /** @description Key for the asset. Used in the assets endpoint. */
-            key?: string;
-            /**
-             * @description Whether to crop the thumbnail to match the size, or maintain the aspect ratio.
-             * @enum {string}
-             */
-            fit?: "cover" | "contain" | "inside" | "outside";
-            /** @description Width of the thumbnail. */
-            width?: number;
-            /** @description Height of the thumbnail. */
-            height?: number;
-            /** @description No image upscale */
-            withoutEnlargement?: boolean;
-            /** @description Quality of the compression used. */
-            quality?: number;
-            /**
-             * @description Reformat output image
-             * @enum {string}
-             */
-            format?: "" | "jpeg" | "png" | "webp" | "tiff" | "avif";
-            /** @description Additional transformations to apply */
-            transforms?:
-              | {
-                  /** @description The Sharp method name */
-                  method?: string;
-                  /** @description A list of arguments to pass to the Sharp method */
-                  arguments?:
-                    | {
-                        /** @description A JSON representation of the argument value */
-                        argument?: string;
-                      }[]
-                    | null;
-                }[]
-              | null;
-          }[]
-        | null;
-      custom_css?: string | null;
-      /**
-       * Format: uuid
-       * @description Default folder to place files
-       */
-      storage_default_folder?: string;
-      basemaps?: unknown;
-      mapbox_key?: string | null;
-      module_bar?: unknown;
-      project_descriptor?: string | null;
-      default_language?: string;
-      custom_aspect_ratios?: unknown;
-      /** @description $t:field_options.directus_settings.project_favicon_note */
-      public_favicon?: string | components["schemas"]["Files"] | null;
-      default_appearance?: string;
-      default_theme_light?: string | null;
-      theme_light_overrides?: unknown;
-      default_theme_dark?: string | null;
-      theme_dark_overrides?: unknown;
-      report_error_url?: string | null;
-      report_bug_url?: string | null;
-      report_feature_url?: string | null;
-    };
     Webhooks: {
       /**
        * @description The index of the webhook.
@@ -2797,23 +2675,6 @@ export interface components {
             | number
             | components["schemas"]["ItemsAssociationMembershipsTranslations"]
           )[]
-        | null;
-    };
-    ItemsAssociation: {
-      id?: number;
-      name?: string | null;
-      email?: string | null;
-      phone?: string | null;
-      address?: string | null;
-      logo?: string | components["schemas"]["Files"] | null;
-      translations?:
-        | (number | components["schemas"]["ItemsAssociationTranslations"])[]
-        | null;
-      social_links?:
-        | (number | components["schemas"]["ItemsAssociationSocialLinks"])[]
-        | null;
-      partners?:
-        | (number | components["schemas"]["ItemsAssociationPartners"])[]
         | null;
     };
     ItemsLanguages: {
@@ -3055,6 +2916,154 @@ export interface components {
       link?: string | null;
       picture?: string | components["schemas"]["Files"] | null;
       poll_count?: number;
+    };
+    Settings: {
+      /**
+       * @description Unique identifier for the setting.
+       * @example 1
+       */
+      id?: number;
+      /**
+       * @description The name of the project.
+       * @example Directus
+       */
+      project_name?: string;
+      /**
+       * @description The url of the project.
+       * @example null
+       */
+      project_url?: string | null;
+      /**
+       * @description The brand color of the project.
+       * @example null
+       */
+      project_color?: string | null;
+      /**
+       * @description The logo of the project.
+       * @example null
+       */
+      project_logo?: string | null;
+      /**
+       * @description The foreground of the project.
+       * @example null
+       */
+      public_foreground?: string | null;
+      /**
+       * @description The background of the project.
+       * @example null
+       */
+      public_background?: {
+        id?: string;
+        type?: string;
+      } | null;
+      /**
+       * @description Note rendered on the public pages of the app.
+       * @example null
+       */
+      public_note?: string | null;
+      /**
+       * @description Allowed authentication login attempts before the user's status is set to blocked.
+       * @example 25
+       */
+      auth_login_attempts?: number;
+      /** @description Authentication password policy. */
+      auth_password_policy?: string | null;
+      /**
+       * @description What transformations are allowed in the assets endpoint.
+       * @example all
+       * @enum {string|null}
+       */
+      storage_asset_transform?: "all" | "none" | "presets" | null;
+      /**
+       * @description Array of allowed
+       * @example null
+       */
+      storage_asset_presets?:
+        | {
+            /** @description Key for the asset. Used in the assets endpoint. */
+            key?: string;
+            /**
+             * @description Whether to crop the thumbnail to match the size, or maintain the aspect ratio.
+             * @enum {string}
+             */
+            fit?: "cover" | "contain" | "inside" | "outside";
+            /** @description Width of the thumbnail. */
+            width?: number;
+            /** @description Height of the thumbnail. */
+            height?: number;
+            /** @description No image upscale */
+            withoutEnlargement?: boolean;
+            /** @description Quality of the compression used. */
+            quality?: number;
+            /**
+             * @description Reformat output image
+             * @enum {string}
+             */
+            format?: "" | "jpeg" | "png" | "webp" | "tiff" | "avif";
+            /** @description Additional transformations to apply */
+            transforms?:
+              | {
+                  /** @description The Sharp method name */
+                  method?: string;
+                  /** @description A list of arguments to pass to the Sharp method */
+                  arguments?:
+                    | {
+                        /** @description A JSON representation of the argument value */
+                        argument?: string;
+                      }[]
+                    | null;
+                }[]
+              | null;
+          }[]
+        | null;
+      custom_css?: string | null;
+      /**
+       * Format: uuid
+       * @description Default folder to place files
+       */
+      storage_default_folder?: string;
+      basemaps?: unknown;
+      mapbox_key?: string | null;
+      module_bar?: unknown;
+      project_descriptor?: string | null;
+      default_language?: string;
+      custom_aspect_ratios?: unknown;
+      /** @description $t:field_options.directus_settings.project_favicon_note */
+      public_favicon?: string | components["schemas"]["Files"] | null;
+      default_appearance?: string;
+      default_theme_light?: string | null;
+      theme_light_overrides?: unknown;
+      default_theme_dark?: string | null;
+      theme_dark_overrides?: unknown;
+      report_error_url?: string | null;
+      report_bug_url?: string | null;
+      report_feature_url?: string | null;
+      /** @description $t:fields.directus_settings.public_registration_note */
+      public_registration?: boolean;
+      /** @description $t:fields.directus_settings.public_registration_verify_email_note */
+      public_registration_verify_email?: boolean;
+      /** @description $t:fields.directus_settings.public_registration_role_note */
+      public_registration_role?: string | components["schemas"]["Roles"] | null;
+      /** @description $t:fields.directus_settings.public_registration_email_filter_note */
+      public_registration_email_filter?: unknown;
+    };
+    ItemsAssociation: {
+      id?: number;
+      name?: string | null;
+      email?: string | null;
+      phone?: string | null;
+      address?: string | null;
+      logo?: string | components["schemas"]["Files"] | null;
+      preview_image?: string | components["schemas"]["Files"] | null;
+      social_links?:
+        | (number | components["schemas"]["ItemsAssociationSocialLinks"])[]
+        | null;
+      translations?:
+        | (number | components["schemas"]["ItemsAssociationTranslations"])[]
+        | null;
+      partners?:
+        | (number | components["schemas"]["ItemsAssociationPartners"])[]
+        | null;
     };
   };
   responses: {
@@ -7111,55 +7120,6 @@ export interface operations {
     };
   };
   /**
-   * Retrieve Settings
-   * @description List the settings.
-   */
-  getSettings: {
-    parameters: {
-      query?: {
-        limit?: components["parameters"]["Limit"];
-        offset?: components["parameters"]["Offset"];
-        meta?: components["parameters"]["Meta"];
-        page?: components["parameters"]["Page"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Settings"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update Settings
-   * @description Update the settings
-   */
-  updateSetting: {
-    requestBody?: {
-      content: {
-        "application/json": Record<string, never>;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Settings"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
    * List Webhooks
    * @description Get all webhooks.
    */
@@ -7618,193 +7578,6 @@ export interface operations {
         content: {
           "application/json": {
             data?: components["schemas"]["ItemsAssociationMemberships"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
-   * @description List the association items.
-   */
-  readItemsAssociation: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsAssociation"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new association item.
-   */
-  createItemsAssociation: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociation"][]
-          | components["schemas"]["ItemsAssociation"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing association items.
-   */
-  deleteItemsAssociation: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple association items at the same time.
-   */
-  updateItemsAssociation: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociation"][]
-          | components["schemas"]["ItemsAssociation"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single association item by unique identifier.
-   */
-  readSingleItemsAssociation: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsAssociation"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing association item.
-   */
-  deleteSingleItemsAssociation: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing association item.
-   */
-  updateSingleItemsAssociation: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsAssociation"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsAssociation"];
           };
         };
       };
@@ -12487,11 +12260,246 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
+  /**
+   * Retrieve Settings
+   * @description List the settings.
+   */
+  getSettings: {
+    parameters: {
+      query?: {
+        limit?: components["parameters"]["Limit"];
+        offset?: components["parameters"]["Offset"];
+        meta?: components["parameters"]["Meta"];
+        page?: components["parameters"]["Page"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Settings"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update Settings
+   * @description Update the settings
+   */
+  updateSetting: {
+    requestBody?: {
+      content: {
+        "application/json": Record<string, never>;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Settings"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the association items.
+   */
+  readItemsAssociation: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociation"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new association item.
+   */
+  createItemsAssociation: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociation"][]
+          | components["schemas"]["ItemsAssociation"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing association items.
+   */
+  deleteItemsAssociation: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple association items at the same time.
+   */
+  updateItemsAssociation: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociation"][]
+          | components["schemas"]["ItemsAssociation"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single association item by unique identifier.
+   */
+  readSingleItemsAssociation: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociation"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing association item.
+   */
+  deleteSingleItemsAssociation: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing association item.
+   */
+  updateSingleItemsAssociation: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsAssociation"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociation"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
 }
 
 export type Schema = {
   association_memberships: components["schemas"]["ItemsAssociationMemberships"][];
-  association: components["schemas"]["ItemsAssociation"];
   languages: components["schemas"]["ItemsLanguages"][];
   association_memberships_translations: components["schemas"]["ItemsAssociationMembershipsTranslations"][];
   partners: components["schemas"]["ItemsPartners"][];
@@ -12517,4 +12525,5 @@ export type Schema = {
   partner_category_translations: components["schemas"]["ItemsPartnerCategoryTranslations"][];
   partner_category: components["schemas"]["ItemsPartnerCategory"][];
   members: components["schemas"]["ItemsMembers"][];
+  association: components["schemas"]["ItemsAssociation"];
 };

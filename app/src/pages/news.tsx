@@ -2,12 +2,12 @@ import Background from "@/assets/background.svg";
 import Icon from "@/assets/icons/news.svg";
 import NewsCard from "@/components/NewsCard";
 import TabTitle from "@/components/TabTitle";
-import { directus, populateLayoutProps } from "@/directus";
+import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
 import { capitalize, useTranslationTable } from "@/locales";
 import listPageStyle from "@/styles/ListPage.module.scss";
 import newsStyle from "@/styles/NewsPage.module.scss";
-import { News } from "@/types/aliases";
-import { readItems } from "@directus/sdk";
+import { Association, News } from "@/types/aliases";
+import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
 export default function NewsComponent(
@@ -17,7 +17,10 @@ export default function NewsComponent(
 
   return (
     <>
-      <TabTitle title={capitalize(tt["news"])} />
+      <TabTitle
+        title={capitalize(tt["news"])}
+        image={getDirectusImageUrl(props.association.preview_image)}
+      />
 
       <Background className={listPageStyle.background} name="background" />
       <div className={listPageStyle.page}>
@@ -37,9 +40,13 @@ export default function NewsComponent(
 
 export const getServerSideProps: GetServerSideProps<{
   news: News[];
+  association: Association;
 }> = populateLayoutProps(async (_) => {
   return {
     props: {
+      association: await directus().request(
+        readSingleton("association", { fields: ["preview_image"] })
+      ),
       news: await directus().request(
         readItems("news", {
           sort: "-date_created",
