@@ -52,9 +52,7 @@ export default function AssociationPage(
         title={capitalize(tt["association"])}
         ogTitle={props.association.name || undefined}
         description={tt["slogan"]}
-        image={getDirectusImageUrl(
-          getTranslation(props.association, router.locale).banner
-        )}
+        image={getDirectusImageUrl(props.association.preview_image)}
       />
 
       <div className={styles.center}>

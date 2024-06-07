@@ -1,5 +1,5 @@
 version: 1
-directus: 10.10.7
+directus: 10.11.1
 vendor: postgres
 collections:
   - collection: association
@@ -14,10 +14,10 @@ collections:
       display_template: null
       group: null
       hidden: false
-      icon: groups_2
+      icon: null
       item_duplication_fields: null
       note: null
-      preview_url: https://clic.epfl.ch/fr-FR/association
+      preview_url: null
       singleton: true
       sort: 1
       sort_field: null
@@ -32,18 +32,18 @@ collections:
       archive_app_filter: true
       archive_field: null
       archive_value: null
-      collapse: closed
+      collapse: open
       collection: association_memberships
       color: null
       display_template: null
       group: association
       hidden: false
-      icon: emoji_people
+      icon: null
       item_duplication_fields: null
       note: null
       preview_url: null
       singleton: false
-      sort: 2
+      sort: 4
       sort_field: null
       translations: null
       unarchive_value: null
@@ -91,13 +91,37 @@ collections:
       note: null
       preview_url: null
       singleton: false
-      sort: 4
+      sort: 5
       sort_field: null
       translations: null
       unarchive_value: null
       versioning: false
     schema:
       name: association_partners
+  - collection: association_pole_translations
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: association_pole_translations
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: 1
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: association_pole_translations
   - collection: association_poles
     meta:
       accountability: all
@@ -108,14 +132,14 @@ collections:
       collection: association_poles
       color: null
       display_template: null
-      group: association
+      group: null
       hidden: false
-      icon: workspaces
+      icon: null
       item_duplication_fields: null
       note: null
-      preview_url: https://clic.epfl.ch/association#{{slug}}
+      preview_url: null
       singleton: false
-      sort: 1
+      sort: null
       sort_field: null
       translations: null
       unarchive_value: null
@@ -132,14 +156,14 @@ collections:
       collection: association_poles_translations
       color: null
       display_template: null
-      group: association_poles
+      group: null
       hidden: true
       icon: import_export
       item_duplication_fields: null
       note: null
       preview_url: null
       singleton: false
-      sort: 1
+      sort: null
       sort_field: null
       translations: null
       unarchive_value: null
@@ -152,13 +176,13 @@ collections:
       archive_app_filter: true
       archive_field: null
       archive_value: null
-      collapse: closed
+      collapse: open
       collection: association_public_files
       color: null
       display_template: null
       group: association
       hidden: false
-      icon: lab_profile
+      icon: null
       item_duplication_fields: null
       note: null
       preview_url: null
@@ -211,7 +235,7 @@ collections:
       note: null
       preview_url: null
       singleton: false
-      sort: 5
+      sort: 2
       sort_field: null
       translations: null
       unarchive_value: null
@@ -235,7 +259,7 @@ collections:
       note: null
       preview_url: null
       singleton: false
-      sort: 6
+      sort: 1
       sort_field: null
       translations: null
       unarchive_value: null
@@ -248,18 +272,18 @@ collections:
       archive_app_filter: true
       archive_field: null
       archive_value: null
-      collapse: closed
+      collapse: open
       collection: commission_memberships
       color: null
       display_template: null
       group: commissions
       hidden: false
-      icon: emoji_people
+      icon: null
       item_duplication_fields: null
       note: null
       preview_url: null
       singleton: false
-      sort: 1
+      sort: 2
       sort_field: null
       translations: null
       unarchive_value: null
@@ -283,7 +307,7 @@ collections:
       note: null
       preview_url: null
       singleton: false
-      sort: 2
+      sort: 1
       sort_field: null
       translations: null
       unarchive_value: null
@@ -302,10 +326,10 @@ collections:
       display_template: "{{slug}}"
       group: null
       hidden: false
-      icon: groups_3
+      icon: null
       item_duplication_fields: null
       note: null
-      preview_url: https://clic.epfl.ch/commissions/{{slug}}
+      preview_url: null
       singleton: false
       sort: 2
       sort_field: null
@@ -314,6 +338,30 @@ collections:
       versioning: false
     schema:
       name: commissions
+  - collection: commissions_members
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: commissions_members
+      color: null
+      display_template: null
+      group: commissions
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: 1
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: commissions_members
   - collection: commissions_social_links
     meta:
       accountability: all
@@ -324,14 +372,14 @@ collections:
       collection: commissions_social_links
       color: null
       display_template: null
-      group: commissions
+      group: null
       hidden: true
       icon: import_export
       item_duplication_fields: null
       note: null
       preview_url: null
       singleton: false
-      sort: 2
+      sort: 3
       sort_field: null
       translations: null
       unarchive_value: null
@@ -348,14 +396,14 @@ collections:
       collection: commissions_translations
       color: null
       display_template: null
-      group: commissions
+      group: null
       hidden: true
       icon: import_export
       item_duplication_fields: null
       note: null
       preview_url: null
       singleton: false
-      sort: 3
+      sort: 4
       sort_field: null
       translations: null
       unarchive_value: null
@@ -374,12 +422,12 @@ collections:
       display_template: "{{code}}"
       group: null
       hidden: false
-      icon: language
+      icon: null
       item_duplication_fields: null
       note: null
       preview_url: null
       singleton: false
-      sort: 3
+      sort: 5
       sort_field: null
       translations: null
       unarchive_value: null
@@ -398,12 +446,12 @@ collections:
       display_template: "{{name}}\_{{surname}}"
       group: null
       hidden: false
-      icon: frame_person
+      icon: null
       item_duplication_fields: null
       note: null
       preview_url: null
       singleton: false
-      sort: 4
+      sort: 6
       sort_field: null
       translations: null
       unarchive_value: null
@@ -416,18 +464,18 @@ collections:
       archive_app_filter: true
       archive_field: status
       archive_value: archived
-      collapse: closed
+      collapse: open
       collection: news
       color: null
       display_template: "{{slug}}"
       group: null
       hidden: false
-      icon: breaking_news_alt_1
+      icon: null
       item_duplication_fields: null
       note: null
-      preview_url: https://clic.epfl.ch/news/{{slug}}
+      preview_url: null
       singleton: false
-      sort: 5
+      sort: 7
       sort_field: sort
       translations: null
       unarchive_value: draft
@@ -444,14 +492,14 @@ collections:
       collection: news_commissions
       color: null
       display_template: null
-      group: news
+      group: null
       hidden: true
       icon: import_export
       item_duplication_fields: null
       note: null
       preview_url: null
       singleton: false
-      sort: 2
+      sort: 8
       sort_field: null
       translations: null
       unarchive_value: null
@@ -468,14 +516,14 @@ collections:
       collection: news_partners
       color: null
       display_template: null
-      group: news
+      group: null
       hidden: true
       icon: import_export
       item_duplication_fields: null
       note: null
       preview_url: null
       singleton: false
-      sort: 1
+      sort: 9
       sort_field: null
       translations: null
       unarchive_value: null
@@ -492,14 +540,14 @@ collections:
       collection: news_translations
       color: null
       display_template: null
-      group: news
+      group: null
       hidden: true
       icon: import_export
       item_duplication_fields: null
       note: null
       preview_url: null
       singleton: false
-      sort: 3
+      sort: 10
       sort_field: null
       translations: null
       unarchive_value: null
@@ -516,14 +564,14 @@ collections:
       collection: partner_category
       color: null
       display_template: null
-      group: partners
+      group: null
       hidden: false
-      icon: new_releases
+      icon: null
       item_duplication_fields: null
       note: null
       preview_url: null
       singleton: false
-      sort: 1
+      sort: 11
       sort_field: null
       translations: null
       unarchive_value: null
@@ -540,14 +588,14 @@ collections:
       collection: partner_category_translations
       color: null
       display_template: null
-      group: partner_category
+      group: null
       hidden: true
       icon: import_export
       item_duplication_fields: null
       note: null
       preview_url: null
       singleton: false
-      sort: 1
+      sort: 12
       sort_field: null
       translations: null
       unarchive_value: null
@@ -566,12 +614,12 @@ collections:
       display_template: "{{name}}"
       group: null
       hidden: false
-      icon: partner_exchange
+      icon: null
       item_duplication_fields: null
       note: null
       preview_url: null
       singleton: false
-      sort: 6
+      sort: 13
       sort_field: null
       translations: null
       unarchive_value: draft
@@ -590,12 +638,12 @@ collections:
       display_template: "{{account_name}} -\_{{media_name}}"
       group: null
       hidden: false
-      icon: stream_apps
+      icon: null
       item_duplication_fields: null
       note: null
       preview_url: null
       singleton: false
-      sort: 7
+      sort: 14
       sort_field: null
       translations: null
       unarchive_value: null
@@ -692,8 +740,7 @@ fields:
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: mail
+      options: null
       readonly: false
       required: true
       sort: 4
@@ -731,8 +778,7 @@ fields:
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: phone_enabled
+      options: null
       readonly: false
       required: true
       sort: 5
@@ -818,7 +864,7 @@ fields:
       translations: null
       validation: null
       validation_message: null
-      width: full
+      width: half
     schema:
       name: logo
       table: association
@@ -848,14 +894,35 @@ fields:
       hidden: false
       interface: translations
       note: null
-      options:
-        languageDirectionField: code
-        languageField: name
+      options: null
       readonly: false
       required: false
       sort: 3
       special:
         - translations
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: association
+    field: social_links
+    type: alias
+    meta:
+      collection: association
+      conditions: null
+      display: null
+      display_options: null
+      field: social_links
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 9
+      special:
+        - m2m
       translations: null
       validation: null
       validation_message: null
@@ -884,67 +951,43 @@ fields:
       validation_message: null
       width: full
   - collection: association
-    field: social_links
-    type: alias
+    field: preview_image
+    type: uuid
     meta:
       collection: association
       conditions: null
       display: null
       display_options: null
-      field: social_links
+      field: preview_image
       group: null
       hidden: false
-      interface: list-m2m
+      interface: file-image
       note: null
       options: null
       readonly: false
       required: false
       sort: 8
       special:
-        - m2m
+        - file
       translations: null
       validation: null
       validation_message: null
-      width: full
-  - collection: association
-    field: public_files
-    type: integer
-    meta:
-      collection: association
-      conditions: null
-      display: null
-      display_options: null
-      field: public_files
-      group: null
-      hidden: false
-      interface: select-dropdown-m2o
-      note: null
-      options:
-        template: "{{icon.$thumbnail}}{{link}}"
-      readonly: false
-      required: false
-      sort: 9
-      special:
-        - m2o
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
+      width: half
     schema:
-      name: public_files
+      name: preview_image
       table: association
-      data_type: integer
+      data_type: uuid
       default_value: null
       max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
+      numeric_precision: null
+      numeric_scale: null
       is_nullable: true
       is_unique: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
       has_auto_increment: false
-      foreign_key_table: association_public_files
+      foreign_key_table: directus_files
       foreign_key_column: id
   - collection: association_memberships
     field: id
@@ -1042,16 +1085,10 @@ fields:
         choices:
           - text: Committee
             value: committee
-            color: "#3399FF"
-            icon: groups
           - text: Team
             value: team
-            color: "#FFA439"
-            icon: partner_exchange
           - text: Member
             value: member
-            color: "#A2B5CD"
-            icon: card_membership
       readonly: false
       required: true
       sort: 3
@@ -1117,7 +1154,7 @@ fields:
         enableCreate: false
         template: "{{slug}}"
       readonly: false
-      required: false
+      required: true
       sort: 4
       special:
         - m2o
@@ -1407,6 +1444,158 @@ fields:
       has_auto_increment: false
       foreign_key_table: partners
       foreign_key_column: id
+  - collection: association_pole_translations
+    field: id
+    type: integer
+    meta:
+      collection: association_pole_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: association_pole_translations
+      data_type: integer
+      default_value: nextval('association_pole_translations_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association_pole_translations
+    field: languages_code
+    type: string
+    meta:
+      collection: association_pole_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: languages_code
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: languages_code
+      table: association_pole_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
+  - collection: association_pole_translations
+    field: description
+    type: text
+    meta:
+      collection: association_pole_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: description
+      group: null
+      hidden: false
+      interface: input-multiline
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: description
+      table: association_pole_translations
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association_pole_translations
+    field: name
+    type: string
+    meta:
+      collection: association_pole_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: name
+      table: association_pole_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: association_poles
     field: id
     type: integer
@@ -1446,29 +1635,6 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: association_poles
-    field: translations
-    type: alias
-    meta:
-      collection: association_poles
-      conditions: null
-      display: null
-      display_options: null
-      field: translations
-      group: null
-      hidden: false
-      interface: translations
-      note: null
-      options: null
-      readonly: false
-      required: true
-      sort: 4
-      special:
-        - translations
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: association_poles
     field: slug
     type: string
     meta:
@@ -1481,8 +1647,7 @@ fields:
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: fingerprint
+      options: null
       readonly: false
       required: false
       sort: 2
@@ -1508,6 +1673,29 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: association_poles
+    field: translations
+    type: alias
+    meta:
+      collection: association_poles
+      conditions: null
+      display: null
+      display_options: null
+      field: translations
+      group: null
+      hidden: false
+      interface: translations
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special:
+        - translations
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: association_poles
     field: mail
     type: string
     meta:
@@ -1520,11 +1708,10 @@ fields:
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: mail
+      options: null
       readonly: false
       required: false
-      sort: 3
+      sort: 4
       special: null
       translations: null
       validation: null
@@ -1787,11 +1974,10 @@ fields:
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: link
+      options: null
       readonly: false
       required: true
-      sort: 3
+      sort: 2
       special: null
       translations: null
       validation: null
@@ -1814,6 +2000,30 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: association_public_files
+    field: translations
+    type: alias
+    meta:
+      collection: association_public_files
+      conditions: null
+      display: null
+      display_options: null
+      field: translations
+      group: null
+      hidden: false
+      interface: translations
+      note: null
+      options:
+        defaultOpenSplitView: true
+      readonly: false
+      required: true
+      sort: 3
+      special:
+        - translations
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: association_public_files
     field: icon
     type: uuid
     meta:
@@ -1826,8 +2036,7 @@ fields:
       hidden: false
       interface: file-image
       note: null
-      options:
-        folder: 82caf9c9-995b-404f-ba7e-76f704a6dd3e
+      options: null
       readonly: false
       required: false
       sort: 4
@@ -1853,32 +2062,6 @@ fields:
       has_auto_increment: false
       foreign_key_table: directus_files
       foreign_key_column: id
-  - collection: association_public_files
-    field: translations
-    type: alias
-    meta:
-      collection: association_public_files
-      conditions: null
-      display: null
-      display_options: null
-      field: translations
-      group: null
-      hidden: false
-      interface: translations
-      note: null
-      options:
-        defaultOpenSplitView: true
-        languageDirectionField: code
-        languageField: name
-      readonly: false
-      required: false
-      sort: 5
-      special:
-        - translations
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
   - collection: association_public_files_translations
     field: id
     type: integer
@@ -2006,8 +2189,7 @@ fields:
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: file_copy
+      options: null
       readonly: false
       required: true
       sort: 4
@@ -2498,17 +2680,10 @@ fields:
         choices:
           - text: Committee
             value: committee
-            icon: groups
-            color: "#3399FF"
           - text: Team
             value: team
-            icon: partner_exchange
-            color: "#FFA439"
           - text: Member
             value: member
-            icon: card_membership
-            color: "#2ECDA7"
-        icon: grade
       readonly: false
       required: true
       sort: 4
@@ -2736,8 +2911,7 @@ fields:
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: mail
+      options: null
       readonly: false
       required: true
       sort: 2
@@ -2775,8 +2949,7 @@ fields:
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: fingerprint
+      options: null
       readonly: false
       required: true
       sort: 3
@@ -2814,8 +2987,7 @@ fields:
       hidden: false
       interface: translations
       note: null
-      options:
-        defaultOpenSplitView: true
+      options: null
       readonly: false
       required: true
       sort: 5
@@ -2838,8 +3010,7 @@ fields:
       hidden: false
       interface: file-image
       note: null
-      options:
-        folder: 07d9aa98-227f-4d9a-916f-e19f30cda26a
+      options: null
       readonly: false
       required: false
       sort: 6
@@ -2949,6 +3120,120 @@ fields:
       validation: null
       validation_message: null
       width: full
+  - collection: commissions_members
+    field: id
+    type: integer
+    meta:
+      collection: commissions_members
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: commissions_members
+      data_type: integer
+      default_value: nextval('commissions_members_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: commissions_members
+    field: commissions_id
+    type: integer
+    meta:
+      collection: commissions_members
+      conditions: null
+      display: null
+      display_options: null
+      field: commissions_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: commissions_id
+      table: commissions_members
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: commissions
+      foreign_key_column: id
+  - collection: commissions_members
+    field: members_id
+    type: integer
+    meta:
+      collection: commissions_members
+      conditions: null
+      display: null
+      display_options: null
+      field: members_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: members_id
+      table: commissions_members
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: members
+      foreign_key_column: id
   - collection: commissions_social_links
     field: id
     type: integer
@@ -3266,8 +3551,7 @@ fields:
       hidden: false
       interface: file-image
       note: null
-      options:
-        folder: 07d9aa98-227f-4d9a-916f-e19f30cda26a
+      options: null
       readonly: false
       required: false
       sort: 7
@@ -3293,6 +3577,26 @@ fields:
       has_auto_increment: false
       foreign_key_table: directus_files
       foreign_key_column: id
+  - collection: directus_sessions
+    field: next_token
+    type: string
+    meta: null
+    schema:
+      name: next_token
+      table: directus_sessions
+      data_type: character varying
+      default_value: null
+      max_length: 64
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: languages
     field: code
     type: string
@@ -3306,8 +3610,7 @@ fields:
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: language
+      options: null
       readonly: false
       required: false
       sort: 2
@@ -3497,8 +3800,7 @@ fields:
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: mail
+      options: null
       readonly: false
       required: false
       sort: 4
@@ -3536,8 +3838,7 @@ fields:
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: credit_card
+      options: null
       readonly: false
       required: false
       sort: 5
@@ -3575,8 +3876,7 @@ fields:
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: link
+      options: null
       readonly: false
       required: false
       sort: 7
@@ -3614,8 +3914,7 @@ fields:
       hidden: false
       interface: file-image
       note: null
-      options:
-        folder: 9dcbb848-a25a-4e75-af0a-abbd1c4555ea
+      options: null
       readonly: false
       required: false
       sort: 6
@@ -3652,8 +3951,8 @@ fields:
       field: poll_count
       group: null
       hidden: false
-      interface: input
-      note: Poll Count used by RoboCLIC.
+      interface: null
+      note: null
       options: null
       readonly: true
       required: true
@@ -3671,7 +3970,7 @@ fields:
       max_length: null
       numeric_precision: 32
       numeric_scale: 0
-      is_nullable: true
+      is_nullable: false
       is_unique: false
       is_primary_key: false
       is_generated: false
@@ -3715,113 +4014,6 @@ fields:
       is_generated: false
       generation_expression: null
       has_auto_increment: true
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: news
-    field: status
-    type: string
-    meta:
-      collection: news
-      conditions: null
-      display: labels
-      display_options:
-        choices:
-          - text: $t:published
-            value: published
-            color: var(--theme--primary)
-            foreground: var(--theme--primary)
-            background: var(--theme--primary-background)
-          - text: $t:draft
-            value: draft
-            color: var(--theme--foreground)
-            foreground: var(--theme--foreground)
-            background: var(--theme--background-normal)
-          - text: $t:archived
-            value: archived
-            color: var(--theme--warning)
-            foreground: var(--theme--warning)
-            background: var(--theme--warning-background)
-        showAsDot: true
-      field: status
-      group: null
-      hidden: false
-      interface: select-dropdown
-      note: null
-      options:
-        choices:
-          - text: $t:published
-            value: published
-            color: var(--theme--primary)
-            icon: task_alt
-          - text: $t:draft
-            value: draft
-            color: var(--theme--foreground)
-            icon: draft_orders
-          - text: $t:archived
-            value: archived
-            color: var(--theme--warning)
-            icon: archive
-        icon: null
-      readonly: false
-      required: false
-      sort: 2
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: status
-      table: news
-      data_type: character varying
-      default_value: draft
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: false
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: news
-    field: sort
-    type: integer
-    meta:
-      collection: news
-      conditions: null
-      display: null
-      display_options: null
-      field: sort
-      group: null
-      hidden: true
-      interface: input
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 8
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: sort
-      table: news
-      data_type: integer
-      default_value: null
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
   - collection: news
@@ -3945,6 +4137,109 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: news
+    field: status
+    type: string
+    meta:
+      collection: news
+      conditions: null
+      display: labels
+      display_options:
+        choices:
+          - text: $t:published
+            value: published
+            color: var(--theme--primary)
+            foreground: var(--theme--primary)
+            background: var(--theme--primary-background)
+          - text: $t:draft
+            value: draft
+            color: var(--theme--foreground)
+            foreground: var(--theme--foreground)
+            background: var(--theme--background-normal)
+          - text: $t:archived
+            value: archived
+            color: var(--theme--warning)
+            foreground: var(--theme--warning)
+            background: var(--theme--warning-background)
+        showAsDot: true
+      field: status
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: $t:published
+            value: published
+            color: var(--theme--primary)
+          - text: $t:draft
+            value: draft
+            color: var(--theme--foreground)
+          - text: $t:archived
+            value: archived
+            color: var(--theme--warning)
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: status
+      table: news
+      data_type: character varying
+      default_value: draft
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: news
+    field: sort
+    type: integer
+    meta:
+      collection: news
+      conditions: null
+      display: null
+      display_options: null
+      field: sort
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 8
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: sort
+      table: news
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: news
     field: translations
     type: alias
     meta:
@@ -4008,8 +4303,7 @@ fields:
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: fingerprint
+      options: null
       readonly: false
       required: true
       sort: 3
@@ -4071,8 +4365,7 @@ fields:
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: media_link
+      options: null
       readonly: false
       required: false
       sort: 12
@@ -4567,7 +4860,7 @@ fields:
       interface: file-image
       note: null
       options:
-        folder: 8890baa5-447e-45a3-a573-95c76830e876
+        folder: fef15ab0-523c-48ac-a20d-e10abfb5a98e
       readonly: false
       required: false
       sort: 7
@@ -4643,9 +4936,8 @@ fields:
       group: null
       hidden: false
       interface: input
-      note: 0 is the highest category (e.g. premium)
-      options:
-        iconLeft: workspace_premium
+      note: null
+      options: null
       readonly: false
       required: true
       sort: 2
@@ -4683,8 +4975,7 @@ fields:
       hidden: false
       interface: translations
       note: null
-      options:
-        defaultOpenSplitView: true
+      options: null
       readonly: false
       required: true
       sort: 3
@@ -4820,7 +5111,7 @@ fields:
       group: null
       hidden: false
       interface: input
-      note: Pluralized name of the category
+      note: null
       options: null
       readonly: false
       required: true
@@ -4935,8 +5226,7 @@ fields:
       hidden: false
       interface: file-image
       note: null
-      options:
-        folder: 24a99ee1-4eee-48e1-9960-d51b5a105016
+      options: null
       readonly: false
       required: false
       sort: 5
@@ -4975,8 +5265,7 @@ fields:
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: link
+      options: null
       readonly: false
       required: true
       sort: 4
@@ -5122,7 +5411,7 @@ fields:
     meta:
       collection: partners
       conditions: null
-      display: related-values
+      display: null
       display_options: null
       field: category
       group: null
@@ -5131,7 +5420,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: "{{rank}}"
+        template: "{{translations.name}}"
       readonly: false
       required: true
       sort: 10
@@ -5208,8 +5497,7 @@ fields:
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: link
+      options: null
       readonly: false
       required: true
       sort: 4
@@ -5247,8 +5535,7 @@ fields:
       hidden: false
       interface: file-image
       note: null
-      options:
-        folder: 82caf9c9-995b-404f-ba7e-76f704a6dd3e
+      options: null
       readonly: false
       required: false
       sort: 5
@@ -5287,8 +5574,7 @@ fields:
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: app_shortcut
+      options: null
       readonly: false
       required: true
       sort: 2
@@ -5374,24 +5660,24 @@ relations:
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: association
-    field: public_files
-    related_collection: association_public_files
+    field: preview_image
+    related_collection: directus_files
     meta:
       junction_field: null
       many_collection: association
-      many_field: public_files
+      many_field: preview_image
       one_allowed_collections: null
-      one_collection: association_public_files
+      one_collection: directus_files
       one_collection_field: null
       one_deselect_action: nullify
       one_field: null
       sort_field: null
     schema:
       table: association
-      column: public_files
-      foreign_key_table: association_public_files
+      column: preview_image
+      foreign_key_table: directus_files
       foreign_key_column: id
-      constraint_name: association_public_files_foreign
+      constraint_name: association_preview_image_foreign
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: association_memberships
@@ -5518,6 +5804,27 @@ relations:
       foreign_key_table: association
       foreign_key_column: id
       constraint_name: association_partners_association_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: association_pole_translations
+    field: languages_code
+    related_collection: languages
+    meta:
+      junction_field: association_pole_id
+      many_collection: association_pole_translations
+      many_field: languages_code
+      one_allowed_collections: null
+      one_collection: languages
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: association_pole_translations
+      column: languages_code
+      foreign_key_table: languages
+      foreign_key_column: code
+      constraint_name: association_pole_translations_languages_code_foreign
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: association_poles_translations
@@ -5835,6 +6142,48 @@ relations:
       constraint_name: commissions_logo_foreign
       on_update: NO ACTION
       on_delete: SET NULL
+  - collection: commissions_members
+    field: members_id
+    related_collection: members
+    meta:
+      junction_field: commissions_id
+      many_collection: commissions_members
+      many_field: members_id
+      one_allowed_collections: null
+      one_collection: members
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: commissions_members
+      column: members_id
+      foreign_key_table: members
+      foreign_key_column: id
+      constraint_name: commissions_members_members_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: commissions_members
+    field: commissions_id
+    related_collection: commissions
+    meta:
+      junction_field: members_id
+      many_collection: commissions_members
+      many_field: commissions_id
+      one_allowed_collections: null
+      one_collection: commissions
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: commissions_members
+      column: commissions_id
+      foreign_key_table: commissions
+      foreign_key_column: id
+      constraint_name: commissions_members_commissions_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
   - collection: commissions_social_links
     field: social_links_id
     related_collection: social_links
@@ -5938,6 +6287,18 @@ relations:
       foreign_key_table: directus_files
       foreign_key_column: id
       constraint_name: commissions_translations_banner_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: directus_settings
+    field: public_registration_role
+    related_collection: directus_roles
+    meta: null
+    schema:
+      table: directus_settings
+      column: public_registration_role
+      foreign_key_table: directus_roles
+      foreign_key_column: id
+      constraint_name: directus_settings_public_registration_role_foreign
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: members
@@ -6233,7 +6594,7 @@ relations:
       foreign_key_column: id
       constraint_name: partners_category_foreign
       on_update: NO ACTION
-      on_delete: SET NULL
+      on_delete: NO ACTION
   - collection: social_links
     field: logo
     related_collection: directus_files

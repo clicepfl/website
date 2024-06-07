@@ -2,12 +2,12 @@ import Background from "@/assets/background.svg";
 import Icon from "@/assets/icons/family.svg";
 import CommissionCard from "@/components/CommissionCard";
 import TabTitle from "@/components/TabTitle";
-import { directus, populateLayoutProps } from "@/directus";
+import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
 import { capitalize, useTranslationTable } from "@/locales";
 import commissionsStyle from "@/styles/CommissionsPage.module.scss";
 import listPageStyle from "@/styles/ListPage.module.scss";
-import { Commission } from "@/types/aliases";
-import { readItems } from "@directus/sdk";
+import { Association, Commission } from "@/types/aliases";
+import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
 export default function Commissions(
@@ -17,7 +17,10 @@ export default function Commissions(
 
   return (
     <>
-      <TabTitle title={capitalize(tt["commissions"])} />
+      <TabTitle
+        title={capitalize(tt["commissions"])}
+        image={getDirectusImageUrl(props.association.preview_image)}
+      />
 
       <Background className={listPageStyle.background} name="background" />
       <div className={listPageStyle.page}>
@@ -41,9 +44,13 @@ export default function Commissions(
 
 export const getServerSideProps: GetServerSideProps<{
   commissions: Commission[];
+  association: Association;
 }> = populateLayoutProps(async (_) => {
   return {
     props: {
+      association: await directus().request(
+        readSingleton("association", { fields: ["preview_image"] })
+      ),
       commissions: await directus().request(
         readItems("commissions", {
           fields: [
