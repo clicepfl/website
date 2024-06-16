@@ -4,8 +4,13 @@
   h4 {
     margin-top: 0.2rem;
   }
+
   h2 {
     width: 100%;
+  }
+
+  a {
+    color: variables.$text-link-color;
   }
 
   background-color: variables.$white-background-color;
@@ -50,6 +55,17 @@
 
     .poleName {
       margin-bottom: 1rem;
+    }
+
+    .info {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      width: 100%;
+      color: variables.$detail-color;
+      p {
+        margin: 0;
+      }
     }
   }
 
