@@ -4,6 +4,9 @@ RUN apk update
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
+ENV DIRECTUS_URL=https://clic.epfl.ch/directus
+ENV NEXT_PUBLIC_DIRECTUS_URL=https://clic.epfl.ch/directus
+
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm config set fetch-retry-maxtimeout 600000 -g && npm ci

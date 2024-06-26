@@ -11,8 +11,9 @@ import {
 } from "@directus/sdk";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 
-export const PUBLIC_DIRECTUS_URL = "http://localhost/directus";
-export const INTERNAL_DIRECTUS_URL = "http://clic-directus:8055";
+export const INTERNAL_DIRECTUS_URL = process.env.DIRECTUS_URL as string;
+export const PUBLIC_DIRECTUS_URL = process.env
+  .NEXT_PUBLIC_DIRECTUS_URL as string;
 
 /**
  * Creates a handle to use Directus' API. See the [official documentation](https://docs.directus.io/guides/sdk/getting-started.html).
