@@ -11,7 +11,15 @@ import {
 } from "@directus/sdk";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 
-export const DIRECTUS_URL = "https://clic.epfl.ch/directus";
+const PUBLIC_DIRECTUS_URL = "http://localhost/directus";
+const INTERNAL_DIRECTUS_URL = "http://clic-directus:8055";
+
+export function getDirectusUrl(): string {
+  var url =
+    typeof window === "undefined" ? INTERNAL_DIRECTUS_URL : PUBLIC_DIRECTUS_URL;
+  console.error(process.env.DIRECTUS_TOKEN);
+  return url;
+}
 
 /**
  * Creates a handle to use Directus' API. See the [official documentation](https://docs.directus.io/guides/sdk/getting-started.html).
@@ -21,7 +29,7 @@ export const DIRECTUS_URL = "https://clic.epfl.ch/directus";
  * @returns a handle to Directus' API.
  */
 export const directus = () =>
-  createDirectus<Schema>(DIRECTUS_URL)
+  createDirectus<Schema>(getDirectusUrl())
     .with(staticToken(process.env.DIRECTUS_TOKEN || ""))
     .with(rest());
 
@@ -151,7 +159,7 @@ export function getDirectusImageUrl(
   image: string | components["schemas"]["Files"] | null | undefined
 ): string | undefined {
   return image
-    ? `${DIRECTUS_URL}/assets/${
+    ? `${getDirectusUrl()}/assets/${
         typeof image === "string" ? image : image.filename_disk
       }`
     : undefined;
