@@ -783,6 +783,84 @@ export interface paths {
      */
     patch: operations["updateSetting"];
   };
+  "/items/association": {
+    /**
+     * List Items
+     * @description List the association items.
+     */
+    get: operations["readItemsAssociation"];
+    /**
+     * Create an Item
+     * @description Create a new association item.
+     */
+    post: operations["createItemsAssociation"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing association items.
+     */
+    delete: operations["deleteItemsAssociation"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple association items at the same time.
+     */
+    patch: operations["updateItemsAssociation"];
+  };
+  "/items/association/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single association item by unique identifier.
+     */
+    get: operations["readSingleItemsAssociation"];
+    /**
+     * Delete an Item
+     * @description Delete an existing association item.
+     */
+    delete: operations["deleteSingleItemsAssociation"];
+    /**
+     * Update an Item
+     * @description Update an existing association item.
+     */
+    patch: operations["updateSingleItemsAssociation"];
+  };
+  "/items/association_public_files": {
+    /**
+     * List Items
+     * @description List the association_public_files items.
+     */
+    get: operations["readItemsAssociationPublicFiles"];
+    /**
+     * Create an Item
+     * @description Create a new association_public_files item.
+     */
+    post: operations["createItemsAssociationPublicFiles"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing association_public_files items.
+     */
+    delete: operations["deleteItemsAssociationPublicFiles"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple association_public_files items at the same time.
+     */
+    patch: operations["updateItemsAssociationPublicFiles"];
+  };
+  "/items/association_public_files/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single association_public_files item by unique identifier.
+     */
+    get: operations["readSingleItemsAssociationPublicFiles"];
+    /**
+     * Delete an Item
+     * @description Delete an existing association_public_files item.
+     */
+    delete: operations["deleteSingleItemsAssociationPublicFiles"];
+    /**
+     * Update an Item
+     * @description Update an existing association_public_files item.
+     */
+    patch: operations["updateSingleItemsAssociationPublicFiles"];
+  };
   "/items/members": {
     /**
      * List Items
@@ -1094,45 +1172,6 @@ export interface paths {
      * @description Update an existing association_poles_translations item.
      */
     patch: operations["updateSingleItemsAssociationPolesTranslations"];
-  };
-  "/items/association_public_files": {
-    /**
-     * List Items
-     * @description List the association_public_files items.
-     */
-    get: operations["readItemsAssociationPublicFiles"];
-    /**
-     * Create an Item
-     * @description Create a new association_public_files item.
-     */
-    post: operations["createItemsAssociationPublicFiles"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing association_public_files items.
-     */
-    delete: operations["deleteItemsAssociationPublicFiles"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple association_public_files items at the same time.
-     */
-    patch: operations["updateItemsAssociationPublicFiles"];
-  };
-  "/items/association_public_files/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single association_public_files item by unique identifier.
-     */
-    get: operations["readSingleItemsAssociationPublicFiles"];
-    /**
-     * Delete an Item
-     * @description Delete an existing association_public_files item.
-     */
-    delete: operations["deleteSingleItemsAssociationPublicFiles"];
-    /**
-     * Update an Item
-     * @description Update an existing association_public_files item.
-     */
-    patch: operations["updateSingleItemsAssociationPublicFiles"];
   };
   "/items/association_public_files_translations": {
     /**
@@ -1524,6 +1563,45 @@ export interface paths {
      */
     patch: operations["updateSingleItemsCommissionsTranslations"];
   };
+  "/items/inventory": {
+    /**
+     * List Items
+     * @description List the inventory items.
+     */
+    get: operations["readItemsInventory"];
+    /**
+     * Create an Item
+     * @description Create a new inventory item.
+     */
+    post: operations["createItemsInventory"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing inventory items.
+     */
+    delete: operations["deleteItemsInventory"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple inventory items at the same time.
+     */
+    patch: operations["updateItemsInventory"];
+  };
+  "/items/inventory/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single inventory item by unique identifier.
+     */
+    get: operations["readSingleItemsInventory"];
+    /**
+     * Delete an Item
+     * @description Delete an existing inventory item.
+     */
+    delete: operations["deleteSingleItemsInventory"];
+    /**
+     * Update an Item
+     * @description Update an existing inventory item.
+     */
+    patch: operations["updateSingleItemsInventory"];
+  };
   "/items/news": {
     /**
      * List Items
@@ -1757,84 +1835,6 @@ export interface paths {
      * @description Update an existing partner_category item.
      */
     patch: operations["updateSingleItemsPartnerCategory"];
-  };
-  "/items/association": {
-    /**
-     * List Items
-     * @description List the association items.
-     */
-    get: operations["readItemsAssociation"];
-    /**
-     * Create an Item
-     * @description Create a new association item.
-     */
-    post: operations["createItemsAssociation"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing association items.
-     */
-    delete: operations["deleteItemsAssociation"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple association items at the same time.
-     */
-    patch: operations["updateItemsAssociation"];
-  };
-  "/items/association/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single association item by unique identifier.
-     */
-    get: operations["readSingleItemsAssociation"];
-    /**
-     * Delete an Item
-     * @description Delete an existing association item.
-     */
-    delete: operations["deleteSingleItemsAssociation"];
-    /**
-     * Update an Item
-     * @description Update an existing association item.
-     */
-    patch: operations["updateSingleItemsAssociation"];
-  };
-  "/items/inventory": {
-    /**
-     * List Items
-     * @description List the inventory items.
-     */
-    get: operations["readItemsInventory"];
-    /**
-     * Create an Item
-     * @description Create a new inventory item.
-     */
-    post: operations["createItemsInventory"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing inventory items.
-     */
-    delete: operations["deleteItemsInventory"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple inventory items at the same time.
-     */
-    patch: operations["updateItemsInventory"];
-  };
-  "/items/inventory/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single inventory item by unique identifier.
-     */
-    get: operations["readSingleItemsInventory"];
-    /**
-     * Delete an Item
-     * @description Delete an existing inventory item.
-     */
-    delete: operations["deleteSingleItemsInventory"];
-    /**
-     * Update an Item
-     * @description Update an existing inventory item.
-     */
-    patch: operations["updateSingleItemsInventory"];
   };
 }
 
@@ -2798,6 +2798,39 @@ export interface components {
       /** @description $t:fields.directus_settings.public_registration_email_filter_note */
       public_registration_email_filter?: unknown;
     };
+    ItemsAssociation: {
+      id?: number;
+      name?: string | null;
+      email?: string | null;
+      phone?: string | null;
+      address?: string | null;
+      logo?: string | components["schemas"]["Files"] | null;
+      preview_image?: string | components["schemas"]["Files"] | null;
+      public_files?:
+        | number
+        | components["schemas"]["ItemsAssociationPublicFiles"]
+        | null;
+      translations?:
+        | (number | components["schemas"]["ItemsAssociationTranslations"])[]
+        | null;
+      social_links?:
+        | (number | components["schemas"]["ItemsAssociationSocialLinks"])[]
+        | null;
+      partners?:
+        | (number | components["schemas"]["ItemsAssociationPartners"])[]
+        | null;
+    };
+    ItemsAssociationPublicFiles: {
+      id?: number;
+      link?: string | null;
+      icon?: string | components["schemas"]["Files"] | null;
+      translations?:
+        | (
+            | number
+            | components["schemas"]["ItemsAssociationPublicFilesTranslations"]
+          )[]
+        | null;
+    };
     ItemsMembers: {
       id?: number;
       name?: string | null;
@@ -2875,17 +2908,6 @@ export interface components {
       name?: string | null;
       description?: string | null;
     };
-    ItemsAssociationPublicFiles: {
-      id?: number;
-      link?: string | null;
-      icon?: string | components["schemas"]["Files"] | null;
-      translations?:
-        | (
-            | number
-            | components["schemas"]["ItemsAssociationPublicFilesTranslations"]
-          )[]
-        | null;
-    };
     ItemsAssociationPublicFilesTranslations: {
       id?: number;
       association_public_files_id?:
@@ -2929,12 +2951,12 @@ export interface components {
       slug?: string | null;
       logo?: string | components["schemas"]["Files"] | null;
       name?: string | null;
+      translations?:
+        | (number | components["schemas"]["ItemsCommissionsTranslations"])[]
+        | null;
       partners?: (number | components["schemas"]["ItemsPartners"])[] | null;
       social_links?:
         | (number | components["schemas"]["ItemsCommissionsSocialLinks"])[]
-        | null;
-      translations?:
-        | (number | components["schemas"]["ItemsCommissionsTranslations"])[]
         | null;
     };
     ItemsCommissionMemberships: {
@@ -2988,6 +3010,21 @@ export interface components {
       description?: string | null;
       banner?: string | components["schemas"]["Files"] | null;
     };
+    ItemsInventory: {
+      id?: number;
+      name?: string | null;
+      quantity?: number | null;
+      /** Format: date */
+      expiration_date?: string | null;
+      commission?: number | components["schemas"]["ItemsCommissions"] | null;
+      row?: number | null;
+      column?: number | null;
+      place?: string | null;
+      tags?: unknown;
+      /** @description Why it is usefull ? Where can we find it ? */
+      details?: string | null;
+      picture?: string | components["schemas"]["Files"] | null;
+    };
     ItemsNews: {
       id?: number;
       user_created?: string | components["schemas"]["Users"] | null;
@@ -2999,13 +3036,13 @@ export interface components {
       sort?: number | null;
       slug?: string | null;
       video_link?: string | null;
-      partners?: (number | components["schemas"]["ItemsNewsPartners"])[] | null;
       translations?:
         | (number | components["schemas"]["ItemsNewsTranslations"])[]
         | null;
       commissions?:
         | (number | components["schemas"]["ItemsNewsCommissions"])[]
         | null;
+      partners?: (number | components["schemas"]["ItemsNewsPartners"])[] | null;
     };
     ItemsNewsCommissions: {
       id?: number;
@@ -3046,43 +3083,6 @@ export interface components {
       translations?:
         | (number | components["schemas"]["ItemsPartnerCategoryTranslations"])[]
         | null;
-    };
-    ItemsAssociation: {
-      id?: number;
-      name?: string | null;
-      email?: string | null;
-      phone?: string | null;
-      address?: string | null;
-      logo?: string | components["schemas"]["Files"] | null;
-      preview_image?: string | components["schemas"]["Files"] | null;
-      public_files?:
-        | number
-        | components["schemas"]["ItemsAssociationPublicFiles"]
-        | null;
-      partners?:
-        | (number | components["schemas"]["ItemsAssociationPartners"])[]
-        | null;
-      translations?:
-        | (number | components["schemas"]["ItemsAssociationTranslations"])[]
-        | null;
-      social_links?:
-        | (number | components["schemas"]["ItemsAssociationSocialLinks"])[]
-        | null;
-    };
-    ItemsInventory: {
-      id?: number;
-      name?: string | null;
-      quantity?: number | null;
-      /** Format: date */
-      expiration_date?: string | null;
-      tags?: unknown;
-      /** @description Why it is usefull ? Where can we find it ? */
-      details?: string | null;
-      picture?: string | components["schemas"]["Files"] | null;
-      commission?: number | components["schemas"]["ItemsCommissions"] | null;
-      row?: number | null;
-      column?: number | null;
-      place?: string | null;
     };
   };
   responses: {
@@ -7468,6 +7468,380 @@ export interface operations {
   };
   /**
    * List Items
+   * @description List the association items.
+   */
+  readItemsAssociation: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociation"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new association item.
+   */
+  createItemsAssociation: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociation"][]
+          | components["schemas"]["ItemsAssociation"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing association items.
+   */
+  deleteItemsAssociation: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple association items at the same time.
+   */
+  updateItemsAssociation: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociation"][]
+          | components["schemas"]["ItemsAssociation"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single association item by unique identifier.
+   */
+  readSingleItemsAssociation: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociation"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing association item.
+   */
+  deleteSingleItemsAssociation: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing association item.
+   */
+  updateSingleItemsAssociation: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsAssociation"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociation"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the association_public_files items.
+   */
+  readItemsAssociationPublicFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPublicFiles"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new association_public_files item.
+   */
+  createItemsAssociationPublicFiles: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationPublicFiles"][]
+          | components["schemas"]["ItemsAssociationPublicFiles"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing association_public_files items.
+   */
+  deleteItemsAssociationPublicFiles: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple association_public_files items at the same time.
+   */
+  updateItemsAssociationPublicFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationPublicFiles"][]
+          | components["schemas"]["ItemsAssociationPublicFiles"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single association_public_files item by unique identifier.
+   */
+  readSingleItemsAssociationPublicFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPublicFiles"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing association_public_files item.
+   */
+  deleteSingleItemsAssociationPublicFiles: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing association_public_files item.
+   */
+  updateSingleItemsAssociationPublicFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsAssociationPublicFiles"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPublicFiles"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
    * @description List the members items.
    */
   readItemsMembers: {
@@ -8955,193 +9329,6 @@ export interface operations {
         content: {
           "application/json": {
             data?: components["schemas"]["ItemsAssociationPolesTranslations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
-   * @description List the association_public_files items.
-   */
-  readItemsAssociationPublicFiles: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsAssociationPublicFiles"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new association_public_files item.
-   */
-  createItemsAssociationPublicFiles: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationPublicFiles"][]
-          | components["schemas"]["ItemsAssociationPublicFiles"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing association_public_files items.
-   */
-  deleteItemsAssociationPublicFiles: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple association_public_files items at the same time.
-   */
-  updateItemsAssociationPublicFiles: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationPublicFiles"][]
-          | components["schemas"]["ItemsAssociationPublicFiles"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single association_public_files item by unique identifier.
-   */
-  readSingleItemsAssociationPublicFiles: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsAssociationPublicFiles"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing association_public_files item.
-   */
-  deleteSingleItemsAssociationPublicFiles: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing association_public_files item.
-   */
-  updateSingleItemsAssociationPublicFiles: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsAssociationPublicFiles"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsAssociationPublicFiles"];
           };
         };
       };
@@ -11021,6 +11208,193 @@ export interface operations {
   };
   /**
    * List Items
+   * @description List the inventory items.
+   */
+  readItemsInventory: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsInventory"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new inventory item.
+   */
+  createItemsInventory: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsInventory"][]
+          | components["schemas"]["ItemsInventory"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing inventory items.
+   */
+  deleteItemsInventory: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple inventory items at the same time.
+   */
+  updateItemsInventory: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsInventory"][]
+          | components["schemas"]["ItemsInventory"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single inventory item by unique identifier.
+   */
+  readSingleItemsInventory: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsInventory"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing inventory item.
+   */
+  deleteSingleItemsInventory: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing inventory item.
+   */
+  updateSingleItemsInventory: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsInventory"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsInventory"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
    * @description List the news items.
    */
   readItemsNews: {
@@ -12141,383 +12515,11 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
-  /**
-   * List Items
-   * @description List the association items.
-   */
-  readItemsAssociation: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsAssociation"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new association item.
-   */
-  createItemsAssociation: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociation"][]
-          | components["schemas"]["ItemsAssociation"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing association items.
-   */
-  deleteItemsAssociation: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple association items at the same time.
-   */
-  updateItemsAssociation: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociation"][]
-          | components["schemas"]["ItemsAssociation"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single association item by unique identifier.
-   */
-  readSingleItemsAssociation: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsAssociation"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing association item.
-   */
-  deleteSingleItemsAssociation: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing association item.
-   */
-  updateSingleItemsAssociation: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsAssociation"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsAssociation"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
-   * @description List the inventory items.
-   */
-  readItemsInventory: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsInventory"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new inventory item.
-   */
-  createItemsInventory: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsInventory"][]
-          | components["schemas"]["ItemsInventory"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing inventory items.
-   */
-  deleteItemsInventory: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple inventory items at the same time.
-   */
-  updateItemsInventory: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsInventory"][]
-          | components["schemas"]["ItemsInventory"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single inventory item by unique identifier.
-   */
-  readSingleItemsInventory: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsInventory"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing inventory item.
-   */
-  deleteSingleItemsInventory: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing inventory item.
-   */
-  updateSingleItemsInventory: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsInventory"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsInventory"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
 }
 
 export type Schema = {
+  association: components["schemas"]["ItemsAssociation"];
+  association_public_files: components["schemas"]["ItemsAssociationPublicFiles"][];
   members: components["schemas"]["ItemsMembers"][];
   association_memberships: components["schemas"]["ItemsAssociationMemberships"][];
   association_poles: components["schemas"]["ItemsAssociationPoles"][];
@@ -12526,7 +12528,6 @@ export type Schema = {
   partners: components["schemas"]["ItemsPartners"][];
   association_partners: components["schemas"]["ItemsAssociationPartners"][];
   association_poles_translations: components["schemas"]["ItemsAssociationPolesTranslations"][];
-  association_public_files: components["schemas"]["ItemsAssociationPublicFiles"][];
   association_public_files_translations: components["schemas"]["ItemsAssociationPublicFilesTranslations"][];
   social_links: components["schemas"]["ItemsSocialLinks"][];
   association_social_links: components["schemas"]["ItemsAssociationSocialLinks"][];
@@ -12537,12 +12538,11 @@ export type Schema = {
   commissions_members: components["schemas"]["ItemsCommissionsMembers"][];
   commissions_social_links: components["schemas"]["ItemsCommissionsSocialLinks"][];
   commissions_translations: components["schemas"]["ItemsCommissionsTranslations"][];
+  inventory: components["schemas"]["ItemsInventory"][];
   news: components["schemas"]["ItemsNews"][];
   news_commissions: components["schemas"]["ItemsNewsCommissions"][];
   news_partners: components["schemas"]["ItemsNewsPartners"][];
   news_translations: components["schemas"]["ItemsNewsTranslations"][];
   partner_category_translations: components["schemas"]["ItemsPartnerCategoryTranslations"][];
   partner_category: components["schemas"]["ItemsPartnerCategory"][];
-  association: components["schemas"]["ItemsAssociation"];
-  inventory: components["schemas"]["ItemsInventory"][];
 };

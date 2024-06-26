@@ -130,7 +130,7 @@ export const getServerSideProps: GetServerSideProps<
   return {
     props: {
       association: await directus().request(
-        readSingleton("association", queryTranslations)
+        readSingleton("association", queryTranslations as any)
       ),
       partners: (await directus()
         .request(
