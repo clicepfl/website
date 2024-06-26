@@ -3,7 +3,8 @@
     "prepare": "husky install",
     "load-directus": "docker exec -i clic-directus sh < directus/load.sh",
     "save-directus": "sh directus/save.sh",
-    "populate-directus": "docker exec -i clic-postgres psql --user directus_user directus_data < ./directus/dump.sql"
+    "save-data": "sh directus/save-data.sh",
+    "populate-directus": "sh directus/populate.sh"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
