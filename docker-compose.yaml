@@ -25,7 +25,7 @@ services:
       - directus-postgres
     volumes:
       - ./directus:/share
-      - directus-uploads:/directus/uploads
+      - ./directus/uploads:/directus/uploads
       - directus-extensions:/directus-extensions
 
   # Database for directus
@@ -64,5 +64,4 @@ services:
 volumes:
   # Persist directus database
   directus-data:
-  directus-uploads:
   directus-extensions:
