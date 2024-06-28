@@ -18,6 +18,8 @@ To store and provide dynamic content, we use the service [Directus](https://dire
 
 Directus is ran separately from the website in the infrastructure, but launching the website's dev container will run a local instance. Before using it you need to load the data model using `npm run load-directus` and populate it with some data using `npm run populate-directus`.
 
+You can update the content or the data model at http://localhost/directus (username: `clic@epfl.ch`, password: `1234`). When done, use `npm run save-directus` to save the data model, and `npm run save-data` to dump the database. However, make sure to remove all unused data (like the `directus_activity` table), and that the instance can be booted and initialized from scratch without errors.
+
 ### Assets
 
 All the assets should be managed by Directus when pertinent/possible. For example, the CLIC's logo is stored in the Association entry of Directus, instead of having its SVG in the `assets/` directory.
