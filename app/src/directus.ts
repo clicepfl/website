@@ -11,7 +11,9 @@ import {
 } from "@directus/sdk";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 
+// URL to access Directus from server side. Used to query the Directus instance (also see `directus()` below).
 export const INTERNAL_DIRECTUS_URL = process.env.DIRECTUS_URL as string;
+// URL to access Directus from client side. Used for images.
 export const PUBLIC_DIRECTUS_URL = process.env
   .NEXT_PUBLIC_DIRECTUS_URL as string;
 
