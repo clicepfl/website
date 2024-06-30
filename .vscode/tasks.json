@@ -12,7 +12,8 @@
       },
       "runOptions": {
         "runOn": "folderOpen"
-      }
+      },
+      "problemMatcher": []
     },
     {
       "label": "Stop dev container",
@@ -22,7 +23,8 @@
       "presentation": {
         "reveal": "always",
         "panel": "new"
-      }
+      },
+      "problemMatcher": []
     }
   ]
 }

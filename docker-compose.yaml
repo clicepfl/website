@@ -47,7 +47,7 @@ services:
       context: ./app
       # Path to Dockerfile, relative to context
       dockerfile: Dockerfile.dev
-    user: ${UID}:${GID}
+    user: ${USER_ID:-1000}:${GROUP_ID:-1000}
     environment:
       NODE_ENV: development
     volumes:
