@@ -7,6 +7,7 @@ services:
   # Directus service
   directus:
     image: directus/directus
+    user: ${UID}:${GID}
     container_name: clic-directus
     environment:
       SECRET: secret
