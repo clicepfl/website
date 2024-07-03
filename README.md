@@ -57,6 +57,8 @@ npm install
 npm run prepare
 ```
 
+Important note: If your UID/GID is not `1000`, you need to export them as `USER_ID`/`GROUP_ID` environment variables for the containers to work. See [`.env.example`](.env.example).
+
 ## Development
 
 The development is done in the `/app` directory for the website, or from Directus admin UI, on `http://localhost/directus`.

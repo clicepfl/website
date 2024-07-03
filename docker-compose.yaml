@@ -7,6 +7,7 @@ services:
   # Directus service
   directus:
     image: directus/directus
+    user: ${UID}:${GID}
     container_name: clic-directus
     environment:
       SECRET: secret
@@ -46,6 +47,7 @@ services:
       context: ./app
       # Path to Dockerfile, relative to context
       dockerfile: Dockerfile.dev
+    user: ${USER_ID:-1000}:${GROUP_ID:-1000}
     environment:
       NODE_ENV: development
     volumes:
