@@ -14,11 +14,7 @@ To fetch data from Directus, it should be done on server-side, using the [`direc
 
 ### Directus
 
-To store and provide dynamic content, we use the service [Directus](https://directus.io/), which acts as a content management server.
-
-Directus is ran separately from the website in the infrastructure, but launching the website's dev container will run a local instance. Before using it you need to load the data model using `npm run load-directus` and populate it with some data using `npm run populate-directus`.
-
-You can update the content or the data model at http://localhost/directus (username: `clic@epfl.ch`, password: `1234`). When done, use `npm run save-directus` to save the data model, and `npm run save-data` to dump the database. However, make sure to remove all unused data (like the `directus_activity` table), and that the instance can be booted and initialized from scratch without errors.
+To store and provide dynamic content, we use the service [Directus](https://directus.io/), which acts as a content management server.It is ran separately from the website in the infrastructure. See its [documentation](directus/README.md).
 
 ### Assets
 
