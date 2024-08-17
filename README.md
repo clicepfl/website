@@ -59,10 +59,10 @@ Important note: If your UID/GID is not `1000`, you need to export them as `USER_
 
 The development is done in the `/app` directory for the website, or from Directus admin UI, on `http://localhost/directus`.
 
-In order to run the server, use docker and run the compose file in the `/.devcontainer` directory:
+In order to run the server, use docker and run the compose file at the root of the project:
 
 ```sh
-docker compose --file .devcontainer/docker-compose.yaml up
+docker compose up
 ```
 
 **Note:** For VSCode users, there are two tasks, under `Terminal > Run tasks...`, to both start and stop the server. The start task is automatically run when you open the directory.
