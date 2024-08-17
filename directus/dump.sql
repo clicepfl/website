@@ -259,6 +259,8 @@ INSERT INTO public.partner_category_translations (id, partner_category_id, langu
 INSERT INTO public.partner_category_translations (id, partner_category_id, languages_code, name) VALUES (3, 2, 'en-US', 'Tier 2') ON CONFLICT DO NOTHING;
 INSERT INTO public.partner_category_translations (id, partner_category_id, languages_code, name) VALUES (4, 2, 'fr-FR', 'Tier 2') ON CONFLICT DO NOTHING;
 
+INSERT INTO public.association_partners (id, association_id, partners_id) VALUES (1, 1, 1);
+INSERT INTO public.association_partners (id, association_id, partners_id) VALUES (2, 1, 2);
 
 INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (100001, NULL, 'inventory', 'read', '{}', '{}', NULL, '*') ON CONFLICT DO NOTHING;
 INSERT INTO public.directus_permissions (id, role, collection, action, permissions, validation, presets, fields) VALUES (100002, NULL, 'social_links', 'read', '{}', '{}', NULL, '*') ON CONFLICT DO NOTHING;
