@@ -1,0 +1,3 @@
+[submodule "directus"]
+	path = directus
+	url = https://github.com/Thechi2000/directus
