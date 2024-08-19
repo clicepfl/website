@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky install && git submodule init",
     "load-directus": "sh directus/load.sh",
     "save-directus": "sh directus/save.sh",
     "save-directus-data": "sh directus/save-data.sh",
