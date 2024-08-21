@@ -163,7 +163,7 @@ export const getServerSideProps: GetServerSideProps<
           fields: [
             "id",
             "slug",
-            "date-created",
+            "date_created",
             {
               translations: [
                 "title",
