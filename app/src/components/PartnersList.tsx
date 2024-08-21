@@ -1,4 +1,4 @@
-import { DIRECTUS_URL } from "@/directus";
+import { getDirectusImageUrl } from "@/directus";
 import { getTranslation } from "@/locales";
 import styles from "@/styles/PartnersList.module.scss";
 import { Partner, PartnerCategory } from "@/types/aliases";
@@ -10,9 +10,7 @@ function PartnerDisplay({ p }: { p: Partner }) {
     <Link href={p.link || ""} key={p.id}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={`${DIRECTUS_URL}/assets/${
-          typeof p.logo === "string" ? p.logo : p.logo?.filename_disk || ""
-        }`}
+        src={getDirectusImageUrl(p.logo)}
         className={styles.logo}
         alt={p.name || ""}
       />

@@ -3,43 +3,9 @@
 
 name: clic-website-devcontainer
 
+include:
+  - path: directus/docker-compose.yaml
 services:
-  # Directus service
-  directus:
-    image: directus/directus
-    user: ${UID}:${GID}
-    container_name: clic-directus
-    environment:
-      SECRET: secret
-      KEY: key
-      DB_CLIENT: postgres
-      DB_HOST: directus-postgres
-      DB_PORT: 5432
-      DB_DATABASE: directus_data
-      DB_USER: directus_user
-      DB_PASSWORD: directus_pw
-      PUBLIC_URL: http://localhost/directus
-      ROOT_REDIRECT: /directus/admin
-      ADMIN_EMAIL: clic@epfl.ch
-      ADMIN_PASSWORD: 1234
-    depends_on:
-      - directus-postgres
-    volumes:
-      - ./directus:/share
-      - directus-uploads:/directus/uploads
-      - directus-extensions:/directus-extensions
-
-  # Database for directus
-  directus-postgres:
-    container_name: clic-postgres
-    image: postgres
-    environment:
-      POSTGRES_DB: directus_data
-      POSTGRES_USER: directus_user
-      POSTGRES_PASSWORD: directus_pw
-    volumes:
-      - "directus-data:/var/lib/postgresql/data"
-
   app:
     # Build the app service from its folder
     build:
@@ -62,9 +28,3 @@ services:
       - "./caddy/Caddyfile.dev:/etc/caddy/Caddyfile"
     ports:
       - "80:80"
-
-volumes:
-  # Persist directus database
-  directus-data:
-  directus-uploads:
-  directus-extensions:

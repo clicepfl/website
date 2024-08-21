@@ -14,9 +14,7 @@ To fetch data from Directus, it should be done on server-side, using the [`direc
 
 ### Directus
 
-To store and provide dynamic content, we use the service [Directus](https://directus.io/), which acts as a content management server.
-
-Directus is ran separately from the website in the infrastructure, but launching the website's dev container will run a local instance. Before using it you need to load the data model using `npm run load-directus` and populate it with some data using `npm run populate-directus`.
+To store and provide dynamic content, we use the service [Directus](https://directus.io/), which acts as a content management server.It is ran separately from the website in the infrastructure. See its [documentation](directus/README.md).
 
 ### Assets
 
@@ -57,14 +55,16 @@ npm run prepare
 
 Important note: If your UID/GID is not `1000`, you need to export them as `USER_ID`/`GROUP_ID` environment variables for the containers to work. See [`.env.example`](.env.example).
 
+Afterwards, refer to this [document](directus/README.md) to setup a local Directus instance.
+
 ## Development
 
 The development is done in the `/app` directory for the website, or from Directus admin UI, on `http://localhost/directus`.
 
-In order to run the server, use docker and run the compose file in the `/.devcontainer` directory:
+In order to run the server, use docker and run the compose file at the root of the project:
 
 ```sh
-docker compose --file .devcontainer/docker-compose.yaml up
+docker compose up
 ```
 
 **Note:** For VSCode users, there are two tasks, under `Terminal > Run tasks...`, to both start and stop the server. The start task is automatically run when you open the directory.

@@ -1,9 +1,9 @@
-import { DIRECTUS_URL } from "@/directus";
+import { PUBLIC_DIRECTUS_URL } from "@/directus";
 import { components } from "@/types/schema";
 import Image, { ImageLoader } from "next/image";
 
 const imageLoader: ImageLoader = ({ src, width, quality }) => {
-  return `${DIRECTUS_URL}/assets/${src}?width=${width}`;
+  return `${PUBLIC_DIRECTUS_URL}/assets/${src}?width=${width}`;
 };
 
 /**

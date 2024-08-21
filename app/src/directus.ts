@@ -11,7 +11,11 @@ import {
 } from "@directus/sdk";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 
-export const DIRECTUS_URL = "https://clic.epfl.ch/directus";
+// URL to access Directus from server side. Used to query the Directus instance (also see `directus()` below).
+export const INTERNAL_DIRECTUS_URL = process.env.DIRECTUS_URL as string;
+// URL to access Directus from client side. Used for images.
+export const PUBLIC_DIRECTUS_URL = process.env
+  .NEXT_PUBLIC_DIRECTUS_URL as string;
 
 /**
  * Creates a handle to use Directus' API. See the [official documentation](https://docs.directus.io/guides/sdk/getting-started.html).
@@ -20,10 +24,13 @@ export const DIRECTUS_URL = "https://clic.epfl.ch/directus";
  *
  * @returns a handle to Directus' API.
  */
-export const directus = () =>
-  createDirectus<Schema>(DIRECTUS_URL)
-    .with(staticToken(process.env.DIRECTUS_TOKEN || ""))
-    .with(rest());
+export function directus() {
+  const directus = createDirectus<Schema>(INTERNAL_DIRECTUS_URL).with(rest());
+
+  return (process.env.DIRECTUS_TOKEN || "") !== ""
+    ? directus.with(staticToken(process.env.DIRECTUS_TOKEN as string))
+    : directus;
+}
 
 export type LayoutProps = {
   layoutProps: {
@@ -150,8 +157,9 @@ export function cleanTranslations<T extends { [key: string]: any }>(
 export function getDirectusImageUrl(
   image: string | components["schemas"]["Files"] | null | undefined
 ): string | undefined {
+  console.log(JSON.stringify(image, null, 2));
   return image
-    ? `${DIRECTUS_URL}/assets/${
+    ? `${PUBLIC_DIRECTUS_URL}/assets/${
         typeof image === "string" ? image : image.filename_disk
       }`
     : undefined;
