@@ -1,20 +1,25 @@
 import DirectusImage from "@/components/DirectusImage";
+import SocialsList from "@/components/SocialsList";
 import { directus, populateLayoutProps } from "@/directus";
 import { getTranslation } from "@/locales";
-import { SaveTheDate, SaveTheDateCell } from "@/types/aliases";
+import { SaveTheDate, SaveTheDateCell, SocialLink } from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 
-export default function Commissions(
+export default function SaveTheDatePage(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
+  const commissions_cells = props.std_cells.filter((cell) => cell.commission);
+
+  const clic_cells = props.std_cells.filter((cell) => cell.commission == null);
+
   return (
     <>
       <style>{props.save_the_date.style}</style>
       <div className="main-div">
         <div className="content-div">
-          {/* Pas affiché dans le mail mais dans la preview du mail */}
+          {/* Not rendered in the mail, only in the preview */}
           <p style={{ display: "none" }}> Quoi de nouveau à la CLIC ? </p>
 
           <div className="header">
@@ -28,9 +33,11 @@ export default function Commissions(
 
           <h2>ENGLISH VERSION BELOW</h2>
 
-          {props.std_cells.map((cell) => StdCellComponent(cell))}
+          {clic_cells.map((cell) => StdCellComponent(cell))}
 
           <h2>Commissions</h2>
+
+          {commissions_cells.map((cell) => StdCellComponent(cell))}
 
           <div className="commissions"></div>
 
@@ -59,14 +66,7 @@ export default function Commissions(
               Github du projet
             </a>
 
-            <div className="socials">
-              <div className="socials-list">
-                <a href="https://clic.epfl.ch">Website</a> |
-                <a href="https://go.epfl.ch/clic_telegram">Telegram</a> |
-                <a href="https://go.epfl.ch/clic_twitter">Twitter</a> |
-                <a href="https://go.epfl.ch/clic_insta">Instagram</a>
-              </div>
-            </div>
+            <SocialsList socials={props.socialLinks} light={true} />
           </div>
         </div>
       </div>
@@ -74,39 +74,35 @@ export default function Commissions(
   );
 }
 
-// Function to convert CSS string to a style object
-const convertCssStringToObject = (cssString: string) => {
-  const styleObject: { [key: string]: string } = {};
-  cssString.split(";").forEach((style) => {
-    if (style.trim()) {
-      const [property, value] = style.split(":");
-      const camelCaseProperty = property
-        .trim()
-        .replace(/-([a-z])/g, (g) => g[1].toUpperCase());
-      styleObject[camelCaseProperty] = value;
-    }
-  });
-  return styleObject;
-};
-
 function StdCellComponent(cell: SaveTheDateCell) {
   const translation = getTranslation(cell, useRouter().locale);
+  const cell_id = "cell-" + cell.id;
   return (
-    <div key={translation.title}>
-      <style>{cell.style}</style>
+    <div key={translation.title} id={cell_id}>
+      <style>{cell.style?.replaceAll("#cell-id", "#" + cell_id)}</style>
       <div className="cell">
-        <DirectusImage
-          sizes="4rem"
-          img={cell.image}
-          name={translation.title}
-          className="cell_image"
-        />
-        <h2 className="cell_title">{translation.title}</h2>
-        <p className="cell_date">Date: {cell.date}</p>
-        <p className="cell_description">{translation.description}</p>
-        <a className="cell_link" href={cell.url}>
-          <span>{translation.detail_button_title}</span>
-        </a>
+        {cell.image ? (
+          <DirectusImage
+            sizes="4rem"
+            img={cell.image}
+            name={translation.title}
+            className="cell_image"
+          />
+        ) : (
+          <></>
+        )}
+        <div>
+          <h2 className="cell_title">{translation.title}</h2>
+          <p className="cell_date">Date: {cell.date}</p>
+          <p className="cell_description">{translation.description}</p>
+          {cell.url ? (
+            <a className="cell_link" href={cell.url}>
+              <span>{translation.detail_button_title || "test"}</span>
+            </a>
+          ) : (
+            <></>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -115,6 +111,7 @@ function StdCellComponent(cell: SaveTheDateCell) {
 export const getServerSideProps: GetServerSideProps<{
   save_the_date: SaveTheDate;
   std_cells: SaveTheDateCell[];
+  socialLinks: SocialLink[];
 }> = populateLayoutProps(async (_) => {
   return {
     props: {
@@ -123,9 +120,25 @@ export const getServerSideProps: GetServerSideProps<{
       ),
       std_cells: await directus().request(
         readItems("std_cell", {
-          fields: ["date", "style", "image", { translations: ["*"] }],
+          fields: [
+            "id",
+            "date",
+            "style",
+            "image",
+            "url",
+            { translations: ["*"], commission: ["name"] },
+          ],
         })
       ),
+      socialLinks: (await directus()
+        .request(
+          readItems("association_social_links", {
+            fields: [{ social_links_id: ["*"] }],
+          })
+        )
+        .then((result) =>
+          result.map((s) => s.social_links_id)
+        )) as SocialLink[],
     },
   };
 });
