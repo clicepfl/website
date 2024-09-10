@@ -1,110 +1,208 @@
-import DirectusImage from "@/components/DirectusImage";
-import SocialsList from "@/components/SocialsList";
+import { directusImageUrl } from "@/components/DirectusImage";
 import { directus, populateLayoutProps } from "@/directus";
-import { getTranslation } from "@/locales";
+import { getTranslation, locale, useTranslationTable } from "@/locales";
+import style from "@/styles/SaveTheDate.module.scss";
 import { SaveTheDate, SaveTheDateCell, SocialLink } from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 
+const BUTTON_STYLE = {
+  color: "white",
+  padding: "0.5rem 1rem 0.5rem 1rem",
+  borderRadius: 10,
+  textDecoration: "none",
+};
+
+const TITLE_STYLE = {
+  fontWeight: 300,
+  fontSize: "2rem",
+  margin: 0,
+  padding: "1rem",
+};
+
+const CELL_STYLE = {
+  width: "100%",
+  padding: "1rem",
+  borderRadius: "10px",
+};
+
+const CELL_GROUP_STYLE = {
+  borderSpacing: "1em",
+  width: "100%",
+};
+
 export default function SaveTheDatePage(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
-  const commissions_cells = props.std_cells.filter((cell) => cell.commission);
+  return (
+    <div className={style.main}>
+      begin-tag
+      <table
+        border={0}
+        cellSpacing={0}
+        cellPadding={0}
+        color="white"
+        style={{
+          borderRadius: "20px",
+          background: props.save_the_date.background_color,
+          width: "min(100%, 600px)",
+          color: props.save_the_date.text_color,
+          fontFamily: "Poppins, Roboto, Helvetica, Arial, sans-serif",
+          overflow: "hidden",
+        }}
+      >
+        <tbody>{TranslatedSection(props.save_the_date, props.std_cells)}</tbody>
+      </table>
+      end-tag
+    </div>
+  );
+}
 
-  const clic_cells = props.std_cells.filter((cell) => cell.commission == null);
+function TranslatedSection(
+  save_the_date: SaveTheDate,
+  cells: SaveTheDateCell[]
+) {
+  const language_code = locale(useRouter());
+  const commissions_cells = cells.filter((cell) => cell.commission);
+  const clic_cells = cells.filter((cell) => cell.commission == null);
+  const translated_std = getTranslation(save_the_date, language_code);
+  const tt = useTranslationTable();
 
   return (
     <>
-      <style>{props.save_the_date.style}</style>
-      <div className="main-div">
-        <div className="content-div">
-          {/* Not rendered in the mail, only in the preview */}
-          <p style={{ display: "none" }}> Quoi de nouveau à la CLIC ? </p>
-
-          <div className="header">
+      <tr>
+        <td>
+          <center>
             <img
-              src="https://clic.epfl.ch/nextcloud/index.php/s/8pCSkD3Zocx5Nzz/download/logo%20clic.png"
+              src={directusImageUrl(save_the_date.image)}
               alt="CLIC"
-              className="clic-logo"
+              style={{ width: "100%", height: "200px" }}
             />
-            <h1 className="title">Save the date !</h1>
-          </div>
+            <h1 style={{ color: save_the_date.title_color, ...TITLE_STYLE }}>
+              {tt["save-the-date"].toUpperCase()}
+            </h1>
+          </center>
+        </td>
+      </tr>
 
-          <h2>ENGLISH VERSION BELOW</h2>
-
-          {clic_cells.map((cell) => StdCellComponent(cell))}
-
-          <h2>Commissions</h2>
-
-          {commissions_cells.map((cell) => StdCellComponent(cell))}
-
-          <div className="commissions"></div>
-
-          <div className="end-div">
-            <h2>CLIC Bons Plans</h2>
-            <p>
-              Pour vous partager tous les bons plans IC, offres de stages ou
-              bien tarifs préférentiels, la CLIC a créé le channel CLIC Bon Plan
-              !
-            </p>
-            <a href="https://t.me/clic_bonsplans" className="details-link">
-              rejoindre le channel
-            </a>
-
-            <h2>CLIC website 2.0</h2>
-            <p>
-              Nous travaillons sur une nouvelle version de notre site web, en
-              utilisant Docker, Next.js, Strapi, et bien d'autres outils
-              open-source. Si vous voulez rejoindre le projet, vous pouvez nous
-              envoyer un message sur Telegram !
-            </p>
+      <tr>
+        <td style={{ padding: "1rem 0 1rem 0" }}>
+          <center>
             <a
-              href="https://github.com/clicepfl/clic-website-v2"
-              className="details-link"
+              href="https://clic.epfl.ch/en-US/save-the-date/"
+              style={{
+                background: save_the_date.button_color,
+                ...BUTTON_STYLE,
+              }}
             >
-              Github du projet
+              {tt["translated-version"]}
             </a>
+          </center>
+        </td>
+      </tr>
 
-            <SocialsList socials={props.socialLinks} light={true} />
-          </div>
-        </div>
-      </div>
+      <tr>
+        <td>
+          <center>
+            <table style={CELL_GROUP_STYLE}>
+              <tbody>{clic_cells.map((cell) => StdCellComponent(cell))}</tbody>
+            </table>
+          </center>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <center>
+            <h1 style={{ color: save_the_date.title_color, ...TITLE_STYLE }}>
+              {tt["commissions"].toUpperCase()}
+            </h1>
+          </center>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <table style={CELL_GROUP_STYLE}>
+            <tbody>
+              {commissions_cells.map((cell) => StdCellComponent(cell))}
+            </tbody>
+          </table>
+        </td>
+      </tr>
+
+      {/* TODO: add links */}
+      <tr>
+        <td style={{ padding: "2rem" }}>
+          <h2 style={{ color: save_the_date.title_color }}>
+            {translated_std.title}
+          </h2>
+          <p>{translated_std.description}</p>
+        </td>
+      </tr>
     </>
   );
 }
 
 function StdCellComponent(cell: SaveTheDateCell) {
-  const translation = getTranslation(cell, useRouter().locale);
-  const cell_id = "cell-" + cell.id;
+  const language_code = locale(useRouter());
+  const translation = getTranslation(cell, language_code);
+  const dateParts = (cell.date || "00-01-0000").split("-").map(Number);
+  const myDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
+
+  // Use Intl.DateTimeFormat to format the date as needed
+  const formattedDate = new Intl.DateTimeFormat("en-US", {
+    weekday: "long", // Full name of the day (e.g., Monday)
+    day: "numeric", // Day of the month (e.g., 25)
+    month: "long", // Full name of the month (e.g., December)
+    year: "numeric", // Full year (e.g., 2023)
+  }).format(myDate);
+
   return (
-    <div key={translation.title} id={cell_id}>
-      <style>{cell.style?.replaceAll("#cell-id", "#" + cell_id)}</style>
-      <div className="cell">
-        {cell.image ? (
-          <DirectusImage
-            sizes="4rem"
-            img={cell.image}
-            name={translation.title}
-            className="cell_image"
-          />
-        ) : (
-          <></>
-        )}
+    <tr>
+      <td
+        key={translation.title}
+        style={{
+          color: cell.text_color,
+          background: cell.background_color,
+          ...CELL_STYLE,
+        }}
+      >
         <div>
-          <h2 className="cell_title">{translation.title}</h2>
-          <p className="cell_date">Date: {cell.date}</p>
-          <p className="cell_description">{translation.description}</p>
-          {cell.url ? (
-            <a className="cell_link" href={cell.url}>
-              <span>{translation.detail_button_title || "test"}</span>
-            </a>
+          {cell.image ? (
+            <center>
+              <img
+                sizes="4rem"
+                src={directusImageUrl(cell.image)}
+                alt={translation.title}
+                style={{ maxHeight: "6rem", maxWidth: "10rem" }}
+              />
+            </center>
           ) : (
             <></>
           )}
+          <div>
+            <h2 style={{ color: cell.text_color }}>{translation.title}</h2>
+            <p style={{ margin: 0 }}>{formattedDate}</p>
+            <p>{translation.description}</p>
+            {cell.url ? (
+              <a
+                href={cell.url}
+                style={{
+                  background: cell.button_color,
+                  ...BUTTON_STYLE,
+                }}
+              >
+                <span>{translation.detail_button_title || "test"}</span>
+              </a>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
-      </div>
-    </div>
+      </td>
+    </tr>
   );
 }
 
@@ -116,16 +214,27 @@ export const getServerSideProps: GetServerSideProps<{
   return {
     props: {
       save_the_date: await directus().request(
-        readSingleton("save_the_date", { fields: ["style"] })
+        readSingleton("save_the_date", {
+          fields: [
+            "image",
+            "background_color",
+            "text_color",
+            "title_color",
+            "button_color",
+            { translations: ["*"] },
+          ],
+        })
       ),
       std_cells: await directus().request(
         readItems("std_cell", {
           fields: [
             "id",
             "date",
-            "style",
             "image",
             "url",
+            "background_color",
+            "text_color",
+            "button_color",
             { translations: ["*"], commission: ["name"] },
           ],
         })
