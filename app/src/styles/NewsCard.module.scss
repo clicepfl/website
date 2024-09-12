@@ -14,7 +14,7 @@
   box-shadow: 0 4px 30px rgba(0, 0, 100, 0.3);
 
   .picture {
-    height: 19rem;
+    height: 350px;
     width: 100%;
   }
 
@@ -23,7 +23,7 @@
     margin: 2rem;
     display: flex;
     flex-direction: column;
-    height: 15rem;
+    height: 412px;
     width: calc(100% - 4em);
 
     .details {
@@ -57,7 +57,7 @@
     flex-direction: column;
 
     .picture {
-      height: 19rem;
+      height: 130px;
     }
 
     .content {
@@ -73,7 +73,7 @@
 
   @media (max-width: 600px) {
     .picture {
-      height: 15rem;
+      height: 130px;
     }
   }
 }
