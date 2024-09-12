@@ -6,6 +6,7 @@ import { SaveTheDate, SaveTheDateCell, SocialLink } from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
+import Markdown from "react-markdown";
 
 const BUTTON_STYLE = {
   color: "white",
@@ -38,21 +39,33 @@ export default function SaveTheDatePage(
   return (
     <div className={style.main}>
       begin-tag
-      <table
-        border={0}
-        cellSpacing={0}
-        cellPadding={0}
-        color="white"
-        style={{
-          borderRadius: "20px",
-          background: props.save_the_date.background_color,
-          width: "min(100%, 600px)",
-          color: props.save_the_date.text_color,
-          fontFamily: "Poppins, Roboto, Helvetica, Arial, sans-serif",
-          overflow: "hidden",
-        }}
-      >
-        <tbody>{TranslatedSection(props.save_the_date, props.std_cells)}</tbody>
+      <table style={{ width: "100%" }}>
+        <tbody>
+          <tr>
+            <td>
+              <center>
+                <table
+                  border={0}
+                  cellSpacing={0}
+                  cellPadding={0}
+                  color="white"
+                  style={{
+                    borderRadius: "20px",
+                    background: props.save_the_date.background_color,
+                    maxWidth: "600px",
+                    color: props.save_the_date.text_color,
+                    fontFamily: "Poppins, Roboto, Helvetica, Arial, sans-serif",
+                    overflow: "hidden",
+                  }}
+                >
+                  <tbody>
+                    {TranslatedSection(props.save_the_date, props.std_cells)}
+                  </tbody>
+                </table>
+              </center>
+            </td>
+          </tr>
+        </tbody>
       </table>
       end-tag
     </div>
@@ -132,13 +145,12 @@ function TranslatedSection(
         </td>
       </tr>
 
-      {/* TODO: add links */}
       <tr>
-        <td style={{ padding: "2rem" }}>
+        <td style={{ padding: "2rem", color: save_the_date.text_color }}>
           <h2 style={{ color: save_the_date.title_color }}>
             {translated_std.title}
           </h2>
-          <p>{translated_std.description}</p>
+          <Markdown>{translated_std.description}</Markdown>
         </td>
       </tr>
     </>
@@ -169,38 +181,56 @@ function StdCellComponent(cell: SaveTheDateCell) {
           ...CELL_STYLE,
         }}
       >
-        <div>
-          {cell.image ? (
-            <center>
-              <img
-                sizes="4rem"
-                src={directusImageUrl(cell.image)}
-                alt={translation.title}
-                style={{ maxHeight: "6rem", maxWidth: "10rem" }}
-              />
-            </center>
-          ) : (
-            <></>
-          )}
-          <div>
-            <h2 style={{ color: cell.text_color }}>{translation.title}</h2>
-            <p style={{ margin: 0 }}>{formattedDate}</p>
-            <p>{translation.description}</p>
-            {cell.url ? (
-              <a
-                href={cell.url}
-                style={{
-                  background: cell.button_color,
-                  ...BUTTON_STYLE,
-                }}
-              >
-                <span>{translation.detail_button_title || "test"}</span>
-              </a>
+        <table style={{ width: "100%" }}>
+          <tbody>
+            {cell.image ? (
+              <tr>
+                <td>
+                  <center>
+                    <img
+                      sizes="4rem"
+                      src={directusImageUrl(cell.image)}
+                      alt={translation.title}
+                      style={{ maxHeight: "6rem", maxWidth: "10rem" }}
+                    />
+                  </center>
+                </td>
+              </tr>
             ) : (
               <></>
             )}
-          </div>
-        </div>
+            <tr>
+              <td style={{ color: cell.text_color }}>
+                <h2 style={{ color: cell.text_color, margin: 0 }}>
+                  {translation.title}
+                </h2>
+                <p style={{ margin: 0, fontStyle: "italic" }}>
+                  {formattedDate}
+                </p>
+                <Markdown>{translation.description}</Markdown>
+              </td>
+            </tr>
+            {cell.url ? (
+              <tr>
+                <td style={{ display: "flex", justifyContent: "end" }}>
+                  <a
+                    href={cell.url}
+                    style={{
+                      background: cell.button_color,
+                      ...BUTTON_STYLE,
+                    }}
+                  >
+                    <span>
+                      {translation.detail_button_title || "read more"}
+                    </span>
+                  </a>
+                </td>
+              </tr>
+            ) : (
+              <></>
+            )}
+          </tbody>
+        </table>
       </td>
     </tr>
   );
