@@ -8,10 +8,18 @@ import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 import Markdown from "react-markdown";
 
+const MAIN_TABLE_STYLE = {
+  borderRadius: "20px",
+  maxWidth: "600px",
+  fontFamily: "Noto Sans, Helvetica, Arial, sans-serif",
+  overflow: "hidden",
+};
+
 const BUTTON_STYLE = {
   color: "white",
   padding: "0.5rem 1rem 0.5rem 1rem",
-  borderRadius: 10,
+  fontSize: "1rem",
+  borderRadius: 20,
   textDecoration: "none",
 };
 
@@ -25,7 +33,7 @@ const TITLE_STYLE = {
 const CELL_STYLE = {
   width: "100%",
   padding: "1rem",
-  borderRadius: "10px",
+  borderRadius: "15px",
 };
 
 const CELL_GROUP_STYLE = {
@@ -36,6 +44,7 @@ const CELL_GROUP_STYLE = {
 export default function SaveTheDatePage(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
+  const tt = useTranslationTable();
   return (
     <div className={style.main}>
       begin-tag
@@ -50,16 +59,40 @@ export default function SaveTheDatePage(
                   cellPadding={0}
                   color="white"
                   style={{
-                    borderRadius: "20px",
                     background: props.save_the_date.background_color,
-                    maxWidth: "600px",
                     color: props.save_the_date.text_color,
-                    fontFamily: "Poppins, Roboto, Helvetica, Arial, sans-serif",
-                    overflow: "hidden",
+                    ...MAIN_TABLE_STYLE,
                   }}
                 >
                   <tbody>
                     {TranslatedSection(props.save_the_date, props.std_cells)}
+                    <tr
+                      style={{
+                        background: props.save_the_date.title_color,
+                        color: props.save_the_date.background_color,
+                      }}
+                    >
+                      <td>
+                        <center>
+                          <p style={{ marginTop: "1rem" }}>{tt["follow-us"]}</p>
+                          {props.socialLinks
+                            .filter((s) => s != null)
+                            .map((social) => (
+                              <a href={social.link || ""}>
+                                <img
+                                  src={directusImageUrl(social.logo || "")}
+                                  alt={social.media_name || ""}
+                                  style={{
+                                    height: "2rem",
+                                    margin: "0 0.5rem 1rem 0.5rem",
+                                    filter: "invert(100%)",
+                                  }}
+                                />
+                              </a>
+                            ))}
+                        </center>
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </center>
@@ -92,7 +125,12 @@ function TranslatedSection(
               alt="CLIC"
               style={{ width: "100%", height: "200px" }}
             />
-            <h1 style={{ color: save_the_date.title_color, ...TITLE_STYLE }}>
+            <h1
+              style={{
+                color: save_the_date.title_color,
+                ...TITLE_STYLE,
+              }}
+            >
               {tt["save-the-date"].toUpperCase()}
             </h1>
           </center>
@@ -136,8 +174,14 @@ function TranslatedSection(
       </tr>
 
       <tr>
-        <td>
-          <table style={CELL_GROUP_STYLE}>
+        <td style={{ padding: 10 }}>
+          <table
+            style={{
+              border: "solid 1px " + save_the_date.title_color,
+              borderRadius: 25,
+              ...CELL_GROUP_STYLE,
+            }}
+          >
             <tbody>
               {commissions_cells.map((cell) => StdCellComponent(cell))}
             </tbody>
@@ -147,7 +191,7 @@ function TranslatedSection(
 
       <tr>
         <td style={{ padding: "2rem", color: save_the_date.text_color }}>
-          <h2 style={{ color: save_the_date.title_color }}>
+          <h2 style={{ color: save_the_date.title_color || "black" }}>
             {translated_std.title}
           </h2>
           <Markdown>{translated_std.description}</Markdown>
@@ -200,8 +244,10 @@ function StdCellComponent(cell: SaveTheDateCell) {
               <></>
             )}
             <tr>
-              <td style={{ color: cell.text_color }}>
-                <h2 style={{ color: cell.text_color, margin: 0 }}>
+              <td style={{ color: cell.text_color || "transparent" }}>
+                <h2
+                  style={{ color: cell.text_color || "transparent", margin: 0 }}
+                >
                   {translation.title}
                 </h2>
                 <p style={{ margin: 0, fontStyle: "italic" }}>
@@ -216,7 +262,7 @@ function StdCellComponent(cell: SaveTheDateCell) {
                   <a
                     href={cell.url}
                     style={{
-                      background: cell.button_color,
+                      background: cell.button_color || "transparent",
                       ...BUTTON_STYLE,
                     }}
                   >
