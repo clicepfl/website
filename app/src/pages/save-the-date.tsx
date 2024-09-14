@@ -85,7 +85,6 @@ export default function SaveTheDatePage(
                                   style={{
                                     height: "2rem",
                                     margin: "0 0.5rem 1rem 0.5rem",
-                                    filter: "invert(100%)",
                                   }}
                                 />
                               </a>
@@ -216,7 +215,7 @@ function StdCellComponent(cell: SaveTheDateCell) {
   }).format(myDate);
 
   return (
-    <tr>
+    <tr key={cell.id}>
       <td
         key={translation.title}
         style={{
@@ -258,7 +257,7 @@ function StdCellComponent(cell: SaveTheDateCell) {
             </tr>
             {cell.url ? (
               <tr>
-                <td style={{ display: "flex", justifyContent: "end" }}>
+                <td style={{ textAlign: "end" }}>
                   <a
                     href={cell.url}
                     style={{
