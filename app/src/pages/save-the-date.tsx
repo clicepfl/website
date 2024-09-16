@@ -57,10 +57,10 @@ export default function SaveTheDatePage(
                   border={0}
                   cellSpacing={0}
                   cellPadding={0}
-                  color="white"
                   style={{
-                    background: props.save_the_date.background_color,
-                    color: props.save_the_date.text_color,
+                    background:
+                      props.save_the_date.background_color || undefined,
+                    color: props.save_the_date.text_color || undefined,
                     ...MAIN_TABLE_STYLE,
                   }}
                 >
@@ -68,8 +68,10 @@ export default function SaveTheDatePage(
                     {TranslatedSection(props.save_the_date, props.std_cells)}
                     <tr
                       style={{
-                        background: props.save_the_date.title_color,
-                        color: props.save_the_date.background_color,
+                        background:
+                          props.save_the_date.title_color || undefined,
+                        color:
+                          props.save_the_date.background_color || undefined,
                       }}
                     >
                       <td>
@@ -119,14 +121,18 @@ function TranslatedSection(
       <tr>
         <td>
           <center>
-            <img
-              src={directusImageUrl(save_the_date.image)}
-              alt="CLIC"
-              style={{ width: "100%", height: "200px" }}
-            />
+            {save_the_date.image ? (
+              <img
+                src={directusImageUrl(save_the_date.image)}
+                alt="CLIC"
+                style={{ width: "100%", height: "200px" }}
+              />
+            ) : (
+              <></>
+            )}
             <h1
               style={{
-                color: save_the_date.title_color,
+                color: save_the_date.title_color || undefined,
                 ...TITLE_STYLE,
               }}
             >
@@ -142,7 +148,7 @@ function TranslatedSection(
             <a
               href="https://clic.epfl.ch/en-US/save-the-date/"
               style={{
-                background: save_the_date.button_color,
+                background: save_the_date.button_color || undefined,
                 ...BUTTON_STYLE,
               }}
             >
@@ -165,7 +171,12 @@ function TranslatedSection(
       <tr>
         <td>
           <center>
-            <h1 style={{ color: save_the_date.title_color, ...TITLE_STYLE }}>
+            <h1
+              style={{
+                color: save_the_date.title_color || undefined,
+                ...TITLE_STYLE,
+              }}
+            >
               {tt["commissions"].toUpperCase()}
             </h1>
           </center>
@@ -189,8 +200,13 @@ function TranslatedSection(
       </tr>
 
       <tr>
-        <td style={{ padding: "2rem", color: save_the_date.text_color }}>
-          <h2 style={{ color: save_the_date.title_color || "black" }}>
+        <td
+          style={{
+            padding: "2rem",
+            color: save_the_date.text_color || undefined,
+          }}
+        >
+          <h2 style={{ color: save_the_date.title_color || undefined }}>
             {translated_std.title}
           </h2>
           <Markdown>{translated_std.description}</Markdown>
@@ -219,8 +235,8 @@ function StdCellComponent(cell: SaveTheDateCell) {
       <td
         key={translation.title}
         style={{
-          color: cell.text_color,
-          background: cell.background_color,
+          color: cell.text_color || undefined,
+          background: cell.background_color || undefined,
           ...CELL_STYLE,
         }}
       >
@@ -243,10 +259,8 @@ function StdCellComponent(cell: SaveTheDateCell) {
               <></>
             )}
             <tr>
-              <td style={{ color: cell.text_color || "transparent" }}>
-                <h2
-                  style={{ color: cell.text_color || "transparent", margin: 0 }}
-                >
+              <td style={{ color: cell.text_color || undefined }}>
+                <h2 style={{ color: cell.text_color || undefined, margin: 0 }}>
                   {translation.title}
                 </h2>
                 <p style={{ margin: 0, fontStyle: "italic" }}>
@@ -261,13 +275,11 @@ function StdCellComponent(cell: SaveTheDateCell) {
                   <a
                     href={cell.url}
                     style={{
-                      background: cell.button_color || "transparent",
+                      background: cell.button_color || undefined,
                       ...BUTTON_STYLE,
                     }}
                   >
-                    <span>
-                      {translation.detail_button_title || "read more"}
-                    </span>
+                    <span>{translation.detail_button_title || ">"}</span>
                   </a>
                 </td>
               </tr>
