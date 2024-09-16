@@ -301,6 +301,7 @@ export const getServerSideProps: GetServerSideProps<{
   return {
     props: {
       save_the_date: await directus().request(
+        // @ts-ignore
         readSingleton("save_the_date", {
           fields: [
             "image",
