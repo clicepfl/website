@@ -120,6 +120,7 @@ function TranslatedSection(
   const clic_cells = cells.filter((cell) => cell.commission == null);
   const translated_std = getTranslation(save_the_date, language_code);
   const tt = useTranslationTable();
+  const router = useRouter();
 
   return (
     <>
@@ -147,21 +148,25 @@ function TranslatedSection(
         </td>
       </tr>
 
-      <tr>
-        <td style={{ padding: "1rem 0 1rem 0" }}>
-          <center>
-            <a
-              href="https://clic.epfl.ch/en-US/save-the-date/"
-              style={{
-                background: save_the_date.button_color || undefined,
-                ...BUTTON_STYLE,
-              }}
-            >
-              {tt["translated-version"]}
-            </a>
-          </center>
-        </td>
-      </tr>
+      {router.locale === save_the_date.language_button_target ? (
+        <></>
+      ) : (
+        <tr>
+          <td style={{ padding: "1rem 0 1rem 0" }}>
+            <center>
+              <a
+                href={`https://clic.epfl.ch/${save_the_date.language_button_target}/save-the-date/`}
+                style={{
+                  background: save_the_date.button_color || undefined,
+                  ...BUTTON_STYLE,
+                }}
+              >
+                {tt["translated-version"]}
+              </a>
+            </center>
+          </td>
+        </tr>
+      )}
 
       <tr>
         <td>
@@ -342,6 +347,7 @@ export const getServerSideProps: GetServerSideProps<{
             "title_color",
             "button_color",
             { translations: ["*"] },
+            "language_button_target",
           ],
         })
       ),
