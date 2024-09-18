@@ -2,7 +2,12 @@ import { directusImageUrl } from "@/components/DirectusImage";
 import { directus, populateLayoutProps } from "@/directus";
 import { getTranslation, locale, useTranslationTable } from "@/locales";
 import style from "@/styles/SaveTheDate.module.scss";
-import { SaveTheDate, SaveTheDateCell, SocialLink } from "@/types/aliases";
+import {
+  Commission,
+  SaveTheDate,
+  SaveTheDateCell,
+  SocialLink,
+} from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
@@ -242,30 +247,57 @@ function StdCellComponent(cell: SaveTheDateCell) {
       >
         <table style={{ width: "100%" }}>
           <tbody>
-            {cell.image ? (
-              <tr>
-                <td>
-                  <center>
-                    <img
-                      sizes="4rem"
-                      src={directusImageUrl(cell.image)}
-                      alt={translation.title}
-                      style={{ maxHeight: "6rem", maxWidth: "10rem" }}
-                    />
-                  </center>
-                </td>
-              </tr>
-            ) : (
-              <></>
-            )}
             <tr>
-              <td style={{ color: cell.text_color || undefined }}>
-                <h2 style={{ color: cell.text_color || undefined, margin: 0 }}>
-                  {translation.title}
-                </h2>
-                <p style={{ margin: 0, fontStyle: "italic" }}>
-                  {formattedDate}
-                </p>
+              <td>
+                <table>
+                  <tbody>
+                    <tr>
+                      {cell.image ? (
+                        <td style={{ paddingRight: "1rem" }}>
+                          <center>
+                            <img
+                              sizes="4rem"
+                              src={directusImageUrl(cell.image)}
+                              alt={translation.title}
+                              style={{ maxHeight: "6rem", minWidth: "6rem" }}
+                            />
+                          </center>
+                        </td>
+                      ) : (
+                        <></>
+                      )}
+                      <td style={{ color: cell.text_color || undefined }}>
+                        {cell.commission ? (
+                          <p style={{ margin: 0, fontStyle: "italic" }}>
+                            {(cell.commission as Commission).name}
+                          </p>
+                        ) : (
+                          <></>
+                        )}
+                        <h2
+                          style={{
+                            color: cell.text_color || undefined,
+                            margin: 0,
+                            fontSize: Math.max(
+                              40 -
+                                (Math.max(translation.title?.length || 1), 10),
+                              25
+                            ),
+                          }}
+                        >
+                          {translation.title}
+                        </h2>
+                        <p style={{ margin: 0, fontStyle: "italic" }}>
+                          {formattedDate}
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
                 <Markdown>{translation.description}</Markdown>
               </td>
             </tr>
