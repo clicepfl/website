@@ -1,0 +1,6 @@
+@use "utilities/variables";
+
+.main {
+  margin: 2rem;
+  color: variables.$background-color;
+}
