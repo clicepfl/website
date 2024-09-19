@@ -49,7 +49,6 @@ const CELL_GROUP_STYLE = {
 export default function SaveTheDatePage(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
-  const tt = useTranslationTable();
   return (
     <div className={style.main}>
       begin-tag
@@ -70,35 +69,8 @@ export default function SaveTheDatePage(
                   }}
                 >
                   <tbody>
-                    {TranslatedSection(props.save_the_date, props.std_cells)}
-                    <tr
-                      style={{
-                        background:
-                          props.save_the_date.title_color || undefined,
-                        color:
-                          props.save_the_date.background_color || undefined,
-                      }}
-                    >
-                      <td>
-                        <center>
-                          <p style={{ marginTop: "1rem" }}>{tt["follow-us"]}</p>
-                          {props.socialLinks
-                            .filter((s) => s != null)
-                            .map((social) => (
-                              <a href={social.link || ""}>
-                                <img
-                                  src={directusImageUrl(social.logo || "")}
-                                  alt={social.media_name || ""}
-                                  style={{
-                                    height: "2rem",
-                                    margin: "0 0.5rem 1rem 0.5rem",
-                                  }}
-                                />
-                              </a>
-                            ))}
-                        </center>
-                      </td>
-                    </tr>
+                    {CellsSection(props.save_the_date, props.std_cells)}
+                    {SocialLinkSection(props.save_the_date, props.socialLinks)}
                   </tbody>
                 </table>
               </center>
@@ -111,10 +83,7 @@ export default function SaveTheDatePage(
   );
 }
 
-function TranslatedSection(
-  save_the_date: SaveTheDate,
-  cells: SaveTheDateCell[]
-) {
+function CellsSection(save_the_date: SaveTheDate, cells: SaveTheDateCell[]) {
   const language_code = locale(useRouter());
   const commissions_cells = cells.filter((cell) => cell.commission);
   const clic_cells = cells.filter((cell) => cell.commission == null);
@@ -124,6 +93,7 @@ function TranslatedSection(
 
   return (
     <>
+      {/* Header */}
       <tr>
         <td>
           <center>
@@ -131,7 +101,7 @@ function TranslatedSection(
               <img
                 src={directusImageUrl(save_the_date.image)}
                 alt="CLIC"
-                style={{ width: "100%", height: "200px" }}
+                style={{ width: "100%", maxHeight: "200px" }}
               />
             ) : (
               <></>
@@ -168,6 +138,7 @@ function TranslatedSection(
         </tr>
       )}
 
+      {/* CLIC cells */}
       <tr>
         <td>
           <center>
@@ -178,6 +149,7 @@ function TranslatedSection(
         </td>
       </tr>
 
+      {/* Commissions cells */}
       <tr>
         <td>
           <center>
@@ -209,6 +181,7 @@ function TranslatedSection(
         </td>
       </tr>
 
+      {/* End cell */}
       <tr>
         <td
           style={{
@@ -226,19 +199,71 @@ function TranslatedSection(
   );
 }
 
-function StdCellComponent(cell: SaveTheDateCell) {
-  const language_code = locale(useRouter());
-  const translation = getTranslation(cell, language_code);
-  const dateParts = (cell.date || "00-01-0000").split("-").map(Number);
-  const myDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
+function SocialLinkSection(save_the_date: SaveTheDate, socials: SocialLink[]) {
+  const tt = useTranslationTable();
+  return (
+    <tr
+      style={{
+        background: save_the_date.title_color || undefined,
+        color: save_the_date.background_color || undefined,
+      }}
+    >
+      <td>
+        <center>
+          <p style={{ marginTop: "1rem" }}>{tt["follow-us"]}</p>
+          {socials
+            .filter((s) => s != null)
+            .map((social) => (
+              <a href={social.link || ""}>
+                <img
+                  src={directusImageUrl(social.logo || "")}
+                  alt={social.media_name || ""}
+                  style={{
+                    height: "2rem",
+                    margin: "0 0.5rem 1rem 0.5rem",
+                  }}
+                />
+              </a>
+            ))}
+        </center>
+      </td>
+    </tr>
+  );
+}
 
-  // Use Intl.DateTimeFormat to format the date as needed
-  const formattedDate = new Intl.DateTimeFormat("en-US", {
+function formatDate(
+  date: string | null | undefined,
+  recurrence: string | null | undefined
+): string {
+  const tt = useTranslationTable();
+  const [day, month, year] = (date || "00-01-0000").split("-").map(Number);
+  const myDate = new Date(day, month - 1, year);
+  const formattedDate = new Intl.DateTimeFormat(locale(useRouter()), {
     weekday: "long", // Full name of the day (e.g., Monday)
     day: "numeric", // Day of the month (e.g., 25)
     month: "long", // Full name of the month (e.g., December)
     year: "numeric", // Full year (e.g., 2023)
   }).format(myDate);
+
+  switch (recurrence) {
+    case "weekly":
+      return `${tt["weekly"]} ${new Intl.DateTimeFormat(locale(useRouter()), {
+        weekday: "long",
+      }).format(myDate)}`;
+    case "monthly":
+      return `${tt["monthly"]} ${formattedDate}`;
+    case "from":
+      return `${tt["from"]} ${formattedDate}`;
+    case "punctual":
+    default:
+      return formattedDate;
+  }
+}
+
+function StdCellComponent(cell: SaveTheDateCell) {
+  const language_code = locale(useRouter());
+  const translation = getTranslation(cell, language_code);
+  const formattedDate = formatDate(cell.date, cell.recurrence);
 
   return (
     <tr key={cell.id}>
@@ -361,6 +386,7 @@ export const getServerSideProps: GetServerSideProps<{
             "background_color",
             "text_color",
             "button_color",
+            "recurrence",
             { translations: ["*"], commission: ["name"] },
           ],
         })
