@@ -84,18 +84,39 @@ export default function SaveTheDatePage(
                           <p style={{ marginTop: "1rem" }}>{tt["follow-us"]}</p>
                           {props.socialLinks
                             .filter((s) => s != null)
-                            .map((social) => (
-                              <a href={social.link || ""}>
-                                <img
-                                  src={directusImageUrl(social.logo || "")}
-                                  alt={social.media_name || ""}
-                                  style={{
-                                    height: "2rem",
-                                    margin: "0 0.5rem 1rem 0.5rem",
-                                  }}
-                                />
-                              </a>
-                            ))}
+                            .map((social) => {
+                              if (
+                                /^[\w-\.]+@([\w-]+\.)+[\w-]{2,63}$/.test(
+                                  social.link || ""
+                                )
+                              ) {
+                                return (
+                                  <a href={`mailto:${social.link}`}>
+                                    <img
+                                      src={directusImageUrl(social.logo || "")}
+                                      alt={social.media_name || ""}
+                                      style={{
+                                        height: "2rem",
+                                        margin: "0 0.5rem 1rem 0.5rem",
+                                      }}
+                                    />
+                                  </a>
+                                );
+                              } else {
+                                return (
+                                  <a href={social.link || ""}>
+                                    <img
+                                      src={directusImageUrl(social.logo || "")}
+                                      alt={social.media_name || ""}
+                                      style={{
+                                        height: "2rem",
+                                        margin: "0 0.5rem 1rem 0.5rem",
+                                      }}
+                                    />
+                                  </a>
+                                );
+                              }
+                            })}
                         </center>
                       </td>
                     </tr>

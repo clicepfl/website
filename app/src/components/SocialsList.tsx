@@ -28,7 +28,7 @@ export default function SocialsList(props: {
               />
             );
 
-            if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(s.link || "")) {
+            if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,63}$/.test(s.link || "")) {
               return (
                 <a
                   href={`mailto:${s.link}`}
