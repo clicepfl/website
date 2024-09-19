@@ -1,4 +1,5 @@
 import { directusImageUrl } from "@/components/DirectusImage";
+import TabTitle from "@/components/TabTitle";
 import { directus, populateLayoutProps } from "@/directus";
 import { getTranslation, locale, useTranslationTable } from "@/locales";
 import style from "@/styles/SaveTheDate.module.scss";
@@ -52,6 +53,7 @@ export default function SaveTheDatePage(
   const tt = useTranslationTable();
   return (
     <div className={style.main}>
+      <TabTitle title={tt["save-the-date"]} />
       begin-tag
       <table style={{ width: "100%" }}>
         <tbody>
