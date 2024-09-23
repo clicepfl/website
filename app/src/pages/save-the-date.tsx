@@ -85,8 +85,12 @@ export default function SaveTheDatePage(
 
 function CellsSection(save_the_date: SaveTheDate, cells: SaveTheDateCell[]) {
   const language_code = locale(useRouter());
-  const commissions_cells = cells.filter((cell) => cell.commission);
-  const clic_cells = cells.filter((cell) => cell.commission == null);
+  const commissions_cells = cells
+    .filter((cell) => cell.commission)
+    .sort(sortByCommissionThenDate);
+  const clic_cells = cells
+    .filter((cell) => cell.commission == null)
+    .sort(sortByDate);
   const translated_std = getTranslation(save_the_date, language_code);
   const tt = useTranslationTable();
   const router = useRouter();
@@ -231,13 +235,38 @@ function SocialLinkSection(save_the_date: SaveTheDate, socials: SocialLink[]) {
   );
 }
 
+function sortByCommissionThenDate(
+  cell1: SaveTheDateCell,
+  cell2: SaveTheDateCell
+) {
+  if (
+    (cell1.commission as Commission).id == (cell2.commission as Commission).id
+  ) {
+    console.log(cell1.commission);
+    return sortByDate(cell1, cell2);
+  } else {
+    console;
+    return ((cell1.commission as Commission).name || "").localeCompare(
+      (cell2.commission as Commission).name || ""
+    );
+  }
+}
+
+function sortByDate(cell1: SaveTheDateCell, cell2: SaveTheDateCell) {
+  return dateStringToDate(cell1.date) > dateStringToDate(cell2.date) ? 1 : -1;
+}
+
+function dateStringToDate(date: string | null | undefined) {
+  const [day, month, year] = (date || "00-01-0000").split("-").map(Number);
+  return new Date(day, month - 1, year);
+}
+
 function formatDate(
   date: string | null | undefined,
   recurrence: string | null | undefined
 ): string {
   const tt = useTranslationTable();
-  const [day, month, year] = (date || "00-01-0000").split("-").map(Number);
-  const myDate = new Date(day, month - 1, year);
+  const myDate = dateStringToDate(date);
   const formattedDate = new Intl.DateTimeFormat(locale(useRouter()), {
     weekday: "long", // Full name of the day (e.g., Monday)
     day: "numeric", // Day of the month (e.g., 25)
@@ -389,7 +418,7 @@ export const getServerSideProps: GetServerSideProps<{
             "text_color",
             "button_color",
             "recurrence",
-            { translations: ["*"], commission: ["name"] },
+            { translations: ["*"], commission: ["id", "name"] },
           ],
         })
       ),
