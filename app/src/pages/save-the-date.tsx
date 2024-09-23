@@ -263,7 +263,9 @@ function formatDate(
 function StdCellComponent(cell: SaveTheDateCell) {
   const language_code = locale(useRouter());
   const translation = getTranslation(cell, language_code);
-  const formattedDate = formatDate(cell.date, cell.recurrence);
+  const formattedDate = translation.date_replacement
+    ? translation.date_replacement
+    : formatDate(cell.date, cell.recurrence);
 
   return (
     <tr key={cell.id}>
