@@ -4,7 +4,7 @@
 name: clic-website-devcontainer
 
 include:
-  - path: directus/docker-compose.yaml
+  - path: directus/directus.yaml
 services:
   app:
     # Build the app service from its folder
