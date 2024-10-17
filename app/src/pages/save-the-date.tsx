@@ -218,7 +218,7 @@ function SocialLinkSection(save_the_date: SaveTheDate, socials: SocialLink[]) {
           {socials
             .filter((s) => s != null)
             .map((social) => (
-              <a href={social.link || ""}>
+              <a key={social.id} href={social.link || ""}>
                 <img
                   src={directusImageUrl(social.logo || "")}
                   alt={social.media_name || ""}
