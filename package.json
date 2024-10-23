@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prepare": "husky install && git submodule update --init",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prepare": "if [ $NODE_ENV != \"production\" ]; then  husky install && git submodule update --init; fi",
     "load-directus": "sh directus/load.sh",
     "save-directus": "sh directus/save.sh",
     "save-directus-data": "sh directus/save-data.sh",
