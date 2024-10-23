@@ -43,8 +43,8 @@ jobs:
       # Replace symlinks that point outside of the docker build context by their content
       - name: Remove symbolic links
         run: |
-          rm -f app/src/types
-          cp -r directus/types app/src/
+          rm -f src/types
+          cp -r directus/types src/
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
