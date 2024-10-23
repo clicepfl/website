@@ -6,11 +6,11 @@ This repository contains the second version of the [CLIC](https://clic.epfl.ch)'
 
 ### App
 
-The website's code is located in the `/app` directory. It uses [NextJS](https://nextjs.org/), a [React](https://react.dev/)-based framework to provide a single page application, coupled with [SCSS](https://sass-lang.com/documentation/syntax/#scss) for styling.
+The website's code is located in the root directory. It uses [NextJS](https://nextjs.org/), a [React](https://react.dev/)-based framework to provide a single page application, coupled with [SCSS](https://sass-lang.com/documentation/syntax/#scss) for styling.
 
 The React components are located in the `components` directory, while the website pages are in the `pages` directory (see NextJS's documentation about [routing](https://nextjs.org/docs/pages/building-your-application/routing/pages-and-layouts)).
 
-To fetch data from Directus, it should be done on server-side, using the [`directus()`](./app/src/directus.ts) to generate a handle to call Directus' API (https://docs.directus.io/guides/sdk/getting-started.html) object in `directus.ts`. To achieve that, the page's file must also export a [`getServerSideProps()`](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-server-side-props) function. The `directus` object is not usable on client side, since its token is restricted to the server.
+To fetch data from Directus, it should be done on server-side, using the [`directus()`](./src/directus.ts) to generate a handle to call Directus' API (https://docs.directus.io/guides/sdk/getting-started.html) object in `directus.ts`. To achieve that, the page's file must also export a [`getServerSideProps()`](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-server-side-props) function. The `directus` object is not usable on client side, since its token is restricted to the server.
 
 ### Directus
 
@@ -59,7 +59,7 @@ Afterwards, refer to this [document](directus/README.md) to setup a local Direct
 
 ## Development
 
-The development is done in the `/app` directory for the website, or from Directus admin UI, on `http://localhost/directus`.
+The development is done in the `/src` directory for the website, or from Directus admin UI, on `http://localhost/directus`.
 
 In order to run the server, use docker and run the compose file at the root of the project:
 

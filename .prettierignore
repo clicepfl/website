@@ -5,6 +5,6 @@
 **/dist
 **/.cache
 
-app/.next
+**/.next
 
 oas.json
