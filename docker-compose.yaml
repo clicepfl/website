@@ -10,7 +10,7 @@ services:
     # Build the app service from its folder
     build:
       # Build context, relative to the current file
-      context: ./app
+      context: .
       # Path to Dockerfile, relative to context
       dockerfile: Dockerfile.dev
     user: ${USER_ID:-1000}:${GROUP_ID:-1000}
@@ -19,7 +19,7 @@ services:
     volumes:
       # Bind-mount the app project folder into the container
       - type: bind
-        source: ./app
+        source: .
         target: /app
 
   caddy:

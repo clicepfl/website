@@ -84,7 +84,6 @@ jobs:
         env:
           NEXT_PUBLIC_DIRECTUS_URL: https://clic.epfl.ch/directus
         with:
-          context: app
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
