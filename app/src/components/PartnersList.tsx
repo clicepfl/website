@@ -44,15 +44,36 @@ function PartnerCategoryDisplay({
 
 export default function PartnersList(props: {
   id?: string;
-  partners: [PartnerCategory, Partner[]][];
+  partners: Partner[];
+  background?: boolean;
 }) {
-  props.partners.sort(
+  var orderedPartners = props.partners.reduce(
+    (list: [PartnerCategory, Partner[]][], partner: Partner) => {
+      var entry = list.find(
+        (e) => e[0].rank === (partner.category as PartnerCategory).rank
+      );
+      if (entry) {
+        entry[1].push(partner);
+      } else {
+        list.push([partner.category as PartnerCategory, [partner]]);
+      }
+      return list;
+    },
+    []
+  );
+
+  orderedPartners.sort(
     (a, b) => (b[0].rank || Infinity) - (a[0].rank || Infinity)
   );
 
   return (
-    <div id={props.id} className={styles.partnersList}>
-      {props.partners.map((e) => (
+    <div
+      id={props.id}
+      className={`${styles.partnersList} ${
+        props.background ? styles.background : ""
+      }`}
+    >
+      {orderedPartners.map((e) => (
         <PartnerCategoryDisplay key={e[0].id} c={e[0]} p={e[1]} />
       ))}
     </div>

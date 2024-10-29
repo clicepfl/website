@@ -1,7 +1,8 @@
 @use "utilities/glass";
 @use "utilities/variables";
 
-.card {
+.card,
+.subsonic {
   @extend .glass;
 
   display: flex;
@@ -48,6 +49,28 @@
     min-height: 6rem;
 
     border: 3px white solid;
+    border-radius: 50%;
+  }
+}
+
+.subsonic {
+  background: transparent;
+
+  &:hover {
+    background-color: white;
+    transition: ease-in;
+    .name,
+    .description {
+      color: black;
+    }
+  }
+
+  .picture {
+    overflow: hidden;
+    min-width: 6rem;
+    min-height: 6rem;
+
+    border: none;
     border-radius: 50%;
   }
 }

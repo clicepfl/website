@@ -1,7 +1,8 @@
 @use "utilities/glass";
 @use "utilities/variables";
 
-.navigationBar {
+.navigationBar,
+.subsonic {
   @extend .glass;
 
   border-left: 0;
@@ -242,4 +243,14 @@
       transition-timing-function: ease-out;
     }
   }
+}
+
+.subsonic {
+  background: rgb(33, 56, 175);
+  background: linear-gradient(
+    54deg,
+    rgb(33, 56, 175) 0%,
+    rgba(96, 35, 205, 0) 38%,
+    rgba(51, 60, 69, 0.58) 100%
+  );
 }
