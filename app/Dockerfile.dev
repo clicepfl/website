@@ -6,7 +6,7 @@ WORKDIR /app
 # use "node" user with UID/GID 1000 (avoid permission issues with root)
 USER node
 
-ENV DIRECTUS_URL=http://clic-directus:8055
+ENV DIRECTUS_URL=http://directus:8055
 ENV NEXT_PUBLIC_DIRECTUS_URL=http://localhost/directus
 
 # install dependencies and run in watch mode
