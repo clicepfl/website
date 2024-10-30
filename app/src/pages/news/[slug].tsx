@@ -84,6 +84,7 @@ export const getServerSideProps: GetServerSideProps<{
   }
 
   let news = await directus().request(
+    //@ts-expect-error
     readItems("news", {
       ...queryTranslations,
       limit: 1,
@@ -99,6 +100,7 @@ export const getServerSideProps: GetServerSideProps<{
     .request(
       readItems("news_commissions", {
         ...queryTranslations,
+        //@ts-expect-error
         fields: [{ commissions_id: ["*.*"] }],
         filter: { news_id: { _eq: news[0].id } },
       })
