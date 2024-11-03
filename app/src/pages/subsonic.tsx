@@ -101,11 +101,14 @@ export const getServerSideProps: GetServerSideProps<{
   return {
     props: {
       subsonic: await directus().request(
+        // @ts-ignore
         readSingleton("subsonic", {
           fields: ["header_image", "logo", "map", "info"],
         })
       ),
-      artists: await directus().request(readItems("artists", { fields: "*" })),
+      artists: await directus().request(
+        readItems("artists", { fields: ["*"] })
+      ),
       partners: (await directus()
         .request(
           readItems("association_partners", {
