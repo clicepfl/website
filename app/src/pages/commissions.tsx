@@ -57,7 +57,6 @@ export const getServerSideProps: GetServerSideProps<{
             "name",
             "slug",
             "id",
-            // @ts-expect-error
             { translations: ["banner", "small_description", "languages_code"] },
           ],
         })

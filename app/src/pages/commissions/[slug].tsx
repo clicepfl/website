@@ -68,7 +68,6 @@ export const getServerSideProps: GetServerSideProps<
   }
 
   let commissions = await directus().request(
-    //@ts-expect-error
     readItems("commissions", {
       filter: { slug: { _eq: context.params.slug } },
       ...queryTranslations,
