@@ -3,9 +3,9 @@ import DirectusImage from "@/components/DirectusImage";
 import PartnersList from "@/components/PartnersList";
 import TabTitle from "@/components/TabTitle";
 import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
-import { capitalize, useTranslationTable } from "@/locales";
+import { useTranslationTable } from "@/locales";
 import style from "@/styles/SubsonicPage.module.scss";
-import { Partner } from "@/types/aliases";
+import { Artist, Partner, Subsonic } from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Markdown from "react-markdown";
@@ -24,8 +24,8 @@ export default function SubsonicPage(
       `}</style>
 
       <TabTitle
-        title={capitalize(tt["subsonic"])}
-        image={getDirectusImageUrl(props.subsonic.header_image)}
+        title={"Subsonic"}
+        image={getDirectusImageUrl(props.subsonic.logo)}
       />
 
       <div className={style.header}>
@@ -49,18 +49,18 @@ export default function SubsonicPage(
       </div>
 
       <div className={style.mainDiv}>
-        <p className={style.text}>The CLIC silent party</p>
-        <p className={style.text}>November 15th, 19h BC Hall</p>
+        <p className={style.text}>{tt["subsonic.catchphrase"]}</p>
+        <p className={style.text}>{tt["subsonic.date-and-place"]}</p>
 
         <div className={style.artists}>
-          <h1 className={style.title}>DJ</h1>
+          <h1 className={style.title}>{tt["artits"]}</h1>
           <div className={style.artistsList}>
-            {props.artists.map((artist) => {
+            {props.artists.map((artist: Artist) => {
               return (
                 <Card
                   key={artist.id}
                   img={artist.image}
-                  title={artist.name}
+                  title={artist.name || ""}
                   description={`
                     ${(artist.start_time || "").substring(
                       0,
@@ -79,7 +79,7 @@ export default function SubsonicPage(
       <PartnersList partners={props.partners} />
 
       <div className={style.map_div}>
-        <h1 className={style.title}>PLAN</h1>
+        <h1 className={style.title}>{tt["subsonic.map"]}</h1>
         <DirectusImage
           sizes={"50rem"}
           name={"subsonic"}
@@ -95,7 +95,7 @@ export default function SubsonicPage(
 
 export const getServerSideProps: GetServerSideProps<{
   subsonic: Subsonic;
-  artists: Artists;
+  artists: Artist[];
   partners: Partner[];
 }> = populateLayoutProps(async (_) => {
   return {
