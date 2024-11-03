@@ -56,7 +56,6 @@ export const getServerSideProps: GetServerSideProps<{
             "slug",
             "date_created",
             {
-              //@ts-expect-error
               translations: [
                 "title",
                 "banner",
