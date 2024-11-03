@@ -3,16 +3,19 @@ import DirectusImage from "@/components/DirectusImage";
 import PartnersList from "@/components/PartnersList";
 import TabTitle from "@/components/TabTitle";
 import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
-import { useTranslationTable } from "@/locales";
+import { getTranslation, useTranslationTable } from "@/locales";
 import style from "@/styles/SubsonicPage.module.scss";
 import { Artist, Partner, Subsonic } from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { useRouter } from "next/router";
 import Markdown from "react-markdown";
 
 export default function SubsonicPage(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
+  const router = useRouter();
+  const translation = getTranslation(props.subsonic, router.locale);
   const tt = useTranslationTable();
 
   return (
@@ -88,7 +91,7 @@ export default function SubsonicPage(
         />
       </div>
 
-      <Markdown className={style.markdown}>{props.subsonic.info}</Markdown>
+      <Markdown className={style.markdown}>{translation.info}</Markdown>
     </>
   );
 }
@@ -103,7 +106,7 @@ export const getServerSideProps: GetServerSideProps<{
       subsonic: await directus().request(
         // @ts-ignore
         readSingleton("subsonic", {
-          fields: ["header_image", "logo", "map", "info"],
+          fields: ["header_image", "logo", "map", { translations: ["*"] }],
         })
       ),
       artists: await directus().request(
