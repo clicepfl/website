@@ -147,13 +147,25 @@ export default function NavigationBar(props: {
     />,
   ];
 
+  let className;
+  switch (router.pathname) {
+    case "/subsonic":
+      className = styles.subsonic;
+      break;
+    default:
+      className = styles.navigationBar;
+      break;
+  }
+
   return (
-    <div className={styles.navigationBar}>
+    <div className={className}>
       <Link href="/" className={styles.corner}>
         <Corner />
       </Link>
 
       <div className={styles.navigationMenu}>
+        {/* <MenuLink path="/subsonic" text={capitalize("Subsonic")} /> */}
+
         <MenuLink
           path="/association"
           text={capitalize(translations["association"])}

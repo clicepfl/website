@@ -26,6 +26,16 @@ export default function Card(
 ) {
   const router = useRouter();
 
+  let className;
+  switch (router.pathname) {
+    case "/subsonic":
+      className = styles.subsonic;
+      break;
+    default:
+      className = styles.card;
+      break;
+  }
+
   let img = null,
     title = null,
     description = null,
@@ -48,7 +58,7 @@ export default function Card(
 
   const component = (
     <div
-      className={`${styles.card} ${props.background ? styles.background : ""}`}
+      className={`${className} ${props.background ? styles.background : ""}`}
     >
       <div className={styles.imageDiv}>
         <DirectusImage

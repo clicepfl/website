@@ -1,16 +1,8 @@
 .partnersList {
   width: 100%;
-  background: rgb(17, 25, 31);
-  background: linear-gradient(
-    205deg,
-    rgb(27, 23, 77) 0%,
-    rgba(12, 14, 22, 1) 35%,
-    rgba(16, 15, 93, 1) 100%
-  );
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
 
   a {
     display: flex;
@@ -42,4 +34,15 @@
       margin: 1em;
     }
   }
+}
+
+.background {
+  padding: 1rem;
+  background: rgb(17, 25, 31);
+  background: linear-gradient(
+    205deg,
+    rgb(27, 23, 77) 0%,
+    rgba(12, 14, 22, 1) 35%,
+    rgba(16, 15, 93, 1) 100%
+  );
 }
