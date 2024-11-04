@@ -51,6 +51,31 @@ function MenuLink({
     </Link>
   );
 }
+function SubsonicLink({
+  side = false,
+  toggle,
+}: {
+  side?: boolean;
+  toggle?: () => void;
+}) {
+  const router = useRouter();
+  return (
+    <Link
+      className={`${styles.subsonicEntry} ${side ? "" : styles.menuItem} ${
+        router.asPath.startsWith("/subsonic") ? styles.selected : ""
+      }`}
+      href="/subsonic"
+      onClick={() => {
+        if (toggle) {
+          toggle();
+        }
+        router.push("/subsonic");
+      }}
+    >
+      <img src="https://clic.epfl.ch/directus/assets/0341603c-2518-449b-b436-904cdbc1e1ec?width=150" />
+    </Link>
+  );
+}
 
 function SideMenu({
   headToggle: toggle,
@@ -165,12 +190,11 @@ export default function NavigationBar(props: {
 
       <div className={styles.navigationMenu}>
         {/* <MenuLink path="/subsonic" text={capitalize("Subsonic")} /> */}
-
+        <SubsonicLink key={3} side={true} toggle={toggleMenu} />
         <MenuLink
           path="/association"
           text={capitalize(translations["association"])}
         />
-
         {props.commissions ? (
           <DropdownMenu
             head={
@@ -210,9 +234,7 @@ export default function NavigationBar(props: {
         ) : (
           <></>
         )}
-
         <MenuLink path="/news" text={capitalize(translations["news"])} />
-
         {props.langs ? (
           <DropdownMenu
             head={<Lang className={styles.lang + " " + styles.dropdownHead} />}
@@ -232,7 +254,6 @@ export default function NavigationBar(props: {
         ) : (
           <></>
         )}
-
         <SideMenu
           headToggle={toggleMenu}
           visible={menuVisible}
