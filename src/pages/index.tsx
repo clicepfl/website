@@ -28,7 +28,6 @@ import {
   Member,
   News,
   Partner,
-  PartnerCategory,
   PublicFiles,
   SocialLink,
 } from "@/types/aliases";
@@ -42,21 +41,6 @@ export default function Home(
   const router = useRouter();
   const translation = getTranslation(props.association, router.locale);
   const tt = useTranslationTable();
-
-  var orderedPartners = props.partners.reduce(
-    (list: [PartnerCategory, Partner[]][], partner: Partner) => {
-      var entry = list.find(
-        (e) => e[0].rank === (partner.category as PartnerCategory).rank
-      );
-      if (entry) {
-        entry[1].push(partner);
-      } else {
-        list.push([partner.category as PartnerCategory, [partner]]);
-      }
-      return list;
-    },
-    []
-  );
 
   return (
     <>
@@ -91,7 +75,7 @@ export default function Home(
         <Button text={tt["moreNews"]} onClick={() => router.push("/news")} />
       </div>
 
-      <PartnersList id="partners" partners={orderedPartners} />
+      <PartnersList id="partners" partners={props.partners} background={true} />
 
       <div className={styles.associationDesciption}>
         <div className={styles.center}>

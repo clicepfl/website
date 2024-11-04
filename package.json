@@ -14,7 +14,7 @@
     "populate-directus": "sh directus/populate.sh"
   },
   "dependencies": {
-    "@directus/sdk": "^15.0.0",
+    "@directus/sdk": "^18.0.0",
     "@svgr/webpack": "^8.1.0",
     "next": "^14.2.10",
     "react": "18.2.0",

@@ -1,0 +1,108 @@
+.mainDiv {
+  background: black;
+  color: white;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+
+  .headerImage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .logo_div {
+    position: absolute;
+    width: 40%;
+    height: 10rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    .logo {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.title {
+  font-family: "SimpleDay";
+  color: white;
+  padding: 2rem;
+}
+
+.text {
+  font-size: 3rem;
+  margin: auto;
+  font-family: "SimpleDay";
+}
+
+.artists {
+  padding-top: 2rem;
+  padding-bottom: 10rem;
+  .artistsList {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 80rem;
+    align-items: stretch;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+
+.map_div {
+  margin: 5rem;
+  width: 100%;
+  .map {
+    width: 100%;
+    height: 50rem;
+  }
+}
+
+.markdown {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  color: white;
+  width: min(70ch, 80%);
+  margin: 5rem;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "SimpleDay";
+    margin: 0;
+    color: white;
+  }
+
+  h1 {
+    text-align: center;
+
+    // h2 (subtitle) must be centered and slightly enlarged
+    + h2 {
+      text-align: center;
+    }
+  }
+
+  a {
+    color: red;
+  }
+
+  p {
+    margin: 0;
+    text-align: justify;
+  }
+
+  // img {
+  //   border-radius: variables.$small-border-radius;
+  // }
+}
