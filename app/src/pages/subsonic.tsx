@@ -55,6 +55,8 @@ export default function SubsonicPage(
         <p className={style.text}>{tt["subsonic.catchphrase"]}</p>
         <p className={style.text}>{tt["subsonic.date-and-place"]}</p>
 
+        <Markdown className={style.markdown}>{translation.info}</Markdown>
+
         <div className={style.artists}>
           <h1 className={style.title}>{tt["artits"]}</h1>
           <div className={style.artistsList}>
@@ -79,7 +81,6 @@ export default function SubsonicPage(
           </div>
         </div>
       </div>
-      <PartnersList partners={props.partners} />
 
       <div className={style.map_div}>
         <h1 className={style.title}>{tt["subsonic.map"]}</h1>
@@ -91,7 +92,7 @@ export default function SubsonicPage(
         />
       </div>
 
-      <Markdown className={style.markdown}>{translation.info}</Markdown>
+      <PartnersList partners={props.partners} />
     </>
   );
 }
