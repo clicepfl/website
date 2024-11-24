@@ -189,8 +189,6 @@ export default function NavigationBar(props: {
       </Link>
 
       <div className={styles.navigationMenu}>
-        {/* <MenuLink path="/subsonic" text={capitalize("Subsonic")} /> */}
-        <SubsonicLink key={3} side={true} toggle={toggleMenu} />
         <MenuLink
           path="/association"
           text={capitalize(translations["association"])}
