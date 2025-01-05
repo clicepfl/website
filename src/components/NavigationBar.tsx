@@ -177,6 +177,9 @@ export default function NavigationBar(props: {
     case "/subsonic":
       className = styles.subsonic;
       break;
+    case "/icbd":
+      className = styles.icbd;
+      break;
     default:
       className = styles.navigationBar;
       break;
