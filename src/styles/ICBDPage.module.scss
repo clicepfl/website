@@ -46,6 +46,7 @@
     width: 100%;
     height: 100%;
   }
+
   .logo_div {
     position: absolute;
     height: 12rem;
@@ -59,6 +60,7 @@
       height: 100%;
     }
   }
+
   h1 {
     color: gray;
     text-align: center;
@@ -69,6 +71,45 @@
       color: gray;
       text-align: center;
     }
+  }
+}
+
+.activities,
+.partners {
+  background: linear-gradient(
+    45deg,
+    rgba(254, 95, 3, 1) 0%,
+    rgb(255, 185, 64) 100%
+  );
+
+  h1 {
+    color: white;
+  }
+}
+
+.activities {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  .activitiesList {
+    max-width: 70rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  padding-bottom: 2rem;
+}
+
+.alumni {
+  .alumniList {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 80rem;
+    align-items: stretch;
+    justify-content: center;
+    gap: 2rem;
   }
 }
 
@@ -98,8 +139,4 @@
     margin: 0;
     text-align: justify;
   }
-
-  // img {
-  //   border-radius: variables.$small-border-radius;
-  // }
 }

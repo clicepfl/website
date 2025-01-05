@@ -264,4 +264,32 @@
 
 .icbd {
   background: rgb(255, 152, 41);
+  background: linear-gradient(
+    90deg,
+    rgba(254, 95, 3, 1) 0%,
+    rgb(255, 185, 64) 100%
+  );
+
+  .navigationMenu {
+    .dropdownMenu {
+      .content {
+        border-color: white;
+        background-color: transparent;
+        .menuItem {
+          background-color: rgba(255, 191, 62, 0.783);
+
+          &:hover {
+            background-color: rgba(215, 136, 51, 0.783);
+            color: white;
+          }
+
+          &.selected {
+            border-radius: 0;
+            border: 0;
+            background-color: variables.$glass-color-hover;
+          }
+        }
+      }
+    }
+  }
 }

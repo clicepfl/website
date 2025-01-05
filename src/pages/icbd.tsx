@@ -1,11 +1,18 @@
+import Card from "@/components/Card";
 import DirectusImage from "@/components/DirectusImage";
+import IcbdActivityCard from "@/components/IcbdActivityCard";
 import TabTitle from "@/components/TabTitle";
 import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
 import { getTranslation, useTranslationTable } from "@/locales";
 import style from "@/styles/ICBDPage.module.scss";
 import pageStyle from "@/styles/Page.module.scss";
-import { ICBD } from "@/types/aliases";
-import { readSingleton } from "@directus/sdk";
+import {
+  ICBD,
+  ICBDActivities,
+  ICBDActivity,
+  ICBDSpeaker,
+} from "@/types/aliases";
+import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 import Markdown from "react-markdown";
@@ -47,7 +54,7 @@ export default function ICBDPage(
         <div className={pageStyle.main}>
           <div className={pageStyle.center}>
             <div className={style.registration}>
-              <h1>REGISTRATION</h1>
+              <h1>Registration</h1>
               <Markdown>{translation.registration_instructions}</Markdown>
               <div className={style.buttons}>
                 <script
@@ -81,7 +88,7 @@ export default function ICBDPage(
               </div>
             </div>
 
-            <h1>DESCRITPION</h1>
+            <h1>Description</h1>
 
             <Markdown>{translation.description}</Markdown>
             {props.icbd.presentation_video ? (
@@ -100,13 +107,28 @@ export default function ICBDPage(
           </div>
         </div>
 
-        <div>
+        <div className={style.partners}>
           <h1>Partners</h1>
         </div>
 
-        <div>
+        <div className={pageStyle.main}>
           <h1>Alumni</h1>
           <h2>speakers present at the event</h2>
+
+          <div className={style.alumni}>
+            <div className={style.alumniList}>
+              {props.speakers.map((speaker: ICBDSpeaker) => {
+                return (
+                  <Card
+                    key={speaker.id}
+                    img={speaker.picture}
+                    title={`${speaker.first_name} ${speaker.last_name}` || ""}
+                    description={speaker.company || ""}
+                  />
+                );
+              })}
+            </div>
+          </div>
         </div>
 
         <div>
@@ -120,6 +142,13 @@ export default function ICBDPage(
 
         <div className={style.activities}>
           <h1>Activities</h1>
+
+          <div className={style.activitiesList}>
+            {props.activities.map((activity: ICBDActivities) => {
+              const t = getTranslation(activity, router.locale);
+              return <IcbdActivityCard key={activity.id} activity={activity} />;
+            })}
+          </div>
         </div>
       </div>
     </>
@@ -128,6 +157,8 @@ export default function ICBDPage(
 
 export const getServerSideProps: GetServerSideProps<{
   icbd: ICBD;
+  speakers: ICBDSpeaker[];
+  activities: ICBDActivity[];
 }> = populateLayoutProps(async (_) => {
   return {
     props: {
@@ -138,10 +169,21 @@ export const getServerSideProps: GetServerSideProps<{
             "logo",
             "presentation_video",
             "date",
+            "place",
             "start_time",
             "end_time",
             { translations: ["*"] },
           ],
+        })
+      ),
+      speakers: await directus().request(
+        readItems("icbd_speakers", {
+          fields: ["picture", "first_name", "last_name", "company"],
+        })
+      ),
+      activities: await directus().request(
+        readItems("icbd_activities", {
+          fields: ["hosts", "icon", { translations: ["*"] }],
         })
       ),
     },
