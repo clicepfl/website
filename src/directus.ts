@@ -157,7 +157,6 @@ export function cleanTranslations<T extends { [key: string]: any }>(
 export function getDirectusImageUrl(
   image: string | components["schemas"]["Files"] | null | undefined
 ): string | undefined {
-  console.log(JSON.stringify(image, null, 2));
   return image
     ? `${PUBLIC_DIRECTUS_URL}/assets/${
         typeof image === "string" ? image : image.filename_disk

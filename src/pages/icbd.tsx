@@ -1,17 +1,13 @@
 import Card from "@/components/Card";
 import DirectusImage from "@/components/DirectusImage";
 import IcbdActivityCard from "@/components/IcbdActivityCard";
+import ParticlesComponent from "@/components/Particles";
 import TabTitle from "@/components/TabTitle";
 import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
 import { getTranslation, useTranslationTable } from "@/locales";
 import style from "@/styles/ICBDPage.module.scss";
 import pageStyle from "@/styles/Page.module.scss";
-import {
-  ICBD,
-  ICBDActivities,
-  ICBDActivity,
-  ICBDSpeaker,
-} from "@/types/aliases";
+import { ICBD, ICBDActivity, ICBDSpeaker } from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
@@ -45,6 +41,8 @@ export default function ICBDPage(
           <h1>{new Date(props.icbd.date).toUTCString()}</h1>
           <h2>{props.icbd.place}</h2>
         </div>
+
+        <ParticlesComponent id={style.particles} />
       </div>
 
       <div className={style.mainDiv}>
@@ -131,12 +129,12 @@ export default function ICBDPage(
           </div>
         </div>
 
-        <div>
+        <div className={pageStyle.main}>
           <h1>PHD students</h1>
           <h2>during the poster session</h2>
         </div>
 
-        <div>
+        <div className={pageStyle.main}>
           <h1>Timetable</h1>
         </div>
 
@@ -144,7 +142,7 @@ export default function ICBDPage(
           <h1>Activities</h1>
 
           <div className={style.activitiesList}>
-            {props.activities.map((activity: ICBDActivities) => {
+            {props.activities.map((activity: ICBDActivity) => {
               const t = getTranslation(activity, router.locale);
               return <IcbdActivityCard key={activity.id} activity={activity} />;
             })}

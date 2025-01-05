@@ -1,3 +1,7 @@
+.container {
+  height: 100px;
+}
+
 .mainDiv {
   justify-content: center;
   display: flex;
@@ -39,7 +43,6 @@
   height: 600px;
   position: relative;
   overflow: hidden;
-  background-color: rgb(238, 238, 238);
 
   .headerImage {
     position: absolute;
