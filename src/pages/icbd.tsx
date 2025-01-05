@@ -4,7 +4,7 @@ import IcbdActivityCard from "@/components/IcbdActivityCard";
 import ParticlesComponent from "@/components/Particles";
 import TabTitle from "@/components/TabTitle";
 import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
-import { getTranslation, useTranslationTable } from "@/locales";
+import { getTranslation } from "@/locales";
 import style from "@/styles/ICBDPage.module.scss";
 import pageStyle from "@/styles/Page.module.scss";
 import { ICBD, ICBDActivity, ICBDSpeaker } from "@/types/aliases";
@@ -13,12 +13,40 @@ import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 import Markdown from "react-markdown";
 
+function formatTimeRange(start: string, end: string): string {
+  const formatTime = (time: string): string => {
+    const [hours, minutes] = time.split(":").map(Number); // Split and parse hours and minutes
+    const period = hours >= 12 ? "pm" : "am"; // Determine AM/PM
+    const formattedHour = hours % 12 || 12; // Convert 24-hour time to 12-hour time, handling midnight (0 becomes 12)
+    return `${formattedHour}${minutes ? `:${minutes}` : ""}${period}`;
+  };
+
+  return `${formatTime(start)} to ${formatTime(end)}`;
+}
+
 export default function ICBDPage(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   const router = useRouter();
   const translation = getTranslation(props.icbd, router.locale);
-  const tt = useTranslationTable();
+
+  const formattedDate = new Intl.DateTimeFormat(router.locale, {
+    weekday: "long", // full weekday name (e.g., 'Monday')
+    year: "numeric", // full year (e.g., 2025)
+    month: "long", // full month name (e.g., 'January')
+    day: "numeric", // day of the month (e.g., 5)
+  }).format(new Date(props.icbd.date || ""));
+
+  const formatTime = (time: string): string => {
+    const [hours, minutes] = time.split(":").map(Number); // Split and parse hours and minutes
+    const period = hours >= 12 ? "pm" : "am"; // Determine AM/PM
+    const formattedHour = hours % 12 || 12; // Convert 24-hour time to 12-hour time, handling midnight (0 becomes 12)
+    return `${formattedHour}${minutes ? `:${minutes}` : ""}${period}`;
+  };
+
+  const formattedSecondTitle = `${formatTime(
+    props.icbd.start_time || ""
+  )} to ${formatTime(props.icbd.end_time || "")}, ${props.icbd.place}`;
 
   return (
     <>
@@ -38,17 +66,14 @@ export default function ICBDPage(
             img={props.icbd.logo}
             className={style.logo}
           />
-          <h1>{new Date(props.icbd.date).toUTCString()}</h1>
-          <h2>{props.icbd.place}</h2>
+          <h1>{formattedDate}</h1>
+          <h2>{formattedSecondTitle}</h2>
         </div>
 
         <ParticlesComponent id={style.particles} />
       </div>
 
       <div className={style.mainDiv}>
-        <p className={style.text}>{tt["subsonic.catchphrase"]}</p>
-        <p className={style.text}>{tt["subsonic.date-and-place"]}</p>
-
         <div className={pageStyle.main}>
           <div className={pageStyle.center}>
             <div className={style.registration}>
@@ -85,8 +110,6 @@ export default function ICBDPage(
                 </a>
               </div>
             </div>
-
-            <h1>Description</h1>
 
             <Markdown>{translation.description}</Markdown>
             {props.icbd.presentation_video ? (

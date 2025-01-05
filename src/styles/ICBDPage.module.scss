@@ -1,3 +1,5 @@
+@use "utilities/variables";
+
 .container {
   height: 100px;
 }
@@ -32,7 +34,7 @@
       justify-content: center;
       a {
         color: #fff;
-        background-color: rgb(255, 198, 64);
+        background-color: variables.$icbd-accent;
       }
     }
   }
@@ -79,11 +81,7 @@
 
 .activities,
 .partners {
-  background: linear-gradient(
-    45deg,
-    rgba(254, 95, 3, 1) 0%,
-    rgb(255, 185, 64) 100%
-  );
+  background: variables.$icbd-gradient;
 
   h1 {
     color: white;
@@ -133,10 +131,6 @@
   color: white;
   width: min(70ch, 80%);
   margin: 5rem;
-
-  a {
-    color: red;
-  }
 
   p {
     margin: 0;

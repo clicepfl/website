@@ -77,10 +77,10 @@
 }
 
 .icbd {
-  background: orange;
+  background: variables.$icbd-accent;
 
   &:hover {
-    background-color: orange;
+    background-color: variables.$icbd-accent;
   }
 
   .picture {

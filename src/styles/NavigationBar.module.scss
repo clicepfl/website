@@ -263,12 +263,8 @@
 }
 
 .icbd {
-  background: rgb(255, 152, 41);
-  background: linear-gradient(
-    90deg,
-    rgba(254, 95, 3, 1) 0%,
-    rgb(255, 185, 64) 100%
-  );
+  background: variables.$icbd-accent;
+  background: variables.$icbd-gradient;
 
   .navigationMenu {
     .dropdownMenu {
@@ -276,10 +272,10 @@
         border-color: white;
         background-color: transparent;
         .menuItem {
-          background-color: rgba(255, 191, 62, 0.783);
+          background-color: variables.$icbd-accent;
 
           &:hover {
-            background-color: rgba(215, 136, 51, 0.783);
+            background-color: variables.$icbd-accent;
             color: white;
           }
 
