@@ -128,11 +128,14 @@ export default function ICBDPage(
           </div>
         </div>
 
-        <div className={style.partners}>
+        <div className={style.partners} style={{ minHeight: "800px" }}>
           <h1>Partners</h1>
-          {props.icbd.patners_images?.map((_) => (
-            // TODO : add partner images
-            <></>
+          {props.icbd.partners_images.map((file) => (
+            <DirectusImage
+              sizes="20rem"
+              img={file.directus_files_id}
+              key={file.directus_files_id}
+            />
           ))}
         </div>
 
@@ -194,7 +197,7 @@ export const getServerSideProps: GetServerSideProps<{
             "place",
             "start_time",
             "end_time",
-            "partners_images",
+            { partners_images: ["*"] },
             {
               translations: ["*"],
             },
