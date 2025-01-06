@@ -3,7 +3,6 @@ import { getTranslation, locale } from "@/locales";
 import styles from "@/styles/AssociationDescription.module.scss";
 import markdownStyle from "@/styles/Markdown.module.scss";
 import { Association, PublicFiles, SocialLink } from "@/types/aliases";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import Markdown from "react-markdown";
 
@@ -30,7 +29,7 @@ export default function AssociationDescription({
       </Markdown>
       <div className={styles.publicFiles}>
         {publicFiles.map((f) => (
-          <Link href={f.link || ""} key={f.id}>
+          <a href={f.link || ""} key={f.id}>
             {f.icon ? (
               <DirectusImage
                 sizes="1.5rem"
@@ -41,7 +40,7 @@ export default function AssociationDescription({
               <></>
             )}
             {getTranslation(f, locale(router)).name}
-          </Link>
+          </a>
         ))}
       </div>
     </div>
