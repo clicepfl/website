@@ -130,6 +130,10 @@ export default function ICBDPage(
 
         <div className={style.partners}>
           <h1>Partners</h1>
+          {props.icbd.patners_images?.map((_) => (
+            // TODO : add partner images
+            <></>
+          ))}
         </div>
 
         <div className={pageStyle.main}>
@@ -138,16 +142,14 @@ export default function ICBDPage(
 
           <div className={style.alumni}>
             <div className={style.alumniList}>
-              {props.speakers.map((speaker: ICBDSpeaker) => {
-                return (
-                  <Card
-                    key={speaker.id}
-                    img={speaker.picture}
-                    title={`${speaker.first_name} ${speaker.last_name}` || ""}
-                    description={speaker.company || ""}
-                  />
-                );
-              })}
+              {props.speakers.map((speaker: ICBDSpeaker) => (
+                <Card
+                  key={speaker.id}
+                  img={speaker.picture}
+                  title={`${speaker.first_name} ${speaker.last_name}` || ""}
+                  description={speaker.company || ""}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -165,10 +167,9 @@ export default function ICBDPage(
           <h1>Activities</h1>
 
           <div className={style.activitiesList}>
-            {props.activities.map((activity: ICBDActivity) => {
-              const t = getTranslation(activity, router.locale);
-              return <IcbdActivityCard key={activity.id} activity={activity} />;
-            })}
+            {props.activities.map((activity: ICBDActivity) => (
+              <IcbdActivityCard key={activity.id} activity={activity} />
+            ))}
           </div>
         </div>
       </div>
@@ -193,7 +194,10 @@ export const getServerSideProps: GetServerSideProps<{
             "place",
             "start_time",
             "end_time",
-            { translations: ["*"] },
+            "partners_images",
+            {
+              translations: ["*"],
+            },
           ],
         })
       ),
