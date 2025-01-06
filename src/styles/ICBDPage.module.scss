@@ -103,6 +103,26 @@
   padding-bottom: 2rem;
 }
 
+.partners {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .partnersList {
+    display: inline-flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin: 0;
+    padding: 4rem;
+
+    .partnerImage {
+      height: 5rem;
+      width: 10rem;
+    }
+  }
+}
+
 .alumni {
   .alumniList {
     display: flex;

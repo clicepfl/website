@@ -36,10 +36,7 @@ export default function DirectusImage({
 }) {
   if (img) {
     return (
-      <div
-        className={className}
-        style={{ position: "relative", height: "200px" }}
-      >
+      <div className={className} style={{ position: "relative" }}>
         <Image
           loader={imageLoader}
           src={typeof img === "string" ? img : img.filename_disk || ""}

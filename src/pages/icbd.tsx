@@ -7,22 +7,11 @@ import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
 import { getTranslation } from "@/locales";
 import style from "@/styles/ICBDPage.module.scss";
 import pageStyle from "@/styles/Page.module.scss";
-import { ICBD, ICBDActivity, ICBDSpeaker } from "@/types/aliases";
+import { ICBD, ICBDActivity, ICBDPhd, ICBDSpeaker } from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 import Markdown from "react-markdown";
-
-function formatTimeRange(start: string, end: string): string {
-  const formatTime = (time: string): string => {
-    const [hours, minutes] = time.split(":").map(Number); // Split and parse hours and minutes
-    const period = hours >= 12 ? "pm" : "am"; // Determine AM/PM
-    const formattedHour = hours % 12 || 12; // Convert 24-hour time to 12-hour time, handling midnight (0 becomes 12)
-    return `${formattedHour}${minutes ? `:${minutes}` : ""}${period}`;
-  };
-
-  return `${formatTime(start)} to ${formatTime(end)}`;
-}
 
 export default function ICBDPage(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
@@ -128,15 +117,17 @@ export default function ICBDPage(
           </div>
         </div>
 
-        <div className={style.partners} style={{ minHeight: "800px" }}>
-          <h1>Partners</h1>
-          {props.icbd.partners_images.map((file) => (
-            <DirectusImage
-              sizes="20rem"
-              img={file.directus_files_id}
-              key={file.directus_files_id}
-            />
-          ))}
+        <div className={style.partners}>
+          <div className={style.partnersList}>
+            {props.icbd.partners_images.map((file) => (
+              <DirectusImage
+                sizes="20rem"
+                img={file.directus_files_id}
+                key={file.directus_files_id}
+                className={style.partnerImage}
+              />
+            ))}
+          </div>
         </div>
 
         <div className={pageStyle.main}>
@@ -160,6 +151,18 @@ export default function ICBDPage(
         <div className={pageStyle.main}>
           <h1>PHD students</h1>
           <h2>during the poster session</h2>
+          <div className={style.alumni}>
+            <div className={style.alumniList}>
+              {props.phds.map((phd: ICBDPhd) => (
+                <Card
+                  key={phd.id}
+                  img={phd.picture}
+                  title={`${phd.first_name} ${phd.last_name}` || ""}
+                  description={phd.laboratory || ""}
+                />
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className={pageStyle.main}>
@@ -183,6 +186,7 @@ export default function ICBDPage(
 export const getServerSideProps: GetServerSideProps<{
   icbd: ICBD;
   speakers: ICBDSpeaker[];
+  phds: ICBDPhd[];
   activities: ICBDActivity[];
 }> = populateLayoutProps(async (_) => {
   return {
@@ -207,6 +211,11 @@ export const getServerSideProps: GetServerSideProps<{
       speakers: await directus().request(
         readItems("icbd_speakers", {
           fields: ["picture", "first_name", "last_name", "company"],
+        })
+      ),
+      phds: await directus().request(
+        readItems("icbd_phds", {
+          fields: ["picture", "first_name", "last_name", "laboratory"],
         })
       ),
       activities: await directus().request(
