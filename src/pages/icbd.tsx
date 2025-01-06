@@ -167,6 +167,12 @@ export default function ICBDPage(
 
         <div className={pageStyle.main}>
           <h1>Timetable</h1>
+          <DirectusImage
+            img={props.icbd.timetable}
+            name="timetable"
+            sizes="50rem"
+            className={style.timetable}
+          />
         </div>
 
         <div className={style.activities}>
@@ -201,6 +207,7 @@ export const getServerSideProps: GetServerSideProps<{
             "place",
             "start_time",
             "end_time",
+            "timetable",
             { partners_images: ["*"] },
             {
               translations: ["*"],
