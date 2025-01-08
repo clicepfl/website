@@ -68,7 +68,7 @@ export default function ICBDPage(
             <div className={style.registration}>
               <h1>Registration</h1>
               <Markdown>{translation.registration_instructions}</Markdown>
-              <div className={style.buttons}>
+              {/* <div className={style.buttons}>
                 <script
                   id="luma-checkout"
                   src="https://embed.lu.ma/checkout-button.js"
@@ -97,7 +97,7 @@ export default function ICBDPage(
                 >
                   Speed Networking
                 </a>
-              </div>
+              </div> */}
             </div>
 
             <Markdown>{translation.description}</Markdown>
@@ -119,14 +119,22 @@ export default function ICBDPage(
 
         <div className={style.partners}>
           <div className={style.partnersList}>
-            {props.icbd.partners_images.map((file) => (
-              <DirectusImage
-                sizes="20rem"
-                img={file.directus_files_id}
-                key={file.directus_files_id}
-                className={style.partnerImage}
-              />
-            ))}
+            {props.icbd.partners_images?.map((file) =>
+              typeof file === "number" ? (
+                <></>
+              ) : (
+                <DirectusImage
+                  sizes="20rem"
+                  img={file.directus_files_id}
+                  key={
+                    typeof file.directus_files_id === "string"
+                      ? file.directus_files_id
+                      : file.directus_files_id?.id
+                  }
+                  className={style.partnerImage}
+                />
+              )
+            )}
           </div>
         </div>
 
