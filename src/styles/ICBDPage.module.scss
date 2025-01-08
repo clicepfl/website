@@ -1,0 +1,164 @@
+@use "utilities/variables";
+
+.container {
+  height: 100px;
+}
+
+.mainDiv {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    color: grey;
+  }
+
+  h1 {
+    text-align: center;
+
+    // h2 (subtitle) must be centered and slightly enlarged
+    + h2 {
+      text-align: center;
+    }
+  }
+
+  .registration {
+    .buttons {
+      display: flex;
+      gap: 2em;
+      width: 100%;
+      justify-content: center;
+      a {
+        color: #fff;
+        background-color: variables.$icbd-accent;
+      }
+    }
+  }
+}
+
+.header {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+
+  .headerImage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .logo_div {
+    position: absolute;
+    height: 12rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    .logo {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  h1 {
+    color: gray;
+    text-align: center;
+    font-size: 3rem;
+
+    // h2 (subtitle) must be centered and slightly enlarged
+    + h2 {
+      color: gray;
+      text-align: center;
+    }
+  }
+}
+
+.activities,
+.partners {
+  background: variables.$icbd-gradient;
+
+  h1 {
+    color: white;
+  }
+}
+
+.activities {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  .activitiesList {
+    max-width: 70rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  padding-bottom: 2rem;
+}
+
+.partners {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .partnersList {
+    display: inline-flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin: 0;
+    padding: 4rem;
+
+    .partnerImage {
+      height: 5rem;
+      width: 10rem;
+    }
+  }
+}
+
+.alumni {
+  .alumniList {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 80rem;
+    align-items: stretch;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+
+.timetable {
+  height: 60rem;
+  width: 80%;
+}
+
+.title {
+  color: white;
+  padding: 2rem;
+}
+
+.text {
+  font-size: 3rem;
+  margin: auto;
+}
+
+.markdown {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  color: white;
+  width: min(70ch, 80%);
+  margin: 5rem;
+
+  p {
+    margin: 0;
+    text-align: justify;
+  }
+}

@@ -2,7 +2,8 @@
 @use "utilities/variables";
 
 .navigationBar,
-.subsonic {
+.subsonic,
+.icbd {
   @extend .glass;
 
   border-left: 0;
@@ -259,4 +260,32 @@
     rgba(96, 35, 205, 0) 38%,
     rgba(51, 60, 69, 0.58) 100%
   );
+}
+
+.icbd {
+  background: variables.$icbd-accent;
+  background: variables.$icbd-gradient;
+
+  .navigationMenu {
+    .dropdownMenu {
+      .content {
+        border-color: white;
+        background-color: transparent;
+        .menuItem {
+          background-color: variables.$icbd-accent;
+
+          &:hover {
+            background-color: variables.$icbd-accent;
+            color: white;
+          }
+
+          &.selected {
+            border-radius: 0;
+            border: 0;
+            background-color: variables.$glass-color-hover;
+          }
+        }
+      }
+    }
+  }
 }
