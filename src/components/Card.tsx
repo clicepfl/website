@@ -31,6 +31,9 @@ export default function Card(
     case "/subsonic":
       className = styles.subsonic;
       break;
+    case "/icbd":
+      className = styles.icbd;
+      break;
     default:
       className = styles.card;
       break;
