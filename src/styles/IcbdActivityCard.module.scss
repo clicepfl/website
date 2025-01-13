@@ -1,0 +1,39 @@
+@use "utilities/variables";
+
+.content {
+  background-color: white;
+  border-radius: variables.$small-border-radius;
+  width: 40%;
+  padding: 2rem;
+
+  .title {
+    display: inline-flex;
+    align-items: center;
+    border-bottom: solid 1px grey;
+    gap: 1rem;
+    padding-bottom: 1rem;
+
+    h2 {
+      color: black;
+    }
+
+    filter: invert(72%) sepia(40%) saturate(861%) hue-rotate(342deg)
+      brightness(104%) contrast(104%);
+
+    .picture {
+      min-height: 2rem;
+      max-height: 2rem;
+      min-width: 2rem;
+      max-width: 2rem;
+      padding: 1rem;
+    }
+  }
+
+  .description {
+    width: 100%;
+  }
+
+  @media (max-width: 1000px) {
+    width: 65%;
+  }
+}

@@ -1,0 +1,86 @@
+@use "./utilities/variables";
+
+.table {
+  width: max(70%, 600px);
+
+  border-collapse: collapse;
+
+  overflow: hidden;
+
+  td {
+    padding: 0;
+  }
+
+  tbody {
+    td:nth-child(odd):not(.hours) {
+      background-color: variables.$icbd-table-gray-column; // Apply style to even items
+    }
+
+    td:nth-child(even) {
+      background-color: white; // Apply style to odd items
+    }
+  }
+
+  .hours {
+    width: 50px;
+    border-radius: 25px 0 0 25px;
+    background-color: variables.$icbd-table-gray-hours;
+
+    .hourEntry {
+      text-align: right;
+      padding-right: 0.5rem;
+      position: relative;
+
+      .line {
+        position: absolute;
+        height: 1px;
+        width: 100vw;
+        background-color: variables.$icbd-table-gray-hours;
+
+        transform: translateY(-1px);
+
+        z-index: 0;
+        left: 100%;
+      }
+    }
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .header {
+    width: 10rem;
+  }
+
+  .entry {
+    height: 800px;
+    display: flex;
+
+    overflow: hidden;
+
+    border-right: variables.$icbd-table-gray-hours;
+    border-top: variables.$icbd-table-gray-hours;
+    border-bottom: variables.$icbd-table-gray-hours;
+
+    position: relative;
+
+    .event {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: calc(100% - 0.4rem);
+      height: 100%;
+
+      margin: 0.2rem;
+
+      p {
+        color: white;
+        text-align: center;
+        font-weight: normal;
+      }
+    }
+  }
+}
