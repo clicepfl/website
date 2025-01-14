@@ -180,7 +180,6 @@ export default function ICBDPage(
             activities={props.activities}
             startTime="10:00"
             endTime="18:00"
-            size={800}
           />
         </div>
 

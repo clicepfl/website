@@ -7,6 +7,12 @@ class Timeslot {
   start_time: string;
   end_time: string;
   room: string;
+
+  constructor(start_time: string, end_time: string, room: string) {
+    this.start_time = start_time;
+    this.end_time = end_time;
+    this.room = room;
+  }
 }
 
 // Convert string representation "hh:mm" to minutes
@@ -18,30 +24,32 @@ function timeToMinutes(time: string) {
   const seconds = parts[2] ? parseInt(parts[2], 10) : 0;
 
   // Convert everything to minutes
-  const totalMinutes = hours * 60 + minutes + seconds / 60;
-
-  return totalMinutes;
+  return hours * 60 + minutes + seconds / 60;
 }
 
-function Hours(props: { startTime: string; endTime: string; height: number }) {
+function Hours(props: { startTime: string; endTime: string }) {
   let startTime = timeToMinutes(props.startTime);
   const endTime = timeToMinutes(props.endTime);
-
   const duration = endTime - startTime;
-  const entryAlign = (60 * props.height) / duration;
+  const numberOfHours = duration / 60;
 
   let hours: any[] = [];
 
-  for (; startTime < endTime; startTime += 60) {
+  for (let i = 0; i < numberOfHours; i++) {
     hours.push(
-      <div style={{ height: `${entryAlign}px` }} className={styles.hourEntry}>
+      <div
+        key={"hours|" + i}
+        style={{ height: `${100 / numberOfHours}%` }}
+        className={styles.hourEntry}
+      >
         <span className={styles.line} />
-        {`${startTime / 60}h`}
+        <p>{`${startTime / 60}h`}</p>
       </div>
     );
+    startTime += 60;
   }
   hours.push(
-    <div className={styles.hourEntry}>
+    <div key={"last_line"} className={styles.hourEntry}>
       <span className={styles.line} />
     </div>
   );
@@ -52,19 +60,32 @@ function Hours(props: { startTime: string; endTime: string; height: number }) {
 function TimeTableEvent(props: {
   timeslot: [Timeslot, ICBDActivity];
   vertical: boolean;
-  position: number;
+  startTime: string;
+  endTime: string;
   name: string;
-  size: number;
 }) {
+  // In minutes
+  const startTime = timeToMinutes(props.startTime);
+  const endTime = timeToMinutes(props.endTime);
+  const timeslot = props.timeslot[0];
+  const tStartTime = timeToMinutes(timeslot.start_time);
+  const tEndTime = timeToMinutes(timeslot.end_time);
+
+  const duration = endTime - startTime;
+
+  const size = (tEndTime - tStartTime) / duration;
+
+  const position = (tStartTime - startTime) / duration;
+
   const style = props.vertical
-    ? { height: `${props.size}px` }
-    : { width: `${props.size}px` };
+    ? { height: `calc(${size * 100}% - 0.4rem)` }
+    : { width: `calc(${size * 100}% - 0.4rem)` };
 
   return (
     <div
       className={styles.event}
       style={{
-        top: `${props.position}px`,
+        top: `${position * 100}%`,
         backgroundColor: props.timeslot[1].color || "white",
         ...style,
       }}
@@ -77,39 +98,25 @@ function TimeTableEvent(props: {
 function TimetableEntry(props: {
   timeslots: [Timeslot, ICBDActivity][];
   vertical: boolean;
-  size: number;
   startTime: string;
   endTime: string;
 }) {
   let key = 0;
   const router = useRouter();
-  // In minutes
-  const duration =
-    timeToMinutes(props.endTime) - timeToMinutes(props.startTime);
 
   return (
     <div className={`${styles.entry} ${styles.vertical}`}>
       {props.timeslots.map((t) => {
-        const size =
-          ((timeToMinutes(t[0].end_time) - timeToMinutes(t[0].start_time)) /
-            duration) *
-          props.size;
-
-        const positon =
-          ((timeToMinutes(t[0].start_time) - timeToMinutes(props.startTime)) /
-            duration) *
-          props.size;
-
         const translation = getTranslation(t[1], router.locale);
 
         return (
           <TimeTableEvent
             name={translation.name || ""}
             key={key++}
+            startTime={props.startTime}
+            endTime={props.endTime}
             timeslot={t}
             vertical={props.vertical}
-            size={size}
-            position={positon}
           />
         );
       })}
@@ -121,7 +128,6 @@ export function Timetable(props: {
   activities: ICBDActivity[];
   startTime: string;
   endTime: string;
-  size: number;
   vertical?: true;
 }) {
   let rooms: Record<string, [Timeslot, ICBDActivity][]> = {};
@@ -154,18 +160,13 @@ export function Timetable(props: {
           </tr>
           <tr>
             <td className={styles.hours}>
-              <Hours
-                startTime={props.startTime}
-                endTime={props.endTime}
-                height={props.size}
-              />
+              <Hours startTime={props.startTime} endTime={props.endTime} />
             </td>
             {Object.keys(rooms).map((room) => (
               <td key={"entry|" + room}>
                 <TimetableEntry
                   timeslots={rooms[room]}
                   vertical={true}
-                  size={props.size}
                   startTime={props.startTime}
                   endTime={props.endTime}
                 />
