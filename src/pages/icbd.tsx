@@ -225,17 +225,18 @@ export const getServerSideProps: GetServerSideProps<{
       ),
       speakers: await directus().request(
         readItems("icbd_speakers", {
-          fields: ["picture", "first_name", "last_name", "company"],
+          fields: ["id", "picture", "first_name", "last_name", "company"],
         })
       ),
       phds: await directus().request(
         readItems("icbd_phds", {
-          fields: ["picture", "first_name", "last_name", "laboratory"],
+          fields: ["id", "picture", "first_name", "last_name", "laboratory"],
         })
       ),
       activities: await directus().request(
         readItems("icbd_activities", {
           fields: [
+            "id",
             "hosts",
             "icon",
             "timeslots",
