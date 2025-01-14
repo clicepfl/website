@@ -51,6 +51,7 @@ function Hours(props: { startTime: string; endTime: string }) {
   hours.push(
     <div key={"last_line"} className={styles.hourEntry}>
       <span className={styles.line} />
+      <p>{`${startTime / 60}h`}</p>
     </div>
   );
 
