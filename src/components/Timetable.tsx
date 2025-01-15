@@ -109,6 +109,10 @@ export function Timetable(props: {
   let tt = useTranslationTable();
 
   props.activities.forEach((activity) => {
+    if (!activity.timeslots) {
+      return;
+    }
+
     const timeslots: Timeslot[] = JSON.parse(
       JSON.stringify(activity.timeslots)
     );
