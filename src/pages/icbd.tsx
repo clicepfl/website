@@ -176,11 +176,7 @@ export default function ICBDPage(
 
         <div className={pageStyle.main}>
           <h1>Timetable</h1>
-          <Timetable
-            activities={props.activities}
-            startTime="10:00"
-            endTime="18:00"
-          />
+          <Timetable activities={props.activities} />
         </div>
 
         <div className={style.activities}>
