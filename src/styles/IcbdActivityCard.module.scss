@@ -32,4 +32,8 @@
   .description {
     width: 100%;
   }
+
+  @media (max-width: 1000px) {
+    width: 65%;
+  }
 }

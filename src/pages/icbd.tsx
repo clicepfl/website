@@ -3,6 +3,7 @@ import DirectusImage from "@/components/DirectusImage";
 import IcbdActivityCard from "@/components/IcbdActivityCard";
 import ParticlesComponent from "@/components/Particles";
 import TabTitle from "@/components/TabTitle";
+import { Timetable } from "@/components/Timetable";
 import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
 import { getTranslation } from "@/locales";
 import style from "@/styles/ICBDPage.module.scss";
@@ -175,11 +176,10 @@ export default function ICBDPage(
 
         <div className={pageStyle.main}>
           <h1>Timetable</h1>
-          <DirectusImage
-            img={props.icbd.timetable}
-            name="timetable"
-            sizes="50rem"
-            className={style.timetable}
+          <Timetable
+            activities={props.activities}
+            startTime="10:00"
+            endTime="18:00"
           />
         </div>
 
@@ -225,17 +225,24 @@ export const getServerSideProps: GetServerSideProps<{
       ),
       speakers: await directus().request(
         readItems("icbd_speakers", {
-          fields: ["picture", "first_name", "last_name", "company"],
+          fields: ["id", "picture", "first_name", "last_name", "company"],
         })
       ),
       phds: await directus().request(
         readItems("icbd_phds", {
-          fields: ["picture", "first_name", "last_name", "laboratory"],
+          fields: ["id", "picture", "first_name", "last_name", "laboratory"],
         })
       ),
       activities: await directus().request(
         readItems("icbd_activities", {
-          fields: ["hosts", "icon", { translations: ["*"] }],
+          fields: [
+            "id",
+            "hosts",
+            "icon",
+            "timeslots",
+            "color",
+            { translations: ["*"] },
+          ],
         })
       ),
     },

@@ -121,6 +121,13 @@
       width: 10rem;
     }
   }
+
+  @media (max-width: 1000px) {
+    .partnersList {
+      gap: 1rem;
+      padding: 2rem;
+    }
+  }
 }
 
 .alumni {
