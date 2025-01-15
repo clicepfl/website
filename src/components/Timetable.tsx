@@ -3,7 +3,7 @@ import styles from "@/styles/Timetable.module.scss";
 import { ICBDActivity } from "@/types/aliases";
 import { useRouter } from "next/router";
 
-type timeslot = {
+type Timeslot = {
   start_time: string;
   end_time: string;
   room: string;
@@ -37,7 +37,7 @@ function Hours(props: { startTime: string; endTime: string }) {
 }
 
 function TimeTableEvent(props: {
-  timeslot: timeslot;
+  timeslot: Timeslot;
   activity: ICBDActivity;
   startTime: string;
   endTime: string;
@@ -76,7 +76,7 @@ function TimeTableEvent(props: {
 }
 
 function TimetableEntry(props: {
-  timeslots: [timeslot, ICBDActivity][];
+  timeslots: [Timeslot, ICBDActivity][];
   startTime: string;
   endTime: string;
 }) {
@@ -104,12 +104,12 @@ export function Timetable(props: {
   startTime: string;
   endTime: string;
 }) {
-  let rooms: Record<string, [timeslot, ICBDActivity][]> = {};
+  let rooms: Record<string, [Timeslot, ICBDActivity][]> = {};
 
   let tt = useTranslationTable();
 
   props.activities.forEach((activity) => {
-    const timeslots: timeslot[] = JSON.parse(
+    const timeslots: Timeslot[] = JSON.parse(
       JSON.stringify(activity.timeslots)
     );
 
