@@ -7,6 +7,7 @@ type Timeslot = {
   start_time: string;
   end_time: string;
   room: string;
+  custom_name?: string;
 };
 
 // Convert string representation "hh:mm" to minutes
@@ -15,9 +16,9 @@ function timeToMinutes(time: string) {
   return hours * 60 + minutes + seconds / 60;
 }
 
-function Hours(props: { startTime: string; endTime: string }) {
-  let startHour = timeToMinutes(props.startTime) / 60;
-  const endHour = timeToMinutes(props.endTime) / 60;
+function Hours(props: { startTime: number; endTime: number }) {
+  let startHour = props.startTime / 60;
+  const endHour = props.endTime / 60;
   const numberOfHours = endHour - startHour;
 
   let hours: any[] = [];
@@ -39,46 +40,48 @@ function Hours(props: { startTime: string; endTime: string }) {
 function TimeTableEvent(props: {
   timeslot: Timeslot;
   activity: ICBDActivity;
-  startTime: string;
-  endTime: string;
+  startTime: number;
+  endTime: number;
 }) {
   // In minutes
-  const startTime = timeToMinutes(props.startTime);
-  const endTime = timeToMinutes(props.endTime);
   const timeslot = props.timeslot;
   const tStartTime = timeToMinutes(timeslot.start_time);
   const tEndTime = timeToMinutes(timeslot.end_time);
 
-  const duration = endTime - startTime;
+  const duration = props.endTime - props.startTime;
 
   const size = (tEndTime - tStartTime) / duration;
 
-  const position = (tStartTime - startTime) / duration;
+  const position = (tStartTime - props.startTime) / duration;
 
   const style = { height: `calc(${size * 100}% - 0.4rem)` };
 
   const router = useRouter();
 
-  const translation = getTranslation(props.activity, router.locale);
+  const name =
+    timeslot.custom_name ||
+    getTranslation(props.activity, router.locale).name ||
+    "";
 
   return (
     <div
       className={styles.event}
+      title={name}
       style={{
         top: `${position * 100}%`,
         backgroundColor: props.activity.color || "orange",
         ...style,
       }}
     >
-      <p>{translation.name || ""}</p>
+      <p>{name}</p>
     </div>
   );
 }
 
 function TimetableEntry(props: {
   timeslots: [Timeslot, ICBDActivity][];
-  startTime: string;
-  endTime: string;
+  startTime: number;
+  endTime: number;
 }) {
   let key = 0;
 
@@ -99,21 +102,29 @@ function TimetableEntry(props: {
   );
 }
 
-export function Timetable(props: {
-  activities: ICBDActivity[];
-  startTime: string;
-  endTime: string;
-}) {
+export function Timetable(props: { activities: ICBDActivity[] }) {
   let rooms: Record<string, [Timeslot, ICBDActivity][]> = {};
 
   let tt = useTranslationTable();
 
+  let startTime = 24 * 60;
+  let endTime = 0;
+
   props.activities.forEach((activity) => {
+    if (!activity.timeslots) {
+      return;
+    }
+
     const timeslots: Timeslot[] = JSON.parse(
       JSON.stringify(activity.timeslots)
     );
 
     timeslots.forEach((timeslot) => {
+      let tStartTime = timeToMinutes(timeslot.start_time);
+      startTime = Math.min(tStartTime, startTime);
+      let tEndTime = timeToMinutes(timeslot.end_time);
+      endTime = Math.max(tEndTime, endTime);
+
       let groupKey = timeslot.room;
       if (!rooms[groupKey]) {
         rooms[groupKey] = [];
@@ -121,6 +132,10 @@ export function Timetable(props: {
       rooms[groupKey].push([timeslot, activity]);
     });
   });
+
+  let hours = (endTime / 60).toString().padStart(2, "0");
+  let minutes = (endTime % 60).toString().padStart(2, "0");
+  let formattedEndTime = hours + ":" + minutes;
 
   return (
     <>
@@ -136,21 +151,21 @@ export function Timetable(props: {
           </tr>
           <tr>
             <td className={styles.hours}>
-              <Hours startTime={props.startTime} endTime={props.endTime} />
+              <Hours startTime={startTime} endTime={endTime} />
             </td>
             {Object.keys(rooms).map((room) => (
               <td key={"entry|" + room}>
                 <TimetableEntry
                   timeslots={rooms[room]}
-                  startTime={props.startTime}
-                  endTime={props.endTime}
+                  startTime={startTime}
+                  endTime={endTime}
                 />
               </td>
             ))}
           </tr>
         </tbody>
       </table>
-      <p>{`${tt["icbd-end-of-event"]} ${props.endTime}`}</p>
+      <p>{`${tt["icbd-end-of-event"]} ${formattedEndTime}`}</p>
     </>
   );
 }
