@@ -5,7 +5,7 @@ import ParticlesComponent from "@/components/Particles";
 import TabTitle from "@/components/TabTitle";
 import { Timetable } from "@/components/Timetable";
 import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
-import { getTranslation } from "@/locales";
+import { getTranslation, useTranslationTable } from "@/locales";
 import style from "@/styles/ICBDPage.module.scss";
 import pageStyle from "@/styles/Page.module.scss";
 import { ICBD, ICBDActivity, ICBDPhd, ICBDSpeaker } from "@/types/aliases";
@@ -38,6 +38,8 @@ export default function ICBDPage(
     props.icbd.start_time || ""
   )} to ${formatTime(props.icbd.end_time || "")}, ${props.icbd.place}`;
 
+  const tt = useTranslationTable();
+
   return (
     <>
       <style jsx global>{`
@@ -67,7 +69,7 @@ export default function ICBDPage(
         <div className={pageStyle.main}>
           <div className={pageStyle.center}>
             <div className={style.registration}>
-              <h1>Registration</h1>
+              <h1>{tt["icbd.registration"]}</h1>
               <Markdown>{translation.registration_instructions}</Markdown>
               {/* <div className={style.buttons}>
                 <script
@@ -140,8 +142,8 @@ export default function ICBDPage(
         </div>
 
         <div className={pageStyle.main}>
-          <h1>Alumni</h1>
-          <h2>speakers present at the event</h2>
+          <h1>{tt["icbd.alumni"]}</h1>
+          <h2>{tt["icbd.alumni-description"]}</h2>
 
           <div className={style.alumni}>
             <div className={style.alumniList}>
@@ -158,8 +160,8 @@ export default function ICBDPage(
         </div>
 
         <div className={pageStyle.main}>
-          <h1>PHD students</h1>
-          <h2>during the poster session</h2>
+          <h1>{tt["icbd.phds"]}</h1>
+          <h2>{tt["icbd.phds-description"]}</h2>
           <div className={style.alumni}>
             <div className={style.alumniList}>
               {props.phds.map((phd: ICBDPhd) => (
@@ -175,12 +177,14 @@ export default function ICBDPage(
         </div>
 
         <div className={pageStyle.main}>
-          <h1>Timetable</h1>
-          <Timetable activities={props.activities} />
+          <h1>{tt["icbd.timetable"]}</h1>
+          <div className={style.timetable}>
+            <Timetable activities={props.activities} />
+          </div>
         </div>
 
         <div className={style.activities}>
-          <h1>Activities</h1>
+          <h1>{tt["icbd.activities"]}</h1>
 
           <div className={style.activitiesList}>
             {props.activities.map((activity: ICBDActivity) => (
