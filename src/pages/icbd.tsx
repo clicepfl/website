@@ -3,7 +3,7 @@ import DirectusImage from "@/components/DirectusImage";
 import IcbdActivityCard from "@/components/IcbdActivityCard";
 import ParticlesComponent from "@/components/Particles";
 import TabTitle from "@/components/TabTitle";
-import { Timetable } from "@/components/Timetable";
+import { findStartTime, Timetable } from "@/components/Timetable";
 import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
 import { getTranslation, useTranslationTable } from "@/locales";
 import style from "@/styles/ICBDPage.module.scss";
@@ -187,9 +187,13 @@ export default function ICBDPage(
           <h1>{tt["icbd.activities"]}</h1>
 
           <div className={style.activitiesList}>
-            {props.activities.map((activity: ICBDActivity) => (
-              <IcbdActivityCard key={activity.id} activity={activity} />
-            ))}
+            {props.activities
+              .sort((a, b) => {
+                return findStartTime(a) - findStartTime(b);
+              })
+              .map((activity: ICBDActivity) => (
+                <IcbdActivityCard key={activity.id} activity={activity} />
+              ))}
           </div>
         </div>
       </div>
