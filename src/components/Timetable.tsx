@@ -19,35 +19,51 @@ function timeToMinutes(time: string) {
 export function findStartTime(activity: ICBDActivity): number {
   let startTime = 24 * 60;
 
-  const timeslots: Timeslot[] = JSON.parse(JSON.stringify(activity.timeslots));
+  if (activity.timeslots) {
+    const timeslots: Timeslot[] = JSON.parse(
+      JSON.stringify(activity.timeslots)
+    );
 
-  timeslots.forEach((t) => {
-    let tTime = timeToMinutes(t.start_time);
-    startTime = Math.min(tTime, startTime);
-  });
+    timeslots.forEach((t) => {
+      let tTime = timeToMinutes(t.start_time);
+      startTime = Math.min(tTime, startTime);
+    });
+  }
 
   return startTime;
 }
 
-function Hours(props: { startTime: number; endTime: number }) {
-  let startHour = props.startTime / 60;
-  const endHour = props.endTime / 60;
+function generateHourEntries(
+  startTime: number,
+  endTime: number,
+  isLine: boolean
+) {
+  const startHour = startTime / 60;
+  const endHour = endTime / 60;
   const numberOfHours = endHour - startHour;
 
-  let hours: any[] = [];
+  return Array.from({ length: numberOfHours + 1 }, (_, i) => {
+    const hour = startHour + i;
+    const style = hour === endHour ? {} : { height: `${100 / numberOfHours}%` };
 
-  for (; startHour <= endHour; startHour++) {
-    let style =
-      startHour == endHour ? {} : { height: `${100 / numberOfHours}%` };
-    hours.push(
-      <div key={startHour} style={style} className={styles.hourEntry}>
-        <span className={styles.line} />
-        <p>{`${startHour}h`}</p>
+    return isLine ? (
+      <span key={hour} style={style} className={styles.line} />
+    ) : (
+      <div key={hour} style={style} className={styles.hourEntry}>
+        <p>{`${hour}h`}</p>
       </div>
     );
-  }
+  });
+}
 
-  return <>{hours}</>;
+function Lines(props: { startTime: number; endTime: number }) {
+  const lines = generateHourEntries(props.startTime, props.endTime, true);
+  return <div className={styles.lines}>{lines}</div>;
+}
+
+function Hours(props: { startTime: number; endTime: number }) {
+  const hours = generateHourEntries(props.startTime, props.endTime, false);
+  return <div className={styles.hours}>{hours}</div>;
 }
 
 function TimeTableEvent(props: {
@@ -132,17 +148,14 @@ export function Timetable(props: { activities: ICBDActivity[] }) {
       JSON.stringify(activity.timeslots)
     );
 
-    timeslots.forEach((timeslot) => {
-      let tStartTime = timeToMinutes(timeslot.start_time);
+    timeslots.forEach(({ start_time, end_time, room }) => {
+      let tStartTime = timeToMinutes(start_time);
       startTime = Math.min(tStartTime, startTime);
-      let tEndTime = timeToMinutes(timeslot.end_time);
+      let tEndTime = timeToMinutes(end_time);
       endTime = Math.max(tEndTime, endTime);
 
-      let groupKey = timeslot.room;
-      if (!rooms[groupKey]) {
-        rooms[groupKey] = [];
-      }
-      rooms[groupKey].push([timeslot, activity]);
+      if (!rooms[room]) rooms[room] = [];
+      rooms[room].push([{ start_time, end_time, room }, activity]);
     });
   });
 
@@ -151,34 +164,36 @@ export function Timetable(props: { activities: ICBDActivity[] }) {
   let formattedEndTime = hours + ":" + minutes;
 
   return (
-    <>
-      <table className={styles.table}>
-        <tbody>
-          <tr>
-            <th />
-            {Object.keys(rooms).map((room) => (
-              <th className={styles.header} key={"header|" + room}>
-                <p>{room}</p>
-              </th>
-            ))}
-          </tr>
-          <tr>
-            <td className={styles.hours}>
-              <Hours startTime={startTime} endTime={endTime} />
-            </td>
-            {Object.keys(rooms).map((room) => (
-              <td key={"entry|" + room}>
-                <TimetableEntry
-                  timeslots={rooms[room]}
-                  startTime={startTime}
-                  endTime={endTime}
-                />
-              </td>
-            ))}
-          </tr>
-        </tbody>
-      </table>
-      <p>{`${tt["icbd-end-of-event"]} ${formattedEndTime}`}</p>
-    </>
+    <div className={styles.main}>
+      <Hours startTime={startTime} endTime={endTime} />
+      <div className={styles.timetable}>
+        <Lines startTime={startTime} endTime={endTime} />
+        <table className={styles.table}>
+          <tbody>
+            <tr>
+              {Object.keys(rooms).map((room) => (
+                <th className={styles.header} key={"header|" + room}>
+                  <p>{room}</p>
+                </th>
+              ))}
+            </tr>
+            <tr style={{ height: "100%" }}>
+              {Object.keys(rooms).map((room) => (
+                <td key={"entry|" + room}>
+                  <TimetableEntry
+                    timeslots={rooms[room]}
+                    startTime={startTime}
+                    endTime={endTime}
+                  />
+                </td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p className={styles.end}>
+        {`${tt["icbd-end-of-event"]} ${formattedEndTime}`}
+      </p>
+    </div>
   );
 }

@@ -1,39 +1,33 @@
 @use "./utilities/variables";
 
-.table {
-  width: min(90%, 100rem);
-  height: 800px;
-  border-collapse: collapse;
-  overflow: hidden;
+$header-height: 3rem;
 
-  @media (max-width: 1000px) {
-    height: 600px;
-  }
-
-  td {
-    padding: 2rem 0 2rem 0;
-    height: 100%;
-  }
-
-  tbody {
-    td:nth-child(odd):not(.hours) {
-      background-color: variables.$icbd-table-gray-column; // Apply style to even items
-    }
-
-    td:nth-child(even) {
-      background-color: white; // Apply style to odd items
-    }
-  }
+.main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 
   .hours {
-    width: 50px;
-    border-radius: variables.$small-border-radius 0 0
-      variables.$small-border-radius;
+    position: absolute;
+    left: 0;
+    height: calc(100% - $header-height - 8rem);
+    width: 2rem;
+
+    z-index: 1;
+
+    margin-top: 2rem;
+    padding: 3rem 1rem 3rem 1rem;
     background-color: variables.$icbd-table-gray-hours;
+    backdrop-filter: blur(100px) saturate(180%);
+
+    border-radius: variables.$small-border-radius;
+
+    border: solid 2px rgba($color: #fff, $alpha: 0.5);
 
     .hourEntry {
       text-align: right;
-      padding-right: 0.5rem;
       position: relative;
 
       p {
@@ -43,66 +37,110 @@
         text-align: right;
         color: grey;
       }
-
-      .line {
-        position: absolute;
-        height: 1px;
-        width: 100vw;
-        background-color: variables.$icbd-table-gray-hours;
-
-        transform: translateY(-1px);
-        left: 100%;
-      }
     }
   }
 
-  .header {
-    width: 10rem;
-  }
-
-  .entry {
+  .timetable {
+    padding-left: 4rem;
     height: 100%;
     display: flex;
     position: relative;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: scroll;
 
-    border-right: variables.$icbd-table-gray-hours;
-    border-top: variables.$icbd-table-gray-hours;
-    border-bottom: variables.$icbd-table-gray-hours;
+    .lines {
+      position: relative;
+      margin-top: $header-height;
+      padding: 2rem 0 2rem 0;
+      width: 0;
 
-    .event {
-      display: flex;
-      position: absolute;
-      align-items: center;
-      justify-content: center;
+      .line {
+        display: block;
+        position: relative;
+        min-width: 1500px;
+        border-top: solid 2px variables.$icbd-table-line;
+        box-sizing: border-box;
+      }
+    }
 
-      width: calc(100% - 0.4rem);
-      height: calc(100% - 0.4rem);
+    .table {
+      min-width: 1500px;
+      border-collapse: collapse;
+      overflow: hidden;
 
-      margin: 0.2rem;
+      tbody {
+        td {
+          padding: 1rem 0 1rem 0;
+          height: 100%;
+        }
 
-      border-radius: 10px;
+        td:nth-child(odd):not(.hours) {
+          background-color: white; // Apply style to odd items
+        }
 
-      p {
-        color: white;
-        text-align: left;
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 0.75rem;
-        max-height: 80%;
-        max-width: 80%;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        overflow-y: scroll;
+        td:nth-child(even) {
+          background-color: variables.$icbd-table-gray-column; // Apply style to even items
+        }
+      }
 
-        /* Hide scrollbar for IE, Edge and Firefox */
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        &::-webkit-scrollbar {
-          display: none;
+      .header {
+        width: 10rem;
+        height: $header-height;
+        p {
+          margin: 0;
+        }
+      }
+
+      .entry {
+        height: 100%;
+        position: relative;
+        min-width: 10rem;
+
+        border-right: variables.$icbd-table-gray-hours;
+        border-top: variables.$icbd-table-gray-hours;
+        border-bottom: variables.$icbd-table-gray-hours;
+
+        .event {
+          display: flex;
+          position: absolute;
+          align-items: center;
+          justify-content: center;
+
+          width: calc(100% - 0.4rem);
+          height: calc(100% - 0.4rem);
+
+          margin: 0.2rem;
+
+          border-radius: 10px;
+
+          p {
+            color: white;
+            text-align: left;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 0.75rem;
+            max-height: 80%;
+            max-width: 80%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            overflow-y: scroll;
+
+            /* Hide scrollbar for IE, Edge and Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+            /* Hide scrollbar for Chrome, Safari and Opera */
+            &::-webkit-scrollbar {
+              display: none;
+            }
+          }
         }
       }
     }
+  }
+
+  .end {
+    margin: 1rem;
+    height: 2rem;
+    text-align: center;
   }
 }
