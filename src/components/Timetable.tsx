@@ -24,10 +24,7 @@ export function findStartTime(activity: ICBDActivity): number {
       JSON.stringify(activity.timeslots)
     );
 
-    timeslots.forEach((t) => {
-      let tTime = timeToMinutes(t.start_time);
-      startTime = Math.min(tTime, startTime);
-    });
+    return Math.min(...timeslots.map((t) => timeToMinutes(t.start_time)));
   }
 
   return startTime;
