@@ -145,14 +145,14 @@ export function Timetable(props: { activities: ICBDActivity[] }) {
       JSON.stringify(activity.timeslots)
     );
 
-    timeslots.forEach(({ start_time, end_time, room }) => {
+    timeslots.forEach(({ start_time, end_time, room, custom_name }) => {
       let tStartTime = timeToMinutes(start_time);
       startTime = Math.min(tStartTime, startTime);
       let tEndTime = timeToMinutes(end_time);
       endTime = Math.max(tEndTime, endTime);
 
       if (!rooms[room]) rooms[room] = [];
-      rooms[room].push([{ start_time, end_time, room }, activity]);
+      rooms[room].push([{ start_time, end_time, room, custom_name }, activity]);
     });
   });
 
