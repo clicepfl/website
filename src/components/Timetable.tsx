@@ -16,6 +16,23 @@ function timeToMinutes(time: string) {
   return hours * 60 + minutes + seconds / 60;
 }
 
+export function findStartTime(activity: ICBDActivity): number {
+  let startTime = 24 * 60;
+
+  if (activity.timeslots) {
+    const timeslots: Timeslot[] = JSON.parse(
+      JSON.stringify(activity.timeslots)
+    );
+
+    timeslots.forEach((t) => {
+      let tTime = timeToMinutes(t.start_time);
+      startTime = Math.min(tTime, startTime);
+    });
+  }
+
+  return startTime;
+}
+
 function generateHourEntries(
   startTime: number,
   endTime: number,
