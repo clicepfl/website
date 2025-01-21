@@ -77,6 +77,21 @@
       text-align: center;
     }
   }
+  @media (max-width: 800px) {
+    height: 400px;
+
+    .logo_div {
+      height: 8rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+
+      + h2 {
+        font-size: 1rem;
+      }
+    }
+  }
 }
 
 .activities,
