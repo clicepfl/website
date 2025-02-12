@@ -9,7 +9,6 @@ export default function IcbdActivityCard(props: { activity: ICBDActivity }) {
   const router = useRouter();
 
   const hosts = props.activity.hosts as ICBDSpeakerActivityRelation[];
-  console.log(props.activity);
 
   const translation = getTranslation(props.activity, locale(router));
   return (
