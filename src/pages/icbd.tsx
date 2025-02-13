@@ -241,11 +241,11 @@ export const getServerSideProps: GetServerSideProps<{
         readItems("icbd_activities", {
           fields: [
             "id",
-            "hosts",
             "icon",
             "timeslots",
             "color",
             { translations: ["*"] },
+            "hosts.icbd_speakers_id.*",
           ],
         })
       ),
