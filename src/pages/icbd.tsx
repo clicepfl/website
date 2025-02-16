@@ -11,6 +11,7 @@ import pageStyle from "@/styles/Page.module.scss";
 import { ICBD, ICBDActivity, ICBDPhd, ICBDSpeaker } from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import Markdown from "react-markdown";
 
@@ -147,14 +148,25 @@ export default function ICBDPage(
 
           <div className={style.alumni}>
             <div className={style.alumniList}>
-              {props.speakers.map((speaker: ICBDSpeaker) => (
-                <Card
-                  key={speaker.id}
-                  img={speaker.picture}
-                  title={`${speaker.first_name} ${speaker.last_name}` || ""}
-                  description={speaker.company || ""}
-                />
-              ))}
+              {props.speakers.map((speaker: ICBDSpeaker) => {
+                const card = (
+                  <Card
+                    key={speaker.id}
+                    img={speaker.picture}
+                    title={`${speaker.first_name} ${speaker.last_name}` || ""}
+                    description={speaker.company || ""}
+                  />
+                );
+
+                console.log(speaker.linkedin);
+                return speaker.linkedin ? (
+                  <Link key={speaker.id} href={speaker.linkedin}>
+                    {card}
+                  </Link>
+                ) : (
+                  card
+                );
+              })}
             </div>
           </div>
         </div>
@@ -229,7 +241,14 @@ export const getServerSideProps: GetServerSideProps<{
       ),
       speakers: await directus().request(
         readItems("icbd_speakers", {
-          fields: ["id", "picture", "first_name", "last_name", "company"],
+          fields: [
+            "id",
+            "picture",
+            "first_name",
+            "last_name",
+            "company",
+            "linkedin",
+          ],
         })
       ),
       phds: await directus().request(

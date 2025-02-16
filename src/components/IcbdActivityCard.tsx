@@ -1,9 +1,13 @@
+import DirectusImage from "./DirectusImage";
 import { getTranslation, locale } from "@/locales";
 import styles from "@/styles/IcbdActivityCard.module.scss";
-import { ICBDActivity, ICBDSpeaker, ICBDSpeakerActivityRelation } from "@/types/aliases";
+import {
+  ICBDActivity,
+  ICBDSpeaker,
+  ICBDSpeakerActivityRelation,
+} from "@/types/aliases";
 import { useRouter } from "next/router";
 import Markdown from "react-markdown";
-import DirectusImage from "./DirectusImage";
 
 export default function IcbdActivityCard(props: { activity: ICBDActivity }) {
   const router = useRouter();
