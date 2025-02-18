@@ -158,7 +158,6 @@ export default function ICBDPage(
                   />
                 );
 
-                console.log(speaker.linkedin);
                 return speaker.linkedin ? (
                   <Link key={speaker.id} href={speaker.linkedin}>
                     {card}
