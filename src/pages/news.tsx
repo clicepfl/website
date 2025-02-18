@@ -56,6 +56,7 @@ export const getServerSideProps: GetServerSideProps<{
             "slug",
             "date_created",
             {
+              //@ts-ignore
               translations: [
                 "title",
                 "banner",

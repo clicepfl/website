@@ -57,6 +57,7 @@ export const getServerSideProps: GetServerSideProps<{
             "name",
             "slug",
             "id",
+            //@ts-ignore
             { translations: ["banner", "small_description", "languages_code"] },
           ],
         })

@@ -232,6 +232,7 @@ export const getServerSideProps: GetServerSideProps<{
             "end_time",
             "timetable",
             { partners_images: ["*"] },
+            //@ts-ignore
             {
               translations: ["*"],
             },
@@ -262,7 +263,9 @@ export const getServerSideProps: GetServerSideProps<{
             "icon",
             "timeslots",
             "color",
+            //@ts-ignore
             { translations: ["*"] },
+            //@ts-ignore
             "hosts.icbd_speakers_id.*",
           ],
         })
