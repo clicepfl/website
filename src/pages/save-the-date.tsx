@@ -402,6 +402,7 @@ export const getServerSideProps: GetServerSideProps<{
             "text_color",
             "title_color",
             "button_color",
+            //@ts-ignore
             { translations: ["*"] },
             "language_button_target",
           ],
@@ -418,6 +419,7 @@ export const getServerSideProps: GetServerSideProps<{
             "text_color",
             "button_color",
             "recurrence",
+            //@ts-ignore
             { translations: ["*"], commission: ["id", "name"] },
           ],
         })

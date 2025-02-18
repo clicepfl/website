@@ -101,7 +101,7 @@ export const getServerSideProps: GetServerSideProps<{
           result.map((s) => s.social_links_id)
         )) as SocialLink[],
       poles: await directus().request(
-        readItems("association_poles", queryTranslations)
+        readItems("association_poles", queryTranslations as any)
       ),
       committee: (await directus().request(
         readItems("association_memberships", {
@@ -110,14 +110,24 @@ export const getServerSideProps: GetServerSideProps<{
             { member: ["*"] },
             //@ts-ignore
             { translations: ["*"] },
-            { pole: ["*", { translations: ["*"] }] },
+            {
+              pole: [
+                "*",
+                //@ts-ignore
+                { translations: ["*"] },
+              ],
+            },
           ],
           filter: { level: { _eq: "committee" } },
         })
       )) as (AssociationMembership & { member: Member })[],
       publicFiles: await directus().request(
         readItems("association_public_files", {
-          fields: ["*", { translations: ["*"], icon: ["*"] }],
+          fields: [
+            "*",
+            //@ts-ignore
+            { translations: ["*"], icon: ["*"] },
+          ],
         })
       ),
     },

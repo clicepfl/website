@@ -107,6 +107,7 @@ export const getServerSideProps: GetServerSideProps<{
       subsonic: await directus().request(
         // @ts-ignore
         readSingleton("subsonic", {
+          //@ts-ignore
           fields: ["header_image", "logo", "map", { translations: ["*"] }],
         })
       ),
@@ -120,6 +121,7 @@ export const getServerSideProps: GetServerSideProps<{
               {
                 partners_id: [
                   "*",
+                  //@ts-ignore
                   { category: ["*", { translations: ["*"] }] },
                 ],
               },
