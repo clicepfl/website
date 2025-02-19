@@ -230,7 +230,6 @@ export const getServerSideProps: GetServerSideProps<{
             "place",
             "start_time",
             "end_time",
-            "timetable",
             { partners_images: ["*"] },
             //@ts-ignore
             {
