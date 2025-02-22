@@ -72,36 +72,6 @@ export default function ICBDPage(
             <div className={style.registration}>
               <h1>{tt["icbd.registration"]}</h1>
               <Markdown>{translation.registration_instructions}</Markdown>
-              {/* <div className={style.buttons}>
-                <script
-                  id="luma-checkout"
-                  src="https://embed.lu.ma/checkout-button.js"
-                />
-                <a
-                  href="https://lu.ma/event/evt-jl8ySRI9GGAtkWm"
-                  className="luma-checkout--button"
-                  data-luma-action="checkout"
-                  data-luma-event-id="evt-jl8ySRI9GGAtkWm"
-                >
-                  Talks and meetups
-                </a>
-                <a
-                  href="https://lu.ma/event/evt-sddFjg2Xixyj5PV"
-                  className="luma-checkout--button"
-                  data-luma-action="checkout"
-                  data-luma-event-id="evt-sddFjg2Xixyj5PV"
-                >
-                  Mock interviews
-                </a>
-                <a
-                  href="https://lu.ma/event/evt-yzNqzZ2llO3kzoL"
-                  className="luma-checkout--button"
-                  data-luma-action="checkout"
-                  data-luma-event-id="evt-yzNqzZ2llO3kzoL"
-                >
-                  Speed Networking
-                </a>
-              </div> */}
             </div>
 
             <Markdown>{translation.description}</Markdown>
@@ -159,9 +129,9 @@ export default function ICBDPage(
                 );
 
                 return speaker.linkedin ? (
-                  <Link key={speaker.id} href={speaker.linkedin}>
+                  <a key={speaker.id} href={speaker.linkedin}>
                     {card}
-                  </Link>
+                  </a>
                 ) : (
                   card
                 );
