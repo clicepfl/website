@@ -61,6 +61,22 @@
     background-color: #000000aa;
   }
 
+  .icbdEntry {
+    display: flex;
+    align-content: center;
+    background: variables.$icbd-gradient;
+    border-radius: 1rem;
+    padding: 0.25rem;
+    border: 2px solid orange;
+    img {
+      width: 100px;
+      height: 100%;
+    }
+  }
+  .icbdEntryHidden {
+    display: none;
+  }
+
   .navigationMenu {
     display: flex;
     flex-direction: row;

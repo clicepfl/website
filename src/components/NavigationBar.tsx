@@ -51,6 +51,34 @@ function MenuLink({
     </Link>
   );
 }
+
+function ICBDLink({
+  side = false,
+  toggle,
+}: {
+  side?: boolean;
+  toggle?: () => void;
+}) {
+  const router = useRouter();
+  console.log(router.asPath);
+  return (
+    <Link
+      className={`${styles.icbdEntry} ${side ? "" : styles.menuItem} ${
+        router.asPath.startsWith("/icbd") ? styles.icbdEntryHidden : ""
+      }`}
+      href="/icbd"
+      onClick={() => {
+        if (toggle) {
+          toggle();
+        }
+        router.push("/icbd");
+      }}
+    >
+      <img src="https://clic.epfl.ch/directus/assets/a1c7b3b0-cfb0-441e-b03e-1772d7df56b9?width=150" />
+    </Link>
+  );
+}
+
 function SubsonicLink({
   side = false,
   toggle,
@@ -170,6 +198,13 @@ export default function NavigationBar(props: {
       text={capitalize(translations["news"])}
       toggle={toggleMenu}
     />,
+    <MenuLink
+      key={3}
+      side={true}
+      path="/icbd"
+      text="ICBD"
+      toggle={toggleMenu}
+    />,
   ];
 
   let className;
@@ -192,6 +227,7 @@ export default function NavigationBar(props: {
       </Link>
 
       <div className={styles.navigationMenu}>
+        <ICBDLink />
         <MenuLink
           path="/association"
           text={capitalize(translations["association"])}
