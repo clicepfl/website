@@ -61,7 +61,9 @@ export default function Page(
       </div>
       {props.commissions.length > 0 ? (
         <>
-          <h2>{capitalize(tt["relatedContent"])}</h2>
+          <div className={styles.center}>
+            <h2>{capitalize(tt["relatedContent"])}</h2>
+          </div>
           <div className={styles.relatedContent}>
             {props.commissions.map((c) => (
               <CommissionCard key={c.id} commission={c} />
