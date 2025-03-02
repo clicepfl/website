@@ -74,7 +74,7 @@ export default function Home(
 
       <PartnersList id="partners" partners={props.partners} background={true} />
 
-      <ChannelsList channels={props.association.channels} />
+      <ChannelsList channels={props.association.channels as SocialLink[]} />
 
       <div className={styles.associationDesciption}>
         <div className={styles.center}>
@@ -117,13 +117,12 @@ export const getServerSideProps: GetServerSideProps<
         // @ts-expect-error
         { translations: ["*"] },
         // @ts-expect-error
-        { channels: ["*", { directus_files_id: ["*"] }] },
+        { channels: ["*", { social_links_id: ["*"] }] },
       ],
     })
   );
 
-  // @ts-expect-error
-  association.channels = association.channels.map((c) => c.directus_files_id);
+  association.channels = association.channels?.map((c) => c.social_links_id);
 
   return {
     props: {

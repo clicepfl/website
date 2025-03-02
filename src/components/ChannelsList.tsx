@@ -1,33 +1,37 @@
 import DirectusImage from "./DirectusImage";
 import { useTranslationTable } from "@/locales";
 import styles from "@/styles/ChannelsList.module.scss";
-import { DirectusFile } from "@directus/sdk";
+import { SocialLink } from "@/types/aliases";
 
-function Channel({ file }: { file: DirectusFile }) {
-  const tt = useTranslationTable();
-
+function Channel({ channel }: { channel: SocialLink }) {
   return (
-    <a className={styles.channel} href={file.location || ""} target="_blank">
+    <a className={styles.channel} href={channel.link || ""} target="_blank">
       <DirectusImage
         className={styles.image}
-        name={file.title || tt.join_our_channels}
-        // @ts-expect-error
-        img={file}
+        name={channel.account_name}
+        img={channel.logo}
+        sizes="5rem"
         cover
       />
-      <p>{file.title || tt.join_our_channels}</p>
+      <p>{channel.account_name}</p>
     </a>
   );
 }
 
-export default function ChannelsList(props: { channels: DirectusFile[] }) {
+export default function ChannelsList(props: { channels: SocialLink[] }) {
+  const tt = useTranslationTable();
   return (
-    <div className={styles.list}>
-      {props.channels
-        .sort((a, b) => a.title?.localeCompare(b.title || "") || -1)
-        .map((c) => (
-          <Channel file={c} key={c.id} />
-        ))}
+    <div className={styles.main}>
+      <h1>{tt["join-our-channels"]}</h1>
+      <div className={styles.list}>
+        {props.channels
+          .sort(
+            (a, b) => a.account_name?.localeCompare(b.account_name || "") || -1
+          )
+          .map((c) => (
+            <Channel channel={c} key={c.id} />
+          ))}
+      </div>
     </div>
   );
 }

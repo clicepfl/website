@@ -1,3 +1,15 @@
+@use "./utilities/variables";
+
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: variables.$white-background-color;
+  padding-top: 2rem;
+}
+
 .image {
   width: 6rem;
   height: 6rem;
@@ -6,19 +18,26 @@
 
 .channel {
   max-width: 6rem;
+
+  &:hover {
+    transition: transform 0.2s ease;
+    transform: translateY(-5px);
+  }
 }
 
 .list {
-  padding: 1rem;
-
+  padding-top: 1rem;
   display: flex;
-  gap: 2rem;
+  gap: 4rem;
+  width: 100%;
+  align-items: baseline;
+  justify-content: center;
 
   p {
     margin: 0.5rem 0 0 0;
     font-weight: 400;
 
-    color: #eee;
+    color: variables.$dark-text-color;
     text-align: center;
   }
 }
