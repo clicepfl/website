@@ -3,6 +3,7 @@ import Decoration from "@/assets/decoration.svg";
 import PreviewImage from "@/assets/galleryPreview.png";
 import AssociationDescription from "@/components/AssociationDescription";
 import Button from "@/components/Button";
+import ChannelsList from "@/components/ChannelsList";
 import DirectusImage from "@/components/DirectusImage";
 import Gallery from "@/components/Gallery";
 import MembersList from "@/components/MembersList";
@@ -16,11 +17,7 @@ import {
   getDirectusImageUrl,
   populateLayoutProps,
 } from "@/directus";
-import {
-  getTranslation,
-  queryTranslations,
-  useTranslationTable,
-} from "@/locales";
+import { getTranslation, useTranslationTable } from "@/locales";
 import styles from "@/styles/Homepage.module.scss";
 import {
   Association,
@@ -77,6 +74,8 @@ export default function Home(
 
       <PartnersList id="partners" partners={props.partners} background={true} />
 
+      <ChannelsList channels={props.association.channels} />
+
       <div className={styles.associationDesciption}>
         <div className={styles.center}>
           <AssociationDescription
@@ -111,11 +110,24 @@ export const getServerSideProps: GetServerSideProps<
     gallery: any[];
   } & LayoutProps
 > = populateLayoutProps(async (_) => {
+  var association = await directus().request(
+    readSingleton("association", {
+      fields: [
+        "*",
+        // @ts-expect-error
+        { translations: ["*"] },
+        // @ts-expect-error
+        { channels: ["*", { directus_files_id: ["*"] }] },
+      ],
+    })
+  );
+
+  // @ts-expect-error
+  association.channels = association.channels.map((c) => c.directus_files_id);
+
   return {
     props: {
-      association: await directus().request(
-        readSingleton("association", queryTranslations as any)
-      ),
+      association,
       partners: (await directus()
         .request(
           readItems("association_partners", {

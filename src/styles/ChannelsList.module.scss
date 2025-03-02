@@ -1,0 +1,24 @@
+.image {
+  width: 6rem;
+  height: 6rem;
+  clip-path: circle();
+}
+
+.channel {
+  max-width: 6rem;
+}
+
+.list {
+  padding: 1rem;
+
+  display: flex;
+  gap: 2rem;
+
+  p {
+    margin: 0.5rem 0 0 0;
+    font-weight: 400;
+
+    color: #eee;
+    text-align: center;
+  }
+}
