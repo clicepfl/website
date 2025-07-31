@@ -227,7 +227,6 @@ export default function NavigationBar(props: {
       </Link>
 
       <div className={styles.navigationMenu}>
-        <ICBDLink />
         <MenuLink
           path="/association"
           text={capitalize(translations["association"])}
