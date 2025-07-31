@@ -74,8 +74,6 @@ export default function Home(
 
       <PartnersList id="partners" partners={props.partners} background={true} />
 
-      <ChannelsList channels={props.association.channels as SocialLink[]} />
-
       <div className={styles.associationDesciption}>
         <div className={styles.center}>
           <AssociationDescription
@@ -87,6 +85,7 @@ export default function Home(
         </div>
         <MembersList membership={props.committee} />
       </div>
+      <ChannelsList channels={props.association.channels as SocialLink[]} />
 
       <Decoration className={styles.decoration} />
 
