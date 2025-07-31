@@ -85,7 +85,12 @@ export default function Home(
         </div>
         <MembersList membership={props.committee} />
       </div>
-      <ChannelsList channels={props.association.channels as SocialLink[]} />
+
+      {props.association.channels?.length == 0 ? (
+        <></>
+      ) : (
+        <ChannelsList channels={props.association.channels as SocialLink[]} />
+      )}
 
       <Decoration className={styles.decoration} />
 
