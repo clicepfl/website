@@ -3,6 +3,7 @@ import Decoration from "@/assets/decoration.svg";
 import PreviewImage from "@/assets/galleryPreview.png";
 import AssociationDescription from "@/components/AssociationDescription";
 import Button from "@/components/Button";
+import ChannelsList from "@/components/ChannelsList";
 import DirectusImage from "@/components/DirectusImage";
 import Gallery from "@/components/Gallery";
 import MembersList from "@/components/MembersList";
@@ -16,11 +17,7 @@ import {
   getDirectusImageUrl,
   populateLayoutProps,
 } from "@/directus";
-import {
-  getTranslation,
-  queryTranslations,
-  useTranslationTable,
-} from "@/locales";
+import { getTranslation, useTranslationTable } from "@/locales";
 import styles from "@/styles/Homepage.module.scss";
 import {
   Association,
@@ -89,6 +86,12 @@ export default function Home(
         <MembersList membership={props.committee} />
       </div>
 
+      {props.association.channels?.length == 0 ? (
+        <></>
+      ) : (
+        <ChannelsList channels={props.association.channels as SocialLink[]} />
+      )}
+
       <Decoration className={styles.decoration} />
 
       <Gallery
@@ -111,11 +114,23 @@ export const getServerSideProps: GetServerSideProps<
     gallery: any[];
   } & LayoutProps
 > = populateLayoutProps(async (_) => {
+  var association = await directus().request(
+    readSingleton("association", {
+      fields: [
+        "*",
+        // @ts-expect-error
+        { translations: ["*"] },
+        // @ts-expect-error
+        { channels: ["*", { social_links_id: ["*"] }] },
+      ],
+    })
+  );
+
+  association.channels = association.channels?.map((c) => c.social_links_id);
+
   return {
     props: {
-      association: await directus().request(
-        readSingleton("association", queryTranslations as any)
-      ),
+      association,
       partners: (await directus()
         .request(
           readItems("association_partners", {
