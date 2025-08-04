@@ -8,18 +8,21 @@ import listPageStyle from "@/styles/ListPage.module.scss";
 import { Gallery } from "@/types/aliases";
 import { readItems } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import Link from "next/link";
 
 function GalleryTile(props: { gallery: Gallery }) {
   return (
     <>
       <div className={galleriesPageStyle.tile}>
+        <Link href={props.gallery.url || ""}>
+          <DirectusImage
+            img={props.gallery.preview}
+            sizes="20rem"
+            className={galleriesPageStyle.preview}
+            cover={true}
+          />
+        </Link>
         <p>{props.gallery.name}</p>
-        <DirectusImage
-          img={props.gallery.preview}
-          sizes="20rem"
-          className={galleriesPageStyle.preview}
-          cover={true}
-        />
       </div>
     </>
   );
@@ -82,7 +85,7 @@ export const getServerSideProps: GetServerSideProps<{
       galleries: await directus().request(
         readItems("galleries", {
           sort: "-date",
-          fields: ["id", "name", "date", "folder", "preview"],
+          fields: ["id", "name", "date", "url", "preview"],
         })
       ),
     },

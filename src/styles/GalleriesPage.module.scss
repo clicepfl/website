@@ -30,17 +30,24 @@
 .tile {
   background-color: transparent;
   width: 20rem;
-  height: 15rem;
   display: flex;
   flex-direction: column;
   position: relative;
+  justify-content: center;
+  align-items: center;
 
   p {
     color: variables.$dark-text-color;
-    font-weight: normal;
-    font-size: larger;
+    font-weight: thin;
+    color: white;
+    font-size: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 0 0.5rem 0 0.5rem;
+    border-radius: variables.$small-border-radius;
     width: fit-content;
     margin: 0;
+    position: absolute;
+    pointer-events: none;
   }
 
   .preview {
@@ -48,6 +55,8 @@
     overflow: hidden;
     width: 20rem;
     height: 10rem;
+
+    box-shadow: 0 4px 30px rgba(0, 0, 100, 0.3);
 
     img {
       transform: scale(1.1);
