@@ -53,7 +53,7 @@ export default function GalleriesComponent(
       <div className={listPageStyle.page}>
         <div className={listPageStyle.title}>
           <Icon className={listPageStyle.icon} />
-          <h1>{capitalize(tt["news"])}</h1>
+          <h1>{capitalize(tt["galleries"])}</h1>
         </div>
 
         <div className={galleriesPageStyle.list}>
