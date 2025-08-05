@@ -12,19 +12,18 @@ import Link from "next/link";
 
 function GalleryTile(props: { gallery: Gallery }) {
   return (
-    <>
-      <div className={galleriesPageStyle.tile}>
-        <Link href={props.gallery.url || ""}>
-          <DirectusImage
-            img={props.gallery.preview}
-            sizes="20rem"
-            className={galleriesPageStyle.preview}
-            cover={true}
-          />
-        </Link>
-        <p>{props.gallery.name}</p>
-      </div>
-    </>
+    <div className={galleriesPageStyle.tile}>
+      <Link href={props.gallery.url || ""}>
+        <DirectusImage
+          img={props.gallery.preview}
+          sizes="20rem"
+          className={galleriesPageStyle.preview}
+          cover={true}
+        />
+      </Link>
+      <div className={galleriesPageStyle.gradient} />
+      <p>{props.gallery.name}</p>
+    </div>
   );
 }
 
@@ -61,14 +60,14 @@ export default function GalleriesComponent(
             .reverse()
             .flatMap(([year, galleries]) => {
               return (
-                <div key={year}>
-                  <h1>{year}</h1>
+                <>
                   <div className={galleriesPageStyle.subList}>
+                    <h1 className={galleriesPageStyle.year}>{year}</h1>
                     {galleries.map((n: Gallery) => (
                       <GalleryTile gallery={n} key={n.id} />
                     ))}
                   </div>
-                </div>
+                </>
               );
             })}
         </div>
