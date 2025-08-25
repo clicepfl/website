@@ -1,4 +1,5 @@
 import Background from "@/assets/background.svg";
+import ExternalLinkIcon from "@/assets/icons/external-link.svg";
 import Icon from "@/assets/icons/gallery.svg";
 import DirectusImage from "@/components/DirectusImage";
 import { directus, populateLayoutProps } from "@/directus";
@@ -9,21 +10,28 @@ import { Gallery } from "@/types/aliases";
 import { readItems } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 function GalleryTile(props: { gallery: Gallery }) {
+  const router = useRouter();
+
+  const formattedDate = new Intl.DateTimeFormat(router.locale, {
+    month: "long", // full month name (e.g., 'January')
+    day: "numeric", // day of the month (e.g., 5)
+  }).format(new Date(props.gallery.date || ""));
+
   return (
-    <div className={galleriesPageStyle.tile}>
-      <Link href={props.gallery.url || ""}>
-        <DirectusImage
-          img={props.gallery.preview}
-          sizes="20rem"
-          className={galleriesPageStyle.preview}
-          cover={true}
-        />
-      </Link>
-      <div className={galleriesPageStyle.gradient} />
+    <Link className={galleriesPageStyle.tile} href={props.gallery.url || ""}>
+      <DirectusImage
+        img={props.gallery.preview}
+        sizes="20rem"
+        className={galleriesPageStyle.preview}
+        cover={true}
+      />
+      <ExternalLinkIcon className={galleriesPageStyle.icon} />
       <p>{props.gallery.name}</p>
-    </div>
+      <p className={galleriesPageStyle.date}>{formattedDate}</p>
+    </Link>
   );
 }
 
