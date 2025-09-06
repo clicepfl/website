@@ -26,7 +26,7 @@ function GalleryTile(props: { gallery: Gallery }) {
         img={props.gallery.preview}
         sizes="20rem"
         className={galleriesPageStyle.preview}
-        cover={true}
+        cover
       />
       <ExternalLinkIcon className={galleriesPageStyle.icon} />
       <p>{props.gallery.name}</p>
