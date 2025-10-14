@@ -46,6 +46,7 @@ export default function PartnersList(props: {
   id?: string;
   partners: Partner[];
   background?: boolean;
+  lightText?: boolean;
   homePage: boolean;
 }) {
   var orderedPartners = props.partners.reduce(
@@ -73,7 +74,8 @@ export default function PartnersList(props: {
       className={`${styles.partnersList} ${`${
         props.background ? styles.background : ""
       }
-         ${props.homePage ? styles.homePage : ""}`}`}
+      ${props.lightText ? styles.lightText : ""}
+      ${props.homePage ? styles.homePage : ""}`}`}
     >
       {orderedPartners.map((e) => (
         <PartnerCategoryDisplay key={e[0].id} c={e[0]} p={e[1]} />

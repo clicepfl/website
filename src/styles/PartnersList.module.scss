@@ -48,6 +48,12 @@
   }
 }
 
+.lightText {
+  * {
+    color: variables.$title-color;
+  }
+}
+
 .background {
   padding: 1rem;
   background: rgb(17, 25, 31);
