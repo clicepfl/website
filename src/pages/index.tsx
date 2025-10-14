@@ -75,9 +75,14 @@ export default function Home(
         <Button text={tt["moreNews"]} onClick={() => router.push("/news")} />
       </div>
 
-      <PartnersList id="partners" partners={props.partners} background={true} />
+      <PartnersList
+        id="partners"
+        partners={props.partners}
+        background={true}
+        homePage={true}
+      />
 
-      <div className={styles.associationDesciption}>
+      <div className={styles.associationDescription}>
         <div className={styles.center}>
           <AssociationDescription
             association={props.association}

@@ -36,7 +36,7 @@ function PartnerCategoryDisplay({
 
   return (
     <>
-      <h1 className="light">{getTranslation(c, router.locale).name}</h1>
+      <h1>{getTranslation(c, router.locale).name}</h1>
       <div className={styles.list}>{entries}</div>
     </>
   );
@@ -46,6 +46,8 @@ export default function PartnersList(props: {
   id?: string;
   partners: Partner[];
   background?: boolean;
+  lightText?: boolean;
+  homePage: boolean;
 }) {
   var orderedPartners = props.partners.reduce(
     (list: [PartnerCategory, Partner[]][], partner: Partner) => {
@@ -69,9 +71,11 @@ export default function PartnersList(props: {
   return (
     <div
       id={props.id}
-      className={`${styles.partnersList} ${
+      className={`${styles.partnersList} ${`${
         props.background ? styles.background : ""
-      }`}
+      }
+      ${props.lightText ? styles.lightText : ""}
+      ${props.homePage ? styles.homePage : ""}`}`}
     >
       {orderedPartners.map((e) => (
         <PartnerCategoryDisplay key={e[0].id} c={e[0]} p={e[1]} />

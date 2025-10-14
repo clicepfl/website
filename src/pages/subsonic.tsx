@@ -92,7 +92,11 @@ export default function SubsonicPage(
         />
       </div>
 
-      <PartnersList partners={props.partners} />
+      <PartnersList
+        partners={props.partners}
+        homePage={true}
+        lightText={true}
+      />
     </>
   );
 }

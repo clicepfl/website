@@ -1,5 +1,6 @@
 import DirectusImage from "@/components/DirectusImage";
 import MembersList from "@/components/MembersList";
+import PartnersList from "@/components/PartnersList";
 import SocialsList from "@/components/SocialsList";
 import TabTitle from "@/components/TabTitle";
 import {
@@ -15,6 +16,7 @@ import {
   AssociationMembership,
   Commission,
   Member,
+  Partner,
   SocialLink,
 } from "@/types/aliases";
 import { readItems } from "@directus/sdk";
@@ -52,6 +54,11 @@ export default function Page(
         <SocialsList socials={props.socialLinks} />
       </div>
       <MembersList membership={props.members} />
+      <PartnersList
+        partners={props.partners}
+        background={false}
+        homePage={false}
+      />
     </div>
   );
 }
@@ -61,6 +68,7 @@ export const getServerSideProps: GetServerSideProps<
     commission: Commission;
     socialLinks: SocialLink[];
     members: (AssociationMembership & { member: Member })[];
+    partners: Partner[];
   } & LayoutProps
 > = populateLayoutProps(async (context) => {
   if (typeof context.params?.slug !== "string") {
@@ -105,11 +113,23 @@ export const getServerSideProps: GetServerSideProps<
     })
   )) as (AssociationMembership & { member: Member })[];
 
+  let partners = (await directus().request(
+    readItems("partners", {
+      fields: [
+        "*",
+        //@ts-ignore
+        { category: ["*", { translations: ["*"] }] },
+      ],
+      filter: { commission: { _eq: commission.id } },
+    })
+  )) as Partner[];
+
   return {
     props: {
       commission: commission,
       socialLinks: socialLinks,
       members: members,
+      partners: partners,
     },
   };
 });
