@@ -16,6 +16,7 @@ services:
     user: ${USER_ID:-1000}:${GROUP_ID:-1000}
     environment:
       NODE_ENV: development
+      DIRECTUS_TOKEN: 00000000-0000-0000-0000-000000000000
     volumes:
       # Bind-mount the app project folder into the container
       - type: bind

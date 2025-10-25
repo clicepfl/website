@@ -8,3 +8,6 @@
 **/.next
 
 oas.json
+
+directus/
+src/types/
