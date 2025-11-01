@@ -271,6 +271,12 @@ export default function NavigationBar(props: {
           <></>
         )}
         <MenuLink path="/news" text={capitalize(translations["news"])} />
+
+        <MenuLink
+          path="/galleries"
+          text={capitalize(translations["galleries"])}
+        />
+
         {props.langs ? (
           <DropdownMenu
             head={<Lang className={styles.lang + " " + styles.dropdownHead} />}
