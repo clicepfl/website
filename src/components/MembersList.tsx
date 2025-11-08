@@ -1,4 +1,3 @@
-import Card from "./Card";
 import { capitalize, getTranslation, useTranslationTable } from "@/locales";
 import styles from "@/styles/MembersList.module.scss";
 import {
@@ -7,12 +6,13 @@ import {
   Member,
 } from "@/types/aliases";
 import { useRouter } from "next/router";
+import Card from "./Card";
 
 const HEAD_POLE = "presidency";
 
 export default function MembersList(props: {
   id?: string;
-  membership: AssociationMembership & { member: Member }[];
+  membership: (AssociationMembership & { member: Member })[];
   title?: boolean;
 }) {
   const translations = useTranslationTable();
