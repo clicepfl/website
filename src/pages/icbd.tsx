@@ -11,7 +11,6 @@ import pageStyle from "@/styles/Page.module.scss";
 import { ICBD, ICBDActivity, ICBDPhd, ICBDSpeaker } from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import Markdown from "react-markdown";
 
@@ -190,7 +189,7 @@ export const getServerSideProps: GetServerSideProps<{
 }> = populateLayoutProps(async (_) => {
   return {
     props: {
-      icbd: await directus().request(
+      icbd: await directus().request<ICBD>(
         // @ts-ignore
         readSingleton("ICBD", {
           fields: [

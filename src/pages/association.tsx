@@ -100,7 +100,7 @@ export const getServerSideProps: GetServerSideProps<{
         .then((result) =>
           result.map((s) => s.social_links_id)
         )) as SocialLink[],
-      poles: await directus().request(
+      poles: await directus().request<AssociationPole[]>(
         readItems("association_poles", queryTranslations as any)
       ),
       committee: (await directus().request(
