@@ -3,6 +3,7 @@ import Corner from "@/assets/corner.svg";
 import Burger from "@/assets/icons/burger_menu_icon.svg";
 import Lang from "@/assets/icons/lang.svg";
 import { capitalize, useTranslationTable } from "@/locales";
+import { selectClassFromPath } from "@/style_selector";
 import styles from "@/styles/NavigationBar.module.scss";
 import { Commission, SocialLink } from "@/types/aliases";
 import { Schema } from "@/types/schema";
@@ -207,18 +208,7 @@ export default function NavigationBar(props: {
     />,
   ];
 
-  let className;
-  switch (router.pathname) {
-    case "/subsonic":
-      className = styles.subsonic;
-      break;
-    case "/icbd":
-      className = styles.icbd;
-      break;
-    default:
-      className = styles.navigationBar;
-      break;
-  }
+  let className = selectClassFromPath(styles, router.pathname);
 
   return (
     <div className={className}>
