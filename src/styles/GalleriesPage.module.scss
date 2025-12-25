@@ -60,6 +60,7 @@
   &:hover {
     cursor: pointer;
     img {
+      background-color: white;
       transform: scale(1.1);
       transition-duration: 0.25s;
       filter: brightness(0.75);
