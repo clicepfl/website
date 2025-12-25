@@ -1,3 +1,5 @@
+@use "utilities/variables";
+
 .partnersList {
   width: 100%;
   display: flex;
@@ -9,9 +11,30 @@
     justify-content: center;
   }
 
-  h1 {
-    font-size: 2rem;
-    margin-top: 1rem;
+  .logo {
+    max-height: 10em;
+    max-width: 15rem;
+    margin: 2em;
+
+    @media (max-width: 800px) {
+      height: 8em;
+      margin: 1em;
+    }
+  }
+
+  &.homePage {
+    h1 {
+      font-size: 2rem;
+      margin-top: 1rem;
+    }
+
+    .logo {
+      height: 4em;
+
+      @media (max-width: 800px) {
+        height: 3em;
+      }
+    }
   }
 
   .list {
@@ -23,16 +46,11 @@
       flex-direction: column;
     }
   }
+}
 
-  .logo {
-    height: 4em;
-    max-width: 15rem;
-    margin: 2em;
-
-    @media (max-width: 800px) {
-      height: 3em;
-      margin: 1em;
-    }
+.lightText {
+  * {
+    color: variables.$title-color;
   }
 }
 
@@ -45,4 +63,7 @@
     rgba(12, 14, 22, 1) 35%,
     rgba(16, 15, 93, 1) 100%
   );
+  * {
+    color: variables.$title-color;
+  }
 }

@@ -87,10 +87,10 @@ function CellsSection(save_the_date: SaveTheDate, cells: SaveTheDateCell[]) {
   const language_code = locale(useRouter());
   const commissions_cells = cells
     .filter((cell) => cell.commission)
-    .sort(sortByCommissionThenDate);
+    .sort(sortBySortOrderThenCommissionThenDate);
   const clic_cells = cells
     .filter((cell) => cell.commission == null)
-    .sort(sortByDate);
+    .sort(sortBySortOrderThenDate);
   const translated_std = getTranslation(save_the_date, language_code);
   const tt = useTranslationTable();
   const router = useRouter();
@@ -235,6 +235,20 @@ function SocialLinkSection(save_the_date: SaveTheDate, socials: SocialLink[]) {
   );
 }
 
+function sortBySortOrderThenCommissionThenDate(
+  cell1: SaveTheDateCell,
+  cell2: SaveTheDateCell
+) {
+  if (cell1.sort_order === null || cell2.sort_order === null) {
+    return sortByCommissionThenDate(cell1, cell2);
+  }
+
+  if (cell1.sort_order == cell2.sort_order) {
+    return sortByCommissionThenDate(cell1, cell2);
+  }
+  return (cell1.sort_order || 0) - (cell2.sort_order || 0);
+}
+
 function sortByCommissionThenDate(
   cell1: SaveTheDateCell,
   cell2: SaveTheDateCell
@@ -250,6 +264,20 @@ function sortByCommissionThenDate(
       (cell2.commission as Commission).name || ""
     );
   }
+}
+
+function sortBySortOrderThenDate(
+  cell1: SaveTheDateCell,
+  cell2: SaveTheDateCell
+) {
+  if (cell1.sort_order === null || cell2.sort_order === null) {
+    return sortByDate(cell1, cell2);
+  }
+
+  if (cell1.sort_order == cell2.sort_order) {
+    return sortByDate(cell1, cell2);
+  }
+  return (cell1.sort_order || 0) - (cell2.sort_order || 0);
 }
 
 function sortByDate(cell1: SaveTheDateCell, cell2: SaveTheDateCell) {
@@ -419,6 +447,7 @@ export const getServerSideProps: GetServerSideProps<{
             "text_color",
             "button_color",
             "recurrence",
+            "sort_order",
             //@ts-ignore
             { translations: ["*"], commission: ["id", "name"] },
           ],

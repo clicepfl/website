@@ -12,7 +12,7 @@ const HEAD_POLE = "presidency";
 
 export default function MembersList(props: {
   id?: string;
-  membership: AssociationMembership & { member: Member }[];
+  membership: (AssociationMembership & { member: Member })[];
   title?: boolean;
 }) {
   const translations = useTranslationTable();

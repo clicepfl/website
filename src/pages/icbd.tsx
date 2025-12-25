@@ -9,9 +9,8 @@ import { getTranslation, useTranslationTable } from "@/locales";
 import style from "@/styles/ICBDPage.module.scss";
 import pageStyle from "@/styles/Page.module.scss";
 import { ICBD, ICBDActivity, ICBDPhd, ICBDSpeaker } from "@/types/aliases";
-import { readItems, readSingleton } from "@directus/sdk";
+import { readItems } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import Markdown from "react-markdown";
 
@@ -190,24 +189,24 @@ export const getServerSideProps: GetServerSideProps<{
 }> = populateLayoutProps(async (_) => {
   return {
     props: {
-      icbd: await directus().request(
-        // @ts-ignore
-        readSingleton("ICBD", {
-          fields: [
-            "logo",
-            "presentation_video",
-            "date",
-            "place",
-            "start_time",
-            "end_time",
-            { partners_images: ["*"] },
-            //@ts-ignore
-            {
-              translations: ["*"],
-            },
-          ],
-        })
-      ),
+      icbd: (
+        await directus().request<ICBD[]>(
+          readItems("icbd", {
+            fields: [
+              "logo",
+              "presentation_video",
+              "date",
+              "place",
+              "start_time",
+              "end_time",
+              { partners_images: ["*"] },
+              {
+                translations: ["*"],
+              },
+            ],
+          })
+        )
+      )[0],
       speakers: await directus().request(
         readItems("icbd_speakers", {
           fields: [
