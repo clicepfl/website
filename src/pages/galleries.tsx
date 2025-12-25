@@ -21,7 +21,7 @@ function GalleryTile(props: { gallery: Gallery }) {
   }).format(new Date(props.gallery.date || ""));
 
   return (
-    <Link className={galleriesPageStyle.tile} href={props.gallery.url || ""}>
+    <Link className={galleriesPageStyle.tile} href={props.gallery.link || ""}>
       <DirectusImage
         img={props.gallery.preview}
         sizes="20rem"
@@ -68,14 +68,12 @@ export default function GalleriesComponent(
             .reverse()
             .flatMap(([year, galleries]) => {
               return (
-                <>
-                  <div className={galleriesPageStyle.subList}>
-                    <h1 className={galleriesPageStyle.year}>{year}</h1>
-                    {galleries.map((n: Gallery) => (
-                      <GalleryTile gallery={n} key={n.id} />
-                    ))}
-                  </div>
-                </>
+                <div key={year} className={galleriesPageStyle.subList}>
+                  <h1 className={galleriesPageStyle.year}>{year}</h1>
+                  {galleries.map((n: Gallery) => (
+                    <GalleryTile gallery={n} key={n.id} />
+                  ))}
+                </div>
               );
             })}
         </div>
@@ -92,7 +90,7 @@ export const getServerSideProps: GetServerSideProps<{
       galleries: await directus().request(
         readItems("galleries", {
           sort: "-date",
-          fields: ["id", "name", "date", "url", "preview"],
+          fields: ["id", "name", "date", "link", "preview"],
         })
       ),
     },
