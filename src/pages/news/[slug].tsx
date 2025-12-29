@@ -85,14 +85,14 @@ export const getServerSideProps: GetServerSideProps<{
     return { notFound: true };
   }
 
-  let news = await directus().request(
+  let news = (await directus().request(
     //@ts-ignore
     readItems("news", {
       ...queryTranslations,
       limit: 1,
       filter: { slug: { _eq: context.params.slug } },
     })
-  );
+  )) as News[];
 
   if (news.length != 1) {
     return { notFound: true };
@@ -100,10 +100,8 @@ export const getServerSideProps: GetServerSideProps<{
 
   let commissions = (await directus()
     .request(
-      //@ts-ignore
       readItems("news_commissions", {
         ...queryTranslations,
-        //@ts-ignore
         fields: [{ commissions_id: ["*.*"] }],
         filter: { news_id: { _eq: news[0].id } },
       })
