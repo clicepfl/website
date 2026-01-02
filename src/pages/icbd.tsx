@@ -231,10 +231,14 @@ export const getServerSideProps: GetServerSideProps<{
             "icon",
             "timeslots",
             "color",
-            //@ts-ignore
             { translations: ["*"] },
-            //@ts-ignore
-            "hosts.icbd_speakers_id.*",
+            {
+              hosts: [
+                {
+                  icbd_speakers_id: ["*"],
+                },
+              ],
+            },
           ],
         })
       ),
