@@ -69,7 +69,7 @@ export default function Home(
         <h1 className="light">News</h1>
         <div className={styles.newsList}>
           {props.news.map((n) => (
-            <NewsCard key={(n as any).id} news={n} />
+            <NewsCard key={n.id} news={n} />
           ))}
         </div>
         <Button text={tt["moreNews"]} onClick={() => router.push("/news")} />
@@ -119,7 +119,7 @@ export const getServerSideProps: GetServerSideProps<
   return {
     props: {
       association: await directus().request(
-        readSingleton("association", queryTranslations as any)
+        readSingleton("association", queryTranslations)
       ),
       partners: (await directus()
         .request(
@@ -164,7 +164,6 @@ export const getServerSideProps: GetServerSideProps<
           fields: [
             "*",
             { member: ["*"] },
-            //@ts-ignore
             { translations: ["*"] },
             { pole: ["slug", { translations: ["name", "languages_code"] }] },
           ],

@@ -59,7 +59,7 @@ export default function MembersList(props: {
       )}
       <div className={styles.list}>
         {props.membership.map((m) => (
-          <Card key={(m as any).id} member={m.member} membership={m} />
+          <Card key={m.id} member={m.member} membership={m} />
         ))}
       </div>
     </div>
