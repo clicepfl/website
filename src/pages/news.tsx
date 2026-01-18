@@ -47,7 +47,7 @@ export const getServerSideProps: GetServerSideProps<{
       association: await directus().request(
         readSingleton("association", { fields: ["preview_image"] })
       ),
-      news: await directus().request(
+      news: (await directus().request(
         readItems("news", {
           sort: "-date_created",
           filter: { status: { _eq: "published" } },
@@ -56,17 +56,11 @@ export const getServerSideProps: GetServerSideProps<{
             "slug",
             "date_created",
             {
-              //@ts-ignore
-              translations: [
-                "title",
-                "banner",
-                "description",
-                "languages_code",
-              ],
+              translations: ["*"],
             },
           ],
         })
-      ),
+      )) as News[],
     },
   };
 });

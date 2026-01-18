@@ -62,15 +62,14 @@ export default function SaveTheDatePage(
                   cellSpacing={0}
                   cellPadding={0}
                   style={{
-                    background:
-                      props.save_the_date.background_color || undefined,
-                    color: props.save_the_date.text_color || undefined,
+                    background: props.saveTheDate.background_color || undefined,
+                    color: props.saveTheDate.text_color || undefined,
                     ...MAIN_TABLE_STYLE,
                   }}
                 >
                   <tbody>
-                    {CellsSection(props.save_the_date, props.std_cells)}
-                    {SocialLinkSection(props.save_the_date, props.socialLinks)}
+                    {CellsSection(props.saveTheDate, props.stdCells)}
+                    {SocialLinkSection(props.saveTheDate, props.socialLinks)}
                   </tbody>
                 </table>
               </center>
@@ -83,15 +82,15 @@ export default function SaveTheDatePage(
   );
 }
 
-function CellsSection(save_the_date: SaveTheDate, cells: SaveTheDateCell[]) {
-  const language_code = locale(useRouter());
-  const commissions_cells = cells
+function CellsSection(saveTheDate: SaveTheDate, cells: SaveTheDateCell[]) {
+  const languageCode = locale(useRouter());
+  const commissionsCells = cells
     .filter((cell) => cell.commission)
     .sort(sortBySortOrderThenCommissionThenDate);
   const clic_cells = cells
     .filter((cell) => cell.commission == null)
     .sort(sortBySortOrderThenDate);
-  const translated_std = getTranslation(save_the_date, language_code);
+  const translatedStd = getTranslation(saveTheDate, languageCode);
   const tt = useTranslationTable();
   const router = useRouter();
 
@@ -101,9 +100,9 @@ function CellsSection(save_the_date: SaveTheDate, cells: SaveTheDateCell[]) {
       <tr>
         <td>
           <center>
-            {save_the_date.image ? (
+            {saveTheDate.image ? (
               <img
-                src={directusImageUrl(save_the_date.image)}
+                src={directusImageUrl(saveTheDate.image)}
                 alt="CLIC"
                 style={{ width: "100%", maxHeight: "200px" }}
               />
@@ -112,7 +111,7 @@ function CellsSection(save_the_date: SaveTheDate, cells: SaveTheDateCell[]) {
             )}
             <h1
               style={{
-                color: save_the_date.title_color || undefined,
+                color: saveTheDate.title_color || undefined,
                 ...TITLE_STYLE,
               }}
             >
@@ -122,16 +121,16 @@ function CellsSection(save_the_date: SaveTheDate, cells: SaveTheDateCell[]) {
         </td>
       </tr>
 
-      {router.locale === save_the_date.language_button_target ? (
+      {router.locale === saveTheDate.language_button_target ? (
         <></>
       ) : (
         <tr>
           <td style={{ padding: "1rem 0 1rem 0" }}>
             <center>
               <a
-                href={`https://clic.epfl.ch/${save_the_date.language_button_target}/save-the-date/`}
+                href={`https://clic.epfl.ch/${saveTheDate.language_button_target}/save-the-date/`}
                 style={{
-                  background: save_the_date.button_color || undefined,
+                  background: saveTheDate.button_color || undefined,
                   ...BUTTON_STYLE,
                 }}
               >
@@ -159,7 +158,7 @@ function CellsSection(save_the_date: SaveTheDate, cells: SaveTheDateCell[]) {
           <center>
             <h1
               style={{
-                color: save_the_date.title_color || undefined,
+                color: saveTheDate.title_color || undefined,
                 ...TITLE_STYLE,
               }}
             >
@@ -173,13 +172,13 @@ function CellsSection(save_the_date: SaveTheDate, cells: SaveTheDateCell[]) {
         <td style={{ padding: 10 }}>
           <table
             style={{
-              border: "solid 1px " + save_the_date.title_color,
+              border: "solid 1px " + saveTheDate.title_color,
               borderRadius: 25,
               ...CELL_GROUP_STYLE,
             }}
           >
             <tbody>
-              {commissions_cells.map((cell) => StdCellComponent(cell))}
+              {commissionsCells.map((cell) => StdCellComponent(cell))}
             </tbody>
           </table>
         </td>
@@ -190,13 +189,13 @@ function CellsSection(save_the_date: SaveTheDate, cells: SaveTheDateCell[]) {
         <td
           style={{
             padding: "2rem",
-            color: save_the_date.text_color || undefined,
+            color: saveTheDate.text_color || undefined,
           }}
         >
-          <h2 style={{ color: save_the_date.title_color || undefined }}>
-            {translated_std.title}
+          <h2 style={{ color: saveTheDate.title_color || undefined }}>
+            {translatedStd.title}
           </h2>
-          <Markdown>{translated_std.description}</Markdown>
+          <Markdown>{translatedStd.description}</Markdown>
         </td>
       </tr>
     </>
@@ -291,11 +290,14 @@ function dateStringToDate(date: string | null | undefined) {
 
 function formatDate(
   date: string | null | undefined,
-  recurrence: string | null | undefined
+  recurrence: string | null | undefined,
+  tt: {
+    [key: string]: string;
+  },
+  locale: string
 ): string {
-  const tt = useTranslationTable();
   const myDate = dateStringToDate(date);
-  const formattedDate = new Intl.DateTimeFormat(locale(useRouter()), {
+  const formattedDate = new Intl.DateTimeFormat(locale, {
     weekday: "long", // Full name of the day (e.g., Monday)
     day: "numeric", // Day of the month (e.g., 25)
     month: "long", // Full name of the month (e.g., December)
@@ -304,7 +306,7 @@ function formatDate(
 
   switch (recurrence) {
     case "weekly":
-      return `${tt["weekly"]} ${new Intl.DateTimeFormat(locale(useRouter()), {
+      return `${tt["weekly"]} ${new Intl.DateTimeFormat(locale, {
         weekday: "long",
       }).format(myDate)}`;
     case "monthly":
@@ -318,11 +320,12 @@ function formatDate(
 }
 
 function StdCellComponent(cell: SaveTheDateCell) {
-  const language_code = locale(useRouter());
-  const translation = getTranslation(cell, language_code);
+  const tt = useTranslationTable();
+  const languageCode = locale(useRouter());
+  const translation = getTranslation(cell, languageCode);
   const formattedDate = translation.date_replacement
     ? translation.date_replacement
-    : formatDate(cell.date, cell.recurrence);
+    : formatDate(cell.date, cell.recurrence, tt, languageCode);
 
   return (
     <tr key={cell.id}>
@@ -415,13 +418,13 @@ function StdCellComponent(cell: SaveTheDateCell) {
 }
 
 export const getServerSideProps: GetServerSideProps<{
-  save_the_date: SaveTheDate;
-  std_cells: SaveTheDateCell[];
+  saveTheDate: SaveTheDate;
+  stdCells: SaveTheDateCell[];
   socialLinks: SocialLink[];
 }> = populateLayoutProps(async (_) => {
   return {
     props: {
-      save_the_date: await directus().request(
+      saveTheDate: await directus().request(
         // @ts-ignore
         readSingleton("save_the_date", {
           fields: [
@@ -436,7 +439,7 @@ export const getServerSideProps: GetServerSideProps<{
           ],
         })
       ),
-      std_cells: await directus().request(
+      stdCells: (await directus().request(
         readItems("std_cell", {
           fields: [
             "id",
@@ -448,11 +451,10 @@ export const getServerSideProps: GetServerSideProps<{
             "button_color",
             "recurrence",
             "sort_order",
-            //@ts-ignore
             { translations: ["*"], commission: ["id", "name"] },
           ],
         })
-      ),
+      )) as SaveTheDateCell[],
       socialLinks: (await directus()
         .request(
           readItems("association_social_links", {
