@@ -2,7 +2,11 @@ import Background from "@/assets/background.svg";
 import Icon from "@/assets/icons/news.svg";
 import NewsCard from "@/components/NewsCard";
 import TabTitle from "@/components/TabTitle";
-import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
+import {
+  directus,
+  getDirectusOgImageUrl,
+  populateLayoutProps,
+} from "@/directus";
 import { capitalize, useTranslationTable } from "@/locales";
 import listPageStyle from "@/styles/ListPage.module.scss";
 import newsStyle from "@/styles/NewsPage.module.scss";
@@ -19,7 +23,7 @@ export default function NewsComponent(
     <>
       <TabTitle
         title={capitalize(tt["news"])}
-        image={getDirectusImageUrl(props.association.preview_image)}
+        image={getDirectusOgImageUrl(props.association.preview_image)}
       />
 
       <Background className={listPageStyle.background} name="background" />

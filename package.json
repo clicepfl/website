@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@directus/sdk": "^18.0.0",
+    "@resvg/resvg-js": "^2.6.2",
     "@svgr/webpack": "^8.1.0",
     "@tsparticles/engine": "^3.7.1",
     "@tsparticles/react": "^3.0.0",

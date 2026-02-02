@@ -1,7 +1,11 @@
 import CommissionCard from "@/components/CommissionCard";
 import DirectusImage from "@/components/DirectusImage";
 import TabTitle from "@/components/TabTitle";
-import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
+import {
+  directus,
+  getDirectusOgImageUrl,
+  populateLayoutProps,
+} from "@/directus";
 import {
   capitalize,
   formatDate,
@@ -29,7 +33,7 @@ export default function Page(
       <TabTitle
         title={translation.title || ""}
         description={translation.description}
-        image={getDirectusImageUrl(translation.banner)}
+        image={getDirectusOgImageUrl(translation.banner)}
       />
 
       <div className={styles.center}>
