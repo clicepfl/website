@@ -2,7 +2,11 @@ import Card from "@/components/Card";
 import DirectusImage from "@/components/DirectusImage";
 import PartnersList from "@/components/PartnersList";
 import TabTitle from "@/components/TabTitle";
-import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
+import {
+  directus,
+  getDirectusOgImageUrl,
+  populateLayoutProps,
+} from "@/directus";
 import { getTranslation, useTranslationTable } from "@/locales";
 import style from "@/styles/SubsonicPage.module.scss";
 import { Artist, Partner, Subsonic } from "@/types/aliases";
@@ -28,7 +32,7 @@ export default function SubsonicPage(
 
       <TabTitle
         title={"Subsonic"}
-        image={getDirectusImageUrl(props.subsonic.logo)}
+        image={getDirectusOgImageUrl(props.subsonic.logo)}
       />
 
       <div className={style.header}>

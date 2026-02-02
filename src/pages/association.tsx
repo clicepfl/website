@@ -1,7 +1,11 @@
 import AssociationDescription from "@/components/AssociationDescription";
 import PoleDescription from "@/components/PoleDescription";
 import TabTitle from "@/components/TabTitle";
-import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
+import {
+  directus,
+  getDirectusOgImageUrl,
+  populateLayoutProps,
+} from "@/directus";
 import {
   capitalize,
   getTranslation,
@@ -52,7 +56,7 @@ export default function AssociationPage(
         title={capitalize(tt["association"])}
         ogTitle={props.association.name || undefined}
         description={tt["slogan"]}
-        image={getDirectusImageUrl(props.association.preview_image)}
+        image={getDirectusOgImageUrl(props.association.preview_image)}
       />
 
       <div className={styles.center}>

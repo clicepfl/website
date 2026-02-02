@@ -163,3 +163,18 @@ export function getDirectusImageUrl(
       }`
     : undefined;
 }
+
+/**
+ * Computes the full URL to access an image in a format appropriate for an OG property.
+ * @param image the image object returned by directus
+ * @returns the full URL of the image, if any
+ */
+export function getDirectusOgImageUrl(
+  image: string | components["schemas"]["Files"] | null | undefined
+): string | undefined {
+  return image
+    ? `/api/og-image?id=${
+        typeof image === "string" ? image : image.filename_disk
+      }`
+    : undefined;
+}
