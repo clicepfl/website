@@ -27,7 +27,7 @@ export default function Card(
 ) {
   const router = useRouter();
 
-  let className = selectClassFromPath(styles, router.pathname);
+  let className = selectClassFromPath(styles, router.pathname, "card");
 
   let img = null,
     title = null,
