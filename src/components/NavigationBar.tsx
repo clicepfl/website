@@ -215,7 +215,7 @@ export default function NavigationBar(props: {
     />,
   ];
 
-  let className = selectClassFromPath(styles, router.pathname);
+  let className = selectClassFromPath(styles, router.pathname, "navigationBar");
 
   return (
     <div className={className}>
