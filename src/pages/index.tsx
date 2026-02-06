@@ -8,12 +8,13 @@ import Gallery from "@/components/Gallery";
 import MembersList from "@/components/MembersList";
 import NewsCard from "@/components/NewsCard";
 import PartnersList from "@/components/PartnersList";
+import RegistrationProgressBar from "@/components/RegistrationProgressBar";
 import SocialsList from "@/components/SocialsList";
 import TabTitle from "@/components/TabTitle";
 import {
-  LayoutProps,
   directus,
   getDirectusImageUrl,
+  LayoutProps,
   populateLayoutProps,
 } from "@/directus";
 import {
@@ -25,13 +26,21 @@ import styles from "@/styles/Homepage.module.scss";
 import {
   Association,
   AssociationMembership,
+  Event,
   Member,
   News,
   Partner,
   PublicFiles,
   SocialLink,
 } from "@/types/aliases";
-import { readFiles, readItems, readSingleton } from "@directus/sdk";
+import { Schema } from "@/types/schema";
+import {
+  aggregate,
+  AggregationOutput,
+  readFiles,
+  readItems,
+  readSingleton,
+} from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 
@@ -66,6 +75,17 @@ export default function Home(
       </div>
 
       <div id="news" className={styles.news}>
+        {props.events.map((event) => (
+          <RegistrationProgressBar
+            key={event.id}
+            event_name={event.name || ""}
+            max_registrations={event.max_registrations || 0}
+            registration_count={parseInt(
+              props.registrations_count.find((b) => b.event == event.id)
+                ?.count || ""
+            )}
+          />
+        ))}
         <h1 className="light">News</h1>
         <div className={styles.newsList}>
           {props.news.map((n) => (
@@ -114,6 +134,12 @@ export const getServerSideProps: GetServerSideProps<
     committee: (AssociationMembership & { member: Member })[];
     publicFiles: PublicFiles[];
     gallery: any[];
+    events: Event[];
+    registrations_count: AggregationOutput<
+      Schema,
+      "registrations",
+      { aggregate: { count: "*" }; groupBy: "event"[] }
+    >;
   } & LayoutProps
 > = populateLayoutProps(async (_) => {
   return {
@@ -187,6 +213,25 @@ export const getServerSideProps: GetServerSideProps<
               _eq: "image/jpeg",
             },
           },
+        })
+      ),
+      events: await directus().request(
+        readItems("events", {
+          fields: ["id", "name", "max_registrations"],
+          filter: {
+            opened: {
+              _eq: true,
+            },
+            max_registrations: {
+              _nnull: true,
+            },
+          },
+        })
+      ),
+      registrations_count: await directus().request(
+        aggregate("registrations", {
+          aggregate: { count: "*" },
+          groupBy: ["event"],
         })
       ),
     },
