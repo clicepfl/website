@@ -21,6 +21,7 @@ export default function ICBDDisplay({ icbd }: { icbd: ICBD }) {
     year: "numeric", // full year (e.g., 2025)
     month: "long", // full month name (e.g., 'January')
     day: "numeric", // day of the month (e.g., 5)
+    timeZone: "Europe/Zurich", // timezone of formatting
   }).format(new Date(icbd.date || ""));
 
   const formatTime = (time: string): string => {
