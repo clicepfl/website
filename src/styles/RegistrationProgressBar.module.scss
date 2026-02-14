@@ -1,0 +1,71 @@
+@use "utilities/variables";
+
+.main {
+  background-color: transparent;
+  border-radius: variables.$small-border-radius;
+  width: 40%;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+
+  .info {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .eventName {
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 0;
+    color: variables.$dark-text-color;
+  }
+
+  .count {
+    color: white;
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  .progressBar {
+    position: relative;
+    width: 100%;
+    height: 2rem;
+
+    .outerBar {
+      width: calc(100% + 0.2rem);
+      left: -0.4rem;
+      bottom: 0;
+      top: 0;
+      margin: auto;
+      height: 1rem;
+      padding: 0.1rem;
+      border-radius: 25px;
+      border: solid 0.2rem white;
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.147);
+    }
+
+    .innerBar {
+      height: 0.8rem;
+      left: 0;
+      bottom: 0;
+      top: 0;
+      margin: auto;
+      background: green;
+      position: absolute;
+      border-radius: 25px;
+      background: #2a7b9b;
+      background: linear-gradient(
+        90deg,
+        rgba(42, 123, 155, 1) 0%,
+        rgba(87, 199, 133, 1) 50%,
+        rgba(237, 221, 83, 1) 100%
+      );
+    }
+  }
+
+  @media (max-width: 1000px) {
+    width: 65%;
+  }
+}
