@@ -154,7 +154,6 @@ export const getServerSideProps: GetServerSideProps<
               {
                 partners_id: [
                   "*",
-                  //@ts-ignore
                   { category: ["*", { translations: ["*"] }] },
                 ],
               },
@@ -181,13 +180,7 @@ export const getServerSideProps: GetServerSideProps<
             "slug",
             "date_created",
             {
-              //@ts-ignore
-              translations: [
-                "title",
-                "banner",
-                "description",
-                "languages_code",
-              ],
+              translations: ["*"],
             },
           ],
         })
@@ -198,9 +191,7 @@ export const getServerSideProps: GetServerSideProps<
             "*",
             { member: ["*"] },
             //@ts-ignore
-            //@ts-ignore
             { translations: ["*"] },
-            //@ts-ignore
             { pole: ["slug", { translations: ["name", "languages_code"] }] },
           ],
           filter: { level: { _eq: "committee" } },
@@ -208,11 +199,7 @@ export const getServerSideProps: GetServerSideProps<
       )) as (AssociationMembership & { member: Member })[],
       publicFiles: await directus().request(
         readItems("association_public_files", {
-          fields: [
-            "*",
-            //@ts-ignore
-            { translations: ["*"], icon: ["*"] },
-          ],
+          fields: ["*", { translations: ["*"], icon: ["*"] }],
         })
       ),
       gallery: await directus().request(
