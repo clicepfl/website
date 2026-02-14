@@ -1,5 +1,6 @@
 import DirectusImage from "./DirectusImage";
 import { getTranslation } from "@/locales";
+import { selectClassFromPath } from "@/style_selector";
 import styles from "@/styles/Card.module.scss";
 import {
   AssociationMembership,
@@ -26,18 +27,7 @@ export default function Card(
 ) {
   const router = useRouter();
 
-  let className;
-  switch (router.pathname) {
-    case "/subsonic":
-      className = styles.subsonic;
-      break;
-    case "/icbd":
-      className = styles.icbd;
-      break;
-    default:
-      className = styles.card;
-      break;
-  }
+  let className = selectClassFromPath(styles, router.pathname, "card");
 
   let img = null,
     title = null,
