@@ -13,7 +13,7 @@ import TabTitle from "@/components/TabTitle";
 import {
   LayoutProps,
   directus,
-  getDirectusImageUrl,
+  getDirectusOgImageUrl,
   populateLayoutProps,
 } from "@/directus";
 import {
@@ -48,7 +48,7 @@ export default function Home(
         title={tt["slogan"]}
         ogTitle={props.association.name || undefined}
         description={tt["slogan"]}
-        image={getDirectusImageUrl(props.association.preview_image)}
+        image={getDirectusOgImageUrl(props.association.preview_image)}
       />
       <Background className={styles.background} name="background" />
       <div className={styles.divLogo}>

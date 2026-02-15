@@ -6,7 +6,7 @@ import TabTitle from "@/components/TabTitle";
 import {
   LayoutProps,
   directus,
-  getDirectusImageUrl,
+  getDirectusOgImageUrl,
   populateLayoutProps,
 } from "@/directus";
 import { getTranslation, locale, queryTranslations } from "@/locales";
@@ -35,7 +35,7 @@ export default function Page(
       <TabTitle
         title={props.commission.name || ""}
         description={translation.small_description || undefined}
-        image={getDirectusImageUrl(translation.banner)}
+        image={getDirectusOgImageUrl(translation.banner)}
       />
 
       <div className={styles.center}>

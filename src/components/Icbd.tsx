@@ -4,7 +4,7 @@ import IcbdActivityCard from "@/components/IcbdActivityCard";
 import ParticlesComponent from "@/components/Particles";
 import TabTitle from "@/components/TabTitle";
 import { findStartTime, Timetable } from "@/components/Timetable";
-import { getDirectusImageUrl } from "@/directus";
+import { getDirectusOgImageUrl } from "@/directus";
 import { getTranslation, useTranslationTable } from "@/locales";
 import style from "@/styles/ICBDPage.module.scss";
 import pageStyle from "@/styles/Page.module.scss";
@@ -45,7 +45,7 @@ export default function ICBDDisplay({ icbd }: { icbd: ICBD }) {
         }
       `}</style>
 
-      <TabTitle title={"ICBD"} image={getDirectusImageUrl(icbd.logo)} />
+      <TabTitle title={"ICBD"} image={getDirectusOgImageUrl(icbd.logo)} />
 
       <div className={style.header}>
         <div className={style.logo_div}>
