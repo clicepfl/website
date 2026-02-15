@@ -37,7 +37,13 @@ export const getServerSideProps: GetServerSideProps<{
                 phds: ["*"],
               },
               {
-                activities: ["*", { translations: ["*"], hosts: ["*"] }],
+                activities: [
+                  "*",
+                  {
+                    translations: ["*"],
+                    hosts: ["*", { icbd_speakers_id: ["*"] }],
+                  },
+                ],
               },
             ],
           })

@@ -90,7 +90,6 @@ export const getServerSideProps: GetServerSideProps<{
   }
 
   let news = (await directus().request(
-    //@ts-ignore
     readItems("news", {
       ...queryTranslations,
       limit: 1,
@@ -106,7 +105,13 @@ export const getServerSideProps: GetServerSideProps<{
     .request(
       readItems("news_commissions", {
         ...queryTranslations,
-        fields: [{ commissions_id: ["*.*"] }],
+        fields: [
+          {
+            commissions_id: [
+              { partners: ["*"], social_links: ["*"], translations: ["*"] },
+            ],
+          },
+        ],
         filter: { news_id: { _eq: news[0].id } },
       })
     )

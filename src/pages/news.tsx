@@ -34,7 +34,7 @@ export default function NewsComponent(
         </div>
         <div className={newsStyle.list}>
           {props.news.map((n) => (
-            <NewsCard key={(n as any).id} news={n} />
+            <NewsCard key={n.id} news={n} />
           ))}
         </div>
       </div>
