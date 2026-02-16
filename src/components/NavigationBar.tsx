@@ -3,6 +3,7 @@ import Corner from "@/assets/corner.svg";
 import Burger from "@/assets/icons/burger_menu_icon.svg";
 import Lang from "@/assets/icons/lang.svg";
 import { capitalize, useTranslationTable } from "@/locales";
+import { selectClassFromPath } from "@/style_selector";
 import styles from "@/styles/NavigationBar.module.scss";
 import { Commission, SocialLink } from "@/types/aliases";
 import { Schema } from "@/types/schema";
@@ -201,24 +202,20 @@ export default function NavigationBar(props: {
     <MenuLink
       key={3}
       side={true}
+      path="/galleries"
+      text={capitalize(translations["galleries"])}
+      toggle={toggleMenu}
+    />,
+    <MenuLink
+      key={4}
+      side={true}
       path="/icbd"
       text="ICBD"
       toggle={toggleMenu}
     />,
   ];
 
-  let className;
-  switch (router.pathname) {
-    case "/subsonic":
-      className = styles.subsonic;
-      break;
-    case "/icbd":
-      className = styles.icbd;
-      break;
-    default:
-      className = styles.navigationBar;
-      break;
-  }
+  let className = selectClassFromPath(styles, router.pathname, "navigationBar");
 
   return (
     <div className={className}>
@@ -271,6 +268,12 @@ export default function NavigationBar(props: {
           <></>
         )}
         <MenuLink path="/news" text={capitalize(translations["news"])} />
+
+        <MenuLink
+          path="/galleries"
+          text={capitalize(translations["galleries"])}
+        />
+
         {props.langs ? (
           <DropdownMenu
             head={<Lang className={styles.lang + " " + styles.dropdownHead} />}

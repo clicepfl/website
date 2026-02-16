@@ -2,7 +2,11 @@ import Background from "@/assets/background.svg";
 import Icon from "@/assets/icons/family.svg";
 import CommissionCard from "@/components/CommissionCard";
 import TabTitle from "@/components/TabTitle";
-import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
+import {
+  directus,
+  getDirectusOgImageUrl,
+  populateLayoutProps,
+} from "@/directus";
 import { capitalize, useTranslationTable } from "@/locales";
 import commissionsStyle from "@/styles/CommissionsPage.module.scss";
 import listPageStyle from "@/styles/ListPage.module.scss";
@@ -19,7 +23,7 @@ export default function Commissions(
     <>
       <TabTitle
         title={capitalize(tt["commissions"])}
-        image={getDirectusImageUrl(props.association.preview_image)}
+        image={getDirectusOgImageUrl(props.association.preview_image)}
       />
 
       <Background className={listPageStyle.background} name="background" />
@@ -57,7 +61,6 @@ export const getServerSideProps: GetServerSideProps<{
             "name",
             "slug",
             "id",
-            //@ts-ignore
             { translations: ["banner", "small_description", "languages_code"] },
           ],
         })

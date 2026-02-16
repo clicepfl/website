@@ -12,7 +12,7 @@ const HEAD_POLE = "presidency";
 
 export default function MembersList(props: {
   id?: string;
-  membership: AssociationMembership & { member: Member }[];
+  membership: (AssociationMembership & { member: Member })[];
   title?: boolean;
 }) {
   const translations = useTranslationTable();
@@ -59,7 +59,7 @@ export default function MembersList(props: {
       )}
       <div className={styles.list}>
         {props.membership.map((m) => (
-          <Card key={(m as any).id} member={m.member} membership={m} />
+          <Card key={m.id} member={m.member} membership={m} />
         ))}
       </div>
     </div>

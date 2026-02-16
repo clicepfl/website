@@ -13,7 +13,7 @@ import TabTitle from "@/components/TabTitle";
 import {
   LayoutProps,
   directus,
-  getDirectusImageUrl,
+  getDirectusOgImageUrl,
   populateLayoutProps,
 } from "@/directus";
 import {
@@ -48,7 +48,7 @@ export default function Home(
         title={tt["slogan"]}
         ogTitle={props.association.name || undefined}
         description={tt["slogan"]}
-        image={getDirectusImageUrl(props.association.preview_image)}
+        image={getDirectusOgImageUrl(props.association.preview_image)}
       />
       <Background className={styles.background} name="background" />
       <div className={styles.divLogo}>
@@ -69,7 +69,7 @@ export default function Home(
         <h1 className="light">News</h1>
         <div className={styles.newsList}>
           {props.news.map((n) => (
-            <NewsCard key={(n as any).id} news={n} />
+            <NewsCard key={n.id} news={n} />
           ))}
         </div>
         <Button text={tt["moreNews"]} onClick={() => router.push("/news")} />
@@ -119,7 +119,7 @@ export const getServerSideProps: GetServerSideProps<
   return {
     props: {
       association: await directus().request(
-        readSingleton("association", queryTranslations as any)
+        readSingleton("association", queryTranslations)
       ),
       partners: (await directus()
         .request(
@@ -128,7 +128,6 @@ export const getServerSideProps: GetServerSideProps<
               {
                 partners_id: [
                   "*",
-                  //@ts-ignore
                   { category: ["*", { translations: ["*"] }] },
                 ],
               },
@@ -155,13 +154,7 @@ export const getServerSideProps: GetServerSideProps<
             "slug",
             "date_created",
             {
-              //@ts-ignore
-              translations: [
-                "title",
-                "banner",
-                "description",
-                "languages_code",
-              ],
+              translations: ["*"],
             },
           ],
         })
@@ -171,10 +164,7 @@ export const getServerSideProps: GetServerSideProps<
           fields: [
             "*",
             { member: ["*"] },
-            //@ts-ignore
-            //@ts-ignore
             { translations: ["*"] },
-            //@ts-ignore
             { pole: ["slug", { translations: ["name", "languages_code"] }] },
           ],
           filter: { level: { _eq: "committee" } },
@@ -182,11 +172,7 @@ export const getServerSideProps: GetServerSideProps<
       )) as (AssociationMembership & { member: Member })[],
       publicFiles: await directus().request(
         readItems("association_public_files", {
-          fields: [
-            "*",
-            //@ts-ignore
-            { translations: ["*"], icon: ["*"] },
-          ],
+          fields: ["*", { translations: ["*"], icon: ["*"] }],
         })
       ),
       gallery: await directus().request(

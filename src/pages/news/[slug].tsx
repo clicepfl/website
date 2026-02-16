@@ -1,7 +1,11 @@
 import CommissionCard from "@/components/CommissionCard";
 import DirectusImage from "@/components/DirectusImage";
 import TabTitle from "@/components/TabTitle";
-import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
+import {
+  directus,
+  getDirectusOgImageUrl,
+  populateLayoutProps,
+} from "@/directus";
 import {
   capitalize,
   formatDate,
@@ -29,7 +33,7 @@ export default function Page(
       <TabTitle
         title={translation.title || ""}
         description={translation.description}
-        image={getDirectusImageUrl(translation.banner)}
+        image={getDirectusOgImageUrl(translation.banner)}
       />
 
       <div className={styles.center}>
@@ -85,14 +89,13 @@ export const getServerSideProps: GetServerSideProps<{
     return { notFound: true };
   }
 
-  let news = await directus().request(
-    //@ts-ignore
+  let news = (await directus().request(
     readItems("news", {
       ...queryTranslations,
       limit: 1,
       filter: { slug: { _eq: context.params.slug } },
     })
-  );
+  )) as News[];
 
   if (news.length != 1) {
     return { notFound: true };
@@ -100,11 +103,15 @@ export const getServerSideProps: GetServerSideProps<{
 
   let commissions = (await directus()
     .request(
-      //@ts-ignore
       readItems("news_commissions", {
         ...queryTranslations,
-        //@ts-ignore
-        fields: [{ commissions_id: ["*.*"] }],
+        fields: [
+          {
+            commissions_id: [
+              { partners: ["*"], social_links: ["*"], translations: ["*"] },
+            ],
+          },
+        ],
         filter: { news_id: { _eq: news[0].id } },
       })
     )

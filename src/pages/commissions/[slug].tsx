@@ -6,7 +6,7 @@ import TabTitle from "@/components/TabTitle";
 import {
   LayoutProps,
   directus,
-  getDirectusImageUrl,
+  getDirectusOgImageUrl,
   populateLayoutProps,
 } from "@/directus";
 import { getTranslation, locale, queryTranslations } from "@/locales";
@@ -35,7 +35,7 @@ export default function Page(
       <TabTitle
         title={props.commission.name || ""}
         description={translation.small_description || undefined}
-        image={getDirectusImageUrl(translation.banner)}
+        image={getDirectusOgImageUrl(translation.banner)}
       />
 
       <div className={styles.center}>
@@ -76,7 +76,6 @@ export const getServerSideProps: GetServerSideProps<
   }
 
   let commissions = await directus().request(
-    //@ts-ignore
     readItems("commissions", {
       filter: { slug: { _eq: context.params.slug } },
       ...queryTranslations,
@@ -100,12 +99,7 @@ export const getServerSideProps: GetServerSideProps<
 
   let members = (await directus().request(
     readItems("commission_memberships", {
-      fields: [
-        "*",
-        { member: ["*"] },
-        //@ts-ignore
-        { translations: ["*"] },
-      ],
+      fields: ["*", { member: ["*"] }, { translations: ["*"] }],
       filter: {
         level: { _eq: "committee" },
         commission: { _eq: commission.id },
@@ -115,11 +109,7 @@ export const getServerSideProps: GetServerSideProps<
 
   let partners = (await directus().request(
     readItems("partners", {
-      fields: [
-        "*",
-        //@ts-ignore
-        { category: ["*", { translations: ["*"] }] },
-      ],
+      fields: ["*", { category: ["*", { translations: ["*"] }] }],
       filter: { commission: { _eq: commission.id } },
     })
   )) as Partner[];

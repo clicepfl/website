@@ -1,7 +1,11 @@
 import AssociationDescription from "@/components/AssociationDescription";
 import PoleDescription from "@/components/PoleDescription";
 import TabTitle from "@/components/TabTitle";
-import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
+import {
+  directus,
+  getDirectusOgImageUrl,
+  populateLayoutProps,
+} from "@/directus";
 import {
   capitalize,
   getTranslation,
@@ -52,7 +56,7 @@ export default function AssociationPage(
         title={capitalize(tt["association"])}
         ogTitle={props.association.name || undefined}
         description={tt["slogan"]}
-        image={getDirectusImageUrl(props.association.preview_image)}
+        image={getDirectusOgImageUrl(props.association.preview_image)}
       />
 
       <div className={styles.center}>
@@ -89,7 +93,7 @@ export const getServerSideProps: GetServerSideProps<{
   return {
     props: {
       association: await directus().request(
-        readSingleton("association", queryTranslations as any)
+        readSingleton("association", queryTranslations)
       ),
       socialLinks: (await directus()
         .request(
@@ -100,22 +104,17 @@ export const getServerSideProps: GetServerSideProps<{
         .then((result) =>
           result.map((s) => s.social_links_id)
         )) as SocialLink[],
-      poles: await directus().request(
-        readItems("association_poles", queryTranslations as any)
+      poles: await directus().request<AssociationPole[]>(
+        readItems("association_poles", queryTranslations)
       ),
       committee: (await directus().request(
         readItems("association_memberships", {
           fields: [
             "*",
             { member: ["*"] },
-            //@ts-ignore
             { translations: ["*"] },
             {
-              pole: [
-                "*",
-                //@ts-ignore
-                { translations: ["*"] },
-              ],
+              pole: ["*", { translations: ["*"] }],
             },
           ],
           filter: { level: { _eq: "committee" } },
@@ -123,11 +122,7 @@ export const getServerSideProps: GetServerSideProps<{
       )) as (AssociationMembership & { member: Member })[],
       publicFiles: await directus().request(
         readItems("association_public_files", {
-          fields: [
-            "*",
-            //@ts-ignore
-            { translations: ["*"], icon: ["*"] },
-          ],
+          fields: ["*", { translations: ["*"], icon: ["*"] }],
         })
       ),
     },

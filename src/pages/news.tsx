@@ -2,7 +2,11 @@ import Background from "@/assets/background.svg";
 import Icon from "@/assets/icons/news.svg";
 import NewsCard from "@/components/NewsCard";
 import TabTitle from "@/components/TabTitle";
-import { directus, getDirectusImageUrl, populateLayoutProps } from "@/directus";
+import {
+  directus,
+  getDirectusOgImageUrl,
+  populateLayoutProps,
+} from "@/directus";
 import { capitalize, useTranslationTable } from "@/locales";
 import listPageStyle from "@/styles/ListPage.module.scss";
 import newsStyle from "@/styles/NewsPage.module.scss";
@@ -19,7 +23,7 @@ export default function NewsComponent(
     <>
       <TabTitle
         title={capitalize(tt["news"])}
-        image={getDirectusImageUrl(props.association.preview_image)}
+        image={getDirectusOgImageUrl(props.association.preview_image)}
       />
 
       <Background className={listPageStyle.background} name="background" />
@@ -30,7 +34,7 @@ export default function NewsComponent(
         </div>
         <div className={newsStyle.list}>
           {props.news.map((n) => (
-            <NewsCard key={(n as any).id} news={n} />
+            <NewsCard key={n.id} news={n} />
           ))}
         </div>
       </div>
@@ -47,7 +51,7 @@ export const getServerSideProps: GetServerSideProps<{
       association: await directus().request(
         readSingleton("association", { fields: ["preview_image"] })
       ),
-      news: await directus().request(
+      news: (await directus().request(
         readItems("news", {
           sort: "-date_created",
           filter: { status: { _eq: "published" } },
@@ -56,17 +60,11 @@ export const getServerSideProps: GetServerSideProps<{
             "slug",
             "date_created",
             {
-              //@ts-ignore
-              translations: [
-                "title",
-                "banner",
-                "description",
-                "languages_code",
-              ],
+              translations: ["*"],
             },
           ],
         })
-      ),
+      )) as News[],
     },
   };
 });
