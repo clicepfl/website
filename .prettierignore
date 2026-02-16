@@ -9,5 +9,5 @@
 
 oas.json
 
-directus
-src/types
+directus/
+src/types/
