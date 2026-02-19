@@ -10,17 +10,13 @@ import NewsCard from "@/components/NewsCard";
 import PartnersList from "@/components/PartnersList";
 import SocialsList from "@/components/SocialsList";
 import TabTitle from "@/components/TabTitle";
-import {
-  LayoutProps,
-  directus,
-  getDirectusOgImageUrl,
-  populateLayoutProps,
-} from "@/directus";
+import { directus, getDirectusOgImageUrl } from "@/directus";
 import {
   getTranslation,
   queryTranslations,
   useTranslationTable,
 } from "@/locales";
+import { LayoutProps, populateLayoutProps } from "@/populate";
 import styles from "@/styles/Homepage.module.scss";
 import {
   Association,

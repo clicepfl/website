@@ -3,13 +3,9 @@ import MembersList from "@/components/MembersList";
 import PartnersList from "@/components/PartnersList";
 import SocialsList from "@/components/SocialsList";
 import TabTitle from "@/components/TabTitle";
-import {
-  LayoutProps,
-  directus,
-  getDirectusOgImageUrl,
-  populateLayoutProps,
-} from "@/directus";
+import { directus, getDirectusOgImageUrl } from "@/directus";
 import { getTranslation, locale, queryTranslations } from "@/locales";
+import { LayoutProps, populateLayoutProps } from "@/populate";
 import markdownStyle from "@/styles/Markdown.module.scss";
 import styles from "@/styles/Page.module.scss";
 import {

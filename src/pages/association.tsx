@@ -1,17 +1,14 @@
 import AssociationDescription from "@/components/AssociationDescription";
 import PoleDescription from "@/components/PoleDescription";
 import TabTitle from "@/components/TabTitle";
-import {
-  directus,
-  getDirectusOgImageUrl,
-  populateLayoutProps,
-} from "@/directus";
+import { directus, getDirectusOgImageUrl } from "@/directus";
 import {
   capitalize,
   getTranslation,
   queryTranslations,
   useTranslationTable,
 } from "@/locales";
+import { populateLayoutProps } from "@/populate";
 import styles from "@/styles/Page.module.scss";
 import {
   Association,
