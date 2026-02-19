@@ -31,13 +31,12 @@ export default function IcbdActivityCard(props: { activity: ICBDActivity }) {
       </Markdown>
       {hosts.length != 0 ? (
         <p className={styles.hosts}>
-          {"⦿ " +
-            hosts
-              .map((s) => {
-                let speaker = s.icbd_speakers_id as ICBDSpeaker;
-                return `${speaker.first_name} ${speaker.last_name}`;
-              })
-              .join(" - ")}
+          {hosts
+            .map((s) => {
+              let speaker = s.icbd_speakers_id as ICBDSpeaker;
+              return `${speaker.first_name} ${speaker.last_name}`;
+            })
+            .join(" - ")}
         </p>
       ) : (
         <></>
