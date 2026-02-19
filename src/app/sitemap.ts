@@ -19,6 +19,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     };
   }
 
+  // Try to fetch commissions and news. This avoids an error when building the static version since
+  // there are no token to access directus.
+  let commissions: { slug?: string | null }[] = [];
+  let news: { slug?: string | null }[] = [];
+  try {
+    news = await directus().request(readItems("news", { fields: ["slug"] }));
+    commissions = await directus().request(
+      readItems("commissions", { fields: ["slug"] })
+    );
+  } catch (e) {}
+
   return [
     {
       url: `${BASE_URL}`,
@@ -26,12 +37,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 1,
     },
-    ...(await directus().request(readItems("news", { fields: ["slug"] }))).map(
-      (n) => subpage(`news/${n.slug}`, "monthly", 0.6)
-    ),
-    ...(
-      await directus().request(readItems("commissions", { fields: ["slug"] }))
-    ).map((c) => subpage(`commissions/${c.slug}`, "monthly", 0.6)),
+    ...news.map((n) => subpage(`news/${n.slug}`, "monthly", 0.6)),
+    ...commissions.map((c) => subpage(`commissions/${c.slug}`, "monthly", 0.6)),
     ...[
       "association",
       "commissions",
