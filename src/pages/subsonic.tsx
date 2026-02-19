@@ -2,12 +2,9 @@ import Card from "@/components/Card";
 import DirectusImage from "@/components/DirectusImage";
 import PartnersList from "@/components/PartnersList";
 import TabTitle from "@/components/TabTitle";
-import {
-  directus,
-  getDirectusOgImageUrl,
-  populateLayoutProps,
-} from "@/directus";
+import { directus, getDirectusOgImageUrl } from "@/directus";
 import { getTranslation, useTranslationTable } from "@/locales";
+import { populateLayoutProps } from "@/populate";
 import style from "@/styles/SubsonicPage.module.scss";
 import { Artist, Partner, Subsonic } from "@/types/aliases";
 import { readItems, readSingleton } from "@directus/sdk";
