@@ -87,71 +87,87 @@ export default function ICBDDisplay({ icbd }: { icbd: ICBD }) {
           </div>
         </div>
 
-        <div className={style.partners}>
-          <div className={style.partnersList}>
-            {icbd.partners_images?.map((file) =>
-              typeof file === "number" ? (
-                <></>
-              ) : (
-                <DirectusImage
-                  sizes="20rem"
-                  img={file.directus_files_id}
-                  key={
-                    typeof file.directus_files_id === "string"
-                      ? file.directus_files_id
-                      : file.directus_files_id?.id
-                  }
-                  className={style.partnerImage}
-                />
-              )
-            )}
-          </div>
-        </div>
-
-        <div className={pageStyle.main}>
-          <h1>{tt["icbd.alumni"]}</h1>
-          <h2>{tt["icbd.alumni-description"]}</h2>
-
-          <div className={style.alumni}>
-            <div className={style.alumniList}>
-              {(icbd.speakers as ICBDSpeaker[]).map((speaker: ICBDSpeaker) => {
-                const card = (
-                  <Card
-                    key={speaker.id}
-                    img={speaker.picture}
-                    title={`${speaker.first_name} ${speaker.last_name}` || ""}
-                    description={speaker.company || ""}
-                  />
-                );
-
-                return speaker.linkedin ? (
-                  <a key={speaker.id} href={speaker.linkedin}>
-                    {card}
-                  </a>
+        {(icbd.partners_images?.length || 0) > 0 ? (
+          <div className={style.partners}>
+            <div className={style.partnersList}>
+              {icbd.partners_images?.map((file) =>
+                typeof file === "number" ? (
+                  <></>
                 ) : (
-                  card
-                );
-              })}
+                  <DirectusImage
+                    sizes="20rem"
+                    img={file.directus_files_id}
+                    key={
+                      typeof file.directus_files_id === "string"
+                        ? file.directus_files_id
+                        : file.directus_files_id?.id
+                    }
+                    className={style.partnerImage}
+                  />
+                )
+              )}
             </div>
           </div>
-        </div>
+        ) : (
+          <></>
+        )}
 
-        <div className={pageStyle.main}>
-          <h1>{tt["icbd.phds"]}</h1>
-          <h2>{tt["icbd.phds-description"]}</h2>
-          <div className={style.alumni}>
-            <div className={style.alumniList}>
-              {(icbd.phds as ICBDPhd[]).map((phd: ICBDPhd) => (
-                <Card
-                  key={phd.id}
-                  img={phd.picture}
-                  title={`${phd.first_name} ${phd.last_name}` || ""}
-                  description={phd.laboratory || ""}
-                />
-              ))}
+        {(icbd.speakers?.length || 0) > 0 ? (
+          <div className={pageStyle.main}>
+            <h1>{tt["icbd.alumni"]}</h1>
+            <h2>{tt["icbd.alumni-description"]}</h2>
+
+            <div className={style.alumni}>
+              <div className={style.alumniList}>
+                {(icbd.speakers as ICBDSpeaker[]).map(
+                  (speaker: ICBDSpeaker) => {
+                    const card = (
+                      <Card
+                        key={speaker.id}
+                        img={speaker.picture}
+                        title={
+                          `${speaker.first_name} ${speaker.last_name}` || ""
+                        }
+                        description={speaker.company || ""}
+                      />
+                    );
+
+                    return speaker.linkedin ? (
+                      <a key={speaker.id} href={speaker.linkedin}>
+                        {card}
+                      </a>
+                    ) : (
+                      card
+                    );
+                  }
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <></>
+        )}
+
+        {(icbd.phds?.length || 0) > 0 ? (
+          <div className={pageStyle.main}>
+            <h1>{tt["icbd.phds"]}</h1>
+            <h2>{tt["icbd.phds-description"]}</h2>
+            <div className={style.alumni}>
+              <div className={style.alumniList}>
+                {(icbd.phds as ICBDPhd[]).map((phd: ICBDPhd) => (
+                  <Card
+                    key={phd.id}
+                    img={phd.picture}
+                    title={`${phd.first_name} ${phd.last_name}` || ""}
+                    description={phd.laboratory || ""}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <></>
+        )}
 
         <div className={pageStyle.main}>
           <h1>{tt["icbd.timetable"]}</h1>
@@ -160,19 +176,23 @@ export default function ICBDDisplay({ icbd }: { icbd: ICBD }) {
           </div>
         </div>
 
-        <div className={style.activities}>
-          <h1>{tt["icbd.activities"]}</h1>
+        {(icbd.activities?.length || 0) > 0 ? (
+          <div className={style.activities}>
+            <h1>{tt["icbd.activities"]}</h1>
 
-          <div className={style.activitiesList}>
-            {(icbd.activities as ICBDActivity[])
-              .sort((a, b) => {
-                return findStartTime(a) - findStartTime(b);
-              })
-              .map((activity: ICBDActivity) => (
-                <IcbdActivityCard key={activity.id} activity={activity} />
-              ))}
+            <div className={style.activitiesList}>
+              {(icbd.activities as ICBDActivity[])
+                .sort((a, b) => {
+                  return findStartTime(a) - findStartTime(b);
+                })
+                .map((activity: ICBDActivity) => (
+                  <IcbdActivityCard key={activity.id} activity={activity} />
+                ))}
+            </div>
           </div>
-        </div>
+        ) : (
+          <></>
+        )}
       </div>
     </>
   );
