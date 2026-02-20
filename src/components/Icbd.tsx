@@ -137,23 +137,6 @@ export default function ICBDDisplay({ icbd }: { icbd: ICBD }) {
         </div>
 
         <div className={pageStyle.main}>
-          <h1>{tt["icbd.phds"]}</h1>
-          <h2>{tt["icbd.phds-description"]}</h2>
-          <div className={style.alumni}>
-            <div className={style.alumniList}>
-              {(icbd.phds as ICBDPhd[]).map((phd: ICBDPhd) => (
-                <Card
-                  key={phd.id}
-                  img={phd.picture}
-                  title={`${phd.first_name} ${phd.last_name}` || ""}
-                  description={phd.laboratory || ""}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className={pageStyle.main}>
           <h1>{tt["icbd.timetable"]}</h1>
           <div className={style.timetable}>
             <Timetable activities={icbd.activities as ICBDActivity[]} />
