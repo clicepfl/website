@@ -1,11 +1,7 @@
 import CommissionCard from "@/components/CommissionCard";
 import DirectusImage from "@/components/DirectusImage";
 import TabTitle from "@/components/TabTitle";
-import {
-  directus,
-  getDirectusOgImageUrl,
-  populateLayoutProps,
-} from "@/directus";
+import { directus, getDirectusOgImageUrl } from "@/directus";
 import {
   capitalize,
   formatDate,
@@ -13,6 +9,7 @@ import {
   queryTranslations,
   useTranslationTable,
 } from "@/locales";
+import { populateLayoutProps } from "@/populate";
 import markdownStyle from "@/styles/Markdown.module.scss";
 import styles from "@/styles/Page.module.scss";
 import { Commission, News } from "@/types/aliases";

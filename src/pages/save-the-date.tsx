@@ -1,6 +1,7 @@
 import { directusImageUrl } from "@/components/DirectusImage";
-import { directus, populateLayoutProps } from "@/directus";
+import { directus } from "@/directus";
 import { getTranslation, locale, useTranslationTable } from "@/locales";
+import { populateLayoutProps } from "@/populate";
 import style from "@/styles/SaveTheDate.module.scss";
 import {
   Commission,

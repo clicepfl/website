@@ -1,5 +1,6 @@
 import ICBDDisplay from "@/components/Icbd";
-import { directus, populateLayoutProps } from "@/directus";
+import { directus } from "@/directus";
+import { populateLayoutProps } from "@/populate";
 import { ICBD } from "@/types/aliases";
 import { readItems } from "@directus/sdk";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";

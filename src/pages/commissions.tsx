@@ -2,12 +2,9 @@ import Background from "@/assets/background.svg";
 import Icon from "@/assets/icons/family.svg";
 import CommissionCard from "@/components/CommissionCard";
 import TabTitle from "@/components/TabTitle";
-import {
-  directus,
-  getDirectusOgImageUrl,
-  populateLayoutProps,
-} from "@/directus";
+import { directus, getDirectusOgImageUrl } from "@/directus";
 import { capitalize, useTranslationTable } from "@/locales";
+import { populateLayoutProps } from "@/populate";
 import commissionsStyle from "@/styles/CommissionsPage.module.scss";
 import listPageStyle from "@/styles/ListPage.module.scss";
 import { Association, Commission } from "@/types/aliases";

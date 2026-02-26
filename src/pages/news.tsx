@@ -2,12 +2,9 @@ import Background from "@/assets/background.svg";
 import Icon from "@/assets/icons/news.svg";
 import NewsCard from "@/components/NewsCard";
 import TabTitle from "@/components/TabTitle";
-import {
-  directus,
-  getDirectusOgImageUrl,
-  populateLayoutProps,
-} from "@/directus";
+import { directus, getDirectusOgImageUrl } from "@/directus";
 import { capitalize, useTranslationTable } from "@/locales";
+import { populateLayoutProps } from "@/populate";
 import listPageStyle from "@/styles/ListPage.module.scss";
 import newsStyle from "@/styles/NewsPage.module.scss";
 import { Association, News } from "@/types/aliases";
