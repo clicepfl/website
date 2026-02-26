@@ -23,8 +23,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // there are no token to access directus.
   let commissions: { slug?: string | null }[] = [];
   let news: { slug?: string | null }[] = [];
+  let icbd: { slug?: string | null }[] = [];
   try {
     news = await directus().request(readItems("news", { fields: ["slug"] }));
+    icbd = await directus().request(readItems("icbd", { fields: ["slug"] }));
     commissions = await directus().request(
       readItems("commissions", { fields: ["slug"] })
     );
@@ -39,6 +41,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...news.map((n) => subpage(`news/${n.slug}`, "monthly", 0.6)),
     ...commissions.map((c) => subpage(`commissions/${c.slug}`, "monthly", 0.6)),
+    ...icbd.map((i) => subpage(`icbd/${i.slug}`, "monthly", 0.6)),
     ...[
       "association",
       "commissions",
