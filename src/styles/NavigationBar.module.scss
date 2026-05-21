@@ -52,12 +52,12 @@
   .selected {
     border: 2px solid;
     padding: 0.5rem 1rem 0.5rem 1rem;
-    border-radius: 2rem;
+    border-radius: variables.$medium-border-radius;
   }
 
   .subsonicEntry {
     padding: 0.5rem 1rem 0.5rem 1rem;
-    border-radius: 2rem;
+    border-radius: variables.$medium-border-radius;
     background-color: #000000aa;
   }
 
@@ -65,7 +65,7 @@
     display: flex;
     align-content: center;
     background: variables.$icbd-gradient;
-    border-radius: 1rem;
+    border-radius: variables.$small-border-radius;
     padding: 0.25rem;
     border: 2px solid orange;
     img {
@@ -149,7 +149,7 @@
         display: none;
         overflow: hidden;
         z-index: 1;
-        border-radius: 5px;
+        border-radius: variables.$small-border-radius;
         white-space: nowrap;
 
         .menuItem {
