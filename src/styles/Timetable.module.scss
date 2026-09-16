@@ -112,7 +112,7 @@ $header-height: 3rem;
 
           margin: 0.2rem;
 
-          border-radius: 10px;
+          border-radius: variables.$small-border-radius;
 
           p {
             color: white;
