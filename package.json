@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "prepare": "if [ \"$NODE_ENV\" != \"production\" ]; then  husky install && git submodule update --init; fi",
     "load-directus": "sh directus/load.sh",
     "save-directus": "sh directus/save.sh",
@@ -20,9 +20,9 @@
     "@tsparticles/engine": "^3.7.1",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.7.1",
-    "next": "^14.2.25",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "next": "16.3.7",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
     "react-inlinesvg": "^4.1.0",
     "react-markdown": "^9.0.1"
   },
@@ -31,13 +31,17 @@
     "@commitlint/config-conventional": "^17.4.4",
     "@trivago/prettier-plugin-sort-imports": "^4.1.0",
     "@types/node": "20.4.5",
-    "@types/react": "18.2.18",
-    "@types/react-dom": "18.2.7",
-    "eslint": "8.46.0",
-    "eslint-config-next": "13.4.12",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.7",
     "husky": "^8.0.0",
     "prettier": "2.8.4",
     "sass": "^1.69.5",
     "typescript": "5.1.6"
+  },
+  "overrides": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0"
   }
 }
