@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
-    "start": "next start --webpack",
+    "start": "next start",
     "lint": "eslint .",
     "prepare": "if [ \"$NODE_ENV\" != \"production\" ]; then  husky install && git submodule update --init; fi",
     "load-directus": "sh directus/load.sh",
