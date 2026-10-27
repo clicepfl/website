@@ -5,6 +5,8 @@ import { MetadataRoute } from "next";
 
 type SitemapEntry = MetadataRoute.Sitemap[0];
 
+export const dynamic = "force-dynamic";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   function subpage(
     path: string,

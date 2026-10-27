@@ -6,6 +6,7 @@
 **/.cache
 
 **/.next
+next-env.d.ts
 
 oas.json
 
