@@ -24,9 +24,9 @@ export default function AssociationDescription({
         img={association.logo}
         className={styles.logo}
       />
-      <Markdown className={markdownStyle.markdown}>
-        {translation.description}
-      </Markdown>
+      <div className={markdownStyle.markdown}>
+        <Markdown>{translation.description}</Markdown>
+      </div>
       <div className={styles.publicFiles}>
         {publicFiles.map((f) => (
           <a href={f.link || ""} key={f.id}>

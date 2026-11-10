@@ -56,7 +56,9 @@ export default function SubsonicPage(
         <p className={style.text}>{tt["subsonic.catchphrase"]}</p>
         <p className={style.text}>{tt["subsonic.date-and-place"]}</p>
 
-        <Markdown className={style.markdown}>{translation.info}</Markdown>
+        <div className={style.markdown}>
+          <Markdown>{translation.info}</Markdown>
+        </div>
 
         <div className={style.artists}>
           <h1 className={style.title}>{tt["artits"]}</h1>

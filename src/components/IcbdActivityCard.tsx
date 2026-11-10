@@ -26,9 +26,9 @@ export default function IcbdActivityCard(props: { activity: ICBDActivity }) {
         />
         <h2>{translation.name}</h2>
       </div>
-      <Markdown className={styles.description}>
-        {translation.description}
-      </Markdown>
+      <div className={styles.description}>
+        <Markdown>{translation.description}</Markdown>
+      </div>
       {hosts.length != 0 ? (
         <p className={styles.hosts}>
           {hosts

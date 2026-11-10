@@ -48,9 +48,9 @@ export default function Page(
           <></>
         )}
         <h2>{translation.title}</h2>
-        <Markdown className={markdownStyle.markdown}>
-          {translation.content}
-        </Markdown>
+        <div className={markdownStyle.markdown}>
+          <Markdown>{translation.content}</Markdown>
+        </div>
         {props.news.video_link ? (
           <video width="600" controls preload="none" className={styles.video}>
             <source src={props.news.video_link} type="video/mp4" />
