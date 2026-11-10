@@ -43,9 +43,9 @@ export default function Page(
         />
         <h2>{props.commission.name}</h2>
 
-        <div className={markdownStyle.markdown}>
-          <Markdown>{translation.description}</Markdown>
-        </div>
+        <Markdown className={markdownStyle.markdown}>
+          {translation.description}
+        </Markdown>
 
         <SocialsList socials={props.socialLinks} />
       </div>

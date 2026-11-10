@@ -23,9 +23,9 @@ export default function PoleDescription(props: {
       <div className={styles.center}>
         <div>
           <h2 className={styles.poleName}>{translation.name}</h2>
-          <div className={markdownStyle.markdown}>
-            <Markdown>{translation.description}</Markdown>
-          </div>
+          <Markdown className={markdownStyle.markdown}>
+            {translation.description}
+          </Markdown>
         </div>
       </div>
       <MembersList title={false} membership={props.members} />
